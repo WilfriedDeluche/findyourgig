@@ -6,7 +6,7 @@ gem 'pg'
 gem "twitter-bootstrap-rails"
 gem 'jquery-rails'
 
-gem 'sqlite3'
+gem 'devise'
 
 gem 'json'
 
