@@ -1,0 +1,58 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+fr:
+  errors:
+    messages:
+      expired: "a expiré, recommencez s'il vous plait"
+      not_found: "introuvable"
+      already_confirmed: "a déjà été confirmé, essayez de vous connecter"
+      not_locked: "n'a pas été bloqué"
+      not_saved:
+        one: "1 erreur :"
+        other: "%{count} erreurs :"
+
+  devise:
+    failure:
+      already_authenticated: 'Vous êtes déjà connecté.'
+      unauthenticated: 'Vous devez vous connecter ou vous inscrire avant de continuer.'
+      unconfirmed: 'Vous devez confirmer votre compte avant de continuer.'
+      locked: 'Votre compte est bloqué.'
+      invalid: 'Email ou mot de passe invalides.'
+      invalid_token: "Jeton d'authentification invalide."
+      timeout: 'Votre session a expiré, réessayez de vous connecter pour continuer.'
+      inactive: "Votre compte n'a pas encore été activé."
+    sessions:
+      signed_in: 'Connecté avec succès.'
+      signed_out: 'Déconnecté avec succès.'
+    passwords:
+      send_instructions: "Vous allez recevoir un email contenant les instructions de réinitialisation de votre mot de passe dans quelques minutes."
+      updated: "Votre mot de passe a été modifié avec succès. Vous êtes désormais connecté."
+      updated_not_active: "Votre mot de passe a été modifié avec succès."
+      send_paranoid_instructions: "Si votre adresse email existe bien dans notre base de données, vous allez recevoir un lien de réinitialisation de mot de passe dans quelques minutes à cette adresse."
+      no_token: "Vous ne pouvez accéder à cette page sans provenir d'un email de rénitialisation de mot de passe. Dans le cas contraire, assurez-vous de bien utiliser l'URL complète fournie."
+    confirmations:
+      send_instructions: 'Vous allez recevoir un email contenant les instructions pour confirmer votre compte dans quelques minutes.'
+      send_paranoid_instructions: "Si votre adresse email existe bien dans notre base de données, vous allez recevoir un email avec les instructions pour confirmer votre compte dans quelques minutes."
+      confirmed: "Votre compte a été confirmé avec succès. Vous êtes connecté."
+    registrations:
+      signed_up: 'Bienvenue ! Vous êtes maintenant inscrit.'
+      signed_up_but_unconfirmed: "Un message avec un lien de confirmation a été envoyé à votre adresse email. Ouvrez ce lien pour activer votre compte."
+      signed_up_but_inactive: "Vous êtes bien inscrit. Cependant, nous n'avons pas pu vous connecter parce que votre compte n'est pas encore activé."
+      signed_up_but_locked: "Vous êtes bien inscrit. Cependant, nous n'avons pas pu vous connecter parce que votre compte est bloqué."
+      updated: 'Vous avez mis à jour votre compte avec succès.'
+      update_needs_confirmation: "Vous avez mis à jour votre compte avec succès, mais nous avons besoin de vérifier votre nouvelle adresse email. Veuillez consulter vos emails et cliquez sur le lien de confirmation afin de la confirmer."
+      destroyed: 'A bientôt ! Votre compte a bien été annulé. Nous espérons vous revoir très prochainement.'
+    unlocks:
+      send_instructions: "Vous allez recevoir un email avec les instructions de déverrouillage de votre compte dans quelques minutes."
+      unlocked: "Votre compte a bien été déverrouillé. Connectez-vous pour continuer."
+      send_paranoid_instructions: "Si votre compte existe bien, vous allez recevoir un email avec les instructions de déverrouillage dans quelques minutes."
+    omniauth_callbacks:
+      success: 'Authentification réussie à partir du compte %{kind}.'
+      failure: "Nous n'avons pas pu vous authentifier à partir de %{kind} parce que '%{reason}'."
+    mailer:
+      confirmation_instructions:
+        subject: 'Instructions de Confirmation'
+      reset_password_instructions:
+        subject: 'Instructions de Réinitialisation de mot de passe'
+      unlock_instructions:
+        subject: 'Instructions de Déverrouillage'
