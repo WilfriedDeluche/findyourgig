@@ -4,6 +4,7 @@ gem 'rails', '3.2.8'
 
 gem 'pg'
 gem "twitter-bootstrap-rails"
+gem 'jquery-rails'
 
 gem 'sqlite3'
 
@@ -14,26 +15,34 @@ gem 'json'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
+  
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+group :test, :development do
+  gem 'linecache19', '0.5.13'
+  gem 'ruby-debug-base19', '0.11.26'
+  gem 'ruby-debug19', :require => 'ruby-debug'
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+  # Execute this gist to install linecache and ruby-debug-base19 properly with ruby 1.9.3
+  # bash < <(curl -L https://raw.github.com/gist/1333785) 
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
+  # Rspec, Factory Girl, Database Cleaner and Guard related gems
+  gem "rspec-rails", "~> 2.0"
+  gem 'rspec-instafail'
+  gem 'rspec-mocks'
+  gem 'rb-fsevent'
+  gem 'growl'
+  gem 'pry'
+  gem 'database_cleaner'
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem "guard-bundler"
+  gem "guard-rspec"
+  gem "guard-migrate"
+end
 
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug'
+group :test do
+  gem "spork", "> 0.9.0.rc"
+  gem "guard-spork"
+end
