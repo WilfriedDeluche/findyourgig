@@ -61,6 +61,9 @@ module Findyourgig
 
     config.action_mailer.default_url_options = { :host => Rails.env == "production" ? "private.ingesup.com" : "localhost:3000" }
     
+    # force the application to not access the DB or load models when precompiling assets (for Heroku)
+    config.assets.initialize_on_precompile = false
+    
     # Autoload lib directory
     config.autoload_paths += %W(#{config.root}/lib)
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
