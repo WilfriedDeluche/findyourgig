@@ -14,4 +14,8 @@ class User < ActiveRecord::Base
   def name
     "#{self.first_name.capitalize} #{self.last_name.upcase}"
   end
+
+  def self.available_roles
+    ["admin", "band_member", "venue_manager"]
+  end
 end
