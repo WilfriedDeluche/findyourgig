@@ -11,6 +11,7 @@ gem "twitter-bootstrap-rails"
 gem 'jquery-rails'
 
 gem 'devise'
+gem 'rolify'
 
 gem 'json'
 
