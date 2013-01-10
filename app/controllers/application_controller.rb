@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :set_i18n_from_headers
   before_filter :set_i18n_locale_from_params
+  before_filter :current_user_roles
 
   def set_i18n_from_headers
     unless params[:locale] || request.fullpath != "/"
@@ -30,5 +31,9 @@ class ApplicationController < ActionController::Base
 
   def default_url_options
     { :locale => I18n.locale }
+  end
+
+  def current_user_roles
+    @current_user_roles = user_signed_in? ? current_user.role_list : []
   end
 end

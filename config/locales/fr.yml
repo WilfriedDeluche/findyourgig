@@ -3,6 +3,9 @@ fr:
   hello: "Bonjour"
   are_u_sure: "Êtes-vous sûr ?"
   confirm: "Confirmer"
+  admin: "Administrateur"
+  band_member: "Membre de groupe"
+  venue_manager: "Gérant de salle"
 
   activerecord:
     models:
@@ -27,4 +30,5 @@ fr:
   home:
     index:
       welcome: "Bienvenue"
+      your_access: "Vos accès"
 

@@ -17,4 +17,8 @@ class User < ActiveRecord::Base
   def self.available_roles
     ["admin", "band_member", "venue_manager"]
   end
+
+  def role_list
+    self.roles.collect { |r| r.name }
+  end
 end

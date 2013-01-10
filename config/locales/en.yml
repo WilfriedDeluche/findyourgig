@@ -3,6 +3,9 @@ en:
   hello: "Hello"
   are_u_sure: "Are you sure ?"
   confirm: "Confirm"
+  admin: "Administrator"
+  band_member: "Band member"
+  venue_manager: "Venue manager"
 
   activerecord:
     models:
@@ -27,3 +30,4 @@ en:
   home:
     index:
       welcome: "Welcome"
+      your_access: "Your access"
