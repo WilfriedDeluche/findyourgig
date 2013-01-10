@@ -24,12 +24,24 @@ fr:
     sessions:
       signed_in: 'Connecté avec succès.'
       signed_out: 'Déconnecté avec succès.'
+      new:
+        connection: "Connexion"
+        remember_me: "Se souvenir de moi"
+        sign_in: "Me connecter"
     passwords:
       send_instructions: "Vous allez recevoir un email contenant les instructions de réinitialisation de votre mot de passe dans quelques minutes."
       updated: "Votre mot de passe a été modifié avec succès. Vous êtes désormais connecté."
       updated_not_active: "Votre mot de passe a été modifié avec succès."
       send_paranoid_instructions: "Si votre adresse email existe bien dans notre base de données, vous allez recevoir un lien de réinitialisation de mot de passe dans quelques minutes à cette adresse."
       no_token: "Vous ne pouvez accéder à cette page sans provenir d'un email de rénitialisation de mot de passe. Dans le cas contraire, assurez-vous de bien utiliser l'URL complète fournie."
+      edit:
+        change_your_pwd: "Changer votre mot de passe"
+        new_password: "Nouveau mot de passe"
+        confirm_password: "Confirmer mon nouveau mot de passe"
+        change_my_pwd: "Changez mon mot de passe"
+      new:
+        forgot_password: "Mot de passe oublié ?"
+        send_me_instructions: "Envoyez les instructions"
     confirmations:
       send_instructions: 'Vous allez recevoir un email contenant les instructions pour confirmer votre compte dans quelques minutes.'
       send_paranoid_instructions: "Si votre adresse email existe bien dans notre base de données, vous allez recevoir un email avec les instructions pour confirmer votre compte dans quelques minutes."
@@ -42,6 +54,16 @@ fr:
       updated: 'Vous avez mis à jour votre compte avec succès.'
       update_needs_confirmation: "Vous avez mis à jour votre compte avec succès, mais nous avons besoin de vérifier votre nouvelle adresse email. Veuillez consulter vos emails et cliquez sur le lien de confirmation afin de la confirmer."
       destroyed: 'A bientôt ! Votre compte a bien été annulé. Nous espérons vous revoir très prochainement.'
+      edit:
+        modify_my_account: "Modifier mon Compte"
+        cancel_my_account: "Supprimer mon compte"
+        unhappy: "Mécontent ?"
+      new:
+        register: "S'inscrire"
+        sign_up: "M'inscrire"
+    shared:
+      links:
+        forgotten_password: "Mot de passe oublié ?"
     unlocks:
       send_instructions: "Vous allez recevoir un email avec les instructions de déverrouillage de votre compte dans quelques minutes."
       unlocked: "Votre compte a bien été déverrouillé. Connectez-vous pour continuer."
@@ -54,5 +76,9 @@ fr:
         subject: 'Instructions de Confirmation'
       reset_password_instructions:
         subject: 'Instructions de Réinitialisation de mot de passe'
+        change_your_pwd_request: "Une demande a été faite pour changer votre mot de passe, et ceci est possible en cliquant sur le lien ci-dessous."
+        change_my_pwd: 'Changer mon mot de passe'
+        no_request: "Si vous n'avez pas fait cette demande, veuillez ignorer cet email."
+        no_change_until_access: "Votre mot de passe sera modifié uniquement si vous accédez au lien ci-dessus et en créez un nouveau."
       unlock_instructions:
         subject: 'Instructions de Déverrouillage'

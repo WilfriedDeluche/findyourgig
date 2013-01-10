@@ -1,0 +1,30 @@
+fr:
+  translation_not_available: "traduction indisponible"
+  hello: "Bonjour"
+  are_u_sure: "Êtes-vous sûr ?"
+  confirm: "Confirmer"
+
+  activerecord:
+    models:
+      user: "Utilisateur"
+    attributes:
+      user:
+        first_name: "Prénom"
+        last_name: "Nom"
+        email: "Email"
+        password: "Mot de passe"
+        password_confirmation: "Mot de passe de confirmation"
+        current_password: "Mot de passe actuel"
+
+  layouts:
+    application:
+      home: "Accueil"
+      sign_in: "Se connecter"
+      sign_out: "Se déconnecter"
+      my_account: "Mon compte"
+      sign_up: "S'inscrire"
+
+  home:
+    index:
+      welcome: "Bienvenue"
+

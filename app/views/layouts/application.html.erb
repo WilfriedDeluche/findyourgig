@@ -44,27 +44,27 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Findyourgig</a>
+          <a class="brand" href="/">Findyourgig</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Home", "/"  %></li>
+              <li><%= link_to t('.home'), "/"  %></li>
               <% if user_signed_in? %>
                 <li>
-                <%= link_to('Se déconnecter', destroy_user_session_path, :method=>'delete') %>
+                <%= link_to t('.my_account'), edit_user_registration_path %>
                 </li>
-              <% else %>
+              <% elsif devise_mapping.registerable? %>
                 <li>
-                <%= link_to('Se connecter', new_user_session_path) %>
+                <%= link_to t('.sign_up'), new_user_registration_path %>
                 </li>
               <% end %>
 
               <% if user_signed_in? %>
                 <li>
-                <%= link_to('Mon compte', edit_user_registration_path) %>
+                <%= link_to t('.sign_out'), destroy_user_session_path, method: 'delete' %>
                 </li>
               <% else %>
                 <li>
-                <%= link_to('S\'inscrire', new_user_registration_path) %>
+                <%= link_to t('.sign_in'), new_user_session_path %>
                 </li>
               <% end %>
             </ul>
