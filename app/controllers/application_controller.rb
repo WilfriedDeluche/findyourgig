@@ -34,6 +34,6 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user_roles
-    @current_user_roles = user_signed_in? ? current_user.role_list : []
+    @current_user_roles = user_signed_in? ? current_user.roles_list : []
   end
 end
