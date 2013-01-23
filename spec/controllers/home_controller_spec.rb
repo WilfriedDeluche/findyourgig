@@ -4,7 +4,7 @@ describe HomeController do
 
   describe "GET 'index'" do
     it "returns http success" do
-      get 'index'
+      get 'index', :locale => :fr
       response.should be_success
     end
   end

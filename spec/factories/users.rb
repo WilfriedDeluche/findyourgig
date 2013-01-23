@@ -7,5 +7,6 @@ FactoryGirl.define do
     u.password_confirmation "alloallo"
     u.first_name "John"
     u.last_name "Bates"
+    u.role "band_member"
   end
 end

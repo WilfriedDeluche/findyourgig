@@ -14,10 +14,11 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :role
   attr_accessor :role
+  attr_accessor :force_create
 
   validates_presence_of :first_name, :last_name
   validates_presence_of :role, on: :create
-  validates_inclusion_of :role, in: PUBLIC_ROLES, on: :create
+  validates_inclusion_of :role, in: PUBLIC_ROLES, on: :create, unless: "self.force_create"
 
   after_create :grant_role
 
