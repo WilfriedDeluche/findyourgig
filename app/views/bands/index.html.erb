@@ -1,29 +1,45 @@
-<h1>Listing bands</h1>
-
-<table>
+<table class="table table-bordered table-striped">
   <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Creation year</th>
-    <th>City</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <% ("a".."z").to_a.each do |letter| %>
+      <td class="center"><%= link_to letter.upcase, bands_path(:by_letter => letter) %></td>
+    <% end %>
+  </tr>
+</table>
+
+<%= link_to 'Créer un groupe', new_band_path, class: "btn btn-primary pull-right" %>
+
+<% if params[:by_letter] %>
+  <h2>Groupes commençant par la lettre <%= params[:by_letter].upcase %></h2>
+<% else %>
+  <h2>Les 10 derniers groupes</h2>
+<% end %>
+
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>Groupe</th>
   </tr>
 
 <% @bands.each do |band| %>
   <tr>
-    <td><%= band.name %></td>
-    <td><%= band.description %></td>
-    <td><%= band.creation_year %></td>
-    <td><%= band.city %></td>
-    <td><%= link_to 'Show', band %></td>
-    <td><%= link_to 'Edit', edit_band_path(band) %></td>
-    <td><%= link_to 'Destroy', band, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td>
+      <h4><%= link_to band.name, band %></h4>
+      <% unless band.description.blank? %>
+        <%= band.description %>
+      <% else %>
+        <em>Aucune description</em>
+      <% end %><br />
+      <%= band.creation_year %><br />
+      <%= band.city %><br />
+      <%= link_to 'Supprimer', band, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger pull-right" %>
+      <%= link_to 'Modifier', edit_band_path(band), class: "btn btn-small btn-success pull-right", style: "margin-right: 10px;" %>
+    </td>
   </tr>
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New Band', new_band_path %>
+<% content_for :sidebar do %>
+  <ul class="nav nav-list">
+    <li class="nav-header">MENU</li>
+    <li><%= link_to "Groupes", bands_path %></li>
+  </ul>
+<% end %>

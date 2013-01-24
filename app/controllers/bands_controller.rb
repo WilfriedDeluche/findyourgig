@@ -2,7 +2,12 @@ class BandsController < ApplicationController
   # GET /bands
   # GET /bands.json
   def index
-    @bands = Band.all
+    if params[:search]
+    elsif params[:by_letter]
+      @bands = Band.by_letter(params[:by_letter])
+    else
+      @bands = Band.limit(10)
+    end
 
     respond_to do |format|
       format.html # index.html.erb
