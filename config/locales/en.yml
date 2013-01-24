@@ -12,6 +12,8 @@ en:
   remove: "Remove"
   edit: "Edit"
   are_u_sure: "Are you sure ?"
+  search: "Search"
+  ok: "OK"
 
   # BANDS
   band_unknown: "Band does not exist."

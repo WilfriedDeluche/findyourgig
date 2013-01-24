@@ -12,6 +12,8 @@ fr:
   remove: "Supprimer"
   edit: "Modifier"
   are_u_sure: "Êtes-vous sûr ?"
+  search: "Rechercher"
+  ok: "OK"
 
   # BANDS
   band_unknown: "Le groupe recherché n'existe pas."

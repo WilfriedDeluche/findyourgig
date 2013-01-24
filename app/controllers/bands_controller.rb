@@ -4,6 +4,8 @@ class BandsController < ApplicationController
 
   def index
     if params[:search]
+      search = Regexp.escape params[:search]
+      @bands = Band.all({:conditions => ["lower(name) LIKE ?", "%#{search}%"]})
     elsif params[:by_letter]
       @bands = Band.by_letter(params[:by_letter])
     else
