@@ -1,4 +1,4 @@
-<h2 class="page-header"><%= @band.name %> <%= link_to 'Modifier Groupe', edit_band_path(@band), class: "btn btn-success pull-right" %></h2>
+<h2 class="page-header"><%= @band.name %> <%= link_to t('.edit_band'), edit_band_path(@band), class: "btn btn-success pull-right" %></h2>
 
 <p>
   <%= t('.created_in') %> <strong><%= @band.creation_year %></strong><br />
@@ -8,7 +8,7 @@
   <% unless @band.description.blank? %>
     <%= @band.description %>
   <% else %>
-    <em>Aucune description</em>
+    <em><%= t('no_description') %></em>
   <% end %>
 </p>
 

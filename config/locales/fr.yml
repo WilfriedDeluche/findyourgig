@@ -7,6 +7,11 @@ fr:
   band_member: "Membre de groupe"
   venue_manager: "Gérant de salle"
   error: "Erreur"
+  no_description: "Aucune description"
+  no_result: "Aucun résultat"
+  remove: "Supprimer"
+  edit: "Modifier"
+  are_u_sure: "Êtes-vous sûr ?"
 
   # BANDS
   band_unknown: "Le groupe recherché n'existe pas."
@@ -68,9 +73,19 @@ fr:
       welcome: "Bienvenue"
       your_access: "Vos accès"
   bands:
+    index:
+      bands_starting_with_letter: "Groupes commençant par la lettre"
+      last_ten_bands: "Les 10 derniers groupes"
+      create_band: "Créer un groupe"
+      see_band_page: "Voir la fiche groupe"
+    new:
+      new_band: "Nouveau Groupe"
     show:
       created_in: "Créé en"
       from: "Originaire de"
+      edit_band: "Modifier Groupe"
+    edit:
+      band_page: "Fiche Groupe"
 
   helpers:
     select:
