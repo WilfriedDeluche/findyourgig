@@ -6,6 +6,7 @@ en:
   admin: "Administrator"
   band_member: "Band member"
   venue_manager: "Venue manager"
+  error: "Error"
 
   # BANDS
   band_unknown: "Band does not exist."

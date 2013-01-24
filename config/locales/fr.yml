@@ -6,6 +6,7 @@ fr:
   admin: "Administrateur"
   band_member: "Membre de groupe"
   venue_manager: "Gérant de salle"
+  error: "Erreur"
 
   # BANDS
   band_unknown: "Le groupe recherché n'existe pas."
