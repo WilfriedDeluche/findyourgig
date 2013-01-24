@@ -14,6 +14,7 @@ fr:
   are_u_sure: "Êtes-vous sûr ?"
   search: "Rechercher"
   ok: "OK"
+  menu: "Menu"
 
   # BANDS
   band_unknown: "Le groupe recherché n'existe pas."
@@ -88,6 +89,8 @@ fr:
       edit_band: "Modifier Groupe"
     edit:
       band_page: "Fiche Groupe"
+    sidebar:
+      bands: "Groupes"
 
   helpers:
     select:

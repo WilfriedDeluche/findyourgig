@@ -11,7 +11,6 @@ class BandsController < ApplicationController
     else
       @bands = Band.limit(10)
     end
-
     respond_with @bands
   end
 

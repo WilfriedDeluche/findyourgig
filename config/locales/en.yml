@@ -14,6 +14,7 @@ en:
   are_u_sure: "Are you sure ?"
   search: "Search"
   ok: "OK"
+  menu: "Navigation"
 
   # BANDS
   band_unknown: "Band does not exist."
@@ -65,3 +66,5 @@ en:
       edit_band: "Edit Band"
     edit:
       band_page: "Band Page"
+    sidebar:
+      bands: "Bands"
