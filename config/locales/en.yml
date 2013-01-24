@@ -7,9 +7,15 @@ en:
   band_member: "Band member"
   venue_manager: "Venue manager"
 
+  # BANDS
+  band_unknown: "Band does not exist."
+  band_updated: "Band was successfully updated."
+  band_created: "Band was successfully created."
+
   activerecord:
     models:
       user: "User"
+      band: "Band"
     attributes:
       user:
         first_name: "First name"
@@ -19,6 +25,11 @@ en:
         password_confirmation: "Password confirmation"
         current_password: "Current password"
         role: "Profile type"
+      band:
+        name: "Band name"
+        description: "Description"
+        creation_year: "Created in"
+        city: "City"
 
   layouts:
     application:
@@ -32,3 +43,7 @@ en:
     index:
       welcome: "Welcome"
       your_access: "Your access"
+  bands:
+    show:
+      created_in: "Created in"
+      from: "Based in"

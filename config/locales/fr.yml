@@ -7,9 +7,15 @@ fr:
   band_member: "Membre de groupe"
   venue_manager: "Gérant de salle"
 
+  # BANDS
+  band_unknown: "Le groupe recherché n'existe pas."
+  band_updated: "Le groupe a bien été mis à jour."
+  band_created: "Le groupe a bien été créé."
+
   activerecord:
     models:
       user: "Utilisateur"
+      band: "Groupe"
     attributes:
       user:
         first_name: "Prénom"
@@ -19,6 +25,11 @@ fr:
         password_confirmation: "Mot de passe de confirmation"
         current_password: "Mot de passe actuel"
         role: "Type de profil"
+      band:
+        name: "Nom du groupe"
+        description: "Description"
+        creation_year: "Année de création"
+        city: "Ville"
     errors:
       messages: &errors_messages
         inclusion: "n'est pas inclus(e) dans la liste"
@@ -55,4 +66,16 @@ fr:
     index:
       welcome: "Bienvenue"
       your_access: "Vos accès"
+  bands:
+    show:
+      created_in: "Créé en"
+      from: "Originaire de"
+
+  helpers:
+    select:
+      prompt: "Veuillez sélectionner"
+    submit:
+      create: "Créer %{model}"
+      update: "Modifier %{model}"
+      submit: "Enregistrer %{model}"
 

@@ -1,6 +1,5 @@
-<h1>Editing band</h1>
+<h2 class="page-header"><%= @band.name %> <%= link_to 'Fiche groupe', @band, class: "btn btn-info pull-right" %></h2>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @band %> |
-<%= link_to 'Back', bands_path %>
+<%= render 'sidebar' %>

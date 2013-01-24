@@ -1,33 +1,19 @@
 <%= form_for(@band) do |f| %>
-  <% if @band.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@band.errors.count, "error") %> prohibited this band from being saved:</h2>
-
-      <ul>
-      <% @band.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
+  <p>
+    <%= f.label :name %>
     <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :creation_year %><br />
+  </p>
+  <p>
+    <%= f.label :creation_year %>
     <%= f.number_field :creation_year %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br />
+  </p>
+  <p>
+    <%= f.label :city %>
     <%= f.text_field :city %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  </p>
+  <p>
+    <%= f.label :description %>
+    <%= f.text_area :description, :class => "span8", :rows => "8" %>
+  </p>
+  <p><%= f.submit class: "btn btn-primary" %></p>
 <% end %>
