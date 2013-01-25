@@ -1,0 +1,50 @@
+<table class="table table-bordered table-striped">
+  <tr>
+    <% ("a".."z").to_a.each do |letter| %>
+      <td class="center"><%= link_to letter.upcase, bands_path(:by_letter => letter) %></td>
+    <% end %>
+  </tr>
+</table>
+
+<%= link_to t('.create_band'), new_band_path, class: "btn btn-primary pull-right" %>
+
+<% if params[:by_letter] %>
+  <h2><%= t('.bands_starting_with_letter') %> <%= params[:by_letter].upcase %></h2>
+<% else %>
+  <h2><%= t('.last_ten_bands') %></h2>
+<% end %>
+
+<%= form_tag({controller: "bands", action: "index"}, method: "get", class: "form-search pull-right") do %>
+  <div class="input-prepend">
+    <span class="add-on"><i class="icon-search"></i></span>
+    <%= text_field_tag :search, params[:search], class: "search-query", :placeholder => "#{t('search')}..." %>
+  </div>
+  <%= submit_tag t('ok'), class: "btn" %>
+<% end %>
+
+<% if @bands.any? %>
+  <table class="table table-bordered table-striped">
+
+  <% @bands.each do |band| %>
+    <tr>
+      <td>
+        <h4><%= link_to band.name, band %></h4>
+        <%= band.creation_year %><br />
+        <%= band.city %><br />
+        <% unless band.description.blank? %>
+          <%= band.description %>
+        <% else %>
+          <em><%= t('no_description') %></em>
+        <% end %><br />
+        <%= link_to t('remove'), band, method: :delete, data: { confirm: t('are_u_sure') }, class: "btn btn-small btn-danger pull-right" %>
+        <%= link_to t('edit'), edit_band_path(band), class: "btn btn-small btn-success pull-right", style: "margin-right: 7px;" %>
+        <%= link_to t('.see_band_page'), band, class: "btn btn-small btn-info pull-right", style: "margin-right: 7px;" %>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+<% else %>
+  <div class="alert alert-info"><%= t('no_result') %></div>
+<% end %>
+
+<%= render 'sidebar' %>

@@ -1,5 +1,10 @@
+# encoding: UTF-8
 User.destroy_all
 Role.destroy_all
+
+cities = %w(Paris Toulouse Bordeaux Nice Lille Saint-Denis Lyon Mulhouse Reims Arras Agen Saint-Etienne Créteil Bobigny Argenteuil Gonesse Montreuil)
+years = (1995..2012).to_a
+bands = ["Erase", "Groupe Sans Gain", "Fifteen Scars", "Jackson 5", "Little Mix", "The Black Eyed Peas", "Sugababes", "Indochine", "Jamiroquai", "Texas", "Destiny's Childs"]
 
 # Roles
 puts "ROLES"
@@ -19,3 +24,10 @@ user_2 = User.create! email: "admin2@findyourgig.com", password: "testtest", pas
   u.force_create = true
 end
 puts "Admin : #{user_2.first_name} #{user_2.last_name}"
+
+# Default BAND
+puts "BANDS"
+for n in 1..15 do
+  band = Band.create! name: bands.sample, creation_year: years.sample, city: cities.sample, description: ""
+  puts "Groupe : #{band.name} created in #{band.creation_year}"
+end
