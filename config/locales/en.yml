@@ -19,6 +19,16 @@ en:
         password_confirmation: "Password confirmation"
         current_password: "Current password"
         role: "Profile type"
+      venue:
+        name: "Name"
+        address_1: "Address"
+        address_2: "Address (additional)"
+        postal_code: "Postal code"
+        city: "City"
+        country: "Country"
+        telephone: "Phone number"
+        email_address: "Email address"
+        website: "Website"
 
   layouts:
     application:

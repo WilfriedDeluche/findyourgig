@@ -19,6 +19,16 @@ fr:
         password_confirmation: "Mot de passe de confirmation"
         current_password: "Mot de passe actuel"
         role: "Type de profil"
+      venue:
+        name: "Nom du lieu"
+        address_1: "Adresse"
+        address_2: "Adresse (complémentaire)"
+        postal_code: "Code postal"
+        city: "Ville"
+        country: "Pays"
+        telephone: "Téléphone"
+        email_address: "Adresse électronique"
+        website: "Site internet"
     errors:
       messages: &errors_messages
         inclusion: "n'est pas inclus(e) dans la liste"
@@ -40,8 +50,9 @@ fr:
         less_than_or_equal_to: "doit être inférieur ou égal à %{count}"
         odd: "doit être impair"
         even: "doit être pair"
-        not_saved: "La vadidation a échoué"
+        not_saved: "La validation a échoué"
         record_invalid: "L'enregistrement est invalide"
+        taken: "existe déjà"
 
   layouts:
     application:
