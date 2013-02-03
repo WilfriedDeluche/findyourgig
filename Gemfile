@@ -15,7 +15,9 @@ gem 'rolify'
 
 gem 'json'
 
-gem "country_select", "~> 1.1.3"
+#gem "country_select", "~> 1.1.3"
+gem 'carmen', git: 'git://github.com/jim/carmen.git'
+gem 'carmen-rails', git: 'git://github.com/jim/carmen-rails.git'
 
 # Gems used only for assets and not required
 # in production environments by default.

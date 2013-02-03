@@ -33,7 +33,7 @@
   </div>
   <div class="field">
     <%= f.label :country %><br />
-    <%= f.country_select :country, ["France", "United Kingdom"] %>
+    <%= f.country_select :country, priority: %w(FR GB), prompt: 'Please select a country' %>
   </div>
   <div class="actions">
     <%= f.submit %>
