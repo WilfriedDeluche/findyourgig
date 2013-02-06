@@ -31,6 +31,7 @@ en:
     models:
       user: "User"
       band: "Band"
+      venue: "Venue"
     attributes:
       user:
         first_name: "First name"
@@ -104,3 +105,5 @@ en:
       new_venue: "New Venue"
     edit:
       venue_page: "Venue Page"
+    form:
+      select_country: "Please select a country"

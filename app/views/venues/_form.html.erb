@@ -1,15 +1,5 @@
 <%= form_for(@venue) do |f| %>
-  <% if @venue.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@venue.errors.count, "error") %> prohibited this venue from being saved:</h2>
-
-      <ul>
-      <% @venue.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= f.error_messages %>
 
   <div class="field">
     <%= f.label :name %>
@@ -33,7 +23,7 @@
   </div>
   <div class="field">
     <%= f.label :country %>
-    <%= f.country_select :country, priority: %w(FR GB), prompt: 'Please select a country' %>
+    <%= f.country_select :country, priority: %w(FR GB), prompt: t('.select_country') %>
   </div>
   <div class="field">
     <%= f.label :telephone %>

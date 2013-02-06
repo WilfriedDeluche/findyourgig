@@ -31,6 +31,7 @@ fr:
     models:
       user: "Utilisateur"
       band: "Groupe"
+      venue: "Lieu"
     attributes:
       user:
         first_name: "Prénom"
@@ -120,6 +121,8 @@ fr:
       new_venue: "Nouveau lieu"
     edit:
       venue_page: "Fiche du lieu"
+    form:
+      select_country: "Sélectionnez un pays"
 
   helpers:
     select:
