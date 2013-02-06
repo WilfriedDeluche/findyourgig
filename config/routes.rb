@@ -11,7 +11,10 @@ Findyourgig::Application.routes.draw do
       root to: 'home#index'
     end
 
-    resources :bands
+    resources :bands do
+      put "request_participation", on: :member
+    end
+
     resources :band_participations, path: "my_bands", only: [:index, :create, :destroy]
 
     root to: "home#index"

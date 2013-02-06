@@ -95,6 +95,7 @@ fr:
       created_in: "Créé en"
       from: "Originaire de"
       edit_band: "Modifier Groupe"
+      join_band: "Joindre le groupe"
     edit:
       band_page: "Fiche Groupe"
     sidebar:

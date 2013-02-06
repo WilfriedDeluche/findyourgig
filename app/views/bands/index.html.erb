@@ -36,9 +36,11 @@
         <% else %>
           <em><%= t('no_description') %></em>
         <% end %><br />
-        <%= link_to t('remove'), band, method: :delete, data: { confirm: t('are_u_sure') }, class: "btn btn-small btn-danger pull-right" %>
-        <%= link_to t('edit'), edit_band_path(band), class: "btn btn-small btn-success pull-right", style: "margin-right: 7px;" %>
-        <%= link_to t('.see_band_page'), band, class: "btn btn-small btn-info pull-right", style: "margin-right: 7px;" %>
+        <% if user_signed_in? && @user_bands.include?(band.id) %>
+          <%= link_to t('remove'), band, method: :delete, data: { confirm: t('are_u_sure') }, class: "btn btn-small btn-danger pull-right", style: "margin-left: 7px;" %>
+          <%= link_to t('edit'), edit_band_path(band), class: "btn btn-small btn-success pull-right", style: "margin-left: 7px;" %>
+        <% end %>
+        <%= link_to t('.see_band_page'), band, class: "btn btn-small btn-info pull-right", style: "margin-left: 7px;" %>
       </td>
     </tr>
   <% end %>

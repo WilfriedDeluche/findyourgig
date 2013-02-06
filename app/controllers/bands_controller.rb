@@ -1,5 +1,6 @@
 class BandsController < ApplicationController
   before_filter :find_band, only: [:show, :edit, :update, :destroy]
+  before_filter :find_user_bands, only: [:index, :show]
   respond_to :html
 
   def index
@@ -44,6 +45,10 @@ class BandsController < ApplicationController
     end
   end
 
+  def request_participation
+    
+  end
+
   def destroy
     @band.destroy
     redirect_to bands_url
@@ -56,5 +61,9 @@ class BandsController < ApplicationController
     rescue
       redirect_to bands_url, alert: t('band_unknown')
     end
+  end
+
+  def find_user_bands
+    @user_bands = current_user.bands.collect { |b| b.id } if current_user
   end
 end
