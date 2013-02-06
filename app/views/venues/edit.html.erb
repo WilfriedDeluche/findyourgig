@@ -1,8 +1,4 @@
-<h1>Editing venue</h1>
+<h2 class="page-header"><%= @venue.name %> <%= link_to t('.venue_page'), @venue, class: "btn btn-info pull-right" %></h2>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @venue %> |
-<%= link_to 'Back', venues_path %>
-
 <%= render 'sidebar' %>

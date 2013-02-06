@@ -114,6 +114,12 @@ fr:
       new_venue: "Nouveau lieu"
       venues_starting_with_letter: "Lieux commençant par la lettre"
       last_ten_venues: "Les 10 derniers lieux"
+    show:
+      edit_venue: "Modifier lieu"
+    new:
+      new_venue: "Nouveau lieu"
+    edit:
+      venue_page: "Fiche du lieu"
 
   helpers:
     select:

@@ -1,37 +1,48 @@
 <p id="notice"><%= notice %></p>
+<h2 class="page-header"><%= @venue.name %> <%= link_to t('.edit_venue'), edit_venue_path(@venue), class: "btn btn-success pull-right" %></h2>
 
 <p>
-  <b>Name:</b>
-  <%= @venue.name %>
-</p>
+  <%= @venue.address_1 %><br />
+  
+  <% unless @venue.address_2.blank? %>        
+    <%= @venue.address_2 %><br />
+  <% else %>
+    <em><%= %></em>
+  <% end %>
+  
+  <%= @venue.postal_code %> <%= @venue.city %><br />
 
-<p>
-  <strong><%= Venue.human_attribute_name(:address_1) %> :</strong>
-  <%= @venue.address_1 %>
-</p>
-
-<p>
-  <strong><%= Venue.human_attribute_name(:address_2) %> :</strong>
-  <%= @venue.address_2 %>
-</p>
-
-<p>
-  <strong><%= Venue.human_attribute_name(:postal_code) %> :</strong>
-  <%= @venue.postal_code %>
-</p>
-
-<p>
-  <strong><%= Venue.human_attribute_name(:city) %> :</strong>
-  <%= @venue.city %>
-</p>
-
-<p>
-  <strong><%= Venue.human_attribute_name(:country) %> :</strong>
   <%= Carmen::Country.coded(@venue.country).name %>
 </p>
 
+<br />
 
-<%= link_to 'Edit', edit_venue_path(@venue) %> |
-<%= link_to 'Back', venues_path %>
+<p>
+  <strong><%= Venue.human_attribute_name(:telephone) %> :</strong>  
+  <% unless @venue.telephone.blank? %>        
+    <%= @venue.telephone %>
+  <% else %>
+    <em><%= t('no_result') %></em>
+  <% end %>
+</p>
+
+<p>
+  <strong><%= Venue.human_attribute_name(:email_address) %> :</strong>  
+  <% unless @venue.email_address.blank? %>        
+    <%= @venue.email_address %>
+  <% else %>
+    <em><%= t('no_result') %></em>
+  <% end %>
+</p>
+
+<p>
+  <strong><%= Venue.human_attribute_name(:website) %> :</strong>  
+  <% unless @venue.website.blank? %>        
+    <%= @venue.website %>
+  <% else %>
+    <em><%= t('no_result') %></em>
+  <% end %>
+</p>
 
 <%= render 'sidebar' %>
+

@@ -75,7 +75,7 @@ en:
       create_band: "Create a band"
       see_band_page: "See band page"
     new:
-      new_band: "Nouveau Band"
+      new_band: "New Band"
     show:
       created_in: "Created in"
       from: "Based in"
@@ -98,3 +98,9 @@ en:
       new_venue: "New venue"
       venues_starting_with_letter: "Bands with name starting with letter"
       last_ten_venues: "Last 10 bands"
+    show:
+      edit_venue: "Edit Venue"
+    new:
+      new_venue: "New Venue"
+    edit:
+      venue_page: "Venue Page"
