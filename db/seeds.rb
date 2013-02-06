@@ -1,6 +1,13 @@
 # encoding: utf-8
+
 User.destroy_all
 Role.destroy_all
+Band.destroy_all
+Venue.destroy_all
+
+cities = %w(Paris Toulouse Bordeaux Nice Lille Saint-Denis Lyon Mulhouse Reims Arras Agen Saint-Etienne Créteil Bobigny Argenteuil Gonesse Montreuil)
+years = (1995..2012).to_a
+bands = ["Erase", "Groupe Sans Gain", "Fifteen Scars", "Jackson 5", "Little Mix", "The Black Eyed Peas", "Sugababes", "Indochine", "Jamiroquai", "Texas", "Destiny's Childs"]
 
 # Roles
 puts "ROLES"
@@ -8,7 +15,6 @@ User.available_roles.each do |role|
   Role.find_or_create_by_name({ :name => role }, :without_protection => true)
   puts "#{role} Role created"
 end
-
 
 # Default USERS
 puts "USERS"
@@ -179,4 +185,9 @@ puts "Venue 14:
 	#{venue_14.email_address} 
 	#{venue_14.website}"
 
-
+# Default BAND
+puts "BANDS"
+for n in 1..15 do
+  band = Band.create! name: bands.sample, creation_year: years.sample, city: cities.sample, description: ""
+  puts "Groupe : #{band.name} created in #{band.creation_year}"
+end

@@ -13,6 +13,15 @@
 
 ActiveRecord::Schema.define(:version => 20130124111952) do
 
+  create_table "bands", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "creation_year"
+    t.string   "city"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.integer  "resource_id"

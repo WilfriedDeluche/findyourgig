@@ -1,5 +1,4 @@
 Findyourgig::Application.routes.draw do
-  resources :venues
 
   scope '(:locale)', :locale => /en|fr/ do
 
@@ -11,6 +10,9 @@ Findyourgig::Application.routes.draw do
     authenticated :user do
       root :to => 'home#index'
     end
+
+    resources :bands
+    resources :venues
 
     root to: "home#index"
   end  

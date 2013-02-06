@@ -6,10 +6,25 @@ fr:
   admin: "Administrateur"
   band_member: "Membre de groupe"
   venue_manager: "Gérant de salle"
+  error: "Erreur"
+  no_description: "Aucune description"
+  no_result: "Aucun résultat"
+  remove: "Supprimer"
+  edit: "Modifier"
+  are_u_sure: "Êtes-vous sûr ?"
+  search: "Rechercher"
+  ok: "OK"
+  menu: "Menu"
+
+  # BANDS
+  band_unknown: "Le groupe recherché n'existe pas."
+  band_updated: "Le groupe a bien été mis à jour."
+  band_created: "Le groupe a bien été créé."
 
   activerecord:
     models:
       user: "Utilisateur"
+      band: "Groupe"
     attributes:
       user:
         first_name: "Prénom"
@@ -29,6 +44,12 @@ fr:
         telephone: "Téléphone"
         email_address: "Adresse électronique"
         website: "Site internet"
+      band:
+        name: "Nom du groupe"
+        description: "Description"
+        creation_year: "Année de création"
+        city: "Ville"
+
     errors:
       messages: &errors_messages
         inclusion: "n'est pas inclus(e) dans la liste"
@@ -66,4 +87,28 @@ fr:
     index:
       welcome: "Bienvenue"
       your_access: "Vos accès"
+  bands:
+    index:
+      bands_starting_with_letter: "Groupes commençant par la lettre"
+      last_ten_bands: "Les 10 derniers groupes"
+      create_band: "Créer un groupe"
+      see_band_page: "Voir la fiche groupe"
+    new:
+      new_band: "Nouveau Groupe"
+    show:
+      created_in: "Créé en"
+      from: "Originaire de"
+      edit_band: "Modifier Groupe"
+    edit:
+      band_page: "Fiche Groupe"
+    sidebar:
+      bands: "Groupes"
+
+  helpers:
+    select:
+      prompt: "Veuillez sélectionner"
+    submit:
+      create: "Créer %{model}"
+      update: "Modifier %{model}"
+      submit: "Enregistrer %{model}"
 
