@@ -107,6 +107,13 @@ fr:
       edit_band: "Modifier Groupe"
     edit:
       band_page: "Fiche Groupe"
+  venues:
+    index:
+      title: "Groupes"
+      show: "Afficher"
+      new_venue: "Nouveau lieu"
+      venues_starting_with_letter: "Lieux commençant par la lettre"
+      last_ten_venues: "Les 10 derniers lieux"
 
   helpers:
     select:

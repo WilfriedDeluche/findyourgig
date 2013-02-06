@@ -6,28 +6,28 @@
 </p>
 
 <p>
-  <b>Address1:</b>
+  <strong><%= Venue.human_attribute_name(:address_1) %> :</strong>
   <%= @venue.address_1 %>
 </p>
 
 <p>
-  <b>Address2:</b>
+  <strong><%= Venue.human_attribute_name(:address_2) %> :</strong>
   <%= @venue.address_2 %>
 </p>
 
 <p>
-  <b>Postalcode:</b>
+  <strong><%= Venue.human_attribute_name(:postal_code) %> :</strong>
   <%= @venue.postal_code %>
 </p>
 
 <p>
-  <b>City:</b>
+  <strong><%= Venue.human_attribute_name(:city) %> :</strong>
   <%= @venue.city %>
 </p>
 
 <p>
-  <b>Country:</b>
-  <%= @venue.country %>
+  <strong><%= Venue.human_attribute_name(:country) %> :</strong>
+  <%= Carmen::Country.coded(@venue.country).name %>
 </p>
 
 

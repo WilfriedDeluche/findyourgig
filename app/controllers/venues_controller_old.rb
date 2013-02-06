@@ -1,17 +1,11 @@
 class VenuesController < ApplicationController
-  before_filter :find_venue, only: [:show, :edit, :update, :destroy]
+  helper_method :sort_column, :sort_direction
 
   # GET /venues
   # GET /venues.json
   def index
-    if params[:search]
-      search = Regexp.escape params[:search]
-      @venues = Venue.all({:conditions => ["lower(name) LIKE ?", "%#{search.downcase}%"]})
-    elsif params[:by_letter]
-      @venues = Venue.by_letter(params[:by_letter].downcase)
-    else
-      @venues = Venue.limit(10)
-    end
+    @venues = Venue.order(sort_column + " " + sort_direction)
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @venues }
@@ -89,12 +83,11 @@ class VenuesController < ApplicationController
     end
   end
 
-  private
-  def find_venue
-    begin
-      @venue = Venue.find(params[:id])
-    rescue
-      redirect_to venues_url, alert: t('venue_unknown')
-    end
+  def sort_column
+    Venue.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end

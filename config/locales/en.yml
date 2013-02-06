@@ -82,3 +82,19 @@ en:
       edit_band: "Edit Band"
     edit:
       band_page: "Band Page"
+  venues:
+    index:
+      title: "Venues"
+      name: "Name"
+      address_1: "Address"
+      address_2: "Address (additional)"
+      postal_code: "Postal code"
+      city: "City"
+      country: "Country"
+      telephone: "Phone number"
+      email_address: "Email address"
+      website: "Website"
+      show: "Show"
+      new_venue: "New venue"
+      venues_starting_with_letter: "Bands with name starting with letter"
+      last_ten_venues: "Last 10 bands"
