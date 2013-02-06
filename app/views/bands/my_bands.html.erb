@@ -1,0 +1,28 @@
+<h2><%= t('menu_my_bands') %></h2>
+
+<% if @participations.any? %>
+  <table class="table table-bordered table-striped">
+
+  <% @participations.each do |participation| %>
+  <tr>
+    <td>
+      <h4><%= link_to participation.band.name, participation.band %></h4>
+      <%= participation.band.creation_year %><br />
+      <%= participation.band.city %><br />
+      <br />
+      <%= t('.date_join') %> <strong><%= l(participation.date_joined) %></strong><br />
+      <strong><%= pluralize(participation.band.band_participations.count, t('.member')) %></strong><br />
+      <% if participation.is_admin %>
+        <%= link_to t('edit'), edit_band_path(participation.band), class: "btn btn-small btn-success pull-right", style: "margin-right: 7px;" %>
+      <% end %>
+      <%= link_to t('.see_band_page'), participation.band, class: "btn btn-small btn-info pull-right", style: "margin-right: 7px;" %>
+    </td>    
+  </tr>
+  <% end %>
+
+  </table>
+<% else %>
+  <div class="alert alert-info"><%= t('no_result') %></div>
+<% end %>
+
+<%= render 'sidebar' %>

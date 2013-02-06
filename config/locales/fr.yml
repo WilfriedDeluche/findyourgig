@@ -15,6 +15,9 @@ fr:
   search: "Rechercher"
   ok: "OK"
   menu: "Menu"
+  page_unknown: "Cette page n'existe pas"
+
+  menu_my_bands: "Mes Groupes"
 
   # BANDS
   band_unknown: "Le groupe recherché n'existe pas."
@@ -81,6 +84,10 @@ fr:
       last_ten_bands: "Les 10 derniers groupes"
       create_band: "Créer un groupe"
       see_band_page: "Voir la fiche groupe"
+    my_bands:
+      see_band_page: "Voir la fiche groupe"
+      date_join: "Vous avez rejoint le groupe le"
+      member: "Membre"
     new:
       new_band: "Nouveau Groupe"
     show:
@@ -99,4 +106,15 @@ fr:
       create: "Créer %{model}"
       update: "Modifier %{model}"
       submit: "Enregistrer %{model}"
+
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%e %b"
+      long: "%e %b %Y"
+      verylong: "%A %e %B %Y"
+    day_names: [dimanche, lundi, mardi, mercredi, jeudi, vendredi, samedi]
+    abbr_day_names: [dim, lun, mar, mer, jeu, ven, sam]
+    month_names: [~, Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre]
+    abbr_month_names: [~, Jan., Fév., Mar., Avr., Mai, Juin, Juil., Août, Sept., Oct., Nov., Déc.]
 

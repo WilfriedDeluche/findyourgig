@@ -15,6 +15,9 @@ en:
   search: "Search"
   ok: "OK"
   menu: "Navigation"
+  page_unknown: "This page does not exist"
+
+  menu_my_bands: "My Bands"
 
   # BANDS
   band_unknown: "Band does not exist."
@@ -58,6 +61,10 @@ en:
       last_ten_bands: "Last 10 bands"
       create_band: "Create a band"
       see_band_page: "See band page"
+    my_bands:
+      see_band_page: "See band page"
+      date_join: "You joined the band on"
+      member: "Member"
     new:
       new_band: "Nouveau Band"
     show:
