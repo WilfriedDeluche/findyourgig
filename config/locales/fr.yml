@@ -21,6 +21,12 @@ fr:
   band_updated: "Le groupe a bien été mis à jour."
   band_created: "Le groupe a bien été créé."
 
+  # SIDEBAR
+  menu_bands: "Groupes"
+  menu_venues: "Lieux"
+
+  venue_uniqueness: "Un lieu de concert existe déjà pour cette adresse"
+
   activerecord:
     models:
       user: "Utilisateur"
@@ -101,8 +107,6 @@ fr:
       edit_band: "Modifier Groupe"
     edit:
       band_page: "Fiche Groupe"
-    sidebar:
-      bands: "Groupes"
 
   helpers:
     select:

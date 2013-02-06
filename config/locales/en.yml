@@ -21,6 +21,12 @@ en:
   band_updated: "Band was successfully updated."
   band_created: "Band was successfully created."
 
+  # SIDEBAR
+  menu_bands: "Bands"
+  menu_venues: "Venues"
+
+  venue_uniqueness: "A venue already exists for this address"
+
   activerecord:
     models:
       user: "User"
@@ -76,5 +82,3 @@ en:
       edit_band: "Edit Band"
     edit:
       band_page: "Band Page"
-    sidebar:
-      bands: "Bands"
