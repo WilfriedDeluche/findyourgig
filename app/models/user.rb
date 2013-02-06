@@ -12,6 +12,9 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :band_participations
+  has_many :bands, through: :band_participations
+
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :role
   attr_accessor :role
   attr_accessor :force_create
