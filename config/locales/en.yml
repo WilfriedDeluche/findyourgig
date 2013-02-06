@@ -16,13 +16,18 @@ en:
   ok: "OK"
   menu: "Navigation"
   page_unknown: "This page does not exist"
+  unprocessable_action: "The requested action could not be processed because it is incorrect or forbidden."
 
+  menu_bands: "Bands"
   menu_my_bands: "My Bands"
 
   # BANDS
   band_unknown: "Band does not exist."
   band_updated: "Band was successfully updated."
   band_created: "Band was successfully created."
+
+  # BAND PARTICIPATIONS
+  band_participation_removed: "You are no longer part of the band %{band}."
 
   activerecord:
     models:
@@ -61,10 +66,6 @@ en:
       last_ten_bands: "Last 10 bands"
       create_band: "Create a band"
       see_band_page: "See band page"
-    my_bands:
-      see_band_page: "See band page"
-      date_join: "You joined the band on"
-      member: "Member"
     new:
       new_band: "Nouveau Band"
     show:
@@ -75,3 +76,10 @@ en:
       band_page: "Band Page"
     sidebar:
       bands: "Bands"
+  band_participations:
+    index:
+      see_band_page: "See band page"
+      date_join: "You joined the band on"
+      member: "Member"
+      leave_band: "Leave the band"
+

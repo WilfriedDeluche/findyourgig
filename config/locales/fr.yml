@@ -16,13 +16,18 @@ fr:
   ok: "OK"
   menu: "Menu"
   page_unknown: "Cette page n'existe pas"
+  unprocessable_action: "L'action demandée n'a pu être effectuée car incorrecte ou interdite."
 
+  menu_bands: "Groupes"
   menu_my_bands: "Mes Groupes"
 
   # BANDS
   band_unknown: "Le groupe recherché n'existe pas."
   band_updated: "Le groupe a bien été mis à jour."
   band_created: "Le groupe a bien été créé."
+
+  # BAND PARTICIPATIONS
+  band_participation_removed: "Vous ne faites plus partie du groupe %{band}."
 
   activerecord:
     models:
@@ -84,10 +89,6 @@ fr:
       last_ten_bands: "Les 10 derniers groupes"
       create_band: "Créer un groupe"
       see_band_page: "Voir la fiche groupe"
-    my_bands:
-      see_band_page: "Voir la fiche groupe"
-      date_join: "Vous avez rejoint le groupe le"
-      member: "Membre"
     new:
       new_band: "Nouveau Groupe"
     show:
@@ -98,6 +99,12 @@ fr:
       band_page: "Fiche Groupe"
     sidebar:
       bands: "Groupes"
+  band_participations:
+    index:
+      see_band_page: "Voir la fiche groupe"
+      date_join: "Vous avez rejoint le groupe le"
+      member: "Membre"
+      leave_band: "Quitter le groupe"
 
   helpers:
     select:

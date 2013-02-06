@@ -12,7 +12,7 @@ Findyourgig::Application.routes.draw do
     end
 
     resources :bands
-    match 'my_bands', to: 'bands#my_bands', as: 'my_bands', via: :get 
+    resources :band_participations, path: "my_bands", only: [:index, :create, :destroy]
 
     root to: "home#index"
   end  
