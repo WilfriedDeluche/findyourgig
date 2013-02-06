@@ -6,10 +6,25 @@ en:
   admin: "Administrator"
   band_member: "Band member"
   venue_manager: "Venue manager"
+  error: "Error"
+  no_description: "No description"
+  no_result: "No result"
+  remove: "Remove"
+  edit: "Edit"
+  are_u_sure: "Are you sure ?"
+  search: "Search"
+  ok: "OK"
+  menu: "Navigation"
+
+  # BANDS
+  band_unknown: "Band does not exist."
+  band_updated: "Band was successfully updated."
+  band_created: "Band was successfully created."
 
   activerecord:
     models:
       user: "User"
+      band: "Band"
     attributes:
       user:
         first_name: "First name"
@@ -19,6 +34,11 @@ en:
         password_confirmation: "Password confirmation"
         current_password: "Current password"
         role: "Profile type"
+      band:
+        name: "Band name"
+        description: "Description"
+        creation_year: "Created in"
+        city: "City"
 
   layouts:
     application:
@@ -32,3 +52,19 @@ en:
     index:
       welcome: "Welcome"
       your_access: "Your access"
+  bands:
+    index:
+      bands_starting_with_letter: "Bands with name starting with letter"
+      last_ten_bands: "Last 10 bands"
+      create_band: "Create a band"
+      see_band_page: "See band page"
+    new:
+      new_band: "Nouveau Band"
+    show:
+      created_in: "Created in"
+      from: "Based in"
+      edit_band: "Edit Band"
+    edit:
+      band_page: "Band Page"
+    sidebar:
+      bands: "Bands"

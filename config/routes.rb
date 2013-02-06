@@ -1,4 +1,5 @@
 Findyourgig::Application.routes.draw do
+
   scope '(:locale)', :locale => /en|fr/ do
 
     devise_for :users, :path => "profile", :path_names => { 
@@ -9,6 +10,8 @@ Findyourgig::Application.routes.draw do
     authenticated :user do
       root :to => 'home#index'
     end
+
+    resources :bands
 
     root to: "home#index"
   end  
