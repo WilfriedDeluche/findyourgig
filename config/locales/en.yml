@@ -97,8 +97,8 @@ en:
       website: "Website"
       show: "Show"
       new_venue: "New venue"
-      venues_starting_with_letter: "Bands with name starting with letter"
-      last_ten_venues: "Last 10 bands"
+      venues_starting_with_letter: "Venues with name starting with letter"
+      last_ten_venues: "Last 10 venues"
     show:
       edit_venue: "Edit Venue"
     new:
