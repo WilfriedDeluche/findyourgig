@@ -11,5 +11,9 @@ class Venue < ActiveRecord::Base
 
 	def address
 	  [address_1, postal_code, city, Carmen::Country.coded(country).name].compact.join(', ')
-	end  
+	end
+
+  def address_changed?
+    address_1_changed? || postal_code_changed? || city_changed? || country_changed?
+  end
 end
