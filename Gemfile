@@ -17,6 +17,7 @@ gem 'rolify'
 gem 'json'
 
 gem 'geocoder'
+gem 'gmaps4rails'
 
 #gem "country_select", "~> 1.1.3"
 gem 'carmen', git: 'git://github.com/jim/carmen.git'

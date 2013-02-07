@@ -44,5 +44,13 @@
   <% end %>
 </p>
 
+
+<h4><%= t('.nearby_venues') %></h4>
+<ul>
+  <% for location in @nearby_venues %>
+  <li><%= link_to location.address, location %> (<%= distance_display(location) %>)</li>
+<% end %>
+</ul>
+
 <%= render 'sidebar' %>
 

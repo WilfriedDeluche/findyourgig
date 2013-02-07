@@ -22,6 +22,7 @@ class VenuesController < ApplicationController
   # GET /venues/1.json
   def show
     @venue = Venue.find(params[:id])
+    @nearby_venues = @venue.nearbys(10).sort { |a,b| a.distance.to_f <=> b.distance.to_f }
 
     respond_to do |format|
       format.html # show.html.erb

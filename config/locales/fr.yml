@@ -117,6 +117,7 @@ fr:
       last_ten_venues: "Les 10 derniers lieux"
     show:
       edit_venue: "Modifier lieu"
+      nearby_venues: "Salles à proximité"
     new:
       new_venue: "Nouveau lieu"
     edit:

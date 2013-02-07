@@ -101,6 +101,7 @@ en:
       last_ten_venues: "Last 10 venues"
     show:
       edit_venue: "Edit Venue"
+      nearby_venues: "Nearby Venues"
     new:
       new_venue: "New Venue"
     edit:
