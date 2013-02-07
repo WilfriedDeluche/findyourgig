@@ -15,14 +15,12 @@
   <%= Carmen::Country.coded(@venue.country).name %>
 </p>
 
-<br />
-
 <p>
   <strong><%= Venue.human_attribute_name(:telephone) %> :</strong>  
   <% unless @venue.telephone.blank? %>        
     <%= @venue.telephone %>
   <% else %>
-    <em><%= t('no_result') %></em>
+    <em><%= t('not_specified') %></em>
   <% end %>
 </p>
 
@@ -31,7 +29,7 @@
   <% unless @venue.email_address.blank? %>        
     <%= @venue.email_address %>
   <% else %>
-    <em><%= t('no_result') %></em>
+    <em><%= t('not_specified') %></em>
   <% end %>
 </p>
 
@@ -40,7 +38,7 @@
   <% unless @venue.website.blank? %>        
     <%= @venue.website %>
   <% else %>
-    <em><%= t('no_result') %></em>
+    <em><%= t('not_specified') %></em>
   <% end %>
 </p>
 
@@ -48,7 +46,7 @@
 <h4><%= t('.nearby_venues') %></h4>
 <ul>
   <% for location in @nearby_venues %>
-  <li><%= link_to location.address, location %> (<%= distance_display(location) %>)</li>
+  <li><%= link_to location.name + " (" + location.address + ")", location %> (<%= distance_display(location) %>)</li>
 <% end %>
 </ul>
 

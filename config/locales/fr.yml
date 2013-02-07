@@ -8,7 +8,7 @@ fr:
   venue_manager: "Gérant de salle"
   error: "Erreur"
   no_description: "Aucune description"
-  no_result: "Aucun résultat"
+  not_specified: "Non défini"
   remove: "Supprimer"
   edit: "Modifier"
   are_u_sure: "Êtes-vous sûr ?"
