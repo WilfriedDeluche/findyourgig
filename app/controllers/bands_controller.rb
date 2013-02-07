@@ -1,6 +1,6 @@
 class BandsController < ApplicationController
-  before_filter :find_band, only: [:show, :edit, :update, :destroy]
-  before_filter :find_user_bands, only: [:index, :show]
+  before_filter :find_band, only: [:show, :edit, :update, :destroy, :request_participation]
+  before_filter :find_user_bands, only: [:index, :show, :request_participation]
   respond_to :html
 
   def index
@@ -46,7 +46,16 @@ class BandsController < ApplicationController
   end
 
   def request_participation
-    
+    unless @user_bands.include? @band.id
+      @participation = current_user.band_participations.build band_id: @band.id, is_admin: false, date_joined: Date.today
+      if @participation.save
+        redirect_to @band, notice: t('band_participation_request_sent')
+      else
+        redirect_to @band, alert: t('band_participation_request_could_not_be_sent')
+      end
+    else
+      redirect_to band_participations_path, alert: t('already_participates')
+    end
   end
 
   def destroy
@@ -64,6 +73,6 @@ class BandsController < ApplicationController
   end
 
   def find_user_bands
-    @user_bands = current_user.bands.collect { |b| b.id } if current_user
+    @user_bands = current_user.band_participations.collect { |p| { band_id: p.band_id, admin: p.is_admin, active: !p.pending } } if current_user
   end
 end

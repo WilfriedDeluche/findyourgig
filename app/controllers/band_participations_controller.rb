@@ -3,7 +3,7 @@ class BandParticipationsController < ApplicationController
   respond_to :html
 
   def index
-    @participations = current_user.band_participations
+    @participations = current_user.band_participations.active
   end
 
   def create

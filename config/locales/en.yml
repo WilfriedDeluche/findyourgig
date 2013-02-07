@@ -25,6 +25,9 @@ en:
   band_unknown: "Band does not exist."
   band_updated: "Band was successfully updated."
   band_created: "Band was successfully created."
+  already_participates: "You are already a member of this group."
+  band_participation_request_sent: "Your participation request has been successfully sent."
+  band_participation_request_could_not_be_sent: "Your participation request could not be sent."
 
   # BAND PARTICIPATIONS
   band_participation_removed: "You are no longer part of the band %{band}."

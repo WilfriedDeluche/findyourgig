@@ -5,6 +5,7 @@ class CreateBandParticipations < ActiveRecord::Migration
       t.integer :user_id
       t.date :date_joined
       t.date :date_left
+      t.boolean :pending, default: true
       t.boolean :is_admin, default: false
 
       t.timestamps

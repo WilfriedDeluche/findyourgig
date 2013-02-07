@@ -36,7 +36,7 @@
         <% else %>
           <em><%= t('no_description') %></em>
         <% end %><br />
-        <% if user_signed_in? && @user_bands.include?(band.id) %>
+        <% if user_signed_in? && @user_bands.detect { |part| part[:band_id] == band.id && part[:admin] == true } %>
           <%= link_to t('remove'), band, method: :delete, data: { confirm: t('are_u_sure') }, class: "btn btn-small btn-danger pull-right", style: "margin-left: 7px;" %>
           <%= link_to t('edit'), edit_band_path(band), class: "btn btn-small btn-success pull-right", style: "margin-left: 7px;" %>
         <% end %>

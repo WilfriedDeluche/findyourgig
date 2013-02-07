@@ -25,6 +25,9 @@ fr:
   band_unknown: "Le groupe recherché n'existe pas."
   band_updated: "Le groupe a bien été mis à jour."
   band_created: "Le groupe a bien été créé."
+  already_participates: "Vous faites déjà partie de ce groupe."
+  band_participation_request_sent: "Votre demande de participation au groupe a bien été envoyée."
+  band_participation_request_could_not_be_sent: "Votre demande de participation au groupe n'a pu être envoyée."
 
   # BAND PARTICIPATIONS
   band_participation_removed: "Vous ne faites plus partie du groupe %{band}."
