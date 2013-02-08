@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 <h2 class="page-header"><%= @venue.name %> <%= link_to t('.edit_venue'), edit_venue_path(@venue), class: "btn btn-success pull-right" %></h2>
 
 <p>
@@ -6,8 +5,6 @@
   
   <% unless @venue.address_2.blank? %>        
     <%= @venue.address_2 %><br />
-  <% else %>
-    <em><%= %></em>
   <% end %>
   
   <%= @venue.postal_code %> <%= @venue.city %><br />
@@ -22,7 +19,7 @@
   <% unless @venue.telephone.blank? %>        
     <%= @venue.telephone %>
   <% else %>
-    <em><%= t('no_result') %></em>
+    <em><%= t('not_specified') %></em>
   <% end %>
 </p>
 
@@ -31,7 +28,7 @@
   <% unless @venue.email_address.blank? %>        
     <%= @venue.email_address %>
   <% else %>
-    <em><%= t('no_result') %></em>
+    <em><%= t('not_specified') %></em>
   <% end %>
 </p>
 
@@ -40,7 +37,7 @@
   <% unless @venue.website.blank? %>        
     <%= @venue.website %>
   <% else %>
-    <em><%= t('no_result') %></em>
+    <em><%= t('not_specified') %></em>
   <% end %>
 </p>
 
