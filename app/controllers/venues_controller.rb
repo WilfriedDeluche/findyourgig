@@ -18,7 +18,6 @@ class VenuesController < ApplicationController
   # GET /venues/1
   def show
     @nearby_venues = @venue.nearbys(10).sort { |a,b| a.distance.to_f <=> b.distance.to_f }
-
     respond_with @venue
   end
 
