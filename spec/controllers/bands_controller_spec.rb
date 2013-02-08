@@ -73,7 +73,7 @@ describe BandsController do
       response.should render_template "show"
     end
 
-    it "redirecto to index when ID unknown" do
+    it "redirect to index when ID unknown" do
       @band.destroy
       get :show, {:id => @band.to_param}, valid_session
       response.should redirect_to bands_url
@@ -91,7 +91,6 @@ describe BandsController do
 
   describe "GET edit" do
     it "assigns the requested band as @band" do
-      band = FactoryGirl.create(:band)
       get :edit, {:id => @band.to_param}, valid_session
       assigns(:band).should eq @band
       response.should be_success

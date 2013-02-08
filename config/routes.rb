@@ -17,6 +17,8 @@ Findyourgig::Application.routes.draw do
 
     resources :band_participations, path: "my_bands", only: [:index, :create, :destroy]
 
+    resources :venues
+
     root to: "home#index"
   end  
 end
