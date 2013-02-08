@@ -9,12 +9,12 @@ class Venue < ActiveRecord::Base
   validates_presence_of :name, :address_1, :postal_code, :city, :country
   validates :address_1, :uniqueness => { :scope => :city, :message => I18n.t('venue_uniqueness') }
 
-  acts_as_gmappable
+  #acts_as_gmappable
   
-  def gmaps4rails_address
-  #describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
-    "#{self.street}, #{self.city}, #{self.country}" 
-  end
+  #def gmaps4rails_address
+    #describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
+    #{}"#{self.street}, #{self.city}, #{self.country}" 
+  #end
 
 	def address
 	  [address_1, postal_code, city, Carmen::Country.coded(country).name].compact.join(', ')
