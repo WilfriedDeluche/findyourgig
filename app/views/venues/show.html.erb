@@ -40,7 +40,7 @@
   <% end %>
 </p>
 
-<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@venue.latitude}%2C#{@venue.longitude}" %>
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@venue.latitude}%2C#{@venue.longitude}" %><%= image_tag "http://maps.googleapis.com/maps/api/streetview?size=450x300&sensor=false&zoom=16&markers=#{@venue.address}" %>
 
 <h4><%= t('.nearby_venues') %></h4>
 <ul>
