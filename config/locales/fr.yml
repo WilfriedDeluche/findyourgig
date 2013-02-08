@@ -8,7 +8,7 @@ fr:
   venue_manager: "Gérant de salle"
   error: "Erreur"
   no_description: "Aucune description"
-  no_result: "Aucun résultat"
+  not_specified: "Non renseigné"
   remove: "Supprimer"
   edit: "Modifier"
   are_u_sure: "Êtes-vous sûr ?"
@@ -21,10 +21,20 @@ fr:
   band_updated: "Le groupe a bien été mis à jour."
   band_created: "Le groupe a bien été créé."
 
+  # SIDEBAR
+  menu_bands: "Groupes"
+  menu_venues: "Lieux"
+
+  # VENUES
+  venue_updated: "Le lieu de concert a bien été mis à jour."
+  venue_created: "Le lieu de concert a bien été créé."
+  venue_uniqueness: "Un lieu de concert existe déjà pour cette adresse"
+
   activerecord:
     models:
       user: "Utilisateur"
       band: "Groupe"
+      venue: "Lieu"
     attributes:
       user:
         first_name: "Prénom"
@@ -34,11 +44,22 @@ fr:
         password_confirmation: "Mot de passe de confirmation"
         current_password: "Mot de passe actuel"
         role: "Type de profil"
+      venue:
+        name: "Nom du lieu"
+        address_1: "Adresse"
+        address_2: "Adresse (complémentaire)"
+        postal_code: "Code postal"
+        city: "Ville"
+        country: "Pays"
+        telephone: "Téléphone"
+        email_address: "Adresse électronique"
+        website: "Site internet"
       band:
         name: "Nom du groupe"
         description: "Description"
         creation_year: "Année de création"
         city: "Ville"
+
     errors:
       messages: &errors_messages
         inclusion: "n'est pas inclus(e) dans la liste"
@@ -60,8 +81,9 @@ fr:
         less_than_or_equal_to: "doit être inférieur ou égal à %{count}"
         odd: "doit être impair"
         even: "doit être pair"
-        not_saved: "La vadidation a échoué"
+        not_saved: "La validation a échoué"
         record_invalid: "L'enregistrement est invalide"
+        taken: "existe déjà"
 
   layouts:
     application:
@@ -89,8 +111,21 @@ fr:
       edit_band: "Modifier Groupe"
     edit:
       band_page: "Fiche Groupe"
-    sidebar:
-      bands: "Groupes"
+  venues:
+    index:
+      title: "Groupes"
+      show: "Afficher"
+      new_venue: "Nouveau lieu"
+      venues_starting_with_letter: "Lieux commençant par la lettre"
+      last_ten_venues: "Les 10 derniers lieux"
+    show:
+      edit_venue: "Modifier lieu"
+    new:
+      new_venue: "Nouveau lieu"
+    edit:
+      venue_page: "Fiche du lieu"
+    form:
+      select_country: "Sélectionnez un pays"
 
   helpers:
     select:

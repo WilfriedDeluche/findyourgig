@@ -1,0 +1,43 @@
+<%= form_for(@venue) do |f| %>
+  <%= f.error_messages %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :address_1 %>
+    <%= f.text_field :address_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :address_2 %>
+    <%= f.text_field :address_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :postal_code %>
+    <%= f.text_field :postal_code %>
+  </div>
+  <div class="field">
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :country %>
+    <%= f.country_select :country, priority: %w(FR GB), prompt: t('.select_country') %>
+  </div>
+  <div class="field">
+    <%= f.label :telephone %>
+    <%= f.text_field :telephone %>
+  </div>
+  <div class="field">
+    <%= f.label :email_address %>
+    <%= f.text_field :email_address %>
+  </div>
+  <div class="field">
+    <%= f.label :website %>
+    <%= f.text_field :website %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

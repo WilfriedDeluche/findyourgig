@@ -12,6 +12,7 @@ Findyourgig::Application.routes.draw do
     end
 
     resources :bands
+    resources :venues
 
     root to: "home#index"
   end  

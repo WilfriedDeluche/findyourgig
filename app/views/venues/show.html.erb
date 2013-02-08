@@ -1,0 +1,45 @@
+<h2 class="page-header"><%= @venue.name %> <%= link_to t('.edit_venue'), edit_venue_path(@venue), class: "btn btn-success pull-right" %></h2>
+
+<p>
+  <%= @venue.address_1 %><br />
+  
+  <% unless @venue.address_2.blank? %>        
+    <%= @venue.address_2 %><br />
+  <% end %>
+  
+  <%= @venue.postal_code %> <%= @venue.city %><br />
+
+  <%= Carmen::Country.coded(@venue.country).name %>
+</p>
+
+<br />
+
+<p>
+  <strong><%= Venue.human_attribute_name(:telephone) %> :</strong>  
+  <% unless @venue.telephone.blank? %>        
+    <%= @venue.telephone %>
+  <% else %>
+    <em><%= t('not_specified') %></em>
+  <% end %>
+</p>
+
+<p>
+  <strong><%= Venue.human_attribute_name(:email_address) %> :</strong>  
+  <% unless @venue.email_address.blank? %>        
+    <%= @venue.email_address %>
+  <% else %>
+    <em><%= t('not_specified') %></em>
+  <% end %>
+</p>
+
+<p>
+  <strong><%= Venue.human_attribute_name(:website) %> :</strong>  
+  <% unless @venue.website.blank? %>        
+    <%= @venue.website %>
+  <% else %>
+    <em><%= t('not_specified') %></em>
+  <% end %>
+</p>
+
+<%= render 'sidebar' %>
+
