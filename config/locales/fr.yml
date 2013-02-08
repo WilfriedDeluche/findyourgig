@@ -121,6 +121,7 @@ fr:
     show:
       edit_venue: "Modifier lieu"
       nearby_venues: "Salles à proximité"
+      no_nearby_venues: "Pas de lieu de concert à proximité"
     new:
       new_venue: "Nouveau lieu"
     edit:

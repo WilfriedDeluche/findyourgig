@@ -26,7 +26,7 @@ describe Venue do
     venue.address_1.should    eq "12, rue de Rivoli"
     venue.postal_code.should  eq "75001"
     venue.city.should         eq "Paris"
-    venue.country.should      eq "FRANCE"
+    venue.country.should      eq "FR"
     venue.telephone.should    eq "0156324111"
     venue.email_address.should eq "mail1@email.com"
     venue.website.should      eq "www.site.com"

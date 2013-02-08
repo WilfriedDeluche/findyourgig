@@ -105,6 +105,7 @@ en:
     show:
       edit_venue: "Edit Venue"
       nearby_venues: "Nearby Venues"
+      no_nearby_venues: "No nearby venues"
     new:
       new_venue: "New Venue"
     edit:

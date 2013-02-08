@@ -24,7 +24,7 @@ describe VenuesController do
   # Venue. As you add validations to Venue, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    { "name" => "the Venue", "postal_code" => "75003", "address_1" => "125, rue de Rivoli", "city" => "Paris", "country" => "FRANCE" }
+    { "name" => "the Venue", "postal_code" => "75003", "address_1" => "125, rue de Rivoli", "city" => "Paris", "country" => "FR" }
   end
 
   # This should return the minimal set of values that should be in the session

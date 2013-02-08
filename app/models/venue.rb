@@ -10,7 +10,8 @@ class Venue < ActiveRecord::Base
   validates :address_1, :uniqueness => { :scope => :city, :message => I18n.t('venue_uniqueness') }
 
 	def address
-	  [address_1, postal_code, city, Carmen::Country.coded(country).name].compact.join(', ')
+    country_code = Carmen::Country.coded(country)
+	  [address_1, postal_code, city, country_code.name].compact.join(', ') unless country_code.nil?
 	end  
 
   def address_changed?
