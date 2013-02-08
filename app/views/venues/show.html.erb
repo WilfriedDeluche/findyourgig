@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 <%= stylesheet_link_tag 'gmaps4rails' %>
 <h2 class="page-header"><%= @venue.name %> <%= link_to t('.edit_venue'), edit_venue_path(@venue), class: "btn btn-success pull-right" %></h2>
 
@@ -7,8 +6,6 @@
   
   <% unless @venue.address_2.blank? %>        
     <%= @venue.address_2 %><br />
-  <% else %>
-    <em><%= %></em>
   <% end %>
   
   <%= @venue.postal_code %> <%= @venue.city %><br />

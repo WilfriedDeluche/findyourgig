@@ -7,8 +7,8 @@ en:
   band_member: "Band member"
   venue_manager: "Venue manager"
   error: "Error"
+  no_description: "No description"
   not_specified: "Not specified"
-  no_result: "No result"
   remove: "Remove"
   edit: "Edit"
   are_u_sure: "Are you sure ?"
@@ -25,6 +25,9 @@ en:
   menu_bands: "Bands"
   menu_venues: "Venues"
 
+  # VENUES
+  venue_updated: "Venue was successfully updated."
+  venue_created: "Venue was successfully created."
   venue_uniqueness: "A venue already exists for this address"
 
   activerecord:

@@ -3,3 +3,5 @@ require File.expand_path('../application', __FILE__)
 
 # Initialize the rails application
 Findyourgig::Application.initialize!
+
+I18n.available_locales = [:fr, :en]
