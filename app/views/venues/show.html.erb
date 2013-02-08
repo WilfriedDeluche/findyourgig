@@ -1,6 +1,9 @@
 <%= stylesheet_link_tag 'gmaps4rails' %>
 <h2 class="page-header"><%= @venue.name %> <%= link_to t('.edit_venue'), edit_venue_path(@venue), class: "btn btn-success pull-right" %></h2>
 
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@venue.latitude}%2C#{@venue.longitude}" %>
+<!--<%= image_tag "http://maps.googleapis.com/maps/api/streetview?size=450x300&sensor=false&zoom=16&markers=#{@venue.address}" %>-->
+
 <p>
   <%= @venue.address_1 %><br />
   
@@ -40,8 +43,6 @@
   <% end %>
 </p>
 
-<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@venue.latitude}%2C#{@venue.longitude}" %><%= image_tag "http://maps.googleapis.com/maps/api/streetview?size=450x300&sensor=false&zoom=16&markers=#{@venue.address}" %>
-
 <h4><%= t('.nearby_venues') %></h4>
 <ul>
   <% for location in @nearby_venues %>
@@ -49,6 +50,6 @@
 <% end %>
 </ul>
 
-<%= render 'sidebar' %>
+<%= gmaps4rails(@json) %>
 
-<%= yield :scripts %> <!-- Add in footer -->
+<%= render 'sidebar' %>
