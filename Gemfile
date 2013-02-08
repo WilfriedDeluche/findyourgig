@@ -16,6 +16,9 @@ gem 'rolify'
 
 gem 'json'
 
+gem 'carmen', git: 'git://github.com/jim/carmen.git'
+gem 'carmen-rails', git: 'git://github.com/jim/carmen-rails.git'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

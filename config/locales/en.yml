@@ -8,7 +8,7 @@ en:
   venue_manager: "Venue manager"
   error: "Error"
   no_description: "No description"
-  no_result: "No result"
+  not_specified: "Not specified"
   remove: "Remove"
   edit: "Edit"
   are_u_sure: "Are you sure ?"
@@ -21,10 +21,20 @@ en:
   band_updated: "Band was successfully updated."
   band_created: "Band was successfully created."
 
+  # SIDEBAR
+  menu_bands: "Bands"
+  menu_venues: "Venues"
+
+  # VENUES
+  venue_updated: "Venue was successfully updated."
+  venue_created: "Venue was successfully created."
+  venue_uniqueness: "A venue already exists for this address"
+
   activerecord:
     models:
       user: "User"
       band: "Band"
+      venue: "Venue"
     attributes:
       user:
         first_name: "First name"
@@ -34,6 +44,16 @@ en:
         password_confirmation: "Password confirmation"
         current_password: "Current password"
         role: "Profile type"
+      venue:
+        name: "Name"
+        address_1: "Address"
+        address_2: "Address (additional)"
+        postal_code: "Postal code"
+        city: "City"
+        country: "Country"
+        telephone: "Phone number"
+        email_address: "Email address"
+        website: "Website"
       band:
         name: "Band name"
         description: "Description"
@@ -59,12 +79,34 @@ en:
       create_band: "Create a band"
       see_band_page: "See band page"
     new:
-      new_band: "Nouveau Band"
+      new_band: "New Band"
     show:
       created_in: "Created in"
       from: "Based in"
       edit_band: "Edit Band"
     edit:
       band_page: "Band Page"
-    sidebar:
-      bands: "Bands"
+  venues:
+    index:
+      title: "Venues"
+      name: "Name"
+      address_1: "Address"
+      address_2: "Address (additional)"
+      postal_code: "Postal code"
+      city: "City"
+      country: "Country"
+      telephone: "Phone number"
+      email_address: "Email address"
+      website: "Website"
+      show: "Show"
+      new_venue: "New venue"
+      venues_starting_with_letter: "Venues with name starting with letter"
+      last_ten_venues: "Last 10 venues"
+    show:
+      edit_venue: "Edit Venue"
+    new:
+      new_venue: "New Venue"
+    edit:
+      venue_page: "Venue Page"
+    form:
+      select_country: "Please select a country"
