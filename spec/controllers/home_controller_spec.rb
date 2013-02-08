@@ -25,7 +25,8 @@ describe HomeController do
       response.should redirect_to root_path(:locale => "fr")
 
       # Browser sends IT as locale : not available -> default_locale is used
-      request.env['HTTP_ACCEPT_LANGUAGE'] = "it"
+      debugger
+      request.env['HTTP_ACCEPT_LANGUAGE'] = "it-IT"
       get 'index', :locale => nil
       response.should redirect_to root_path(:locale => "fr")
     end
