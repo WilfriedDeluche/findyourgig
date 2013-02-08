@@ -25,6 +25,9 @@ fr:
   menu_bands: "Groupes"
   menu_venues: "Lieux"
 
+  # VENUES
+  venue_updated: "Le lieu de concert a bien été mis à jour."
+  venue_created: "Le lieu de concert a bien été créé."
   venue_uniqueness: "Un lieu de concert existe déjà pour cette adresse"
 
   activerecord:
