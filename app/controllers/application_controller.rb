@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   before_filter :current_user_roles
 
   def set_i18n_from_headers
-    debugger
     unless params[:locale] || request.fullpath != "/"
       if request.env['HTTP_ACCEPT_LANGUAGE'].blank?
         redirect_to "/#{I18n.default_locale}"

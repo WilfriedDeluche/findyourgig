@@ -3,9 +3,9 @@
 FactoryGirl.define do
   factory :venue do |v|
     v.name "Hotel Meurise"
-    v.address_1 "75001"
+    v.address_1 "12, rue de Rivoli"
     v.address_2 ""
-    v.postal_code "12, rue de Rivoli"
+    v.postal_code "75001"
     v.city "Paris"
     v.country "FRANCE"
     v.telephone "0156324111"
