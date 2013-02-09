@@ -40,4 +40,17 @@ describe Venue do
     venue_2.should be_invalid
     venue_2.should have(1).error_on(:address_1)
   end
+
+  it "should validate country code exists" do
+    venue = FactoryGirl.build(:venue, :country => "AA")
+    venue.should be_invalid
+    venue.should have(1).error_on(:country)
+
+    venue.country = "CB"
+    venue.should be_invalid
+    venue.should have(1).error_on(:country)
+
+    venue.country = "CO" # Colombie
+    venue.should be_valid
+  end
 end

@@ -30,6 +30,9 @@ en:
   venue_created: "Venue was successfully created."
   venue_uniqueness: "A venue already exists for this address"
 
+  # OTHERS
+  country_code_does_not_exist: "does not exist"
+
   activerecord:
     models:
       user: "User"
