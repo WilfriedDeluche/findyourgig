@@ -1,7 +1,6 @@
 module VenuesHelper
 
   def distance_display(location)
-    #if location.country == "UK"
     if I18n.locale == :en
       imperial_distance = location.distance.to_f
       if (imperial_distance) >= 0.75
