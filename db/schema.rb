@@ -13,6 +13,17 @@
 
 ActiveRecord::Schema.define(:version => 20130206161112) do
 
+  create_table "band_participations", :force => true do |t|
+    t.integer  "band_id"
+    t.integer  "user_id"
+    t.date     "date_joined"
+    t.date     "date_left"
+    t.boolean  "pending",     :default => true
+    t.boolean  "is_admin",    :default => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+  end
+
   create_table "bands", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -77,5 +88,7 @@ ActiveRecord::Schema.define(:version => 20130206161112) do
     t.float    "latitude"
     t.float    "longitude"
   end
+
+  add_index "venues", ["latitude", "longitude"], :name => "index_venues_on_latitude_and_longitude"
 
 end
