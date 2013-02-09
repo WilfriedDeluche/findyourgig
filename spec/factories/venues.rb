@@ -7,7 +7,7 @@ FactoryGirl.define do
     v.address_2 ""
     v.postal_code "75001"
     v.city "Paris"
-    v.country "FRANCE"
+    v.country "FR"
     v.telephone "0156324111"
     v.email_address "mail1@email.com"
     v.website "www.site.com"

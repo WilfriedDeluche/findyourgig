@@ -26,7 +26,7 @@ describe Venue do
     venue.address_1.should    eq "12, rue de Rivoli"
     venue.postal_code.should  eq "75001"
     venue.city.should         eq "Paris"
-    venue.country.should      eq "FRANCE"
+    venue.country.should      eq "FR"
     venue.telephone.should    eq "0156324111"
     venue.email_address.should eq "mail1@email.com"
     venue.website.should      eq "www.site.com"
@@ -39,5 +39,18 @@ describe Venue do
     venue_2 = FactoryGirl.build(:venue, :address_1 => "1, rue de Versailles", :city => "Paris")
     venue_2.should be_invalid
     venue_2.should have(1).error_on(:address_1)
+  end
+
+  it "should validate country code exists" do
+    venue = FactoryGirl.build(:venue, :country => "AA")
+    venue.should be_invalid
+    venue.should have(1).error_on(:country)
+
+    venue.country = "CB"
+    venue.should be_invalid
+    venue.should have(1).error_on(:country)
+
+    venue.country = "CO" # Colombie
+    venue.should be_valid
   end
 end

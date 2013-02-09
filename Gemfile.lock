@@ -85,6 +85,7 @@ GEM
       factory_girl (~> 4.1.0)
       railties (>= 3.0.0)
     ffi (1.2.0)
+    geocoder (1.1.6)
     growl (1.0.3)
     guard (1.5.4)
       listen (>= 0.4.2)
@@ -251,6 +252,7 @@ DEPENDENCIES
   database_cleaner
   devise
   factory_girl_rails
+  geocoder
   growl
   guard-bundler
   guard-migrate
