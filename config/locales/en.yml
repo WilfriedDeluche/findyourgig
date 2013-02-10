@@ -26,6 +26,7 @@ en:
   menu_venues: "Venues"
 
   # VENUES
+  venue_unknown: "Venues does not exist."
   venue_updated: "Venue was successfully updated."
   venue_created: "Venue was successfully created."
   venue_uniqueness: "A venue already exists for this address"
