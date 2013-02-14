@@ -31,6 +31,9 @@ fr:
   venue_created: "Le lieu de concert a bien été créé."
   venue_uniqueness: "Un lieu de concert existe déjà pour cette adresse"
 
+  # OTHERS
+  country_code_does_not_exist: "n'existe pas"
+
   activerecord:
     models:
       user: "Utilisateur"
@@ -122,6 +125,7 @@ fr:
     show:
       edit_venue: "Modifier lieu"
       nearby_venues: "Salles à proximité"
+      no_nearby_venues: "Pas de lieu de concert à proximité"
     new:
       new_venue: "Nouveau lieu"
     edit:

@@ -8,6 +8,7 @@ class Venue < ActiveRecord::Base
 
   validates_presence_of :name, :address_1, :postal_code, :city, :country
   validates :address_1, :uniqueness => { :scope => :city, :message => I18n.t('venue_uniqueness') }
+  validate :country_code_exists
 
   acts_as_gmappable
   
@@ -21,6 +22,11 @@ class Venue < ActiveRecord::Base
 	end
 
   def address_changed?
+    return false if self.errors.any?
     address_1_changed? || postal_code_changed? || city_changed? || country_changed?
+  end
+
+  def country_code_exists
+    errors.add :country, I18n.t('country_code_does_not_exist') if !country.blank? && Carmen::Country.coded(country).nil?
   end
 end

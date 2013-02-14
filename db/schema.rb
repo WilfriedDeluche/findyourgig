@@ -79,4 +79,6 @@ ActiveRecord::Schema.define(:version => 20130207162656) do
     t.float    "longitude"
   end
 
+  add_index "venues", ["latitude", "longitude"], :name => "index_venues_on_latitude_and_longitude"
+
 end

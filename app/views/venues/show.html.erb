@@ -44,11 +44,15 @@
 </p>
 
 <h4><%= t('.nearby_venues') %></h4>
+<% unless @nearby_venues.empty? %>
 <ul>
   <% for location in @nearby_venues %>
   <li><%= link_to location.name + " (" + location.address + ")", location %> (<%= distance_display(location) %>)</li>
 <% end %>
 </ul>
+<% else %>
+  <%= t('.no_nearby_venues') %>
+<% end %>
 
 <%= gmaps4rails(@json) %>
 
