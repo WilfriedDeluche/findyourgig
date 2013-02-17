@@ -9,6 +9,7 @@ en:
   error: "Error"
   no_description: "No description"
   not_specified: "Not specified"
+  no_result: "No result"  
   remove: "Remove"
   edit: "Edit"
   are_u_sure: "Are you sure ?"

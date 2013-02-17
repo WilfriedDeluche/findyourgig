@@ -9,6 +9,7 @@ fr:
   error: "Erreur"
   no_description: "Aucune description"
   not_specified: "Non renseigné"
+  no_result: "Aucun résultat"  
   remove: "Supprimer"
   edit: "Modifier"
   are_u_sure: "Êtes-vous sûr ?"
