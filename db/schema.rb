@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(:version => 20130206161112) do
     t.integer  "band_id"
     t.integer  "user_id"
     t.date     "date_joined"
-    t.date     "date_left"
     t.boolean  "pending",     :default => true
     t.boolean  "is_admin",    :default => false
     t.datetime "created_at",                     :null => false

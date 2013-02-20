@@ -4,7 +4,7 @@ class BandParticipation < ActiveRecord::Base
   belongs_to :user
   belongs_to :band
 
-  attr_accessible :band_id, :date_joined, :date_left, :is_admin, :user_id
+  attr_accessible :band_id, :date_joined, :is_admin, :user_id
 
   validates_presence_of :band_id, :user_id, :date_joined
   validates_uniqueness_of :band_id, scope: :user_id
