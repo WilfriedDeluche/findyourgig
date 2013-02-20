@@ -35,6 +35,8 @@ fr:
   band_participation_unknown: "Le membre n'existe pas."
   user_rights_is_admin: "Le membre <strong>%{user}</strong> est désormais administrateur."
   user_rights_not_admin: "Le membre <strong>%{user}</strong> n'est plus administrateur."
+  member_activated: "%{user} est désormais membre du groupe."
+  member_already_activated: "%{user} est déjà membre du groupe."
 
   # SIDEBAR
   menu_bands: "Groupes"

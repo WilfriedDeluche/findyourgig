@@ -35,6 +35,8 @@ en:
   band_participation_unknown: "Member does not exist."
   user_rights_is_admin: "Member <strong>%{user}</strong> is now administrator."
   user_rights_not_admin: "Member <strong>%{user}</strong> is no longer administrator."
+  member_activated: "%{user} is now member of the band."
+  member_already_activated: "%{user} is already member of the band."
 
   # SIDEBAR
   menu_bands: "Bands"

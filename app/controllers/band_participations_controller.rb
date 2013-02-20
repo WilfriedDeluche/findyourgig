@@ -1,8 +1,8 @@
 class BandParticipationsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :user_must_be_band_member, only: [:index]
-  before_filter :find_band_participation, only: [:destroy, :set_administration_rights]
-  before_filter :only_member_admin, only: [:set_administration_rights]
+  before_filter :find_band_participation, only: [:destroy, :set_administration_rights, :activate]
+  before_filter :only_member_admin, only: [:set_administration_rights, :activate]
   respond_to :html
 
   def index
@@ -13,6 +13,15 @@ class BandParticipationsController < ApplicationController
     @bp.update_attribute(:is_admin, !@bp.is_admin)
     is_admin_notice = @bp.is_admin ? 'user_rights_is_admin' : 'user_rights_not_admin'
     redirect_to members_band_path(@bp.band), notice: t(is_admin_notice, user: @bp.user.name).html_safe
+  end
+
+  def activate
+    if @bp.pending
+      @bp.update_attribute(:pending, false)
+      redirect_to members_band_path(@bp.band), notice: t('member_activated', :user => @bp.user.name)
+    else
+      redirect_to members_band_path(@bp.band), notice: t('member_already_activated', :user => @bp.user.name)
+    end
   end
 
   def destroy

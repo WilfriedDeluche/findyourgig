@@ -22,7 +22,7 @@
 
         <% unless member.user_id == current_user.id %>
           <% if member.pending %>
-            <span class="btn btn-small btn-inverse pull-right"><%= t('.accept_participation') %></span>
+            <%= link_to t('.accept_participation'), activate_band_participation_path(member), method: :put, class: "btn btn-small btn-inverse pull-right" %>
           <% else %>
             <%= link_to member.is_admin ? t('.disabled_admin') : t('.enable_admin'), set_administration_rights_band_participation_path(member), method: :put, class: "btn btn-small pull-right" %>
           <% end %>
