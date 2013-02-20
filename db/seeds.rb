@@ -35,12 +35,19 @@ puts "Admin : #{user_2.first_name} #{user_2.last_name}"
 # Default VENUE
 puts "VENUE"
 for n in 1..14 do
-	venue = Venue.create! name: venues[n-1], address_1: venue_addresses[n-1], address_2: "", postal_code: venue_postal_codes[n-1], city: "Paris", country: "FR", telephone: "", email_address: "", website: ""
-  puts "Venue #{n}: 
-  #{venue.name} 
-  #{venue.address_1} 
-  #{venue.postal_code} #{venue.city} 
-  #{venue.country}"
+	venue = Venue.new name: venues[n-1], address_1: venue_addresses[n-1], address_2: "", postal_code: venue_postal_codes[n-1], city: "Paris", country: "FR", telephone: "", email_address: "", website: ""
+  if venue.valid?
+    venue.save
+    puts "Venue #{n}: 
+    #{venue.name} 
+    #{venue.address_1} 
+    #{venue.postal_code} #{venue.city} 
+    #{venue.country}"
+  else
+    puts "Error for Venue #{n} :
+    #{venue.name} #{venue.address_1}"
+    puts venue.errors.full_messages
+  end
 end
 
 # Default BAND

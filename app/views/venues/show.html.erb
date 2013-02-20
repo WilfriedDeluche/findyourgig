@@ -3,6 +3,7 @@
 
 <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@venue.latitude}%2C#{@venue.longitude}" %>
 <!--<%= image_tag "http://maps.googleapis.com/maps/api/streetview?size=450x300&sensor=false&zoom=16&markers=#{@venue.address}" %>-->
+<%= gmaps("map_options" => { "detect_location" => false, "center_on_user" => false, "zoom" => 4},"markers" => { "data" => @json }) %>
 
 <p>
   <%= @venue.address_1 %><br />
@@ -53,7 +54,5 @@
 <% else %>
   <%= t('.no_nearby_venues') %>
 <% end %>
-
-<%= gmaps4rails(@json) %>
 
 <%= render 'sidebar' %>
