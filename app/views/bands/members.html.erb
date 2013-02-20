@@ -7,7 +7,7 @@
 
   <% @members.each do |member| %>
     <tr>
-      <td class="<%= 'cell-green' if member.user_id == current_user.id %>">
+      <td class="<%= 'cell-blue' if member.user_id == current_user.id %>">
         <h4>
           <%= member.user.name %>
           <% if member.is_admin %>

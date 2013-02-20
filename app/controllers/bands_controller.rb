@@ -61,7 +61,7 @@ class BandsController < ApplicationController
   end
 
   def members
-    @members = @band.band_participations
+    @members = @band.band_participations.order("date_joined ASC")
   end
 
   def destroy
