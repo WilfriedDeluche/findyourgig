@@ -127,12 +127,16 @@ fr:
       join_band: "Joindre le groupe"
     edit:
       band_page: "Fiche Groupe"
+    members:
+      band_page: "Fiche Groupe"
+      date_join: "A rejoint le groupe le"
   band_participations:
     index:
       see_band_page: "Voir la fiche groupe"
       date_join: "Vous avez rejoint le groupe le"
       member: "Membre"
       leave_band: "Quitter le groupe"
+      members: "Gestion des membres"
   venues:
     index:
       title: "Groupes"

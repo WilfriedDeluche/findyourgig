@@ -13,6 +13,7 @@ Findyourgig::Application.routes.draw do
 
     resources :bands do
       put "request_participation", on: :member
+      get "members", on: :member
     end
 
     resources :band_participations, path: "my_bands", only: [:index, :create, :destroy]

@@ -1,7 +1,7 @@
 class BandsController < ApplicationController
-  before_filter :find_band, only: [:show, :edit, :update, :destroy, :request_participation]
-  before_filter :find_user_bands, only: [:index, :show, :request_participation, :edit, :update, :destroy]
-  before_filter :only_member_admin, only: [:edit, :update, :destroy]
+  before_filter :find_band, only: [:show, :edit, :update, :destroy, :request_participation, :members]
+  before_filter :find_user_bands, only: [:index, :show, :request_participation, :edit, :update, :destroy, :members]
+  before_filter :only_member_admin, only: [:edit, :update, :destroy, :members]
   respond_to :html
 
   def index
@@ -58,6 +58,10 @@ class BandsController < ApplicationController
     else
       redirect_to band_participations_path, alert: t('already_participates')
     end
+  end
+
+  def members
+    @members = @band.band_participations
   end
 
   def destroy

@@ -25,13 +25,13 @@ en:
   band_unknown: "Band does not exist."
   band_updated: "Band was successfully updated."
   band_created: "Band was successfully created."
-  already_participates: "You are already a member of this group."
+  already_participates: "You are already a member of this band."
   band_participation_request_sent: "Your participation request has been successfully sent."
   band_participation_request_could_not_be_sent: "Your participation request could not be sent."
 
   # BAND PARTICIPATIONS
   band_participation_removed: "You are no longer part of the band %{band}."
-  band_participation_request_pending: "Your participation request to this group is pending."
+  band_participation_request_pending: "Your participation request to this band is pending."
 
   # SIDEBAR
   menu_bands: "Bands"
@@ -102,12 +102,16 @@ en:
       join_band: "Join Band"
     edit:
       band_page: "Band Page"
+    members:
+      band_page: "Band Page"
+      date_join: "Joined the band on"
   band_participations:
     index:
       see_band_page: "See band page"
       date_join: "You joined the band on"
       member: "Member"
       leave_band: "Leave the band"
+      members: "Band members"
   venues:
     index:
       title: "Venues"
