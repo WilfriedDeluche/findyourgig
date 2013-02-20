@@ -7,10 +7,6 @@ class BandParticipationsController < ApplicationController
     @participations = current_user.band_participations.active
   end
 
-  def create
-    
-  end
-
   def destroy
     @band_participation = BandParticipation.find_by_id(params[:id])
     if @band_participation && @band_participation.user_id == current_user.id

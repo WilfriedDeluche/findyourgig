@@ -31,6 +31,7 @@ fr:
 
   # BAND PARTICIPATIONS
   band_participation_removed: "Vous ne faites plus partie du groupe %{band}."
+  band_participation_request_pending: "Votre demande de participation à ce groupe est en attente."
 
   # SIDEBAR
   menu_bands: "Groupes"

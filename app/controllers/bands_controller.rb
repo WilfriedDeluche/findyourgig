@@ -17,6 +17,7 @@ class BandsController < ApplicationController
   end
 
   def show
+    flash.now[:info] = t('band_participation_request_pending') if @user_bands.detect { |part| part[:band_id] == @band.id && part[:active] == false }
     respond_with @band
   end
 
@@ -47,7 +48,7 @@ class BandsController < ApplicationController
   end
 
   def request_participation
-    unless @user_bands.include? @band.id
+    unless @user_bands.collect { |part| part[:band_id] }.include? @band.id
       @participation = current_user.band_participations.build band_id: @band.id, is_admin: false, date_joined: Date.today
       if @participation.save
         redirect_to @band, notice: t('band_participation_request_sent')

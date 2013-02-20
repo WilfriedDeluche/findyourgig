@@ -13,11 +13,12 @@
       <%= t('.date_join') %> <strong><%= l(participation.date_joined) %></strong><br />
       <strong><%= pluralize(participation.band.band_participations.count, t('.member')) %></strong>
 
-      <%= link_to t('.leave_band'), band_participation_path(participation), method: :delete, confirm: t('are_u_sure'), class: "btn btn-small btn-danger pull-right" %>
+      <%= link_to t('.leave_band'), band_participation_path(participation), method: :delete, confirm: t('are_u_sure'), class: "btn btn-small btn-warning pull-right" %>
       <% if participation.is_admin %>
-        <%= link_to t('edit'), edit_band_path(participation.band), class: "btn btn-small btn-success pull-right", style: "margin-right: 7px;" %>
+        <%= link_to t('remove'), @band, method: :delete, data: { confirm: t('are_u_sure') }, class: "btn btn-small btn-danger pull-right" %>
+        <%= link_to t('edit'), edit_band_path(participation.band), class: "btn btn-small btn-success pull-right" %>
       <% end %>
-      <%= link_to t('.see_band_page'), participation.band, class: "btn btn-small btn-info pull-right", style: "margin-right: 7px;" %>
+      <%= link_to t('.see_band_page'), participation.band, class: "btn btn-small btn-info pull-right" %>
     </td>    
   </tr>
   <% end %>
