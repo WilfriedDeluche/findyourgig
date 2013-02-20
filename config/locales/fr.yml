@@ -32,6 +32,9 @@ fr:
   # BAND PARTICIPATIONS
   band_participation_removed: "Vous ne faites plus partie du groupe %{band}."
   band_participation_request_pending: "Votre demande de participation à ce groupe est en attente."
+  band_participation_unknown: "Le membre n'existe pas."
+  user_rights_is_admin: "Le membre <strong>%{user}</strong> est désormais administrateur."
+  user_rights_not_admin: "Le membre <strong>%{user}</strong> n'est plus administrateur."
 
   # SIDEBAR
   menu_bands: "Groupes"

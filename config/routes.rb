@@ -16,7 +16,9 @@ Findyourgig::Application.routes.draw do
       get "members", on: :member
     end
 
-    resources :band_participations, path: "my_bands", only: [:index, :create, :destroy]
+    resources :band_participations, path: "my_bands", only: [:index, :create, :destroy] do
+      put 'set_administration_rights', on: :member
+    end
 
     resources :venues
 
