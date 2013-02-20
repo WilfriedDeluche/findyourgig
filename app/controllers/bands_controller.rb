@@ -1,6 +1,7 @@
 class BandsController < ApplicationController
   before_filter :find_band, only: [:show, :edit, :update, :destroy, :request_participation]
-  before_filter :find_user_bands, only: [:index, :show, :request_participation]
+  before_filter :find_user_bands, only: [:index, :show, :request_participation, :edit, :update, :destroy]
+  before_filter :only_member_admin, only: [:edit, :update, :destroy]
   respond_to :html
 
   def index
@@ -74,5 +75,11 @@ class BandsController < ApplicationController
 
   def find_user_bands
     @user_bands = current_user.band_participations.collect { |p| { band_id: p.band_id, admin: p.is_admin, active: !p.pending } } if current_user
+  end
+
+  def only_member_admin
+    unless user_signed_in? && @user_bands.detect { |part| part[:band_id] == @band.id && part[:admin] == true }
+      redirect_to bands_path, alert: t('page_unknown')
+    end
   end
 end

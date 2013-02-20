@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130206101719) do
+ActiveRecord::Schema.define(:version => 20130206161112) do
 
   create_table "band_participations", :force => true do |t|
     t.integer  "band_id"
@@ -85,6 +85,10 @@ ActiveRecord::Schema.define(:version => 20130206101719) do
     t.string   "website"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.float    "latitude"
+    t.float    "longitude"
   end
+
+  add_index "venues", ["latitude", "longitude"], :name => "index_venues_on_latitude_and_longitude"
 
 end

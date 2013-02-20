@@ -1,4 +1,5 @@
 class BandParticipationsController < ApplicationController
+  before_filter :authenticate_user!
   before_filter :user_must_be_band_member, only: [:index]
   respond_to :html
 

@@ -41,6 +41,9 @@ en:
   venue_created: "Venue was successfully created."
   venue_uniqueness: "A venue already exists for this address"
 
+  # OTHERS
+  country_code_does_not_exist: "does not exist"
+
   activerecord:
     models:
       user: "User"
@@ -122,6 +125,8 @@ en:
       last_ten_venues: "Last 10 venues"
     show:
       edit_venue: "Edit Venue"
+      nearby_venues: "Nearby Venues"
+      no_nearby_venues: "No nearby venues"
     new:
       new_venue: "New Venue"
     edit:

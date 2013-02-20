@@ -43,12 +43,8 @@ for n in 1..14 do
   puts "Venue #{n}: 
   #{venue.name} 
   #{venue.address_1} 
-  #{venue.address_2} 
   #{venue.postal_code} #{venue.city} 
-  #{venue.country} 
-  #{venue.telephone} 
-  #{venue.email_address} 
-  #{venue.website}"
+  #{venue.country}"
 end
 
 # Default BANDS
