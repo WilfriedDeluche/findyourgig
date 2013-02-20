@@ -130,6 +130,10 @@ fr:
     members:
       band_page: "Fiche Groupe"
       date_join: "A rejoint le groupe le"
+      profile: "Profil"
+      accept_participation: "Accepter participation"
+      enable_admin: "Donner droits administrateur"
+      disabled_admin: "Enlever droits administrateur"
   band_participations:
     index:
       see_band_page: "Voir la fiche groupe"

@@ -1,0 +1,42 @@
+<h2 class="page-header">
+  <%= @band.name %> <%= link_to t('.band_page'), @band, class: "btn btn-info pull-right" %>
+</h2>
+
+<% if @members.any? %>
+  <table class="table table-bordered table-striped">
+
+  <% @members.each do |member| %>
+    <tr>
+      <td class="<%= 'cell-green' if member.user_id == current_user.id %>">
+        <h4>
+          <%= member.user.name %>
+          <% if member.is_admin %>
+            <span class="label label-warning pull-right"><%= t('admin') %></span>
+          <% end %>
+
+          <% if member.pending %>
+            <span class="label pull-right"><%= t('pending') %></span>
+          <% end %>
+        </h4>
+        <%= t('.date_join') %> <strong><%= l(member.date_joined) %></strong><br />
+
+        <% unless member.user_id == current_user.id %>
+          <% if member.pending %>
+            <span class="btn btn-small btn-inverse pull-right"><%= t('.accept_participation') %></span>
+          <% elsif !member.is_admin %>
+            <span class="btn btn-small pull-right"><%= t('.enable_admin') %></span>
+          <% else %>
+            <span class="btn btn-small pull-right"><%= t('.disabled_admin') %></span>
+          <% end %>
+        <% end %>
+
+        <span class="btn btn-small btn-info pull-right"><%= t('.profile') %></span>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+<% else %>
+  <div class="alert alert-info"><%= t('no_result') %></div>
+<% end %>
+
+<%= render 'sidebar' %>

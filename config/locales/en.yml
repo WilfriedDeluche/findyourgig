@@ -105,6 +105,10 @@ en:
     members:
       band_page: "Band Page"
       date_join: "Joined the band on"
+      profile: "Profile"
+      accept_participation: "Accept participation"
+      enable_admin: "Give admin rights"
+      disabled_admin: "Remove admin rights"
   band_participations:
     index:
       see_band_page: "See band page"
