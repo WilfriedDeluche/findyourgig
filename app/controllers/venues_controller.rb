@@ -17,7 +17,7 @@ class VenuesController < ApplicationController
 
   # GET /venues/1
   def show
-    @json = @venue.to_gmaps4rails
+    @json = Venue.all.to_gmaps4rails
     nearby = @venue.nearbys(10)
     @nearby_venues = nearby.sort { |a,b| a.distance.to_f <=> b.distance.to_f } unless nearby.nil?
 

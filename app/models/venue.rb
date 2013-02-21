@@ -17,6 +17,11 @@ class Venue < ActiveRecord::Base
     address
   end
 
+  def gmaps4rails_infowindow
+     "<h4>#{name}</h4>
+     #{address}"  
+  end
+
 	def address
 	  [address_1, postal_code, city, Carmen::Country.coded(country).name].compact.join(', ')
 	end

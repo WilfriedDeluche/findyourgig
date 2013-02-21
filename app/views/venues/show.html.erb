@@ -1,9 +1,7 @@
 <%= stylesheet_link_tag 'gmaps4rails' %>
 <h2 class="page-header"><%= @venue.name %> <%= link_to t('.edit_venue'), edit_venue_path(@venue), class: "btn btn-success pull-right" %></h2>
 
-<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@venue.latitude}%2C#{@venue.longitude}" %>
-<!--<%= image_tag "http://maps.googleapis.com/maps/api/streetview?size=450x300&sensor=false&zoom=16&markers=#{@venue.address}" %>-->
-<%= gmaps("map_options" => { "detect_location" => false, "center_on_user" => false, "zoom" => 4},"markers" => { "data" => @json }) %>
+<%= gmaps("map_options" => { "detect_location" => false, "center_on_user" => false, "zoom" => 8},"markers" => { "data" => @json }) %>
 
 <p>
   <%= @venue.address_1 %><br />
