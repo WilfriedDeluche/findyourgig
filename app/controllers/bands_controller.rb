@@ -79,6 +79,7 @@ class BandsController < ApplicationController
   end
 
   def find_user_bands
+    @user_bands = []
     @user_bands = current_user.band_participations.collect { |p| { band_id: p.band_id, admin: p.is_admin, active: !p.pending } } if current_user
   end
 

@@ -108,6 +108,7 @@ en:
     edit:
       band_page: "Band Page"
     members:
+      members: "Members"
       band_page: "Band Page"
       date_join: "Joined the band on"
       profile: "Profile"

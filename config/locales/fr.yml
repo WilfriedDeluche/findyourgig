@@ -133,6 +133,7 @@ fr:
     edit:
       band_page: "Fiche Groupe"
     members:
+      members: "Membres"
       band_page: "Fiche Groupe"
       date_join: "A rejoint le groupe le"
       profile: "Profil"
