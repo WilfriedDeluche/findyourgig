@@ -27,6 +27,14 @@ describe BandsController do
       put("/bands/1").should route_to("bands#update", :id => "1")
     end
 
+    it "routes to #request_participation" do
+      put("/bands/1/request_participation").should route_to("bands#request_participation", :id => "1")
+    end
+
+    it "routes to #members" do
+      get("/bands/1/members").should route_to("bands#members", :id => "1")
+    end
+
     it "routes to #destroy" do
       delete("/bands/1").should route_to("bands#destroy", :id => "1")
     end

@@ -15,11 +15,28 @@ fr:
   search: "Rechercher"
   ok: "OK"
   menu: "Menu"
+  page_unknown: "Cette page n'existe pas"
+  unprocessable_action: "L'action demandée n'a pu être effectuée car incorrecte ou interdite."
+
+  menu_bands: "Groupes"
+  menu_my_bands: "Mes Groupes"
 
   # BANDS
   band_unknown: "Le groupe recherché n'existe pas."
   band_updated: "Le groupe a bien été mis à jour."
   band_created: "Le groupe a bien été créé."
+  already_participates: "Vous faites déjà partie de ce groupe."
+  band_participation_request_sent: "Votre demande de participation au groupe a bien été envoyée."
+  band_participation_request_could_not_be_sent: "Votre demande de participation au groupe n'a pu être envoyée."
+
+  # BAND PARTICIPATIONS
+  band_participation_removed: "Vous ne faites plus partie du groupe %{band}."
+  band_participation_request_pending: "Votre demande de participation à ce groupe est en attente."
+  band_participation_unknown: "Le membre n'existe pas."
+  user_rights_is_admin: "Le membre <strong>%{user}</strong> est désormais administrateur."
+  user_rights_not_admin: "Le membre <strong>%{user}</strong> n'est plus administrateur."
+  member_activated: "%{user} est désormais membre du groupe."
+  member_already_activated: "%{user} est déjà membre du groupe."
 
   # SIDEBAR
   menu_bands: "Groupes"
@@ -112,8 +129,24 @@ fr:
       created_in: "Créé en"
       from: "Originaire de"
       edit_band: "Modifier Groupe"
+      join_band: "Joindre le groupe"
     edit:
       band_page: "Fiche Groupe"
+    members:
+      members: "Membres"
+      band_page: "Fiche Groupe"
+      date_join: "A rejoint le groupe le"
+      profile: "Profil"
+      accept_participation: "Accepter participation"
+      enable_admin: "Donner droits administrateur"
+      disabled_admin: "Enlever droits administrateur"
+  band_participations:
+    index:
+      see_band_page: "Voir la fiche groupe"
+      date_join: "Vous avez rejoint le groupe le"
+      member: "Membre"
+      leave_band: "Quitter le groupe"
+      members: "Gestion des membres"
   venues:
     index:
       title: "Groupes"
@@ -139,4 +172,15 @@ fr:
       create: "Créer %{model}"
       update: "Modifier %{model}"
       submit: "Enregistrer %{model}"
+
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%e %b"
+      long: "%e %b %Y"
+      verylong: "%A %e %B %Y"
+    day_names: [dimanche, lundi, mardi, mercredi, jeudi, vendredi, samedi]
+    abbr_day_names: [dim, lun, mar, mer, jeu, ven, sam]
+    month_names: [~, Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre]
+    abbr_month_names: [~, Jan., Fév., Mar., Avr., Mai, Juin, Juil., Août, Sept., Oct., Nov., Déc.]
 

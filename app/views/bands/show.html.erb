@@ -1,4 +1,17 @@
-<h2 class="page-header"><%= @band.name %> <%= link_to t('.edit_band'), edit_band_path(@band), class: "btn btn-success pull-right" %></h2>
+<h2 class="page-header">
+  <%= @band.name %> 
+
+  <% if user_signed_in? %>
+    <% if @user_bands.collect { |part| part[:band_id] }.include? @band.id %>
+      <% if @user_bands.detect { |part| part[:band_id] == @band.id && part[:admin] == true } %>
+        <%= link_to t('remove'), @band, method: :delete, data: { confirm: t('are_u_sure') }, class: "btn btn-danger pull-right" %>
+        <%= link_to t('.edit_band'), edit_band_path(@band), class: "btn btn-success pull-right" %>
+      <% end %>
+    <% else %>
+      <%= link_to t('.join_band'), request_participation_band_path(@band), method: :put, class: "btn btn-inverse pull-right" %>
+    <% end %>
+  <% end %>
+</h2>
 
 <p>
   <%= t('.created_in') %> <strong><%= @band.creation_year %></strong><br />
