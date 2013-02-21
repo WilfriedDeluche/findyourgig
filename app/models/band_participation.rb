@@ -11,6 +11,7 @@ class BandParticipation < ActiveRecord::Base
   validate :user_has_role_band_member
 
   def user_has_role_band_member
+    return if user.nil?
     errors[:base] << "User is not a band member and cannot be included in this band" unless user.has_role? :band_member
   end
 end

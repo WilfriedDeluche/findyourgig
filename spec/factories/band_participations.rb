@@ -6,6 +6,5 @@ FactoryGirl.define do
     bp.user :user
     bp.date_joined "2013-02-06"
     bp.is_admin false
-    bp.pending true
   end
 end

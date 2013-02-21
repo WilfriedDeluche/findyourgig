@@ -35,11 +35,8 @@ class BandParticipationsController < ApplicationController
 
   private
   def find_band_participation
-    begin
-      @bp = BandParticipation.find_by_id(params[:id])
-    rescue
-      redirect_to root_path, alert: t('band_participation_unknown')
-    end
+    @bp = BandParticipation.find_by_id(params[:id])
+    redirect_to root_path, alert: t('band_participation_unknown') if @bp.nil?
   end
 
   def only_member_admin
