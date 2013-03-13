@@ -24,9 +24,9 @@ class VenuesController < ApplicationController
 
     @json1 = @googlemaplocation.to_gmaps4rails do |venue, marker|
       marker.picture({
-      :picture => "http://www.google.com/intl/en_us/mapfiles/ms/micons/red-dot.png",
+      :picture => '/images/venue-red.png',
       :width   => 32,
-      :height  => 32
+      :height  => 40
       })
     end
 
@@ -34,9 +34,9 @@ class VenuesController < ApplicationController
 
     @json2= @neargooglemaplocation.to_gmaps4rails do |venue, marker|
       marker.picture({
-      :picture => "http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png",
+      :picture => "/images/venue-blue.png",
       :width   => 32,
-      :height  => 32
+      :height  => 40
       })
     end
 
