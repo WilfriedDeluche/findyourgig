@@ -17,7 +17,20 @@ class VenuesController < ApplicationController
 
   # GET /venues/1
   def show
-    @json = Venue.all.to_gmaps4rails
+    @json = @venue.to_gmaps4rails
+
+    @json2 = Venue.all.to_gmaps4rails do |venue, marker|
+      #marker.infowindow render_to_string(:partial => "/users/my_template", :locals => { :object => venue})
+      marker.picture({
+        :picture => "http://www.blankdots.com/img/github-32x32.png",
+        :width   => 32,
+        :height  => 32
+      })
+      marker.title   "i'm the title"
+      marker.sidebar "i'm the sidebar"
+      marker.json({ :id => venue.id, :foo => "bar" })
+    end
+
     nearby = @venue.nearbys(10)
     @nearby_venues = nearby.sort { |a,b| a.distance.to_f <=> b.distance.to_f } unless nearby.nil?
 

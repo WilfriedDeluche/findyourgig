@@ -2,6 +2,7 @@
 <h2 class="page-header"><%= @venue.name %> <%= link_to t('.edit_venue'), edit_venue_path(@venue), class: "btn btn-success pull-right" %></h2>
 
 <%= gmaps("map_options" => { "detect_location" => false, "center_on_user" => false, "zoom" => 8},"markers" => { "data" => @json }) %>
+<%#= gmaps4rails(@json2) %>
 
 <p>
   <%= @venue.address_1 %><br />
