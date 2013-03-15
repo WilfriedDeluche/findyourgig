@@ -20,21 +20,17 @@ class VenuesController < ApplicationController
     nearby = @venue.nearbys(10)
     @nearby_venues = nearby.sort { |a,b| a.distance.to_f <=> b.distance.to_f } unless nearby.nil?
 
-    @googlemaplocation=@venue
-
-    @json1 = @googlemaplocation.to_gmaps4rails do |venue, marker|
+    @json1 = @venue.to_gmaps4rails do |venue, marker|
       marker.picture({
-      :picture => '/images/venue-red.png',
+      :picture => '/images/icons/venue-red.png',
       :width   => 32,
       :height  => 40
       })
     end
 
-    @neargooglemaplocation=@venue.nearbys(10)
-
-    @json2= @neargooglemaplocation.to_gmaps4rails do |venue, marker|
+    @json2= @venue.nearbys(10).to_gmaps4rails do |venue, marker|
       marker.picture({
-      :picture => "/images/venue-blue.png",
+      :picture => "/images/icons/venue-blue.png",
       :width   => 32,
       :height  => 40
       })
