@@ -39,6 +39,14 @@ puts "Band Member : #{user_3.first_name} #{user_3.last_name}"
 user_4 = User.create! email: "manager@venue1.com", password: "testtest", password_confirmation: "testtest", first_name: "Elisa", last_name: "Ferry", :role => "venue_manager"
 puts "Venue Manager : #{user_4.first_name} #{user_4.last_name}"
 
+user_5 = User.create! email: "manager@venue2.com", password: "testtest", password_confirmation: "testtest", first_name: "Eric", last_name: "Oliver", :role => "venue_manager"
+puts "Venue Manager : #{user_5.first_name} #{user_5.last_name}"
+
+user_6 = User.create! email: "manager@venue3.com", password: "testtest", password_confirmation: "testtest", first_name: "James", last_name: "Dicken", :role => "venue_manager"
+puts "Venue Manager : #{user_6.first_name} #{user_6.last_name}"
+
+venue_managers = [user_4, user_5, user_6]
+
 # Default VENUE
 puts "VENUE"
 for n in 1..14 do
@@ -52,8 +60,9 @@ for n in 1..14 do
     #{venue.country}"
 
     #Adds Default MANAGERSHIP
-    venue.managerships.create! user_id: user_4.id, is_admin: true
-    puts "#{user_4.first_name} #{user_4.last_name} is Manager of the venue #{venue.name}"
+    manager = venue_managers.sample
+    venue.managerships.create! user_id: manager.id, is_admin: true
+    puts "#{manager.first_name} #{manager.last_name} is Manager of the venue #{venue.name}"
   else
     puts "Error for Venue #{n} :
     #{venue.name} #{venue.address_1}"
