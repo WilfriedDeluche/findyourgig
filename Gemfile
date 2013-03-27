@@ -17,6 +17,7 @@ gem 'rolify'
 gem 'json'
 
 gem 'geocoder'
+gem 'gmaps4rails'
 
 gem 'carmen', git: 'git://github.com/jim/carmen.git'
 gem 'carmen-rails', git: 'git://github.com/jim/carmen-rails.git'

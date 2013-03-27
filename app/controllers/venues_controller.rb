@@ -19,6 +19,28 @@ class VenuesController < ApplicationController
   def show
     nearby = @venue.nearbys(10)
     @nearby_venues = nearby.sort { |a,b| a.distance.to_f <=> b.distance.to_f } unless nearby.nil?
+
+    gmap_selected_venue = @venue.to_gmaps4rails do |venue, marker|
+      marker.picture({
+      :picture => '/images/icons/venue-red.png',
+      :width   => 32,
+      :height  => 40
+      })
+    end
+
+    gmap_nearby_venues = {}
+    unless nearby.nil?
+      gmap_nearby_venues = nearby.to_gmaps4rails do |venue, marker|
+        marker.picture({
+        :picture => "/images/icons/venue-blue.png",
+        :width   => 32,
+        :height  => 40
+        })
+      end
+    end
+
+    @gmap_full_venues = (JSON.parse(gmap_selected_venue) + JSON.parse(gmap_nearby_venues)).to_json
+
     respond_with @venue
   end
 
