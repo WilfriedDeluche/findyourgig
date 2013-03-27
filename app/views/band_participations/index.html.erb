@@ -1,0 +1,32 @@
+<h2><%= t('menu_my_bands') %></h2>
+
+<% if @participations.any? %>
+  <table class="table table-bordered table-striped">
+
+  <% @participations.each do |participation| %>
+  <tr>
+    <td>
+      <h4><%= link_to participation.band.name, participation.band %></h4>
+      <%= participation.band.creation_year %><br />
+      <%= participation.band.city %><br />
+      <br />
+      <%= t('.date_join') %> <strong><%= l(participation.date_joined) %></strong><br />
+      <strong><%= pluralize(participation.band.band_participations.count, t('.member')) %></strong>
+
+      <%= link_to t('.leave_band'), band_participation_path(participation), method: :delete, confirm: t('are_u_sure'), class: "btn btn-small btn-warning pull-right" %>
+      <% if participation.is_admin %>
+        <%= link_to t('remove'), participation.band, method: :delete, data: { confirm: t('are_u_sure') }, class: "btn btn-small btn-danger pull-right" %>
+        <%= link_to t('edit'), edit_band_path(participation.band), class: "btn btn-small btn-success pull-right" %>
+        <%= link_to t('.members'), members_band_path(participation.band), class: "btn btn-small pull-right" %>
+      <% end %>
+      <%= link_to t('.see_band_page'), participation.band, class: "btn btn-small btn-info pull-right" %>
+    </td>    
+  </tr>
+  <% end %>
+
+  </table>
+<% else %>
+  <div class="alert alert-info"><%= t('no_result') %></div>
+<% end %>
+
+<%= render 'sidebar' %>

@@ -15,11 +15,28 @@ en:
   search: "Search"
   ok: "OK"
   menu: "Navigation"
+  page_unknown: "This page does not exist"
+  unprocessable_action: "The requested action could not be processed because it is incorrect or forbidden."
+
+  menu_bands: "Bands"
+  menu_my_bands: "My Bands"
 
   # BANDS
   band_unknown: "Band does not exist."
   band_updated: "Band was successfully updated."
   band_created: "Band was successfully created."
+  already_participates: "You are already a member of this band."
+  band_participation_request_sent: "Your participation request has been successfully sent."
+  band_participation_request_could_not_be_sent: "Your participation request could not be sent."
+
+  # BAND PARTICIPATIONS
+  band_participation_removed: "You are no longer part of the band %{band}."
+  band_participation_request_pending: "Your participation request to this band is pending."
+  band_participation_unknown: "Member does not exist."
+  user_rights_is_admin: "Member <strong>%{user}</strong> is now administrator."
+  user_rights_not_admin: "Member <strong>%{user}</strong> is no longer administrator."
+  member_activated: "%{user} is now member of the band."
+  member_already_activated: "%{user} is already member of the band."
 
   # SIDEBAR
   menu_bands: "Bands"
@@ -87,8 +104,24 @@ en:
       created_in: "Created in"
       from: "Based in"
       edit_band: "Edit Band"
+      join_band: "Join Band"
     edit:
       band_page: "Band Page"
+    members:
+      members: "Members"
+      band_page: "Band Page"
+      date_join: "Joined the band on"
+      profile: "Profile"
+      accept_participation: "Accept participation"
+      enable_admin: "Give admin rights"
+      disabled_admin: "Remove admin rights"
+  band_participations:
+    index:
+      see_band_page: "See band page"
+      date_join: "You joined the band on"
+      member: "Member"
+      leave_band: "Leave the band"
+      members: "Band members"
   venues:
     index:
       title: "Venues"

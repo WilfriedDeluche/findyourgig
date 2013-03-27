@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe BandsController do
+  include Devise::TestHelpers
 
   # This should return the minimal set of attributes required to create a valid
   # Band. As you add validations to Band, be sure to
@@ -18,12 +19,20 @@ describe BandsController do
 
   before(:each) do
     @band = FactoryGirl.create(:band, :name => "Erase")
+    @band_2 = FactoryGirl.create(:band, :name => "Bibi")
+
+    @user = FactoryGirl.create(:user, :email => "member@band1.com", :role => "band_member")
+    @user_2 = FactoryGirl.create(:user, :email => "member@band2.com", :role => "band_member")
+
+    @bp = FactoryGirl.create(:band_participation, :user => @user, :band => @band)
+    @bp_2 = FactoryGirl.create(:band_participation, :user => @user_2, :band => @band_2, :is_admin => true) do |bp|
+      bp.pending = false
+    end
   end
 
   describe "GET index" do
 
     before(:each) do
-      @band_2 = FactoryGirl.create(:band, :name => "Bibi")
       @band_3 = FactoryGirl.create(:band, :name => "Dada")
       @band_4 = FactoryGirl.create(:band, :name => "Bobo")
     end
@@ -71,12 +80,19 @@ describe BandsController do
       assigns(:band).should eq @band
       response.should be_success
       response.should render_template "show"
+      flash.now[:info].should be_nil
     end
 
     it "redirect to index when ID unknown" do
       @band.destroy
       get :show, {:id => @band.to_param}, valid_session
       response.should redirect_to bands_url
+    end
+
+    it "displays flash info when current_user is pending member" do
+      sign_in @user
+      get :show, {:id => @band.to_param}
+      flash.now[:info].should_not be_nil
     end
   end
 
@@ -91,10 +107,28 @@ describe BandsController do
 
   describe "GET edit" do
     it "assigns the requested band as @band" do
-      get :edit, {:id => @band.to_param}, valid_session
-      assigns(:band).should eq @band
+      sign_in @user_2
+      get :edit, {:id => @band_2.to_param}
+      assigns(:band).should eq @band_2
       response.should be_success
       response.should render_template "edit"
+    end
+  end
+
+  describe "GET members" do
+    it "assigns band members" do
+      @bp_3 = FactoryGirl.create(:band_participation, :user => @user, :band => @band_2)
+      sign_in @user_2
+
+      get :members, {:id => @band_2.to_param}
+      assigns(:band).should eq @band_2
+      response.should be_success
+      response.should render_template "members"
+
+      assigns(:members).size.should eq 2
+      assigns(:members).should_not include @bp
+      assigns(:members).should include @bp_2
+      assigns(:members).should include @bp_3
     end
   end
 
@@ -136,6 +170,9 @@ describe BandsController do
   end
 
   describe "PUT update" do
+
+    before(:each) { sign_in @user_2 }
+
     describe "with valid params" do
       it "updates the requested band" do
         # Assuming there are no other bands in the database, this
@@ -143,17 +180,17 @@ describe BandsController do
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         Band.any_instance.should_receive(:update_attributes).with({ "name" => "Bandddd" })
-        put :update, {:id => @band.to_param, :band => { "name" => "Bandddd" }}, valid_session
+        put :update, {:id => @band_2.to_param, :band => { "name" => "Bandddd" }}
       end
 
       it "assigns the requested band as @band" do
-        put :update, {:id => @band.to_param, :band => valid_attributes}, valid_session
-        assigns(:band).should eq @band
+        put :update, {:id => @band_2.to_param, :band => valid_attributes}
+        assigns(:band).should eq @band_2
       end
 
       it "redirects to the band" do
-        put :update, {:id => @band.to_param, :band => valid_attributes}, valid_session
-        response.should redirect_to @band
+        put :update, {:id => @band_2.to_param, :band => valid_attributes}
+        response.should redirect_to @band_2
       end
     end
 
@@ -161,29 +198,74 @@ describe BandsController do
       it "assigns the band as @band" do
         # Trigger the behavior that occurs when invalid params are submitted
         Band.any_instance.stub(:save).and_return(false)
-        put :update, {:id => @band.to_param, :band => { "name" => "" }}, valid_session
-        assigns(:band).should eq @band
+        put :update, {:id => @band_2.to_param, :band => { "name" => "" }}
+        assigns(:band).should eq @band_2
       end
 
       it "re-renders the 'edit' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Band.any_instance.stub(:save).and_return(false)
-        put :update, {:id => @band.to_param, :band => { "name" => "" }}, valid_session
+        put :update, {:id => @band_2.to_param, :band => { "name" => "" }}
         response.should render_template "edit"
       end
     end
   end
 
+  describe "PUT request_participation" do
+
+    it "should not work if user already member" do
+      sign_in @user
+      put :request_participation, {:id => @band.to_param}
+      response.should redirect_to band_participations_path
+      flash[:alert].should_not be_nil
+    end
+
+    it "should add pending participation to user" do
+      sign_in @user
+      put :request_participation, {:id => @band_2.to_param}
+      assigns(:participation).should be_pending
+      response.should redirect_to @band_2
+      flash[:notice].should_not be_nil
+    end
+
+    it "should not add pending participation when user does not have role band_member" do
+      @user_3 = FactoryGirl.build(:user, :email => "admin_3@user.com", :role => "admin") do |u|
+        u.force_create = true
+      end
+      @user_3.save
+      sign_in @user_3
+      put :request_participation, {:id => @band.to_param}
+      assigns(:participation).should_not be_persisted
+      response.should redirect_to @band
+      flash[:notice].should be_nil
+      flash[:alert].should_not be_nil
+    end
+  end
+
   describe "DELETE destroy" do
+
     it "destroys the requested band" do
+      sign_in @user_2
       expect {
-        delete :destroy, {:id => @band.to_param}, valid_session
+        delete :destroy, {:id => @band_2.to_param}
       }.to change(Band, :count).by -1
     end
 
     it "redirects to the bands list" do
-      delete :destroy, {:id => @band.to_param}, valid_session
+      sign_in @user_2
+      delete :destroy, {:id => @band_2.to_param}
       response.should redirect_to bands_url
+    end
+  end
+
+  describe "Pages Only ACCESSIBLE to Members Admin" do
+    it "should not be accessible when user not band_member admin" do
+      [:edit, :update, :members, :destroy].each do |action|
+        sign_in @user
+        get action, {:id => @band.to_param, :band => action == :update ? valid_attributes : nil}
+        response.should redirect_to bands_path
+        flash[:alert].should_not be_nil
+      end
     end
   end
 
