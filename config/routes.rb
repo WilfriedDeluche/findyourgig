@@ -1,5 +1,7 @@
 Findyourgig::Application.routes.draw do
 
+  resources :gigs
+
   scope '(:locale)', locale: /en|fr/ do
 
     devise_for :users, path: "profile", path_names: { 

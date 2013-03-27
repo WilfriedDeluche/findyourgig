@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @gig.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @gig.description %>
+</p>
+
+<p>
+  <b>Soundcheck time:</b>
+  <%= @gig.soundcheck_time %>
+</p>
+
+<p>
+  <b>Doors time:</b>
+  <%= @gig.doors_time %>
+</p>
+
+<p>
+  <b>Concert start time:</b>
+  <%= @gig.concert_start_time %>
+</p>
+
+<p>
+  <b>Concert end time:</b>
+  <%= @gig.concert_end_time %>
+</p>
+
+
+<%= link_to 'Edit', edit_gig_path(@gig) %> |
+<%= link_to 'Back', gigs_path %>
