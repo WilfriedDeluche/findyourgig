@@ -35,6 +35,9 @@ class BandsController < ApplicationController
     @band = Band.new(params[:band])
 
     if @band.save
+      @band.band_participations.create user_id: current_user.id, is_admin: true, date_joined: Date.today do |p|
+        p.pending = false
+      end
       redirect_to @band, notice: t('band_created')
     else
       render action: "new"
