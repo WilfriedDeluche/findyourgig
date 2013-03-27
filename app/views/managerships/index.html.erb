@@ -1,0 +1,35 @@
+<h2><%= t('menu_my_venues') %></h2>
+
+<% if @managerships.any? %>
+  <table class="table table-bordered table-striped">
+
+  <% @managerships.each do |managership| %>
+  <tr>
+    <td>
+      <h4><%= link_to managership.venue.name, managership.venue %></h4>
+      <p>
+        <%= managership.venue.address_1 %><br />
+        
+        <% unless managership.venue.address_2.blank? %>        
+          <%= managership.venue.address_2 %><br />
+        <% end %>
+        
+        <%= managership.venue.postal_code %> <%= managership.venue.city %><br />
+
+        <%= Carmen::Country.coded(managership.venue.country).name %>
+      </p>
+
+      <% if managership.is_admin %>
+        <%= link_to t('edit'), edit_venue_path(managership.venue), class: "btn btn-small btn-success pull-right" %>
+      <% end %>
+      <%= link_to t('.see_venue_page'), managership.venue, class: "btn btn-small btn-info pull-right" %>
+    </td>    
+  </tr>
+  <% end %>
+
+  </table>
+<% else %>
+  <div class="alert alert-info"><%= t('no_result') %></div>
+<% end %>
+
+<%= render 'sidebar' %>

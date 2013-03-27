@@ -19,9 +19,6 @@ fr:
   page_unknown: "Cette page n'existe pas"
   unprocessable_action: "L'action demandée n'a pu être effectuée car incorrecte ou interdite."
 
-  menu_bands: "Groupes"
-  menu_my_bands: "Mes Groupes"
-
   # BANDS
   band_unknown: "Le groupe recherché n'existe pas."
   band_updated: "Le groupe a bien été mis à jour."
@@ -42,6 +39,8 @@ fr:
   # SIDEBAR
   menu_bands: "Groupes"
   menu_venues: "Lieux"
+  menu_my_bands: "Mes Groupes"
+  menu_my_venues: "Mes Salles"
 
   # VENUES
   venue_unknown: "Le lieu de concert recherché n'existe pas."
@@ -166,6 +165,9 @@ fr:
       venue_page: "Fiche du lieu"
     form:
       select_country: "Sélectionnez un pays"
+  managerships:
+    index:
+      see_venue_page: "Voir la fiche salle"
 
   helpers:
     select:

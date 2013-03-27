@@ -36,6 +36,9 @@ user_3 = User.create! email: "member@band1.com", password: "testtest", password_
 end
 puts "Band Member : #{user_3.first_name} #{user_3.last_name}"
 
+user_4 = User.create! email: "manager@venue1.com", password: "testtest", password_confirmation: "testtest", first_name: "Elisa", last_name: "Ferry", :role => "venue_manager"
+puts "Venue Manager : #{user_4.first_name} #{user_4.last_name}"
+
 # Default VENUE
 puts "VENUE"
 for n in 1..14 do
@@ -47,6 +50,10 @@ for n in 1..14 do
     #{venue.address_1} 
     #{venue.postal_code} #{venue.city} 
     #{venue.country}"
+
+    #Adds Default MANAGERSHIP
+    venue.managerships.create! user_id: user_4.id, is_admin: true
+    puts "#{user_4.first_name} #{user_4.last_name} is Manager of the venue #{venue.name}"
   else
     puts "Error for Venue #{n} :
     #{venue.name} #{venue.address_1}"
