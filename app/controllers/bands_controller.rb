@@ -1,7 +1,9 @@
 class BandsController < ApplicationController
+  before_filter :authenticate_user!, except: [:index, :show]
   before_filter :find_band, only: [:show, :edit, :update, :destroy, :request_participation, :members]
   before_filter :find_user_bands, only: [:index, :show, :request_participation, :edit, :update, :destroy, :members]
   before_filter :only_member_admin, only: [:edit, :update, :destroy, :members]
+  before_filter :only_band_member, only: [:new, :create]
   respond_to :html
 
   def index
@@ -87,5 +89,9 @@ class BandsController < ApplicationController
     unless user_signed_in? && @user_bands.detect { |part| part[:band_id] == @band.id && part[:admin] == true }
       redirect_to bands_path, alert: t('page_unknown')
     end
+  end
+
+  def only_band_member
+    redirect_to bands_path, alert: t('page_unknown') unless current_user.roles_list.include?(User::BAND_MEMBER)
   end
 end
