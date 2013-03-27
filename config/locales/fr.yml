@@ -19,9 +19,6 @@ fr:
   page_unknown: "Cette page n'existe pas"
   unprocessable_action: "L'action demandée n'a pu être effectuée car incorrecte ou interdite."
 
-  menu_bands: "Groupes"
-  menu_my_bands: "Mes Groupes"
-
   # BANDS
   band_unknown: "Le groupe recherché n'existe pas."
   band_updated: "Le groupe a bien été mis à jour."
@@ -42,12 +39,20 @@ fr:
   # SIDEBAR
   menu_bands: "Groupes"
   menu_venues: "Lieux"
+  menu_my_bands: "Mes Groupes"
+  menu_gigs: "Concerts"
 
   # VENUES
   venue_unknown: "Le lieu de concert recherché n'existe pas."
   venue_updated: "Le lieu de concert a bien été mis à jour."
   venue_created: "Le lieu de concert a bien été créé."
   venue_uniqueness: "Un lieu de concert existe déjà pour cette adresse"
+
+  # GIGS
+  gig_unknown: "Le concert recherché n'existe pas."
+  gig_updated: "Le concert a bien été mis à jour."
+  gig_created: "Le concert a bien été créé."
+  #venue_uniqueness: "Un lieu de concert existe déjà pour cette adresse"
 
   # OTHERS
   country_code_does_not_exist: "n'existe pas"
@@ -149,6 +154,19 @@ fr:
       member: "Membre"
       leave_band: "Quitter le groupe"
       members: "Gestion des membres"
+  gigs:
+    index:
+      gigs_starting_with_letter: "Concerts commençant par la lettre"
+      last_ten_gigs_created: "Les 10 derniers concerts"
+      create_gig: "Créer un concert"
+      see_gig_page: "Voir la fiche concert"
+    show:
+      edit_gig: "Modifier Concert"
+    new:
+      new_gig: "Nouveau Concert"
+    edit:
+      gig_page: "Fiche Concert"
+
   venues:
     index:
       title: "Groupes"

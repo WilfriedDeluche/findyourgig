@@ -19,9 +19,6 @@ en:
   page_unknown: "This page does not exist"
   unprocessable_action: "The requested action could not be processed because it is incorrect or forbidden."
 
-  menu_bands: "Bands"
-  menu_my_bands: "My Bands"
-
   # BANDS
   band_unknown: "Band does not exist."
   band_updated: "Band was successfully updated."
@@ -42,12 +39,20 @@ en:
   # SIDEBAR
   menu_bands: "Bands"
   menu_venues: "Venues"
+  menu_my_bands: "My Bands"
+  menu_gigs: "Gigs"
 
   # VENUES
-  venue_unknown: "Venues does not exist."
-  venue_updated: "Venue was successfully updated."
-  venue_created: "Venue was successfully created."
+  venue_unknown: "The venue does not exist."
+  venue_updated: "The venue was successfully updated."
+  venue_created: "The venue was successfully created."
   venue_uniqueness: "A venue already exists for this address"
+
+  # GIGS
+  gig_unknown: "The gig does not exist."
+  gig_updated: "The gig was successfully updated."
+  gig_created: "The gig was successfully created."
+  #gig_uniqueness: "A venue already exists for this address"
 
   # OTHERS
   country_code_does_not_exist: "does not exist"
@@ -124,6 +129,18 @@ en:
       member: "Member"
       leave_band: "Leave the band"
       members: "Band members"
+  gigs:
+    index:
+      gigs_starting_with_letter: "Gigs with name starting with letter"
+      last_ten_gigs_created: "Last 10 gig"
+      create_gig: "Create a gig"
+      see_gig_page: "See gig page"
+    show:
+      edit_gig: "Edit Gig"
+    new:
+      new_gig: "New Gig"
+    edit:
+      gig_page: "Gig Page"
   venues:
     index:
       title: "Venues"
