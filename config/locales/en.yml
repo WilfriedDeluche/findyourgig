@@ -135,7 +135,7 @@ en:
       telephone: "Phone number"
       email_address: "Email address"
       website: "Website"
-      show: "Show"
+      see_venue_page: "See venue page"
       new_venue: "New venue"
       venues_starting_with_letter: "Venues with name starting with letter"
       last_ten_venues: "Last 10 venues"

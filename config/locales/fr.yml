@@ -151,7 +151,7 @@ fr:
   venues:
     index:
       title: "Groupes"
-      show: "Afficher"
+      see_venue_page: "Voir la fiche salle"
       new_venue: "Nouveau lieu"
       venues_starting_with_letter: "Lieux commençant par la lettre"
       last_ten_venues: "Les 10 derniers lieux"
