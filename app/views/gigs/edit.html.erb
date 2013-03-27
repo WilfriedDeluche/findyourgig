@@ -1,8 +1,4 @@
-<h1>Editing gig</h1>
+<h2 class="page-header"><%= @gig.name %> <%= link_to t('.venue_page'), @gig, class: "btn btn-info pull-right" %></h2>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @gig %> |
-<%= link_to 'Back', gigs_path %>
-
 <%= render 'sidebar' %>

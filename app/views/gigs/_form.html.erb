@@ -1,15 +1,5 @@
 <%= form_for(@gig) do |f| %>
-  <% if @gig.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@gig.errors.count, "error") %> prohibited this gig from being saved:</h2>
-
-      <ul>
-      <% @gig.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= f.error_messages %>
 
   <div class="field">
     <%= f.label :name %><br />
@@ -36,6 +26,6 @@
     <%= f.datetime_select :concert_end_time %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>

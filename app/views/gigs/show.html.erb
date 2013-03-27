@@ -1,7 +1,8 @@
-<p id="notice"><%= notice %></p>
+<h2 class="page-header"><%= @gig.name %> <%= link_to t('.edit_gig'), edit_gig_path(@gig), class: "btn btn-success pull-right" %></h2>
+
 
 <p>
-  <b>Name:</b>
+  <b><%= t('.gig_name')%>:</b>
   <%= @gig.name %>
 </p>
 
@@ -11,27 +12,23 @@
 </p>
 
 <p>
-  <b>Soundcheck time:</b>
+  <b><%= t('.soundcheck_time')%>:</b>
   <%= @gig.soundcheck_time %>
 </p>
 
 <p>
-  <b>Doors time:</b>
+  <b><%= t('.doors_time')%>:</b>
   <%= @gig.doors_time %>
 </p>
 
 <p>
-  <b>Concert start time:</b>
+  <b><%= t('.concert_start_time')%>:</b>
   <%= @gig.concert_start_time %>
 </p>
 
 <p>
-  <b>Concert end time:</b>
+  <b><%= t('.concert_end_time')%>:</b>
   <%= @gig.concert_end_time %>
 </p>
-
-
-<%= link_to 'Edit', edit_gig_path(@gig) %> |
-<%= link_to 'Back', gigs_path %>
 
 <%= render 'sidebar' %>

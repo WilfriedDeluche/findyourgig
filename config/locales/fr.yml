@@ -166,7 +166,6 @@ fr:
       new_gig: "Nouveau Concert"
     edit:
       gig_page: "Fiche Concert"
-
   venues:
     index:
       title: "Groupes"
@@ -203,4 +202,8 @@ fr:
     abbr_day_names: [dim, lun, mar, mer, jeu, ven, sam]
     month_names: [~, Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre]
     abbr_month_names: [~, Jan., Fév., Mar., Avr., Mai, Juin, Juil., Août, Sept., Oct., Nov., Déc.]
+    order:
+    - :year
+    - :month
+    - :day
 

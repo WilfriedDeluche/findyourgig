@@ -1,83 +1,67 @@
 class GigsController < ApplicationController
-  # GET /gigs
-  # GET /gigs.json
-  def index
-    @gigs = Gig.all
+  before_filter :find_gig, only: [:show, :edit, :update, :destroy]
+  respond_to :html
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @gigs }
+  # GET /gigs
+  def index
+    if params[:search]
+      search = Regexp.escape params[:search]
+      @gigs = Gig.all({:conditions => ["lower(name) LIKE ?", "%#{search.downcase}%"]})
+    elsif params[:by_letter]
+      @gigs = Gig.by_letter(params[:by_letter].downcase)
+    else
+      @gigs = Gig.limit(10)
     end
+    respond_with @gigs
   end
 
   # GET /gigs/1
-  # GET /gigs/1.json
   def show
-    @gig = Gig.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @gig }
-    end
+    respond_with @gig
   end
 
   # GET /gigs/new
-  # GET /gigs/new.json
   def new
     @gig = Gig.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @gig }
-    end
+    respond_with @gig
   end
 
   # GET /gigs/1/edit
   def edit
-    @gig = Gig.find(params[:id])
   end
 
   # POST /gigs
-  # POST /gigs.json
   def create
     @gig = Gig.new(params[:gig])
 
-    respond_to do |format|
-      if @gig.save
-        format.html { redirect_to @gig, notice: 'Gig was successfully created.' }
-        format.json { render json: @gig, status: :created, location: @gig }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @gig.errors, status: :unprocessable_entity }
-      end
+    if @gig.save
+      redirect_to @band, notice: t('band_created')
+    else
+      render action: "new"
     end
   end
 
   # PUT /gigs/1
-  # PUT /gigs/1.json
   def update
-    @gig = Gig.find(params[:id])
-
-    respond_to do |format|
-      if @gig.update_attributes(params[:gig])
-        format.html { redirect_to @gig, notice: 'Gig was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @gig.errors, status: :unprocessable_entity }
-      end
+    if @gig.update_attributes(params[:gig])
+      redirect_to @gig, notice: t('gig_updated')
+    else
+      render action: "edit"
     end
   end
 
   # DELETE /gigs/1
-  # DELETE /gigs/1.json
   def destroy
-    @gig = Gig.find(params[:id])
     @gig.destroy
+    redirect_to gigs_url
+  end
 
-    respond_to do |format|
-      format.html { redirect_to gigs_url }
-      format.json { head :no_content }
+  private
+  def find_gig
+    begin
+      @gig = Gig.find(params[:id])
+    rescue
+      redirect_to gigs_url, alert: t('gig_unknown')
     end
   end
 end
