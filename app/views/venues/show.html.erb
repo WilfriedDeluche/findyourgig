@@ -1,4 +1,7 @@
+<%= stylesheet_link_tag 'gmaps4rails' %>
 <h2 class="page-header"><%= @venue.name %> <%= link_to t('.edit_venue'), edit_venue_path(@venue), class: "btn btn-success pull-right" %></h2>
+
+<%= gmaps("map_options" => { "detect_location" => false, "center_on_user" => false, "zoom" => 16},"markers" => { "data" => @gmap_full_venues }) %>
 
 <p>
   <%= @venue.address_1 %><br />
@@ -11,8 +14,6 @@
 
   <%= Carmen::Country.coded(@venue.country).name %>
 </p>
-
-<br />
 
 <p>
   <strong><%= Venue.human_attribute_name(:telephone) %> :</strong>  
@@ -41,12 +42,11 @@
   <% end %>
 </p>
 
-
 <h4><%= t('.nearby_venues') %></h4>
 <% unless @nearby_venues.empty? %>
 <ul>
   <% for location in @nearby_venues %>
-  <li><%= link_to location.address, location %> (<%= distance_display(location) %>)</li>
+  <li><%= link_to location.name + " (" + location.address + ")", location %> (<%= distance_display(location) %>)</li>
 <% end %>
 </ul>
 <% else %>
@@ -54,4 +54,3 @@
 <% end %>
 
 <%= render 'sidebar' %>
-
