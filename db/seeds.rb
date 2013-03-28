@@ -11,6 +11,8 @@ bands = ["Erase", "Groupe Sans Gain", "Fifteen Scars", "Jackson 5", "Little Mix"
 venues = ["Alhambra", "Bataclan", "Batofar", "Black Dog", "Elysée Montmartre", "Guinness Tavern", "La Boule Noire", "La Maroquinerie", "Le Bateau Ivre", "Le Divan du Monde", "Le Gibus", "Le Klub", "Le Trabendo", "New Morning"]
 venue_addresses = ["21 Rue Yves Toudic", "50 Boulevard Voltaire", "Port de la Gare", "26 Rue des Lombards", "72 Boulevard de Rochechouart", "31 Rue des Lombards", "120 Boulevard de Rochechouart", "23 Rue Boyer", "40 Rue Descartes", "75 Rue des Martyrs", "18 Rue du Faubourg du Temple", "14 rue Saint-Denis", "211 Avenue Jean Jaurès", "7-9 Rue des Petites Écuries"]
 venue_postal_codes = ["75010", "75010", "75013", "75004", "75018", "75001", "75018", "75020", "75005", "75018", "75011", "75001", "75019", "75010"]
+venue_latitudes = [48.8706729, 48.863063, 48.8348253, 48.8594245, 48.8829464, 48.8596071, 48.8822048, 48.8686811, 48.8456217, 48.8824218, 48.868199, 48.859013, 48.8890923, 48.8731796]
+venue_longitudes = [2.3630652, 2.370815, 2.3771892, 2.3491133, 2.3437224, 2.3483502, 2.3401297, 2.3921303, 2.3491096, 2.3396141, 2.366387, 2.3478007, 2.394432, 2.353238]
 
 # Roles
 puts "ROLES"
@@ -50,24 +52,22 @@ venue_managers = [user_4, user_5, user_6]
 # Default VENUE
 puts "VENUE"
 for n in 1..14 do
-	venue = Venue.new name: venues[n-1], address_1: venue_addresses[n-1], address_2: "", postal_code: venue_postal_codes[n-1], city: "Paris", country: "FR", telephone: "", email_address: "", website: ""
-  if venue.valid?
-    venue.save
-    puts "Venue #{n}: 
-    #{venue.name} 
-    #{venue.address_1} 
-    #{venue.postal_code} #{venue.city} 
-    #{venue.country}"
-
-    #Adds Default MANAGERSHIP
-    manager = venue_managers.sample
-    venue.managerships.create! user_id: manager.id, is_admin: true
-    puts "#{manager.first_name} #{manager.last_name} is Manager of the venue #{venue.name}"
-  else
-    puts "Error for Venue #{n} :
-    #{venue.name} #{venue.address_1}"
-    puts venue.errors.full_messages
+	venue = Venue.create name: venues[n-1], address_1: venue_addresses[n-1], address_2: "", postal_code: venue_postal_codes[n-1], city: "Paris", country: "FR", telephone: "", email_address: "", website: "" do |venue|
+    venue.skip_geocoding = true
+    venue.latitude = venue_latitudes[n-1]
+    venue.longitude = venue_longitudes[n-1]
   end
+
+  puts "Venue #{n}:
+  #{venue.name} 
+  #{venue.address_1} 
+  #{venue.postal_code} #{venue.city} 
+  #{venue.country}"
+
+  #Adds Default MANAGERSHIP
+  manager = venue_managers.sample
+  venue.managerships.create! user_id: manager.id, is_admin: true
+  puts "#{manager.first_name} #{manager.last_name} is Manager of the venue #{venue.name}" 
 end
 
 # Default BANDS

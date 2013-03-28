@@ -20,7 +20,7 @@ class VenuesController < ApplicationController
 
   def show
     nearby = @venue.nearbys(10)
-    @nearby_venues = nearby.sort { |a,b| a.distance.to_f <=> b.distance.to_f } unless nearby.nil?
+    @nearby_venues = nearby.nil? ? [] : nearby.sort { |a,b| a.distance.to_f <=> b.distance.to_f }
 
     gmap_selected_venue = @venue.to_gmaps4rails do |venue, marker|
       marker.picture({
@@ -30,7 +30,7 @@ class VenuesController < ApplicationController
       })
     end
 
-    gmap_nearby_venues = {}
+    gmap_nearby_venues = "[]"
     unless nearby.nil?
       gmap_nearby_venues = nearby.to_gmaps4rails do |venue, marker|
         marker.picture({

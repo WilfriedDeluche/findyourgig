@@ -47,6 +47,7 @@ en:
   venue_updated: "Venue was successfully updated."
   venue_created: "Venue was successfully created."
   venue_uniqueness: "A venue already exists for this address"
+  unknown_gmaps_address: "Sorry, not even Google could figure out where that is"
 
   # OTHERS
   country_code_does_not_exist: "does not exist"
@@ -75,6 +76,7 @@ en:
         telephone: "Phone number"
         email_address: "Email address"
         website: "Website"
+        gmaps4rails_address: "Gmaps Address"
       band:
         name: "Band name"
         description: "Description"
