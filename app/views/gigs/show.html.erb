@@ -2,7 +2,7 @@
 
 
 <p>
-  <b><%= t('.gig_name')%>:</b>
+  <b><%= Gig.human_attribute_name(:name) %>:</b>
   <%= @gig.name %>
 </p>
 
@@ -12,22 +12,22 @@
 </p>
 
 <p>
-  <b><%= t('.soundcheck_time')%>:</b>
+  <b><%= Gig.human_attribute_name(:soundcheck_time) %>:</b>
   <%= @gig.soundcheck_time %>
 </p>
 
 <p>
-  <b><%= t('.doors_time')%>:</b>
+  <b><%= Gig.human_attribute_name(:doors_time) %>:</b>
   <%= @gig.doors_time %>
 </p>
 
 <p>
-  <b><%= t('.concert_start_time')%>:</b>
+  <b><%= Gig.human_attribute_name(:concert_start_time) %>:</b>
   <%= @gig.concert_start_time %>
 </p>
 
 <p>
-  <b><%= t('.concert_end_time')%>:</b>
+  <b><%= Gig.human_attribute_name(:concert_end_time) %>:</b>
   <%= @gig.concert_end_time %>
 </p>
 

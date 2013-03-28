@@ -62,6 +62,7 @@ en:
       user: "User"
       band: "Band"
       venue: "Venue"
+      gig: "Gig"
     attributes:
       user:
         first_name: "First name"
@@ -86,6 +87,13 @@ en:
         description: "Description"
         creation_year: "Created in"
         city: "City"
+      gig:
+        name: "Nom"
+        description: "Description"
+        soundcheck_time: "Soundcheck time"
+        doors_time: "Doors time"
+        concert_start_time: "Concert start"
+        concert_end_time: "Concert end"
 
   layouts:
     application:
@@ -132,7 +140,7 @@ en:
   gigs:
     index:
       gigs_starting_with_letter: "Gigs with name starting with letter"
-      last_ten_gigs_created: "Last 10 gig"
+      last_ten_gigs_created: "Last 10 gig added"
       create_gig: "Create a gig"
       see_gig_page: "See gig page"
     show:

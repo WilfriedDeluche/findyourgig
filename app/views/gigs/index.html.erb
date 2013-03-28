@@ -11,7 +11,7 @@
 <% if params[:by_letter] %>
   <h2><%= t('.gigs_starting_with_letter') %> <%= params[:by_letter].upcase %></h2>
 <% else %>
-  <h2><%= t('.last_ten_gigs') %></h2>
+  <h2><%= t('.last_ten_gigs_created') %></h2>
 <% end %>
 
 <%= form_tag({controller: "gigs", action: "index"}, method: "get", class: "form-search pull-right") do %>
@@ -34,8 +34,8 @@
         <% else %>
           <em><%= t('no_description') %></em>
         <% end %><br />
-        <%= t('.doors_time') %> : <%= gig.doors_time %><br />
-        <%= t('.concert_end_time') %> : <%= gig.concert_start_time %><br />
+        <%= Gig.human_attribute_name(:doors_time) %> : <%= gig.doors_time %><br />
+        <%= Gig.human_attribute_name(:concert_end_time) %> : <%= gig.concert_start_time %><br />
         <%= link_to t('.see_gig_page'), gig, class: "btn btn-small btn-info pull-right" %>
       </td>
     </tr>
