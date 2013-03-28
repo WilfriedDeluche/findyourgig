@@ -13,6 +13,7 @@ describe ErrorMessagesHelper do
     before(:each) { @template = MockView.new }
 
     it 'should display multiple errors hash in a list' do
+      I18n.locale = :fr
       band = FactoryGirl.build(:band, :name => "")
       band.valid?
       msg = band.errors.full_messages[0]

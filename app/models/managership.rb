@@ -5,6 +5,7 @@ class Managership < ActiveRecord::Base
 
   attr_accessible :user_id, :venue_id, :is_admin
 
+  validates_presence_of :venue_id, :user_id
   validates_uniqueness_of :venue_id, scope: :user_id
   validate :user_has_role_venue_manager
 

@@ -1,15 +1,5 @@
 require 'spec_helper'
 
-# Specs in this file have access to a helper object that includes
-# the ManagershipsHelper. For example:
-#
 # describe ManagershipsHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       helper.concat_strings("this","that").should == "this that"
-#     end
-#   end
+#   pending "add some examples to (or delete) #{__FILE__}"
 # end
-describe ManagershipsHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
-end

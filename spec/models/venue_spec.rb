@@ -21,9 +21,12 @@ describe Venue do
   end
 
   it "should render correct attributes" do
-    venue = FactoryGirl.create(:venue)
-    venue.name.should         eq "Hotel Meurise"
-    venue.address_1.should    eq "12, rue de Rivoli"
+    venue = FactoryGirl.create(:venue) do |venue|
+      venue.skip_geocoding = true
+    end
+    
+    venue.name.should         include "Hotel"
+    venue.address_1.should    include "rue de Rivoli"
     venue.postal_code.should  eq "75001"
     venue.city.should         eq "Paris"
     venue.country.should      eq "FR"
@@ -33,10 +36,14 @@ describe Venue do
   end
 
   it "should validates uniqueness of both address_1 and city" do
-    venue = FactoryGirl.create(:venue, :address_1 => "1, rue de Versailles", :city => "Paris")
+    venue = FactoryGirl.create(:venue, :address_1 => "1, rue de Versailles", :city => "Paris") do |venue|
+      venue.skip_geocoding = true
+    end
     venue.should be_valid
 
-    venue_2 = FactoryGirl.build(:venue, :address_1 => "1, rue de Versailles", :city => "Paris")
+    venue_2 = FactoryGirl.build(:venue, :address_1 => "1, rue de Versailles", :city => "Paris") do |venue|
+      venue.skip_geocoding = true
+    end
     venue_2.should be_invalid
     venue_2.should have(1).error_on(:address_1)
   end
