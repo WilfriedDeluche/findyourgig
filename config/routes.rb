@@ -21,6 +21,8 @@ Findyourgig::Application.routes.draw do
       put 'activate', on: :member
     end
 
+    resources :managerships, path: "my_venues", only: [:index]
+
     resources :venues
 
     root to: "home#index"

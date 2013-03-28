@@ -19,9 +19,6 @@ fr:
   page_unknown: "Cette page n'existe pas"
   unprocessable_action: "L'action demandée n'a pu être effectuée car incorrecte ou interdite."
 
-  menu_bands: "Groupes"
-  menu_my_bands: "Mes Groupes"
-
   # BANDS
   band_unknown: "Le groupe recherché n'existe pas."
   band_updated: "Le groupe a bien été mis à jour."
@@ -42,12 +39,15 @@ fr:
   # SIDEBAR
   menu_bands: "Groupes"
   menu_venues: "Lieux"
+  menu_my_bands: "Mes Groupes"
+  menu_my_venues: "Mes Salles"
 
   # VENUES
   venue_unknown: "Le lieu de concert recherché n'existe pas."
   venue_updated: "Le lieu de concert a bien été mis à jour."
   venue_created: "Le lieu de concert a bien été créé."
   venue_uniqueness: "Un lieu de concert existe déjà pour cette adresse"
+  unknown_gmaps_address: "Désolé, Google n'a pas réussi à localiser votre adresse"
 
   # OTHERS
   country_code_does_not_exist: "n'existe pas"
@@ -76,6 +76,7 @@ fr:
         telephone: "Téléphone"
         email_address: "Adresse électronique"
         website: "Site internet"
+        gmaps4rails_address: "Addresse Gmaps"
       band:
         name: "Nom du groupe"
         description: "Description"
@@ -152,7 +153,7 @@ fr:
   venues:
     index:
       title: "Groupes"
-      show: "Afficher"
+      see_venue_page: "Voir la fiche salle"
       new_venue: "Nouveau lieu"
       venues_starting_with_letter: "Lieux commençant par la lettre"
       last_ten_venues: "Les 10 derniers lieux"
@@ -166,6 +167,9 @@ fr:
       venue_page: "Fiche du lieu"
     form:
       select_country: "Sélectionnez un pays"
+  managerships:
+    index:
+      see_venue_page: "Voir la fiche salle"
 
   helpers:
     select:

@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :venue do |v|
-    v.name "Hotel Meurise"
-    v.address_1 "12, rue de Rivoli"
+    v.sequence(:name, 1) { |n| "Hotel #{n}" }
+    v.sequence(:address_1, 1) { |n| "#{n}, rue de Rivoli" }
     v.address_2 ""
     v.postal_code "75001"
     v.city "Paris"
