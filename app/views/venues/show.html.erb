@@ -1,6 +1,7 @@
 <%= stylesheet_link_tag 'gmaps4rails' %>
 <h2 class="page-header"><%= @venue.name %> <%= link_to t('.edit_venue'), edit_venue_path(@venue), class: "btn btn-success pull-right" %></h2>
 
+<%= link_to t('.add_gig'), new_gig_path, class: "btn btn-primary pull-right" %>
 <%= gmaps("map_options" => { "detect_location" => false, "center_on_user" => false, "zoom" => 16},"markers" => { "data" => @gmap_full_venues }) %>
 
 <p>

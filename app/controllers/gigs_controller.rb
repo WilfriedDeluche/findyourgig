@@ -35,7 +35,7 @@ class GigsController < ApplicationController
     @gig = Gig.new(params[:gig])
 
     if @gig.save
-      redirect_to @band, notice: t('band_created')
+      redirect_to @gig, notice: t('gig_created')
     else
       render action: "new"
     end

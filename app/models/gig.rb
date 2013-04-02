@@ -4,7 +4,7 @@ class Gig < ActiveRecord::Base
   
   belongs_to :venue
 
-  attr_accessible :concert_end_time, :concert_start_time, :description, :doors_time, :name, :soundcheck_time
+  attr_accessible :concert_end_time, :concert_start_time, :description, :doors_time, :name, :soundcheck_time, :venue_id
 
-  validates_presence_of :concert_start_time, :description, :doors_time, :name
+  validates_presence_of :concert_start_time, :description, :doors_time, :name, :venue_id
 end

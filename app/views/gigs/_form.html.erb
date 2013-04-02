@@ -8,7 +8,11 @@
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_area :description %>
-  </div>
+  </div> 
+  <p>
+    <label for="gig_venue_id">Venue:</label>
+    <%= f.collection_select :venue_id, @venues, :id, :name, :prompt => "Select a Venue" %>
+  </p>
   <div class="field">
     <%= f.label :soundcheck_time %><br />
     <%= f.datetime_select :soundcheck_time %>

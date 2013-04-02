@@ -12,6 +12,11 @@
 </p>
 
 <p>
+  <b><%= Gig.human_attribute_name(:venue) %>:</b>
+  <%= @gig.venue.name %>
+</p>
+
+<p>
   <b><%= Gig.human_attribute_name(:soundcheck_time) %>:</b>
   <%= @gig.soundcheck_time %>
 </p>

@@ -169,6 +169,7 @@ en:
       edit_venue: "Edit Venue"
       nearby_venues: "Nearby Venues"
       no_nearby_venues: "No nearby venues"
+      add_gig: "Add a new gig"
     new:
       new_venue: "New Venue"
     edit:

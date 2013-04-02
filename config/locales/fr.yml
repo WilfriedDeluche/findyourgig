@@ -186,6 +186,7 @@ fr:
       edit_venue: "Modifier lieu"
       nearby_venues: "Salles à proximité"
       no_nearby_venues: "Pas de lieu de concert à proximité"
+      add_gig: "Ajouter un concert"
     new:
       new_venue: "Nouveau lieu"
     edit:
