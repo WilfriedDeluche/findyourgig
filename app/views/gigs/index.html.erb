@@ -34,7 +34,7 @@
         <% else %>
           <em><%= t('no_description') %></em>
         <% end %><br />
-        <%= Gig.human_attribute_name(:venue) %> : <%= gig.venue.name %><br />
+        <%= Venue.model_name.human %> : <%= gig.venue.name %><br />
         <%= Gig.human_attribute_name(:doors_time) %> : <%= gig.doors_time %><br />
         <%= Gig.human_attribute_name(:concert_end_time) %> : <%= gig.concert_start_time %><br />
         <%= link_to t('.see_gig_page'), gig, class: "btn btn-small btn-info pull-right" %>
