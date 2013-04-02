@@ -7,6 +7,7 @@ class CreateGigs < ActiveRecord::Migration
       t.datetime :doors_time
       t.datetime :concert_start_time
       t.datetime :concert_end_time
+      t.integer :venue_id
 
       t.timestamps
     end

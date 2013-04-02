@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20130327150733) do
     t.datetime "doors_time"
     t.datetime "concert_start_time"
     t.datetime "concert_end_time"
+    t.integer  "venue_id"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
   end
