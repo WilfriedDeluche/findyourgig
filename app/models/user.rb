@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
 
   has_many :band_participations, dependent: :destroy
   has_many :bands, through: :band_participations
+  has_many :managerships, dependent: :destroy
+  has_many :venue, through: :managerships
 
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :role
   attr_accessor :role
