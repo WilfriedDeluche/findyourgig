@@ -22,7 +22,8 @@ class GigsController < ApplicationController
 
   # GET /gigs/new
   def new
-    @gig = Gig.new
+    @my_venue ||= params[:venue_id]
+    @gig = Gig.new(:venue_id => @my_venue)
     respond_with @gig
   end
 
