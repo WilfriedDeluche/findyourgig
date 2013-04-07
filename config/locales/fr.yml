@@ -163,8 +163,13 @@ fr:
       last_ten_venues: "Les 10 derniers lieux"
     show:
       edit_venue: "Modifier lieu"
+      main_information: "Informations"
       nearby_venues: "Salles à proximité"
       no_nearby_venues: "Pas de lieu de concert à proximité"
+      pictures: "Photos"
+      no_pictures: "Aucune photo pour cette salle"
+      upload_images: "Ajouter des photos"
+      all_images: "Voir toutes les photos"
     new:
       new_venue: "Nouveau lieu"
     edit:

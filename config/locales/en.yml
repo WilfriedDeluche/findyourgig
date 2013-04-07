@@ -147,8 +147,13 @@ en:
       last_ten_venues: "Last 10 venues"
     show:
       edit_venue: "Edit Venue"
+      main_information: "Information"
       nearby_venues: "Nearby Venues"
       no_nearby_venues: "No nearby venues"
+      pictures: "Pictures"
+      no_pictures: "No picture for this venue"
+      upload_images: "Add pictures"
+      all_images: "See al pictures"
     new:
       new_venue: "New Venue"
     edit:

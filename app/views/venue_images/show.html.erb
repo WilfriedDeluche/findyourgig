@@ -1,0 +1,5 @@
+<h2 class="page-header">
+  <%= @venue.name %> 
+</h2>
+
+<%= image_tag(@venue_image.file_url(:normal)) if @venue_image.file? %>

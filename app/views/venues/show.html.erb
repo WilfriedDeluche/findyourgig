@@ -11,6 +11,8 @@
 
 <%= gmaps("map_options" => { "detect_location" => false, "center_on_user" => false, "zoom" => 16},"markers" => { "data" => @gmap_full_venues }) %>
 
+<h4><%= t('.main_information') %></h4>
+
 <p>
   <%= @venue.address_1 %><br />
   
@@ -64,16 +66,24 @@
 
 <hr />
 
-<% if @venue_images.any? %>
-  <% @venue_images.each do |image| %>
-    <%= image_tag(image.file_url(:thumb)) if image.file? %>
-  <% end %>
-<% else %>
-  <p><%= t('.no_images') %></p>
-<% end %>
+<h4><%= t('.pictures') %> <small>(<%= @nb_images %>)</small></h4>
 
-<% if user_signed_in? && @managerships.detect { |manager| manager.venue_id == @venue.id }%>
-  <%= link_to "Uploader des images", venue_venue_images_path(@venue), class: "btn btn-primary pull-right" %>
+<% if @venue_images.any? %>
+  <p class="thumbs-container">
+    <% @venue_images.each do |image| %>
+      <%= link_to image_tag(image.file_url(:thumb)), venue_venue_image_path(@venue, image) if image.file? %>
+    <% end %>
+  <p>
+  <em><%= link_to t('.all_images'), venue_venue_images_path(@venue), class: "pull-right" %></em>
+  <div class="clearfix"></div>
+<% else %>
+  <div class="alert">
+    <%= t('.no_pictures') %>
+  </div>
+  <% if user_signed_in? && @managerships.detect { |manager| manager.venue_id == @venue.id }%>
+    <%= link_to t('.upload_images'), venue_venue_images_path(@venue), class: "btn btn-primary pull-right" %>
+    <div class="clearfix"></div>
+  <% end %>
 <% end %>
 
 <%= render 'sidebar' %>
