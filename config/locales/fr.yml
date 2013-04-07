@@ -52,6 +52,7 @@ fr:
   # VENUE IMAGES
   image_uploaded: "L'image a été uploadée avec succès."
   image_unknown: "L'image n'existe pas."
+  image_deleted: "L'image a bien été supprimée."
 
   # OTHERS
   country_code_does_not_exist: "n'existe pas"

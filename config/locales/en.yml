@@ -52,6 +52,7 @@ en:
   # VENUE IMAGES
   image_uploaded: "Image has been successfully uploaded."
   image_unknown: "Image does not exist."
+  image_deleted: "Image has been successfully removed."
 
   # OTHERS
   country_code_does_not_exist: "does not exist"

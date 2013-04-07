@@ -1,7 +1,8 @@
 class VenueImagesController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
   before_filter :find_venue
-  before_filter :find_managerships, except: [:show]
+  before_filter :find_venue_image, only: [:show, :destroy]
+  before_filter :find_managerships
   before_filter :only_manager, only: [:create, :destroy]
   respond_to :html
 
@@ -13,14 +14,9 @@ class VenueImagesController < ApplicationController
   end
 
   def show
-    begin
-      @venue_image = @venue.venue_images.find(params[:id])
-      @previous = @venue_image.previous
-      @next = @venue_image.next
-      respond_with @venue_image
-    rescue
-      redirect_to venue_venue_images_path(@venue), alert: t('image_unknown')
-    end
+    @previous = @venue_image.previous
+    @next = @venue_image.next
+    respond_with @venue_image
   end
 
   def create
@@ -30,13 +26,19 @@ class VenueImagesController < ApplicationController
       if @venue_image.save
         format.html { redirect_to venue_venue_images_path(@venue), notice: t('image_uploaded') }
       else
-        format.html { render :action => "index" }
+        format.html do
+          @venue_images = @venue.venue_images.select { |image| image.persisted? }
+          @nb_images = @venue.venue_images.count
+          render :action => "index"
+        end
       end
     end
   end
 
   def destroy
-    
+    @venue_image.remove_file!
+    @venue_image.destroy
+    redirect_to venue_venue_images_path(@venue), notice: t('image_deleted')
   end
 
   private
@@ -45,6 +47,14 @@ class VenueImagesController < ApplicationController
       @venue = Venue.find(params[:venue_id])
     rescue
       redirect_to venues_url, alert: t('venue_unknown')
+    end
+  end
+
+  def find_venue_image
+    begin
+      @venue_image = @venue.venue_images.find(params[:id])
+    rescue
+      redirect_to venue_venue_images_path(@venue), alert: t('image_unknown')
     end
   end
 
