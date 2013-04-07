@@ -62,4 +62,14 @@
   <%= t('.no_nearby_venues') %>
 <% end %>
 
+<hr />
+
+<% if @venue_images.any? %>
+  <% @venue_images.each do |image| %>
+    <%= image_tag(image.file_url(:thumb)) if image.file? %>
+  <% end %>
+<% else %>
+  <p><%= t('.no_images') %></p>
+<% end %>
+
 <%= render 'sidebar' %>
