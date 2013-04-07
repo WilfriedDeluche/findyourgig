@@ -1,5 +1,13 @@
 <h2 class="page-header">
-  <%= @venue.name %> 
+  <%= link_to @venue.name, venue_venue_images_path(@venue) %>
 </h2>
 
+<p class="center thumbs-container">
 <%= image_tag(@venue_image.file_url(:normal)) if @venue_image.file? %>
+</p>
+
+<div class="thumbs-container">
+  <%= link_to image_tag(@previous.file_url(:thumb)), venue_venue_image_path(@venue, @previous), class: "pull-left" if @previous %>
+  <%= link_to image_tag(@next.file_url(:thumb)), venue_venue_image_path(@venue, @next), class: "pull-right" if @next %>
+  <div class="clearfix"></div>
+</div>

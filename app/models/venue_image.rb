@@ -10,4 +10,12 @@ class VenueImage < ActiveRecord::Base
   attr_accessible :file, :is_main, :venue_id, :file_cache, :remote_file_url
 
   validates_presence_of :venue_id, :file
+
+  def previous
+    self.venue.venue_images.where('venue_images.id > ?', self.id).last
+  end
+
+  def next
+    self.venue.venue_images.where('venue_images.id < ?', self.id).first
+  end
 end

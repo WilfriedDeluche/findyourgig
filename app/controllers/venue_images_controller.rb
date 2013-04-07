@@ -15,6 +15,8 @@ class VenueImagesController < ApplicationController
   def show
     begin
       @venue_image = @venue.venue_images.find(params[:id])
+      @previous = @venue_image.previous
+      @next = @venue_image.next
       respond_with @venue_image
     rescue
       redirect_to venue_venue_images_path(@venue), alert: t('image_unknown')
