@@ -49,6 +49,10 @@ fr:
   venue_uniqueness: "Un lieu de concert existe déjà pour cette adresse"
   unknown_gmaps_address: "Désolé, Google n'a pas réussi à localiser votre adresse"
 
+  # VENUE IMAGES
+  image_uploaded: "L'image a été uploadée avec succès."
+  image_unknown: "L'image n'existe pas."
+
   # OTHERS
   country_code_does_not_exist: "n'existe pas"
 

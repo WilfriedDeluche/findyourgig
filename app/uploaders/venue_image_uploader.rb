@@ -12,12 +12,12 @@ class VenueImageUploader < CarrierWave::Uploader::Base
 
   # Override the directory where uploaded files will be stored.
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    "uploads/venues/#{model.venue.id}/venue_images/#{model.id}"
   end
 
   # Create different versions of your uploaded files:
   version :normal do
-    process :resize_to_fill => [800,400]
+    process :resize_to_fit => [800,400]
   end
 
   version :thumb, :from_version => :normal do

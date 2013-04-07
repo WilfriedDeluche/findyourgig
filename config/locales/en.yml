@@ -49,6 +49,10 @@ en:
   venue_uniqueness: "A venue already exists for this address"
   unknown_gmaps_address: "Sorry, not even Google could figure out where that is"
 
+  # VENUE IMAGES
+  image_uploaded: "Image has been successfully uploaded."
+  image_unknown: "Image does not exist."
+
   # OTHERS
   country_code_does_not_exist: "does not exist"
 

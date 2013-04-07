@@ -72,4 +72,8 @@
   <p><%= t('.no_images') %></p>
 <% end %>
 
+<% if user_signed_in? && @managerships.detect { |manager| manager.venue_id == @venue.id }%>
+  <%= link_to "Uploader des images", venue_venue_images_path(@venue), class: "btn btn-primary pull-right" %>
+<% end %>
+
 <%= render 'sidebar' %>
