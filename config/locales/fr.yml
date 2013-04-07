@@ -179,6 +179,12 @@ fr:
   managerships:
     index:
       see_venue_page: "Voir la fiche salle"
+  venue_images:
+    index:
+      add_image: "Ajouter une nouvelle photo"
+      image_url: "URL de l'image"
+      upload: "Uploader"
+      no_pictures: "Aucune photo pour cette salle"
 
   helpers:
     select:

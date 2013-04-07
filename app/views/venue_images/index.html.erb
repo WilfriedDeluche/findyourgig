@@ -3,22 +3,30 @@
 </h2>
 
 <% if user_signed_in? && @managerships.detect { |manager| manager.venue_id == @venue.id }%>
-  <%= form_for [@venue, @venue_image], :html => {:multipart => true} do |f| %>
-    <p>
-      <label><%= t('new_image') %></label>
-      <%= f.file_field :file %>
-      <%= f.hidden_field :file_cache %>
-      <%= f.text_field :remote_file_url %>
-    </p>
-    <%= f.submit "Uploader", class: "btn btn-primary" %>
-  <% end %>
+  <div class="well-white">
+    <h4><%= t('.add_image') %></h4>
+    <%= form_for [@venue, @venue_image], :html => {:multipart => true} do |f| %>
+      <p>
+        <%= f.text_field :remote_file_url, placeholder: t('.image_url'), class: "span6" %><br />
+        <strong>ou</strong><br />
+        <%= f.file_field :file %><br />
+        <%= f.hidden_field :file_cache %>
+      </p>
+      <%= f.submit t('.upload'), class: "btn" %>
+    <% end %>
+  </div>
 <% end %>
 
+<h4><%= t('.pictures') %> <small>(<%= @nb_images %>)</small></h4>
 
 <% if @venue_images.any? %>
-  <% @venue_images.each do |image| %>
-    <%= link_to image_tag(image.file_url(:thumb)), venue_venue_image_path(@venue, image) if image.file? %>
-  <% end %>
+  <p class="thumbs-container">
+    <% @venue_images.each do |image| %>
+      <%= link_to image_tag(image.file_url(:thumb)), venue_venue_image_path(@venue, image) if image.file? %>
+    <% end %>
+  </p>
 <% else %>
-  <p><%= t('.no_images') %></p>
+  <div class="alert">
+    <%= t('.no_pictures') %>
+  </div>
 <% end %>

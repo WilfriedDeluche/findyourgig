@@ -163,6 +163,12 @@ en:
   managerships:
     index:
       see_venue_page: "See venue page"
+  venue_images:
+    index:
+      add_image: "Add a new picture"
+      image_url: "Image URL"
+      upload: "Upload"
+      no_pictures: "No picture for this venue"
 
   errors:
     messages:

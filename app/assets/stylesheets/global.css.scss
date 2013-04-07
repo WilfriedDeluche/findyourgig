@@ -1,3 +1,11 @@
+h1, h2, h3, h4 {
+  a { color: #333; }
+  a:hover { 
+    text-decoration: none;
+    color: #333;
+  }
+}
+
 .center, .table th.center, .table td.center {
   text-align: center;
 }
@@ -22,4 +30,15 @@
 table td.cell-blue,
 table.table-striped tbody td.cell-blue {
   background-color: #D9EDF7;
+}
+
+.well-white {
+  background-color: #FDFDFD;
+  border: 1px solid #DDDDDD;
+  border-radius: 4px 4px 4px 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+  display: block;
+  line-height: 20px;
+  padding: 4px 10px;
+  margin-bottom: 15px;
 }
