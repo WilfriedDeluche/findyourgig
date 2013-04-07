@@ -55,9 +55,6 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
       xpath (~> 1.0.0)
-    carrierwave (0.8.0)
-      activemodel (>= 3.2.0)
-      activesupport (>= 3.2.0)
     childprocess (0.3.6)
       ffi (~> 1.0, >= 1.0.6)
     coderay (1.0.8)
@@ -170,7 +167,6 @@ GEM
     rb-fsevent (0.9.2)
     rdoc (3.12)
       json (~> 1.4)
-    rmagick (2.13.2)
     rolify (3.2.0)
     rspec (2.12.0)
       rspec-core (~> 2.12.0)
@@ -253,7 +249,6 @@ DEPENDENCIES
   capybara
   carmen!
   carmen-rails!
-  carrierwave
   coffee-rails (~> 3.2.1)
   database_cleaner
   devise
@@ -273,7 +268,6 @@ DEPENDENCIES
   pry
   rails (= 3.2.8)
   rb-fsevent
-  rmagick
   rolify
   rspec-instafail
   rspec-mocks

@@ -42,7 +42,6 @@ class VenuesController < ApplicationController
     end
 
     @gmap_full_venues = (JSON.parse(gmap_selected_venue) + JSON.parse(gmap_nearby_venues)).to_json
-    @venue_images = @venue.venue_images
 
     respond_with @venue
   end

@@ -22,9 +22,6 @@ gem 'gmaps4rails'
 gem 'carmen', git: 'git://github.com/jim/carmen.git'
 gem 'carmen-rails', git: 'git://github.com/jim/carmen-rails.git'
 
-gem 'carrierwave'
-gem 'rmagick'
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
