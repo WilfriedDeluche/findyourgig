@@ -13,6 +13,20 @@ venue_addresses = ["21 Rue Yves Toudic", "50 Boulevard Voltaire", "Port de la Ga
 venue_postal_codes = ["75010", "75010", "75013", "75004", "75018", "75001", "75018", "75020", "75005", "75018", "75011", "75001", "75019", "75010"]
 venue_latitudes = [48.8706729, 48.863063, 48.8348253, 48.8594245, 48.8829464, 48.8596071, 48.8822048, 48.8686811, 48.8456217, 48.8824218, 48.868199, 48.859013, 48.8890923, 48.8731796]
 venue_longitudes = [2.3630652, 2.370815, 2.3771892, 2.3491133, 2.3437224, 2.3483502, 2.3401297, 2.3921303, 2.3491096, 2.3396141, 2.366387, 2.3478007, 2.394432, 2.353238]
+venue_images_url = ["http://www.infoconcert.com/media/photos/ALHAMBRA.JPG", #Alhambra
+          "http://www.bataclan.fr/bataclan_home_fr_uk.png", # Bataclan
+          "http://www.com2daddy.com/upl/places/batofar-paris.jpg", # Batofar
+          "http://p3.storage.canalblog.com/34/30/582605/60096518.jpg", # Black dog
+          "http://myrebirth.fr/files/elysee_montmartre041.jpg", # Elysee Montmartre
+          "",  # Guiness Tavern
+          "http://www.bertrandsoulier.fr/wp-content/uploads/2011/11/La-Boule-Noire.png", # Boule Noire
+          "http://www.le-hiboo.com/wp-content/uploads/2011/10/IMG_6297.jpg", # La Maroquinerie
+          "", # Le Bateau Ivre
+          "http://1.bp.blogspot.com/-WVvb_P9wS8U/Ttfjv7LInMI/AAAAAAAAAqw/6xQCzNXiHLM/s1600/Blog01.JPG",  # Le Divan du Monde
+          "http://www.321salles.com/img/salles/243985-medium-le-gibus.jpg", # Le Gibus
+          "http://3.bp.blogspot.com/-PLOidrmcG2E/T6mR46guDdI/AAAAAAAAAF4/rHBnsz8No7A/s1600/LOGO-KLUB-BLANC-1.jpg", # Le Klub
+          "", # Le Trabendo
+          "http://www.nouveau-paris-ile-de-france.fr/fichiers/fckeditor/Image/1185/fr/original/new-morning.jpg"] # New Morning
 
 # Roles
 puts "ROLES"
@@ -63,6 +77,13 @@ for n in 1..14 do
   #{venue.address_1} 
   #{venue.postal_code} #{venue.city} 
   #{venue.country}"
+
+  unless venue_images_url[n-1].blank?
+    venue.venue_images.create(remote_file_url: venue_images_url[n-1], is_main: true)
+    puts "Main picture set"
+  else
+    puts "No main picture"
+  end
 
   #Adds Default MANAGERSHIP
   manager = venue_managers.sample

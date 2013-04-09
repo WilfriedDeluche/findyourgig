@@ -4,7 +4,7 @@ class Venue < ActiveRecord::Base
 
   has_many :managerships, dependent: :destroy
   has_many :users, through: :managerships
-  has_many :venue_images
+  has_many :venue_images, dependent: :destroy
 
   attr_accessible :name, :address_1, :address_2, :postal_code, :city, :country, :telephone, :email_address, :website, :latitude, :longitude
 
