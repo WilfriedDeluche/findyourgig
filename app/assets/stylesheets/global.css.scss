@@ -42,3 +42,15 @@ table.table-striped tbody td.cell-blue {
   padding: 4px 10px;
   margin-bottom: 15px;
 }
+
+.element-cell {
+  img {
+    padding: 2px;
+    background: #FFFFFF;
+    border: 1px solid #DEDEDE;
+  }
+
+  img.pull-left {
+    margin-right: 10px;
+  }
+}

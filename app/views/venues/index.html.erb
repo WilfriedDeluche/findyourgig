@@ -27,7 +27,11 @@
 
   <% @venues.each do |venue| %>
     <tr>
-      <td>
+      <td class="element-cell">
+        <% main = venue.venue_images.where(is_main: true).first %>
+        <% if main && main.file? %>
+          <%= image_tag main.file_url(:thumb), class: "pull-left" %>
+        <% end %>
         <h4><%= link_to venue.name, venue %></h4>
         <%= venue.address_1 %><br />
         <%= venue.city %>, <%= Carmen::Country.coded(venue.country).name %><br />

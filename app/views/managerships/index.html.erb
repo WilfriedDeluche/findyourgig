@@ -5,7 +5,11 @@
 
   <% @managerships.each do |managership| %>
   <tr>
-    <td>
+    <td class="element-cell">
+      <% main = managership.venue.venue_images.where(is_main: true).first %>
+      <% if main && main.file? %>
+        <%= image_tag main.file_url(:thumb), class: "pull-left" %>
+      <% end %>
       <h4><%= link_to managership.venue.name, managership.venue %></h4>
       <p>
         <%= managership.venue.address_1 %><br />
