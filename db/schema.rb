@@ -83,9 +83,9 @@ ActiveRecord::Schema.define(:version => 20130407133712) do
   create_table "venue_images", :force => true do |t|
     t.integer  "venue_id"
     t.string   "file"
-    t.boolean  "is_main",    :default => true
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.boolean  "is_main",    :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "venues", :force => true do |t|

@@ -3,7 +3,7 @@
 
   <% if user_signed_in? && @managerships.detect { |manager| manager.venue_id == @venue.id }%>
     <%= link_to t('remove'), venue_venue_image_path(@venue, @venue_image), method: :delete, data: { confirm: t('are_u_sure') }, class: "btn btn-danger pull-right" %>
-    <%# link_to t('.edit_venue'), edit_venue_path(@venue), class: "btn btn-success pull-right" %>
+    <%= link_to t('.set_as_main'), set_main_venue_venue_image_path(@venue, @venue_image), method: :put, class: "btn btn-success pull-right" %>
   <% end %>
 </h2>
 

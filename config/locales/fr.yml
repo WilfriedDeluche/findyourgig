@@ -53,6 +53,7 @@ fr:
   image_uploaded: "L'image a été uploadée avec succès."
   image_unknown: "L'image n'existe pas."
   image_deleted: "L'image a bien été supprimée."
+  image_is_main: "L'image a été définie comme principale."
 
   # OTHERS
   country_code_does_not_exist: "n'existe pas"

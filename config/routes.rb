@@ -24,7 +24,9 @@ Findyourgig::Application.routes.draw do
     resources :managerships, path: "my_venues", only: [:index]
 
     resources :venues do
-      resources :venue_images, path: 'images', only: [:index, :create, :show, :destroy]
+      resources :venue_images, path: 'images', only: [:index, :create, :show, :destroy] do
+        put "set_main", on: :member
+      end
     end
 
     root to: "home#index"

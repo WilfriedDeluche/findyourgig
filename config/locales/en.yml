@@ -53,6 +53,7 @@ en:
   image_uploaded: "Image has been successfully uploaded."
   image_unknown: "Image does not exist."
   image_deleted: "Image has been successfully removed."
+  image_is_main: "Image is now main."
 
   # OTHERS
   country_code_does_not_exist: "does not exist"
