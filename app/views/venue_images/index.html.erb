@@ -8,7 +8,7 @@
     <%= form_for [@venue, @venue_image], :html => {:multipart => true} do |f| %>
       <p>
         <%= f.text_field :remote_file_url, placeholder: t('.image_url'), class: "span6" %><br />
-        <strong>ou</strong><br />
+        <strong><%= t('or') %></strong><br />
         <%= f.file_field :file %><br />
         <%= f.hidden_field :file_cache %>
       </p>
@@ -22,7 +22,11 @@
 <% if @venue_images.any? %>
   <p class="thumbs-container">
     <% @venue_images.each do |image| %>
-      <%= link_to image_tag(image.file_url(:thumb)), venue_venue_image_path(@venue, image) if image.file? %>
+      <% if image.file? %>
+        <%= link_to venue_venue_image_path(@venue, image) do %>
+          <img src="<%= image.file_url(:thumb) %>" class="<%= 'main' if image.is_main %>" />
+        <% end %>
+      <% end %>
     <% end %>
   </p>
 <% else %>
@@ -30,3 +34,5 @@
     <%= t('.no_pictures') %>
   </div>
 <% end %>
+
+<%= render 'shared/sidebar' %>

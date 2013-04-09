@@ -71,7 +71,11 @@
 <% if @venue_images.any? %>
   <p class="thumbs-container">
     <% @venue_images.each do |image| %>
-      <%= link_to image_tag(image.file_url(:thumb)), venue_venue_image_path(@venue, image) if image.file? %>
+      <% if image.file? %>
+        <%= link_to venue_venue_image_path(@venue, image) do %>
+          <img src="<%= image.file_url(:thumb) %>" class="<%= 'main' if image.is_main %>" />
+        <% end %>
+      <% end %>
     <% end %>
   <p>
   <em><%= link_to t('.all_images'), venue_venue_images_path(@venue), class: "pull-right" %></em>
@@ -86,4 +90,4 @@
   <% end %>
 <% end %>
 
-<%= render 'sidebar' %>
+<%= render 'shared/sidebar' %>

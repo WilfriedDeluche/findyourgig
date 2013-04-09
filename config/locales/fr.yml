@@ -15,6 +15,7 @@ fr:
   are_u_sure: "Êtes-vous sûr ?"
   search: "Rechercher"
   ok: "OK"
+  or: "ou"
   menu: "Menu"
   page_unknown: "Cette page n'existe pas"
   unprocessable_action: "L'action demandée n'a pu être effectuée car incorrecte ou interdite."
@@ -186,7 +187,11 @@ fr:
       add_image: "Ajouter une nouvelle photo"
       image_url: "URL de l'image"
       upload: "Uploader"
+      pictures: "Photos"
       no_pictures: "Aucune photo pour cette salle"
+    show:
+      set_as_main: "Définir comme principale"
+      is_main: "Image principale"
 
   helpers:
     select:

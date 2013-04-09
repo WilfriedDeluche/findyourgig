@@ -15,6 +15,7 @@ en:
   are_u_sure: "Are you sure ?"
   search: "Search"
   ok: "OK"
+  or: "or"
   menu: "Navigation"
   page_unknown: "This page does not exist"
   unprocessable_action: "The requested action could not be processed because it is incorrect or forbidden."
@@ -155,7 +156,7 @@ en:
       pictures: "Pictures"
       no_pictures: "No picture for this venue"
       upload_images: "Add pictures"
-      all_images: "See al pictures"
+      all_images: "See all pictures"
     new:
       new_venue: "New Venue"
     edit:
@@ -170,7 +171,11 @@ en:
       add_image: "Add a new picture"
       image_url: "Image URL"
       upload: "Upload"
+      pictures: "Pictures"
       no_pictures: "No picture for this venue"
+    show:
+      set_as_main: "Set as main pic"
+      is_main: "Main pic"
 
   errors:
     messages:

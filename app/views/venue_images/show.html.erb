@@ -3,7 +3,11 @@
 
   <% if user_signed_in? && @managerships.detect { |manager| manager.venue_id == @venue.id }%>
     <%= link_to t('remove'), venue_venue_image_path(@venue, @venue_image), method: :delete, data: { confirm: t('are_u_sure') }, class: "btn btn-danger pull-right" %>
-    <%= link_to t('.set_as_main'), set_main_venue_venue_image_path(@venue, @venue_image), method: :put, class: "btn btn-success pull-right" %>
+    <% unless @venue_image.is_main %>
+      <%= link_to t('.set_as_main'), set_main_venue_venue_image_path(@venue, @venue_image), method: :put, class: "btn btn-success pull-right" %>
+    <% else %>
+      <small><i class="icon-check"></i> <%= t('.is_main') %></small>
+    <% end %>
   <% end %>
 </h2>
 
@@ -16,3 +20,5 @@
   <%= link_to image_tag(@next.file_url(:thumb)), venue_venue_image_path(@venue, @next), class: "pull-right" if @next %>
   <div class="clearfix"></div>
 </div>
+
+<%= render 'shared/sidebar' %>
