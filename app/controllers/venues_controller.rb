@@ -9,11 +9,11 @@ class VenuesController < ApplicationController
   def index
     if params[:search]
       search = Regexp.escape params[:search]
-      @venues = Venue.all({:conditions => ["lower(name) LIKE ?", "%#{search.downcase}%"]})
+      @venues = Venue.all({:conditions => ["lower(name) LIKE ?", "%#{search.downcase}%"], include: :main_image})
     elsif params[:by_letter]
-      @venues = Venue.by_letter(params[:by_letter].downcase)
+      @venues = Venue.includes(:main_image).by_letter(params[:by_letter].downcase)
     else
-      @venues = Venue.limit(10)
+      @venues = Venue.includes(:main_image).limit(10)
     end
     respond_with @venues
   end
