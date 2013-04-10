@@ -11,6 +11,12 @@ class VenueImage < ActiveRecord::Base
 
   validates_presence_of :venue_id, :file
 
+  before_create :set_is_main
+
+  def set_is_main
+    self.is_main = true if self.venue.venue_images.count.zero?
+  end
+
   def previous
     self.venue.venue_images.where('venue_images.id > ?', self.id).last
   end
