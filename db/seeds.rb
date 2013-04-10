@@ -4,6 +4,7 @@ User.destroy_all
 Role.destroy_all
 Band.destroy_all
 Venue.destroy_all
+Gig.destroy_all
 
 cities = %w(Paris Toulouse Bordeaux Nice Lille Saint-Denis Lyon Mulhouse Reims Arras Agen Saint-Etienne Créteil Bobigny Argenteuil Gonesse Montreuil)
 years = (1995..2012).to_a
@@ -11,6 +12,10 @@ bands = ["Erase", "Groupe Sans Gain", "Fifteen Scars", "Jackson 5", "Little Mix"
 venues = ["Alhambra", "Bataclan", "Batofar", "Black Dog", "Elysée Montmartre", "Guinness Tavern", "La Boule Noire", "La Maroquinerie", "Le Bateau Ivre", "Le Divan du Monde", "Le Gibus", "Le Klub", "Le Trabendo", "New Morning"]
 venue_addresses = ["21 Rue Yves Toudic", "50 Boulevard Voltaire", "Port de la Gare", "26 Rue des Lombards", "72 Boulevard de Rochechouart", "31 Rue des Lombards", "120 Boulevard de Rochechouart", "23 Rue Boyer", "40 Rue Descartes", "75 Rue des Martyrs", "18 Rue du Faubourg du Temple", "14 rue Saint-Denis", "211 Avenue Jean Jaurès", "7-9 Rue des Petites Écuries"]
 venue_postal_codes = ["75010", "75010", "75013", "75004", "75018", "75001", "75018", "75020", "75005", "75018", "75011", "75001", "75019", "75010"]
+gig_names = ['On Tour', 'On The Road', 'Live']
+gig_doors_times = ['2013-04-02 19:30:00']
+gig_start_times = ['2013-04-02 20:00:00']
+
 
 # Roles
 puts "ROLES"
@@ -54,6 +59,8 @@ for n in 1..14 do
   end
 end
 
+gig_venues = Venue.all.collect{ |venue| venue.id }
+
 # Default BANDS
 puts "BANDS"
 for n in 1..15 do
@@ -78,3 +85,18 @@ band_part_3 = user_1.band_participations.create! band_id: Band.last.id, is_admin
   p.pending = false
 end
 puts "#{band_part_3.user.first_name} #{band_part_3.user.last_name} is Band member of #{band_part_3.band.name}"
+
+# Default GIGS
+# puts "GIGS"
+# for n in 1..15 do
+#   gig = Gig.create! venue_id: gig_venues.sample, name: gig_names.sample, description: "something", doors_time: gig_doors_times.sample, concert_start_time: gig_start_times.sample
+#   puts "Gig : #{gig.name} created in #{gig.concert_start_time}"
+# end
+
+puts "GIGS"
+for n in 1..15 do
+  gig = Gig.new venue_id: gig_venues.sample, name: gig_names.sample, description: "something", doors_time: gig_doors_times.sample, concert_start_time: gig_start_times.sample
+  gig.description = "#{gig.name} at #{gig.venue.name}"
+  gig.save
+  puts "Gig : #{gig.description} on #{gig.concert_start_time}"
+end
