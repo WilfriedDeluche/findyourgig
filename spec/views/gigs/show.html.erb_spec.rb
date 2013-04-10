@@ -3,8 +3,8 @@ require 'spec_helper'
 describe "gigs/show" do
   before(:each) do
     @gig = assign(:gig, stub_model(Gig,
-      :name => "Name",
-      :description => "MyText"
+      name: "Name",
+      description: "MyText"
     ))
   end
 

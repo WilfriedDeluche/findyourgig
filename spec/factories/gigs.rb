@@ -8,5 +8,6 @@ FactoryGirl.define do
     doors_time "2013-03-27 16:07:33"
     concert_start_time "2013-03-27 16:07:33"
     concert_end_time "2013-03-27 16:07:33"
+    venue_id "1"
   end
 end

@@ -24,7 +24,7 @@ describe GigsController do
   # Gig. As you add validations to Gig, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    { "name" => "MyString" }
+    { venue_id: "1", name: "Some Band On Tour", description: "Some band on tour sometime somewhere", soundcheck_time: "2013-04-02 15:00:00", doors_time: "2013-04-02 18:30:00", concert_start_time: "2013-04-02 19:00:00", concert_end_time: "2013-04-02 23:00:00" }
   end
 
   # This should return the minimal set of values that should be in the session
