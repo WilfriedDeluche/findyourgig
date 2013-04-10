@@ -77,7 +77,7 @@ class VenuesController < ApplicationController
 
   def destroy
     @venue.destroy
-    redirect_to venues_url
+    redirect_to managerships_url
   end
 
   private

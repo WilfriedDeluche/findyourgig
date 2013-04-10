@@ -19,6 +19,8 @@ class Venue < ActiveRecord::Base
   geocoded_by :address
   acts_as_gmappable :process_geocoding => :geocode?,
                     :msg => I18n.t('unknown_gmaps_address')
+
+  after_destroy :remove_upload_folder
   
   def gmaps4rails_address
     address
@@ -44,5 +46,9 @@ class Venue < ActiveRecord::Base
 
   def country_code_exists
     errors.add :country, I18n.t('country_code_does_not_exist') if !country.blank? && Carmen::Country.coded(country).nil?
+  end
+
+  def remove_upload_folder
+    FileUtils.remove_dir("#{Rails.root}/public/uploads/venues/#{self.id}", :force => true)
   end
 end

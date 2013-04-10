@@ -44,7 +44,6 @@ class VenueImagesController < ApplicationController
   end
 
   def destroy
-    @venue_image.remove_file!
     @venue_image.destroy
     redirect_to venue_venue_images_path(@venue), notice: t('image_deleted')
   end

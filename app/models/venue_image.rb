@@ -12,9 +12,16 @@ class VenueImage < ActiveRecord::Base
   validates_presence_of :venue_id, :file
 
   before_create :set_is_main
+  before_destroy :remove_file_and_folder
 
   def set_is_main
     self.is_main = true if self.venue.venue_images.count.zero?
+  end
+
+  def remove_file_and_folder
+    store_dir = file.store_dir
+    remove_file!
+    FileUtils.remove_dir("#{Rails.root}/public/#{store_dir}", :force => true)
   end
 
   def previous
