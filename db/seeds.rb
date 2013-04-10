@@ -13,9 +13,10 @@ venues = ["Alhambra", "Bataclan", "Batofar", "Black Dog", "Elysée Montmartre", 
 venue_addresses = ["21 Rue Yves Toudic", "50 Boulevard Voltaire", "Port de la Gare", "26 Rue des Lombards", "72 Boulevard de Rochechouart", "31 Rue des Lombards", "120 Boulevard de Rochechouart", "23 Rue Boyer", "40 Rue Descartes", "75 Rue des Martyrs", "18 Rue du Faubourg du Temple", "14 rue Saint-Denis", "211 Avenue Jean Jaurès", "7-9 Rue des Petites Écuries"]
 venue_postal_codes = ["75010", "75010", "75013", "75004", "75018", "75001", "75018", "75020", "75005", "75018", "75011", "75001", "75019", "75010"]
 gig_names = ['On Tour', 'On The Road', 'Live']
+gig_soundcheck_times = ['2013-04-02 15:00:00']
 gig_doors_times = ['2013-04-02 19:30:00']
-gig_start_times = ['2013-04-02 20:00:00']
-
+gig_concert_start_times = ['2013-04-02 20:00:00']
+gig_concert_end_times = ['2013-04-02 23:00:00']
 
 # Roles
 puts "ROLES"
@@ -86,16 +87,9 @@ band_part_3 = user_1.band_participations.create! band_id: Band.last.id, is_admin
 end
 puts "#{band_part_3.user.first_name} #{band_part_3.user.last_name} is Band member of #{band_part_3.band.name}"
 
-# Default GIGS
-# puts "GIGS"
-# for n in 1..15 do
-#   gig = Gig.create! venue_id: gig_venues.sample, name: gig_names.sample, description: "something", doors_time: gig_doors_times.sample, concert_start_time: gig_start_times.sample
-#   puts "Gig : #{gig.name} created in #{gig.concert_start_time}"
-# end
-
 puts "GIGS"
 for n in 1..15 do
-  gig = Gig.new venue_id: gig_venues.sample, name: gig_names.sample, description: "something", doors_time: gig_doors_times.sample, concert_start_time: gig_start_times.sample
+  gig = Gig.new venue_id: gig_venues.sample, name: gig_names.sample, description: "something", soundcheck_time: gig_soundcheck_times.sample, doors_time: gig_doors_times.sample, concert_start_time: gig_concert_start_times.sample, concert_end_time: gig_concert_end_times.sample
   gig.description = "#{gig.name} at #{gig.venue.name}"
   gig.save
   puts "Gig : #{gig.description} on #{gig.concert_start_time}"

@@ -36,7 +36,7 @@
         <% end %><br />
         <%= Venue.model_name.human %> : 
         <% unless gig.venue.blank? %>        
-          <%= gig.venue.name %><br />
+          <%= gig.venue.name %>
         <% else %>
           <em><%= t('not_specified') %></em>
         <% end %><br />
