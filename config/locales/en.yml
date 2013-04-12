@@ -15,6 +15,7 @@ en:
   are_u_sure: "Are you sure ?"
   search: "Search"
   ok: "OK"
+  or: "or"
   menu: "Navigation"
   page_unknown: "This page does not exist"
   unprocessable_action: "The requested action could not be processed because it is incorrect or forbidden."
@@ -41,12 +42,20 @@ en:
   menu_venues: "Venues"
   menu_my_bands: "My Bands"
   menu_gigs: "Gigs"
+  menu_my_venues: "My venues"
 
   # VENUES
   venue_unknown: "The venue does not exist."
   venue_updated: "The venue was successfully updated."
   venue_created: "The venue was successfully created."
   venue_uniqueness: "A venue already exists for this address"
+  unknown_gmaps_address: "Sorry, not even Google could figure out where that is"
+
+  # VENUE IMAGES
+  image_uploaded: "Image has been successfully uploaded."
+  image_unknown: "Image does not exist."
+  image_deleted: "Image has been successfully removed."
+  image_is_main: "Image is now main."
 
   # GIGS
   gig_unknown: "The gig does not exist."
@@ -82,6 +91,7 @@ en:
         telephone: "Phone number"
         email_address: "Email address"
         website: "Website"
+        gmaps4rails_address: "Gmaps Address"
       band:
         name: "Band name"
         description: "Description"
@@ -161,18 +171,42 @@ en:
       telephone: "Phone number"
       email_address: "Email address"
       website: "Website"
-      show: "Show"
+      see_venue_page: "See venue page"
       new_venue: "New venue"
       venues_starting_with_letter: "Venues with name starting with letter"
       last_ten_venues: "Last 10 venues"
     show:
       edit_venue: "Edit Venue"
+      main_information: "Information"
       nearby_venues: "Nearby Venues"
       no_nearby_venues: "No nearby venues"
       add_gig: "Add a new gig"
+      pictures: "Pictures"
+      no_pictures: "No picture for this venue"
+      upload_images: "Add pictures"
+      all_images: "See all pictures"
     new:
       new_venue: "New Venue"
     edit:
       venue_page: "Venue Page"
     form:
       select_country: "Please select a country"
+  managerships:
+    index:
+      see_venue_page: "See venue page"
+  venue_images:
+    index:
+      add_image: "Add a new picture"
+      image_url: "Image URL"
+      upload: "Upload"
+      pictures: "Pictures"
+      no_pictures: "No picture for this venue"
+    show:
+      set_as_main: "Set as main pic"
+      is_main: "Main pic"
+
+  errors:
+    messages:
+      carrierwave_processing_error: "Cannot resize image."
+      carrierwave_integrity_error: "Not an image."
+      carrierwave_download_error: "Couldn't download image."

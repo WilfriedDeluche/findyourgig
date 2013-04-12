@@ -23,6 +23,8 @@ describe BandsController do
 
     @user = FactoryGirl.create(:user, :email => "member@band1.com", :role => "band_member")
     @user_2 = FactoryGirl.create(:user, :email => "member@band2.com", :role => "band_member")
+    @user_3 = FactoryGirl.build(:user, :email => "admin@admin.com", :role => "admin") { |u| u.force_create = true }
+    @user_3.save
 
     @bp = FactoryGirl.create(:band_participation, :user => @user, :band => @band)
     @bp_2 = FactoryGirl.create(:band_participation, :user => @user_2, :band => @band_2, :is_admin => true) do |bp|
@@ -98,10 +100,18 @@ describe BandsController do
 
   describe "GET new" do
     it "assigns a new band as @band" do
-      get :new, {}, valid_session
+      sign_in @user
+      get :new
       assigns(:band).should be_a_new Band
       response.should be_success
       response.should render_template "new"
+    end
+
+    it "should not be accessible when user not band_member" do
+      sign_in @user_3
+      get :new
+      response.should redirect_to bands_path
+      flash[:alert].should_not be_nil
     end
   end
 
@@ -133,21 +143,31 @@ describe BandsController do
   end
 
   describe "POST create" do
+
+    it "should not be accessible when user not band_member" do
+      sign_in @user_3
+      post :create, {:band => valid_attributes}
+      response.should redirect_to bands_path
+      flash[:alert].should_not be_nil
+    end
+
+    before(:each) { sign_in @user }
+      
     describe "with valid params" do
       it "creates a new Band" do
         expect {
-          post :create, {:band => valid_attributes}, valid_session
+          post :create, {:band => valid_attributes}
         }.to change(Band, :count).by 1
       end
 
       it "assigns a newly created band as @band" do
-        post :create, {:band => valid_attributes}, valid_session
+        post :create, {:band => valid_attributes}
         assigns(:band).should be_a Band
         assigns(:band).should be_persisted
       end
 
       it "redirects to the created band" do
-        post :create, {:band => valid_attributes}, valid_session
+        post :create, {:band => valid_attributes}
         response.should redirect_to Band.unscoped.last
       end
     end
@@ -156,14 +176,14 @@ describe BandsController do
       it "assigns a newly created but unsaved band as @band" do
         # Trigger the behavior that occurs when invalid params are submitted
         Band.any_instance.stub(:save).and_return(false)
-        post :create, {:band => { "name" => "" }}, valid_session
+        post :create, {:band => { "name" => "" }}
         assigns(:band).should be_a_new Band
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Band.any_instance.stub(:save).and_return(false)
-        post :create, {:band => { "name" => "" }}, valid_session
+        post :create, {:band => { "name" => "" }}
         response.should render_template "new"
       end
     end

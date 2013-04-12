@@ -1,8 +1,18 @@
 <%= stylesheet_link_tag 'gmaps4rails' %>
-<h2 class="page-header"><%= @venue.name %> <%= link_to t('.edit_venue'), edit_venue_path(@venue), class: "btn btn-success pull-right" %></h2>
+
+<h2 class="page-header">
+  <%= @venue.name %> 
+  
+  <% if user_signed_in? && @managerships.detect { |manager| manager.venue_id == @venue.id }%>
+    <%= link_to t('remove'), @venue, method: :delete, data: { confirm: t('are_u_sure') }, class: "btn btn-danger pull-right" %>
+    <%= link_to t('.edit_venue'), edit_venue_path(@venue), class: "btn btn-success pull-right" %>
+  <% end %>
+</h2>
 
 <%= link_to t('.add_gig'), new_gig_path(:venue_id => @venue.id), class: "btn btn-primary pull-right" %>
 <%= gmaps("map_options" => { "detect_location" => false, "center_on_user" => false, "zoom" => 16},"markers" => { "data" => @gmap_full_venues }) %>
+
+<h4><%= t('.main_information') %></h4>
 
 <p>
   <%= @venue.address_1 %><br />
@@ -44,14 +54,41 @@
 </p>
 
 <h4><%= t('.nearby_venues') %></h4>
+
 <% unless @nearby_venues.empty? %>
-<ul>
-  <% for location in @nearby_venues %>
-  <li><%= link_to location.name + " (" + location.address + ")", location %> (<%= distance_display(location) %>)</li>
-<% end %>
-</ul>
+  <ul>
+    <% for location in @nearby_venues %>
+      <li><%= link_to location.name + " (" + location.address + ")", location %> (<%= distance_display(location) %>)</li>
+    <% end %>
+  </ul>
 <% else %>
   <%= t('.no_nearby_venues') %>
 <% end %>
 
-<%= render 'sidebar' %>
+<hr />
+
+<h4><%= t('.pictures') %> <small>(<%= @nb_images %>)</small></h4>
+
+<% if @venue_images.any? %>
+  <p class="thumbs-container">
+    <% @venue_images.each do |image| %>
+      <% if image.file? %>
+        <%= link_to venue_venue_image_path(@venue, image) do %>
+          <img src="<%= image.file_url(:thumb) %>" class="<%= 'main' if image.is_main %>" />
+        <% end %>
+      <% end %>
+    <% end %>
+  <p>
+  <em><%= link_to t('.all_images'), venue_venue_images_path(@venue), class: "pull-right" %></em>
+  <div class="clearfix"></div>
+<% else %>
+  <div class="alert">
+    <%= t('.no_pictures') %>
+  </div>
+  <% if user_signed_in? && @managerships.detect { |manager| manager.venue_id == @venue.id }%>
+    <%= link_to t('.upload_images'), venue_venue_images_path(@venue), class: "btn btn-primary pull-right" %>
+    <div class="clearfix"></div>
+  <% end %>
+<% end %>
+
+<%= render 'shared/sidebar' %>

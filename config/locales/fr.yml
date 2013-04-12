@@ -15,6 +15,7 @@ fr:
   are_u_sure: "Êtes-vous sûr ?"
   search: "Rechercher"
   ok: "OK"
+  or: "ou"
   menu: "Menu"
   page_unknown: "Cette page n'existe pas"
   unprocessable_action: "L'action demandée n'a pu être effectuée car incorrecte ou interdite."
@@ -41,12 +42,20 @@ fr:
   menu_venues: "Lieux"
   menu_my_bands: "Mes Groupes"
   menu_gigs: "Concerts"
+  menu_my_venues: "Mes Salles"
 
   # VENUES
   venue_unknown: "Le lieu de concert recherché n'existe pas."
   venue_updated: "Le lieu de concert a bien été mis à jour."
   venue_created: "Le lieu de concert a bien été créé."
   venue_uniqueness: "Un lieu de concert existe déjà pour cette adresse"
+  unknown_gmaps_address: "Désolé, Google n'a pas réussi à localiser votre adresse"
+
+  # VENUE IMAGES
+  image_uploaded: "L'image a été uploadée avec succès."
+  image_unknown: "L'image n'existe pas."
+  image_deleted: "L'image a bien été supprimée."
+  image_is_main: "L'image a été définie comme principale."
 
   # GIGS
   gig_unknown: "Le concert recherché n'existe pas."
@@ -82,6 +91,7 @@ fr:
         telephone: "Téléphone"
         email_address: "Adresse électronique"
         website: "Site internet"
+        gmaps4rails_address: "Addresse Gmaps"
       band:
         name: "Nom du groupe"
         description: "Description"
@@ -178,21 +188,39 @@ fr:
   venues:
     index:
       title: "Groupes"
-      show: "Afficher"
+      see_venue_page: "Voir la fiche salle"
       new_venue: "Nouveau lieu"
       venues_starting_with_letter: "Lieux commençant par la lettre"
       last_ten_venues: "Les 10 derniers lieux"
     show:
       edit_venue: "Modifier lieu"
+      main_information: "Informations"
       nearby_venues: "Salles à proximité"
       no_nearby_venues: "Pas de lieu de concert à proximité"
       add_gig: "Ajouter un concert"
+      pictures: "Photos"
+      no_pictures: "Aucune photo pour cette salle"
+      upload_images: "Ajouter des photos"
+      all_images: "Voir toutes les photos"
     new:
       new_venue: "Nouveau lieu"
     edit:
       venue_page: "Fiche du lieu"
     form:
       select_country: "Sélectionnez un pays"
+  managerships:
+    index:
+      see_venue_page: "Voir la fiche salle"
+  venue_images:
+    index:
+      add_image: "Ajouter une nouvelle photo"
+      image_url: "URL de l'image"
+      upload: "Uploader"
+      pictures: "Photos"
+      no_pictures: "Aucune photo pour cette salle"
+    show:
+      set_as_main: "Définir comme principale"
+      is_main: "Image principale"
 
   helpers:
     select:
@@ -216,4 +244,10 @@ fr:
     - :year
     - :month
     - :day
+
+  errors:
+    messages:
+      carrierwave_processing_error: "Impossible de retailler l'image."
+      carrierwave_integrity_error: "Ce n'est pas une image."
+      carrierwave_download_error: "Impossible de télécharger l'image."
 

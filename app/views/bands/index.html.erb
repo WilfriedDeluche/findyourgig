@@ -6,7 +6,7 @@
   </tr>
 </table>
 
-<%= link_to t('.create_band'), new_band_path, class: "btn btn-primary pull-right" %>
+<%= link_to t('.create_band'), new_band_path, class: "btn btn-primary pull-right" if user_signed_in? && current_user.roles_list.include?(User::BAND_MEMBER) %>
 
 <% if params[:by_letter] %>
   <h2><%= t('.bands_starting_with_letter') %> <%= params[:by_letter].upcase %></h2>
@@ -49,4 +49,4 @@
   <div class="alert alert-info"><%= t('no_result') %></div>
 <% end %>
 
-<%= render 'sidebar' %>
+<%= render 'shared/sidebar' %>
