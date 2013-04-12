@@ -3,7 +3,7 @@ class VenueImagesController < ApplicationController
   before_filter :find_venue
   before_filter :find_venue_image, only: [:show, :set_main, :destroy]
   before_filter :find_managerships
-  before_filter :only_manager, only: [:create, :destroy]
+  before_filter :only_manager, only: [:create, :destroy, :set_main]
   respond_to :html
 
   def index
@@ -36,9 +36,9 @@ class VenueImagesController < ApplicationController
   end
 
   def set_main
-    @main_image = @venue.venue_images.where(is_main: true).first
+    main_image = @venue.main_image
     if @venue_image.update_attribute(:is_main, true)
-      @main_image.update_attribute(:is_main, false) if @main_image
+      main_image.update_attribute(:is_main, false) if main_image
     end
     redirect_to venue_venue_image_path(@venue, @venue_image), notice: t('image_is_main')
   end

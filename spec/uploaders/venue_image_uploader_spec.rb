@@ -1,6 +1,6 @@
 require 'carrierwave/test/matchers'
 
-describe VenueImageUploader, focus: true do
+describe VenueImageUploader do
   include CarrierWave::Test::Matchers
 
   before do

@@ -2,7 +2,6 @@
 
 FactoryGirl.define do
   factory :venue_image do |image|
-    image.file "MyString"
     image.is_main false
     image.venue :venue
   end
