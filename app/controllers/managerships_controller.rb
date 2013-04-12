@@ -4,7 +4,7 @@ class ManagershipsController < ApplicationController
   respond_to :html
 
   def index
-    @managerships = current_user.managerships
+    @managerships = current_user.managerships.includes(:venue => :main_image)
   end
 
   private

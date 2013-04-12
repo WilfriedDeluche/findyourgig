@@ -9,11 +9,11 @@ class VenuesController < ApplicationController
   def index
     if params[:search]
       search = Regexp.escape params[:search]
-      @venues = Venue.all({:conditions => ["lower(name) LIKE ?", "%#{search.downcase}%"]})
+      @venues = Venue.all({:conditions => ["lower(name) LIKE ?", "%#{search.downcase}%"], include: :main_image})
     elsif params[:by_letter]
-      @venues = Venue.by_letter(params[:by_letter].downcase)
+      @venues = Venue.includes(:main_image).by_letter(params[:by_letter].downcase)
     else
-      @venues = Venue.limit(10)
+      @venues = Venue.includes(:main_image).limit(10)
     end
     respond_with @venues
   end
@@ -42,6 +42,8 @@ class VenuesController < ApplicationController
     end
 
     @gmap_full_venues = (JSON.parse(gmap_selected_venue) + JSON.parse(gmap_nearby_venues)).to_json
+    @nb_images = @venue.venue_images.count
+    @venue_images = @venue.venue_images.limit(5)
 
     respond_with @venue
   end
@@ -75,7 +77,7 @@ class VenuesController < ApplicationController
 
   def destroy
     @venue.destroy
-    redirect_to venues_url
+    redirect_to managerships_url
   end
 
   private

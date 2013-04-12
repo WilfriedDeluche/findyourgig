@@ -219,7 +219,7 @@ describe VenuesController do
 
     it "redirects to the venues list" do
       delete :destroy, {:id => @venue.to_param}
-      response.should redirect_to(venues_url)
+      response.should redirect_to(managerships_url)
     end
   end
 
