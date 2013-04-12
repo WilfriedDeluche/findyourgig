@@ -131,3 +131,8 @@ for n in 1..15 do
   gig.save
   puts "Gig : #{gig.description} on #{gig.concert_start_time}"
 end
+
+my_gig = Gig.new venue_id: gig_venues.sample, name: "Gig Name", description: "Gig Description", soundcheck_time: gig_soundcheck_times.sample, doors_time: gig_doors_times.sample, concert_start_time: gig_concert_start_times.sample, concert_end_time: gig_concert_end_times.sample
+my_gig.save
+puts "Gig : #{my_gig.description} on #{my_gig.concert_start_time}"
+

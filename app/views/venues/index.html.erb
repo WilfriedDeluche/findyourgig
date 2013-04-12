@@ -29,9 +29,9 @@
     <tr>
       <td class="element-cell">
         <% if venue.main_image && venue.main_image.file? %>
-          <%= image_tag venue.main_image.file_url(:thumb), class: "pull-left" %>
+          <%= link_to (image_tag venue.main_image.file_url(:thumb), class: "pull-left"), venue %>
         <% else %>
-          <%= image_tag "no-image.png", class: "pull-left" %>
+          <%= link_to (image_tag "no-image.png", class: "pull-left"), venue %>
         <% end %>
         
         <h4><%= link_to venue.name, venue %></h4>
