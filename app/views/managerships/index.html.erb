@@ -5,7 +5,13 @@
 
   <% @managerships.each do |managership| %>
   <tr>
-    <td>
+    <td class="element-cell">
+      <% if managership.venue.main_image && managership.venue.main_image.file? %>
+        <%= image_tag managership.venue.main_image.file_url(:thumb), class: "pull-left" %>
+      <% else %>
+        <%= image_tag "no-image.png", class: "pull-left" %>
+      <% end %>
+      
       <h4><%= link_to managership.venue.name, managership.venue %></h4>
       <p>
         <%= managership.venue.address_1 %><br />
@@ -32,4 +38,4 @@
   <div class="alert alert-info"><%= t('no_result') %></div>
 <% end %>
 
-<%= render 'sidebar' %>
+<%= render 'shared/sidebar' %>

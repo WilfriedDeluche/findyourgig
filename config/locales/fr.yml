@@ -15,6 +15,7 @@ fr:
   are_u_sure: "Êtes-vous sûr ?"
   search: "Rechercher"
   ok: "OK"
+  or: "ou"
   menu: "Menu"
   page_unknown: "Cette page n'existe pas"
   unprocessable_action: "L'action demandée n'a pu être effectuée car incorrecte ou interdite."
@@ -48,6 +49,12 @@ fr:
   venue_created: "Le lieu de concert a bien été créé."
   venue_uniqueness: "Un lieu de concert existe déjà pour cette adresse"
   unknown_gmaps_address: "Désolé, Google n'a pas réussi à localiser votre adresse"
+
+  # VENUE IMAGES
+  image_uploaded: "L'image a été uploadée avec succès."
+  image_unknown: "L'image n'existe pas."
+  image_deleted: "L'image a bien été supprimée."
+  image_is_main: "L'image a été définie comme principale."
 
   # OTHERS
   country_code_does_not_exist: "n'existe pas"
@@ -159,8 +166,13 @@ fr:
       last_ten_venues: "Les 10 derniers lieux"
     show:
       edit_venue: "Modifier lieu"
+      main_information: "Informations"
       nearby_venues: "Salles à proximité"
       no_nearby_venues: "Pas de lieu de concert à proximité"
+      pictures: "Photos"
+      no_pictures: "Aucune photo pour cette salle"
+      upload_images: "Ajouter des photos"
+      all_images: "Voir toutes les photos"
     new:
       new_venue: "Nouveau lieu"
     edit:
@@ -170,6 +182,16 @@ fr:
   managerships:
     index:
       see_venue_page: "Voir la fiche salle"
+  venue_images:
+    index:
+      add_image: "Ajouter une nouvelle photo"
+      image_url: "URL de l'image"
+      upload: "Uploader"
+      pictures: "Photos"
+      no_pictures: "Aucune photo pour cette salle"
+    show:
+      set_as_main: "Définir comme principale"
+      is_main: "Image principale"
 
   helpers:
     select:
@@ -189,4 +211,10 @@ fr:
     abbr_day_names: [dim, lun, mar, mer, jeu, ven, sam]
     month_names: [~, Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre]
     abbr_month_names: [~, Jan., Fév., Mar., Avr., Mai, Juin, Juil., Août, Sept., Oct., Nov., Déc.]
+
+  errors:
+    messages:
+      carrierwave_processing_error: "Impossible de retailler l'image."
+      carrierwave_integrity_error: "Ce n'est pas une image."
+      carrierwave_download_error: "Impossible de télécharger l'image."
 

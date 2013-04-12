@@ -27,7 +27,13 @@
 
   <% @venues.each do |venue| %>
     <tr>
-      <td>
+      <td class="element-cell">
+        <% if venue.main_image && venue.main_image.file? %>
+          <%= image_tag venue.main_image.file_url(:thumb), class: "pull-left" %>
+        <% else %>
+          <%= image_tag "no-image.png", class: "pull-left" %>
+        <% end %>
+        
         <h4><%= link_to venue.name, venue %></h4>
         <%= venue.address_1 %><br />
         <%= venue.city %>, <%= Carmen::Country.coded(venue.country).name %><br />
@@ -45,4 +51,4 @@
   <div class="alert alert-info"><%= t('no_result') %></div>
 <% end %>
 
-<%= render 'sidebar' %>
+<%= render 'shared/sidebar' %>
