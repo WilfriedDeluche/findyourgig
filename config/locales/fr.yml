@@ -178,7 +178,7 @@ fr:
       last_ten_gigs_created: "Les 10 derniers concerts ajoutés"
       create_gig: "Créer un concert"
       see_gig_page: "Voir la fiche concert"
-      edit_gig: "Modifier Concert" #
+      edit_gig: "Modifier Concert"
     show:
       edit_gig: "Modifier Concert"
     new:

@@ -61,7 +61,7 @@ en:
   gig_unknown: "The gig does not exist."
   gig_updated: "The gig was successfully updated."
   gig_created: "The gig was successfully created."
-  #gig_uniqueness: "A venue already exists for this address"
+  gig_uniqueness: "A gig already exists for this date"
 
   # OTHERS
   country_code_does_not_exist: "does not exist"
@@ -150,7 +150,7 @@ en:
   gigs:
     index:
       gigs_starting_with_letter: "Gigs with name starting with letter"
-      last_ten_gigs_created: "Last 10 gig added"
+      last_ten_gigs_created: "Last 10 gigs added"
       create_gig: "Create a gig"
       see_gig_page: "See gig page"
     show:
