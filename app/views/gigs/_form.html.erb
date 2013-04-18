@@ -34,30 +34,32 @@
     <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>
-<script type="text/javascript"> 
-  $(document).ready(function() { 
-    $("#soundcheck_time").datetimepicker({
-      controlType: 'select',
-      stepMinute: 5,
-      timeFormat: 'hh:mm tt'
-    }); 
-    $("#doors_time").datetimepicker({
-      controlType: 'select',
-      stepMinute: 5,
-      timeFormat: 'hh:mm tt'
-    }
-      ); 
-    $("#concert_start_time").datetimepicker({
-      controlType: 'select',
-      stepMinute: 5,
-      timeFormat: 'hh:mm tt'
-    }); 
-    $("#concert_end_time").datetimepicker({
-      controlType: 'select',
-      stepMinute: 5,
-      timeFormat: 'hh:mm tt'
-    }
-      ); 
-    $('#ui-datepicker-div').removeClass('ui-helper-hidden-accessible');
-  });
-</script>
+<%= content_for :scripts do %>
+  <script type="text/javascript"> 
+    $(document).ready(function() { 
+      $("#soundcheck_time").datetimepicker({
+        controlType: 'select',
+        stepMinute: 5,
+        timeFormat: 'hh:mm tt'
+      }); 
+      $("#doors_time").datetimepicker({
+        controlType: 'select',
+        stepMinute: 5,
+        timeFormat: 'hh:mm tt'
+      }
+        ); 
+      $("#concert_start_time").datetimepicker({
+        controlType: 'select',
+        stepMinute: 5,
+        timeFormat: 'hh:mm tt'
+      }); 
+      $("#concert_end_time").datetimepicker({
+        controlType: 'select',
+        stepMinute: 5,
+        timeFormat: 'hh:mm tt'
+      }
+        ); 
+      $('#ui-datepicker-div').removeClass('ui-helper-hidden-accessible');
+    });
+  </script>
+<% end %>
