@@ -65,6 +65,9 @@ fr:
 
   # OTHERS
   country_code_does_not_exist: "n'existe pas"
+  incorrect_doors_time: "L'heure d'ouverture doit être postérieure à l'heure des balances"
+  incorrect_concert_start_time: "L'heure de début du concert doit être postérieure à l'heure d'ouverture"
+  incorrect_concert_end_time: "L'heure de fin du concert doit être postérieure à l'heure de début"
 
   activerecord:
     models:

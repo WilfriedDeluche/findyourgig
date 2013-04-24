@@ -65,6 +65,9 @@ en:
 
   # OTHERS
   country_code_does_not_exist: "does not exist"
+  incorrect_doors_time: "The doors time must be after the soundcheck time"
+  incorrect_concert_start_time: "The concert start time must be after the doors time"
+  incorrect_concert_end_time: "The concert end time must be after the concert start time"
 
   activerecord:
     models:
