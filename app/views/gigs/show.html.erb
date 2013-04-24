@@ -1,0 +1,45 @@
+<h2 class="page-header"><%= @gig.name %> <%= link_to t('.edit_gig'), edit_gig_path(@gig), class: "btn btn-success pull-right" %></h2>
+
+
+<p>
+  <b><%= Gig.human_attribute_name(:name) %>:</b>
+  <%= @gig.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @gig.description %>
+</p>
+
+<p>
+  <b><%= Venue.model_name.human %>:</b>
+  <% unless @gig.venue.blank? %>        
+    <%= @gig.venue.name %><br />
+  <% else %>
+    <em><%= t('not_specified') %></em>
+  <% end %>
+
+  
+</p>
+
+<p>
+  <b><%= Gig.human_attribute_name(:soundcheck_time) %>:</b>
+  <%= @gig.soundcheck_time %>
+</p>
+
+<p>
+  <b><%= Gig.human_attribute_name(:doors_time) %>:</b>
+  <%= @gig.doors_time %>
+</p>
+
+<p>
+  <b><%= Gig.human_attribute_name(:concert_start_time) %>:</b>
+  <%= @gig.concert_start_time %>
+</p>
+
+<p>
+  <b><%= Gig.human_attribute_name(:concert_end_time) %>:</b>
+  <%= @gig.concert_end_time %>
+</p>
+
+<%= render 'shared/sidebar' %>

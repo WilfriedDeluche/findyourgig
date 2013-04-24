@@ -41,6 +41,7 @@ fr:
   menu_bands: "Groupes"
   menu_venues: "Lieux"
   menu_my_bands: "Mes Groupes"
+  menu_gigs: "Concerts"
   menu_my_venues: "Mes Salles"
 
   # VENUES
@@ -56,14 +57,24 @@ fr:
   image_deleted: "L'image a bien été supprimée."
   image_is_main: "L'image a été définie comme principale."
 
+  # GIGS
+  gig_unknown: "Le concert recherché n'existe pas."
+  gig_updated: "Le concert a bien été mis à jour."
+  gig_created: "Le concert a bien été créé."
+  #venue_uniqueness: "Un lieu de concert existe déjà pour cette adresse"
+
   # OTHERS
   country_code_does_not_exist: "n'existe pas"
+  incorrect_doors_time: "L'heure d'ouverture doit être postérieure à l'heure des balances"
+  incorrect_concert_start_time: "L'heure de début du concert doit être postérieure à l'heure d'ouverture"
+  incorrect_concert_end_time: "L'heure de fin du concert doit être postérieure à l'heure de début"
 
   activerecord:
     models:
       user: "Utilisateur"
       band: "Groupe"
       venue: "Lieu"
+      gig: "Concert"
     attributes:
       user:
         first_name: "Prénom"
@@ -89,6 +100,13 @@ fr:
         description: "Description"
         creation_year: "Année de création"
         city: "Ville"
+      gig:
+        name: "Nom"
+        description: "Description"
+        soundcheck_time: "Heure des balances"
+        doors_time: "Heure d'ouverture des portes"
+        concert_start_time: "Heure de début"
+        concert_end_time: "Heure de fin"
 
     errors:
       messages: &errors_messages
@@ -157,6 +175,19 @@ fr:
       member: "Membre"
       leave_band: "Quitter le groupe"
       members: "Gestion des membres"
+  gigs:
+    index:
+      gigs_starting_with_letter: "Concerts commençant par la lettre"
+      last_ten_gigs_created: "Les 10 derniers concerts ajoutés"
+      create_gig: "Créer un concert"
+      see_gig_page: "Voir la fiche concert"
+      edit_gig: "Modifier Concert"
+    show:
+      edit_gig: "Modifier Concert"
+    new:
+      new_gig: "Nouveau Concert"
+    edit:
+      gig_page: "Fiche Concert"
   venues:
     index:
       title: "Groupes"
@@ -169,6 +200,7 @@ fr:
       main_information: "Informations"
       nearby_venues: "Salles à proximité"
       no_nearby_venues: "Pas de lieu de concert à proximité"
+      add_gig: "Ajouter un concert"
       pictures: "Photos"
       no_pictures: "Aucune photo pour cette salle"
       upload_images: "Ajouter des photos"
@@ -211,6 +243,10 @@ fr:
     abbr_day_names: [dim, lun, mar, mer, jeu, ven, sam]
     month_names: [~, Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre]
     abbr_month_names: [~, Jan., Fév., Mar., Avr., Mai, Juin, Juil., Août, Sept., Oct., Nov., Déc.]
+    order:
+    - :year
+    - :month
+    - :day
 
   errors:
     messages:

@@ -41,12 +41,13 @@ en:
   menu_bands: "Bands"
   menu_venues: "Venues"
   menu_my_bands: "My Bands"
+  menu_gigs: "Gigs"
   menu_my_venues: "My venues"
 
   # VENUES
-  venue_unknown: "Venues does not exist."
-  venue_updated: "Venue was successfully updated."
-  venue_created: "Venue was successfully created."
+  venue_unknown: "The venue does not exist."
+  venue_updated: "The venue was successfully updated."
+  venue_created: "The venue was successfully created."
   venue_uniqueness: "A venue already exists for this address"
   unknown_gmaps_address: "Sorry, not even Google could figure out where that is"
 
@@ -56,14 +57,24 @@ en:
   image_deleted: "Image has been successfully removed."
   image_is_main: "Image is now main."
 
+  # GIGS
+  gig_unknown: "The gig does not exist."
+  gig_updated: "The gig was successfully updated."
+  gig_created: "The gig was successfully created."
+  gig_uniqueness: "A gig already exists for this date"
+
   # OTHERS
   country_code_does_not_exist: "does not exist"
+  incorrect_doors_time: "The doors time must be after the soundcheck time"
+  incorrect_concert_start_time: "The concert start time must be after the doors time"
+  incorrect_concert_end_time: "The concert end time must be after the concert start time"
 
   activerecord:
     models:
       user: "User"
       band: "Band"
       venue: "Venue"
+      gig: "Gig"
     attributes:
       user:
         first_name: "First name"
@@ -89,6 +100,13 @@ en:
         description: "Description"
         creation_year: "Created in"
         city: "City"
+      gig:
+        name: "Nom"
+        description: "Description"
+        soundcheck_time: "Soundcheck time"
+        doors_time: "Doors time"
+        concert_start_time: "Concert start"
+        concert_end_time: "Concert end"
 
   layouts:
     application:
@@ -132,6 +150,18 @@ en:
       member: "Member"
       leave_band: "Leave the band"
       members: "Band members"
+  gigs:
+    index:
+      gigs_starting_with_letter: "Gigs with name starting with letter"
+      last_ten_gigs_created: "Last 10 gigs added"
+      create_gig: "Create a gig"
+      see_gig_page: "See gig page"
+    show:
+      edit_gig: "Edit Gig"
+    new:
+      new_gig: "New Gig"
+    edit:
+      gig_page: "Gig Page"
   venues:
     index:
       title: "Venues"
@@ -153,6 +183,7 @@ en:
       main_information: "Information"
       nearby_venues: "Nearby Venues"
       no_nearby_venues: "No nearby venues"
+      add_gig: "Add a new gig"
       pictures: "Pictures"
       no_pictures: "No picture for this venue"
       upload_images: "Add pictures"
