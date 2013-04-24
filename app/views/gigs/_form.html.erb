@@ -1,0 +1,69 @@
+<%= form_for(@gig) do |f| %>
+  <%= f.error_messages %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div> 
+  <div class="field">
+    <%= f.label Venue.model_name.human %>
+    <%= f.collection_select :venue_id, Venue.find(:all), :id, :name, :prompt => "Select a Venue" %>
+  </div>
+  <div class="field">
+    <%= f.label :soundcheck_time %>
+    <%= f.text_field :soundcheck_time, :id => 'soundcheck_time' %>
+  </div>
+  <div class="field">
+    <%= f.label :doors_time %>
+    <%= f.text_field :doors_time, :id => 'doors_time' %> 
+  </div>
+  <div class="field">
+    <%= f.label :concert_start_time %>
+    <%= f.text_field :concert_start_time, :id => 'concert_start_time' %>
+  </div>
+  <div class="field">
+    <%= f.label :concert_end_time %>
+    <%= f.text_field :concert_end_time, :id => 'concert_end_time' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+<% end %>
+<%= content_for :scripts do %>
+  <script type="text/javascript"> 
+    $(document).ready(function() { 
+      $("#soundcheck_time").datetimepicker({
+        controlType: 'select',
+        stepMinute: 5,
+        timeFormat: 'hh:mm:ss',
+        dateFormat: 'yy-mm-dd'
+      }); 
+      $("#doors_time").datetimepicker({
+        controlType: 'select',
+        stepMinute: 5,
+        timeFormat: 'hh:mm:ss',
+        dateFormat: 'yy-mm-dd'
+      }
+        ); 
+      $("#concert_start_time").datetimepicker({
+        controlType: 'select',
+        stepMinute: 5,
+        timeFormat: 'hh:mm:ss',
+        dateFormat: 'yy-mm-dd'
+      }); 
+      $("#concert_end_time").datetimepicker({
+        controlType: 'select',
+        stepMinute: 5,
+        timeFormat: 'hh:mm:ss',
+        dateFormat: 'yy-mm-dd'
+      }
+        ); 
+      $('#ui-datepicker-div').removeClass('ui-helper-hidden-accessible');
+    });
+  </script>
+<% end %>

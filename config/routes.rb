@@ -30,5 +30,7 @@ Findyourgig::Application.routes.draw do
     end
 
     root to: "home#index"
+
+    resources :gigs
   end  
 end

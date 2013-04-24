@@ -1,0 +1,55 @@
+<table class="table table-bordered table-striped">
+  <tr>
+    <% ("a".."z").to_a.each do |letter| %>
+      <td class="center"><%= link_to letter.upcase, gigs_path(:by_letter => letter) %></td>
+    <% end %>
+  </tr>
+</table>
+
+<%= link_to t('.create_gig'), new_gig_path, class: "btn btn-primary pull-right" %>
+
+<% if params[:by_letter] %>
+  <h2><%= t('.gigs_starting_with_letter') %> <%= params[:by_letter].upcase %></h2>
+<% else %>
+  <h2><%= t('.last_ten_gigs_created') %></h2>
+<% end %>
+
+<%= form_tag({controller: "gigs", action: "index"}, method: "get", class: "form-search pull-right") do %>
+  <div class="input-prepend">
+    <span class="add-on"><i class="icon-search"></i></span>
+    <%= text_field_tag :search, params[:search], class: "search-query", :placeholder => "#{t('search')}..." %>
+  </div>
+  <%= submit_tag t('ok'), class: "btn" %>
+<% end %>
+
+<% if @gigs.any? %>
+  <table class="table table-bordered table-striped">
+
+  <% @gigs.each do |gig| %>
+    <tr>
+      <td>
+        <h4><%= link_to gig.name, gig %></h4>
+        <% unless gig.description.blank? %>
+          <%= gig.description %>
+        <% else %>
+          <em><%= t('no_description') %></em>
+        <% end %><br />
+        <%= Venue.model_name.human %> : 
+        <% unless gig.venue.blank? %>        
+          <%= gig.venue.name %>
+        <% else %>
+          <em><%= t('not_specified') %></em>
+        <% end %><br />
+        
+        <%= Gig.human_attribute_name(:doors_time) %> : <%= gig.doors_time %><br />
+        <%= Gig.human_attribute_name(:concert_end_time) %> : <%= gig.concert_start_time %><br />
+        <%= link_to t('.see_gig_page'), gig, class: "btn btn-small btn-info pull-right" %>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+<% else %>
+  <div class="alert alert-info"><%= t('no_result') %></div>
+<% end %>
+
+<%= render 'shared/sidebar' %>
