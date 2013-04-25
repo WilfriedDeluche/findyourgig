@@ -1,0 +1,9 @@
+<p>
+  <%= User.find(feedback.user_id).first_name.capitalize + ' ' + User.find(feedback.user_id).last_name.upcase %> gives <%= feedback.rating.to_s + " out of 5" %><br />
+</p>
+<p>
+  <strong>Feedback:</strong>  
+  <%= feedback.description %>
+</p>
+<%= link_to "Del", [feedback.venue, feedback], :confirm => 'Are you sure?', :method => :delete %>
+<hr>

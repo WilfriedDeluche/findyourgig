@@ -95,10 +95,16 @@
 
 <h4>Feedbacks:</h2>
     <div id='feedback'>
-      <%= render @venue.feedbacks %>
+      <% unless @venue.feedbacks.empty? %>
+        <%= render @venue.feedbacks %>
+      <% else %>
+        <div class="alert">
+          <%= t('.no_feedbacks') %>
+        </div>
+      <% end %>
     </div>
 
-<em>Add a feedback:</em>
+<h6>Add a feedback:</h6>
 <%= render "feedbacks/form" %>
 
 <%= render 'shared/sidebar' %>

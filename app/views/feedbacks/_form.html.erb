@@ -1,0 +1,17 @@
+<%= form_for([@venue, @venue.feedbacks.build], remote: true) do |f| %>
+  <%= f.error_messages %>
+
+	<p>
+   	<%= f.label :rating %>
+    <%= f.select :rating, (0..5).to_a, :prompt => t('rate_the_venue') %>
+  </p>
+  <p>
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "span8", rows: "8" %>
+  </p>
+  <%= f.hidden_field :venue_id, :value => @venue.id  %>
+  <%= f.hidden_field :user_id, :value => current_user.id  %>
+  <p>
+    <%= f.submit class: "btn btn-primary" %>
+  </p>
+<% end %>
