@@ -34,13 +34,17 @@ ActiveRecord::Schema.define(:version => 20130424144914) do
 
   create_table "feedback_ratings", :force => true do |t|
     t.boolean  "is_useful"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "feedback_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "feedbacks", :force => true do |t|
     t.text     "description"
     t.integer  "rating"
+    t.integer  "venue_id"
+    t.integer  "user_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

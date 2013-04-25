@@ -6,4 +6,5 @@ class Feedback < ActiveRecord::Base
   attr_accessible :description, :rating, :venue_id, :user_id
 
   validates_presence_of :description, :rating, :venue_id, :user_id
+  validates_inclusion_of :rating, :in => 0..5
 end

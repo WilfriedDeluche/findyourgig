@@ -91,4 +91,14 @@
   <% end %>
 <% end %>
 
+<hr />
+
+<h4>Feedbacks:</h2>
+    <div id='feedback'>
+      <%= render @venue.feedbacks %>
+    </div>
+
+<em>Add a feedback:</em>
+<%= render "feedbacks/form" %>
+
 <%= render 'shared/sidebar' %>

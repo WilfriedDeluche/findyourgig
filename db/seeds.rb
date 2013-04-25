@@ -33,6 +33,8 @@ venue_images_url = ["http://www.infoconcert.com/media/photos/ALHAMBRA.JPG", #Alh
           "http://3.bp.blogspot.com/-PLOidrmcG2E/T6mR46guDdI/AAAAAAAAAF4/rHBnsz8No7A/s1600/LOGO-KLUB-BLANC-1.jpg", # Le Klub
           "", # Le Trabendo
           "http://www.nouveau-paris-ile-de-france.fr/fichiers/fckeditor/Image/1185/fr/original/new-morning.jpg"] # New Morning
+descriptions = ['Pas mal', 'Mouais', 'Top moumoute !', 'Super son !', 'Très sympa !']
+ratings = [0..5].to_a
 
 # Roles
 puts "ROLES"
@@ -135,4 +137,15 @@ end
 my_gig = Gig.new venue_id: gig_venues.sample, name: "Gig Name", description: "Gig Description", soundcheck_time: gig_soundcheck_times.sample, doors_time: gig_doors_times.sample, concert_start_time: gig_concert_start_times.sample, concert_end_time: gig_concert_end_times.sample
 my_gig.save
 puts "Gig : #{my_gig.description} on #{my_gig.concert_start_time}"
+
+puts "FEEDBACKS"
+for n in 1..15 do
+  feedback = Feedback.new description: descriptions.sample, rating: ratings.sample, venue_id: gig_venues.sample, user_id: user_3.id
+  feedback.save
+  puts "Feedback : #{feedback.description} 
+  Rating: #{feedback.rating} out of 5
+  Venue: #{feedback.venue_id}
+  #{feedback.user_id}
+  #{feedback.created_at}"
+end
 

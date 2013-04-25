@@ -27,6 +27,9 @@ Findyourgig::Application.routes.draw do
       resources :venue_images, path: 'images', only: [:index, :create, :show, :destroy] do
         put "set_main", on: :member
       end
+      resources :feedbacks do
+        resources :feedback_ratings
+      end
     end
 
     root to: "home#index"
