@@ -104,7 +104,8 @@
       <% end %>
     </div>
 
-<h6>Add a feedback:</h6>
-<%= render "feedbacks/form" %>
-
+<% if user_signed_in? %>
+  <h6>Add a feedback:</h6>
+  <%= render "feedbacks/form" %>
+<% end %>
 <%= render 'shared/sidebar' %>

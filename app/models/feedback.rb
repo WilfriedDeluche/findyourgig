@@ -7,4 +7,5 @@ class Feedback < ActiveRecord::Base
 
   validates_presence_of :description, :rating, :venue_id, :user_id
   validates_inclusion_of :rating, :in => 0..5
+  validates_uniqueness_of :user_id, scope: :venue_id
 end
