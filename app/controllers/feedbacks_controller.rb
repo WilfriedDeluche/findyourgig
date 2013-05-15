@@ -1,14 +1,12 @@
 class FeedbacksController < ApplicationController
 	before_filter :find_venue
 
-
   def create
-    @venue = Venue.find(params[:venue_id])
     @feedback = @venue.feedbacks.create(params[:feedback])
 
     respond_to do |format|
-        format.html { redirect_to venue_path(@venue) }
-        format.js 
+      format.html { redirect_to venue_path(@venue) }
+      format.js 
     end
   end
 
@@ -21,7 +19,7 @@ class FeedbacksController < ApplicationController
   private
   def find_venue
   	begin 
-  		@venue = Feedback.find(params[:id]).venue
+  		@venue = Venue.find(params[:venue_id])
   	rescue
   		redirect_to venues_url, alert: t('venue_unknown')
   	end
