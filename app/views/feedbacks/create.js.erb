@@ -1,1 +1,5 @@
-$('#feedback').html("<%=j render @venue.feedbacks %>");
+<% if @feedback.persisted? %>
+	$('#feedback').html("<%=j render @venue.feedbacks %>");
+<% else %>
+	alert("Vous avez déjà posté un feedback pour cette venue");
+<% end %>
