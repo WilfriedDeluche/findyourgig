@@ -6,10 +6,13 @@ class Gig < ActiveRecord::Base
   has_many :acts, dependent: :destroy
   has_many :bands, through: :acts
 
-  has_one :main_act, class_name: Act, conditions: { is_main_act: true }
-  has_many :supporting_acts, class_name: Act, conditions: { is_main_act: false }
+  has_one :main_act, class_name: Act, :inverse_of => :gig, conditions: { is_main_act: true }
+  has_many :supporting_acts, class_name: Act, :inverse_of => :gig, conditions: { is_main_act: false }
 
-  attr_accessible :concert_end_time, :concert_start_time, :description, :doors_time, :name, :soundcheck_time, :venue_id
+  accepts_nested_attributes_for :main_act, :supporting_acts, allow_destroy: true, :reject_if => proc { |attributes| attributes['band_id'].blank? }
+
+  attr_accessible :concert_end_time, :concert_start_time, :description, :doors_time, :name, :soundcheck_time, :venue_id,
+                  :main_act_attributes, :supporting_acts_attributes
 
   validates_presence_of :concert_start_time, :description, :doors_time, :name, :venue_id
   validate :concert_start_time_okay, :concert_end_time_okay, :doors_time_okay

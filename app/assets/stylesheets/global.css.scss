@@ -54,3 +54,9 @@ table.table-striped tbody td.cell-blue {
     margin-right: 10px;
   }
 }
+
+.radio.inline, .checkbox.inline {
+  &.baseline { 
+    vertical-align: baseline 
+  }
+}

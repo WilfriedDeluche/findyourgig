@@ -29,6 +29,33 @@
     <%= f.label :concert_end_time %>
     <%= f.text_field :concert_end_time, :id => 'concert_end_time' %>
   </div>
+  <div class="field">
+    <%= f.fields_for :main_act, @main_act do |main_act_field| %>
+      <%= main_act_field.label :band_id, Gig.human_attribute_name(:main_act) %>
+      <%= main_act_field.collection_select :band_id, Band.find(:all), :id, :name, :prompt => t('.prompt_band') %>
+      <%= main_act_field.hidden_field :is_main_act, :value => true %>
+      <% if main_act_field.object.persisted? %>
+        <%= main_act_field.label :_destroy, class: "checkbox inline baseline" do %>
+          <%= main_act_field.check_box :_destroy %>
+          <%= t('remove') %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.fields_for :supporting_acts, @supporting_acts do |supporting_act_field| %>
+      <%= supporting_act_field.label :band_id, Gig.human_attribute_name(:supporting_act) %>
+      <%= supporting_act_field.collection_select :band_id, Band.find(:all), :id, :name, :prompt => t('.prompt_band') %>
+      <%= supporting_act_field.hidden_field :is_main_act, :value => false %>
+      <% if supporting_act_field.object.persisted? %>
+        <%= supporting_act_field.label :_destroy, class: "checkbox inline baseline" do %>
+          <%= supporting_act_field.check_box :_destroy %>
+          <%= t('remove') %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
 
   <div class="actions">
     <%= f.submit class: "btn btn-primary" %>

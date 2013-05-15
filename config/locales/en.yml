@@ -107,6 +107,9 @@ en:
         doors_time: "Doors time"
         concert_start_time: "Concert start"
         concert_end_time: "Concert end"
+        main_act: "Main act"
+        supporting_act: "1è partie"
+        supporting_acts: "1è parties"
 
   layouts:
     application:
@@ -162,6 +165,8 @@ en:
       new_gig: "New Gig"
     edit:
       gig_page: "Gig Page"
+    form:
+      prompt_band: "Select a band"
   venues:
     index:
       title: "Venues"

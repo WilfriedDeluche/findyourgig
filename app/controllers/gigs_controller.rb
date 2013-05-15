@@ -26,11 +26,13 @@ class GigsController < ApplicationController
   def new
     @my_venue ||= params[:venue_id]
     @gig = Gig.new(:venue_id => @my_venue)
+    initialize_acts
     respond_with @gig
   end
 
   # GET /gigs/1/edit
   def edit
+    initialize_acts
   end
 
   # POST /gigs
@@ -40,6 +42,7 @@ class GigsController < ApplicationController
     if @gig.save
       redirect_to @gig, notice: t('gig_created')
     else
+      initialize_acts
       render action: "new"
     end
   end
@@ -49,6 +52,7 @@ class GigsController < ApplicationController
     if @gig.update_attributes(params[:gig])
       redirect_to @gig, notice: t('gig_updated')
     else
+      initialize_acts
       render action: "edit"
     end
   end
@@ -66,5 +70,11 @@ class GigsController < ApplicationController
     rescue
       redirect_to gigs_url, alert: t('gig_unknown')
     end
+  end
+
+  def initialize_acts
+    @main_act = (@gig.main_act || @gig.build_main_act)
+    @supporting_acts = @gig.supporting_acts
+    (4-@supporting_acts.size).times { @gig.supporting_acts.build }
   end
 end

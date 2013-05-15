@@ -14,10 +14,12 @@
   <% end %>
 </p>
 
+<% if @gig.soundcheck_time %>
 <p>
   <b><%= Gig.human_attribute_name(:soundcheck_time) %>:</b>
   <%= l(@gig.soundcheck_time) %>
 </p>
+<% end %>
 
 <p>
   <b><%= Gig.human_attribute_name(:doors_time) %>:</b>
@@ -29,10 +31,12 @@
   <%= l(@gig.concert_start_time) %>
 </p>
 
+<% if @gig.concert_end_time %>
 <p>
   <b><%= Gig.human_attribute_name(:concert_end_time) %>:</b>
   <%= l(@gig.concert_end_time) %>
 </p>
+<% end %>
 
 <h3>Acts</h3>
 
