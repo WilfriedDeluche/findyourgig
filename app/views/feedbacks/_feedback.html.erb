@@ -4,8 +4,9 @@
 <p>
   <strong>Feedback:</strong>  
   <%= feedback.description %>
-</p>
 <% if current_user.id == feedback.user_id || current_user.roles_list.include?(User::ADMIN) %>
-	<%= link_to "Del", [feedback.venue, feedback], :confirm => 'Are you sure?', :method => :delete %>
+	<%#= link_to "Del", [feedback.venue, feedback], :confirm => 'Are you sure?', :method => :delete %>
+	<%= link_to t('remove'), [feedback.venue, feedback], method: :delete, data: { confirm: t('are_u_sure') }, class: "btn btn-small btn-danger pull-right" %>
+</p>
 <% end %>
 <hr>
