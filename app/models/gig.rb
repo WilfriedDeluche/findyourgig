@@ -18,14 +18,17 @@ class Gig < ActiveRecord::Base
   validate :concert_start_time_okay, :concert_end_time_okay, :doors_time_okay
 
 	def doors_time_okay
-  	errors.add :country, I18n.t('incorrect_doors_time') if !soundcheck_time.blank? && doors_time<soundcheck_time
+    return if soundcheck_time.blank? || doors_time.blank?
+  	errors.add :doors_time, I18n.t('incorrect_doors_time') if doors_time < soundcheck_time
   end
 
   def concert_start_time_okay
-  	errors.add :country, I18n.t('incorrect_concert_start_time') if !doors_time.blank? && concert_start_time<doors_time
+    return if concert_start_time.blank? || doors_time.blank?
+  	errors.add :concert_start_time, I18n.t('incorrect_concert_start_time') if concert_start_time < doors_time
   end
 
   def concert_end_time_okay
-  	errors.add :country, I18n.t('incorrect_concert_end_time') if !concert_end_time.blank? && concert_end_time<concert_start_time
+    return if concert_start_time.blank? || concert_end_time.blank?
+  	errors.add :concert_end_time, I18n.t('incorrect_concert_end_time') if concert_end_time < concert_start_time
   end
 end
