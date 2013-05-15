@@ -17,6 +17,8 @@ class GigsController < ApplicationController
 
   # GET /gigs/1
   def show
+    @main_act = @gig.main_act
+    @supporting_acts = @gig.supporting_acts.includes(:band)
     respond_with @gig
   end
 

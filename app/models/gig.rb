@@ -3,6 +3,11 @@ class Gig < ActiveRecord::Base
   scope :by_letter, lambda { |letter| { :conditions => ["lower(name) LIKE ?", "#{letter}%"] }}
   
   belongs_to :venue
+  has_many :acts, dependent: :destroy
+  has_many :bands, through: :acts
+
+  has_one :main_act, class_name: Act, conditions: { is_main_act: true }
+  has_many :supporting_acts, class_name: Act, conditions: { is_main_act: false }
 
   attr_accessible :concert_end_time, :concert_start_time, :description, :doors_time, :name, :soundcheck_time, :venue_id
 

@@ -248,6 +248,10 @@ fr:
     - :month
     - :day
 
+  time:
+    formats:
+      default: "%d/%m/%Y %H:%M"
+
   errors:
     messages:
       carrierwave_processing_error: "Impossible de retailler l'image."

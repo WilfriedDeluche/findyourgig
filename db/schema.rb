@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130407133712) do
+ActiveRecord::Schema.define(:version => 20130424102809) do
+
+  create_table "acts", :force => true do |t|
+    t.integer  "gig_id"
+    t.integer  "band_id"
+    t.boolean  "is_main_act", :default => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+  end
 
   create_table "band_participations", :force => true do |t|
     t.integer  "band_id"

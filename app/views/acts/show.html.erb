@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Gig:</b>
+  <%= @act.gig_id %>
+</p>
+
+<p>
+  <b>Band:</b>
+  <%= @act.band_id %>
+</p>
+
+<p>
+  <b>Is main act:</b>
+  <%= @act.is_main_act %>
+</p>
+
+
+<%= link_to 'Edit', edit_act_path(@act) %> |
+<%= link_to 'Back', acts_path %>
