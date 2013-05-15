@@ -1,5 +1,10 @@
-<% if @feedback.persisted? %>
-	$('#feedback').html("<%=j render @venue.feedbacks %>");
+<% unless @venue.find_feedback_users.include?current_user.id %>
+	<% if @feedback.persisted? %>
+		$('#feedback').html("<%=j render @venue.feedbacks %>");
+	<% else %>
+		alert("Vous avez déjà posté un feedback pour cette venue");
+	<% end %>
 <% else %>
-	alert("Vous avez déjà posté un feedback pour cette venue");
+	$('#feedback').html("<%=j render @venue.feedbacks %>");
+	$('#feedback_form').hide();
 <% end %>

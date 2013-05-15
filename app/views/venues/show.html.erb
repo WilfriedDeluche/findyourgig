@@ -105,7 +105,11 @@
     </div>
 
 <% if user_signed_in? %>
-  <h6>Add a feedback:</h6>
-  <%= render "feedbacks/form" %>
+  <div id='feedback_form'>
+    <% unless @venue.find_feedback_users.include?current_user.id  %>
+      <h6>Add a feedback:</h6>
+      <%= render "feedbacks/form" %>
+    <% end %>
+  </div>
 <% end %>
 <%= render 'shared/sidebar' %>

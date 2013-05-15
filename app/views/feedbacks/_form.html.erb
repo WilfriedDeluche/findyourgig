@@ -1,8 +1,8 @@
 <%= form_for([@venue, @venue.feedbacks.build], remote: true) do |f| %>
   <%= f.error_messages %>
 
-	<p>
-   	<%= f.label :rating %>
+  <p>
+    <%= f.label :rating %>
     <%= f.select :rating, (0..5).to_a, :prompt => t('rate_the_venue') %>
   </p>
   <p>
