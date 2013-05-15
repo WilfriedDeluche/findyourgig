@@ -136,6 +136,7 @@ en:
       from: "Based in"
       edit_band: "Edit Band"
       join_band: "Join Band"
+      gigs: "Band's gigs"
     edit:
       band_page: "Band Page"
     members:

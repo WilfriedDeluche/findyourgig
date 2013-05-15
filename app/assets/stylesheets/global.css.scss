@@ -6,6 +6,15 @@ h1, h2, h3, h4 {
   }
 }
 
+ul.list-no-style {
+  list-style-type: none;
+}
+
+a.neutral-link {
+  color: #000;
+  text-decoration: none;
+}
+
 .center, .table th.center, .table td.center {
   text-align: center;
 }

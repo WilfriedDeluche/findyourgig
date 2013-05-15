@@ -161,6 +161,7 @@ fr:
       from: "Originaire de"
       edit_band: "Modifier Groupe"
       join_band: "Joindre le groupe"
+      gigs: "Les concerts du groupe"
     edit:
       band_page: "Fiche Groupe"
     members:
@@ -256,6 +257,7 @@ fr:
   time:
     formats:
       default: "%d/%m/%Y %H:%M"
+      humanize: "%d %b %Y - %H:%m"
 
   errors:
     messages:

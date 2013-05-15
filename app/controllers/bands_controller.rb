@@ -20,6 +20,7 @@ class BandsController < ApplicationController
 
   def show
     flash.now[:info] = t('band_participation_request_pending') if @user_bands.detect { |part| part[:band_id] == @band.id && part[:active] == false }
+    @gigs = @band.gigs
     respond_with @band
   end
 
