@@ -55,8 +55,10 @@ table.table-striped tbody td.cell-blue {
   }
 }
 
-.radio.inline, .checkbox.inline {
-  &.baseline { 
-    vertical-align: baseline 
+button.btn-delete-entity {
+  margin-bottom: 10px;
+
+  &.active {
+    color: red;
   }
 }

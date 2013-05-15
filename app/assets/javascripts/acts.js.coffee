@@ -1,3 +1,10 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+jQuery ->
+  $('[data-toggle=button]').click ->
+    if $(this).hasClass("active")
+      $(this).removeClass("active")
+      $(this).siblings(".destroy-entity").each ->
+        $(this).val("false")
+    else
+      $(this).addClass("active")
+      $(this).siblings(".destroy-entity").each ->
+        $(this).val("true")
