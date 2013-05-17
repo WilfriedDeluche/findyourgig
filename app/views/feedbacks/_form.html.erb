@@ -1,6 +1,10 @@
-<%= form_for([@venue, @venue.feedbacks.build], remote: true) do |f| %>
-  <%= f.error_messages %>
+<%# this partial is called from another controller's action, so we cannot call error_messages_for from form_builder obbject %>
+<%# the solution is to redirect and send the object containing validation errors in flash[:error] %>
+<%= error_messages_for(flash[:error]) %>
 
+<h6>Add a feedback:</h6>
+
+<%= form_for [@venue, @venue.feedbacks.build], remote: true do |f| %>
   <p>
     <%= f.label :rating %>
     <%= f.select :rating, (0..5).to_a, :prompt => t('rate_the_venue') %>
@@ -9,8 +13,6 @@
     <%= f.label :description %>
     <%= f.text_area :description, class: "span8", rows: "8" %>
   </p>
-  <%= f.hidden_field :venue_id, :value => @venue.id  %>
-  <%= f.hidden_field :user_id, :value => current_user.id  %>
   <p>
     <%= f.submit class: "btn btn-primary" %>
   </p>

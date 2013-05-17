@@ -2,11 +2,20 @@ class FeedbacksController < ApplicationController
 	before_filter :find_venue
 
   def create
-    @feedback = @venue.feedbacks.create(params[:feedback])
+    @feedback = @venue.feedbacks.build(params[:feedback])
+    @feedback.user_id = current_user.id
 
     respond_to do |format|
-      format.html { redirect_to venue_path(@venue) }
-      format.js 
+      if @feedback.save
+        format.html { redirect_to venue_path(@venue) }
+        format.js
+      else
+        format.html do
+          flash[:error] = @feedback
+          redirect_to venue_path(@venue)
+        end
+        format.js { @errors = @feedback.errors.to_a }
+      end
     end
   end
 

@@ -1,10 +1,9 @@
-<% unless @venue.find_feedback_users.include?current_user.id %>
-	<% if @feedback.persisted? %>
-		$('#feedback').html("<%=j render @venue.feedbacks %>");
-	<% else %>
-		alert("Vous avez déjà posté un feedback pour cette venue");
-	<% end %>
+<% if @errors && @errors.any? %>
+  <% @errors.each do |error| %>
+    alert("<%= error %>");
+  <% end %>
 <% else %>
-	$('#feedback').html("<%=j render @venue.feedbacks %>");
+  $("#feedbacks .alert").remove();
+	$('#feedbacks').append("<%= escape_javascript(render(partial: "feedback", locals: { :feedback => @feedback })) %>");
 	$('#feedback_form').hide();
 <% end %>

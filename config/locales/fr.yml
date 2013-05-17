@@ -61,7 +61,6 @@ fr:
   gig_unknown: "Le concert recherché n'existe pas."
   gig_updated: "Le concert a bien été mis à jour."
   gig_created: "Le concert a bien été créé."
-  #venue_uniqueness: "Un lieu de concert existe déjà pour cette adresse"
 
   # OTHERS
   country_code_does_not_exist: "n'existe pas"

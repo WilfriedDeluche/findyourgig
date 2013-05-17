@@ -53,8 +53,4 @@ class Venue < ActiveRecord::Base
   def remove_upload_folder
     FileUtils.remove_dir("#{Rails.root}/public/uploads/venues/#{self.id}", :force => true)
   end
-
-  def find_feedback_users
-    Feedback.where(:venue_id => self.id).collect{ |feedback| feedback.user_id}
-  end
 end
