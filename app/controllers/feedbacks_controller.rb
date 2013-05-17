@@ -5,15 +5,19 @@ class FeedbacksController < ApplicationController
     @feedback = @venue.feedbacks.create(params[:feedback])
 
     respond_to do |format|
-      format.html { redirect_to venue_path(@venue) }
+      format.html { redirect_to venue_path(@venue), notice: t('feedback_created') }
       format.js 
     end
   end
 
   def destroy
-  	@feedback = Feedback.find(params[:id])
-    @feedback.destroy
-    redirect_to @venue
+    begin
+    	@feedback = Feedback.find(params[:id])
+      @feedback.destroy
+      redirect_to @venue, notice: t('feedback_deleted')
+    rescue
+      redirect_to @venue, alert: t('feedback_unknown')
+    end  
   end
 
   private

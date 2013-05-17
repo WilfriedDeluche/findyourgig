@@ -19,6 +19,8 @@ fr:
   menu: "Menu"
   page_unknown: "Cette page n'existe pas"
   unprocessable_action: "L'action demandée n'a pu être effectuée car incorrecte ou interdite."
+  gives_a_rating: "a mis une note de"
+  out_of_five: "sur 5."
 
   # BANDS
   band_unknown: "Le groupe recherché n'existe pas."
@@ -48,8 +50,8 @@ fr:
   venue_unknown: "Le lieu de concert recherché n'existe pas."
   venue_updated: "Le lieu de concert a bien été mis à jour."
   venue_created: "Le lieu de concert a bien été créé."
-  venue_uniqueness: "Un lieu de concert existe déjà pour cette adresse"
-  unknown_gmaps_address: "Désolé, Google n'a pas réussi à localiser votre adresse"
+  venue_uniqueness: "Un lieu de concert existe déjà pour cette adresse."
+  unknown_gmaps_address: "Désolé, Google n'a pas réussi à localiser votre adresse."
 
   # VENUE IMAGES
   image_uploaded: "L'image a été uploadée avec succès."
@@ -61,13 +63,18 @@ fr:
   gig_unknown: "Le concert recherché n'existe pas."
   gig_updated: "Le concert a bien été mis à jour."
   gig_created: "Le concert a bien été créé."
-  #venue_uniqueness: "Un lieu de concert existe déjà pour cette adresse"
+  gig_uniqueness: "Un concert existe déjà pour cette date."
+
+# FEEDBACKS
+  feedback_unknown: "Cet avis n'existe pas."
+  feedback_created: "L'avis a été créé avec succès."
+  feedback_deleted: "L'avis a été supprimé avec succès."
 
   # OTHERS
   country_code_does_not_exist: "n'existe pas"
-  incorrect_doors_time: "L'heure d'ouverture doit être postérieure à l'heure des balances"
-  incorrect_concert_start_time: "L'heure de début du concert doit être postérieure à l'heure d'ouverture"
-  incorrect_concert_end_time: "L'heure de fin du concert doit être postérieure à l'heure de début"
+  incorrect_doors_time: "L'heure d'ouverture doit être postérieure à l'heure des balances."
+  incorrect_concert_start_time: "L'heure de début du concert doit être postérieure à l'heure d'ouverture."
+  incorrect_concert_end_time: "L'heure de fin du concert doit être postérieure à l'heure de début."
 
   activerecord:
     models:
@@ -75,6 +82,7 @@ fr:
       band: "Groupe"
       venue: "Lieu"
       gig: "Concert"
+      feedback: "Avis"
     attributes:
       user:
         first_name: "Prénom"
@@ -107,7 +115,9 @@ fr:
         doors_time: "Heure d'ouverture des portes"
         concert_start_time: "Heure de début"
         concert_end_time: "Heure de fin"
-
+      feedback:
+        description: "Description"
+        rating: "Note"
     errors:
       messages: &errors_messages
         inclusion: "n'est pas inclus(e) dans la liste"
@@ -205,6 +215,8 @@ fr:
       no_pictures: "Aucune photo pour cette salle"
       upload_images: "Ajouter des photos"
       all_images: "Voir toutes les photos"
+      user_feedbacks: "Avis des utilisateurs"
+      add_feedback: "Ajoutez un avis"
     new:
       new_venue: "Nouveau lieu"
     edit:
@@ -224,6 +236,12 @@ fr:
     show:
       set_as_main: "Définir comme principale"
       is_main: "Image principale"
+  feedbacks:
+    feedback:
+      gives_a_rating: "gave a rating of"
+      out_of_five: "out of 5."
+    form:
+      rate_the_venue: "Indiquez une note"
 
   helpers:
     select:
