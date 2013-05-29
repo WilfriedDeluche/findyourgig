@@ -11,8 +11,10 @@ class Gig < ActiveRecord::Base
 
   accepts_nested_attributes_for :main_act, :supporting_acts, allow_destroy: true, :reject_if => proc { |attributes| attributes['band_id'].blank? }
 
+  mount_uploader :poster, GigPosterUploader
+
   attr_accessible :concert_end_time, :concert_start_time, :description, :doors_time, :name, :soundcheck_time, :venue_id,
-                  :main_act_attributes, :supporting_acts_attributes
+                  :main_act_attributes, :supporting_acts_attributes, :poster, :poster_cache, :remote_poster_url
 
   validates_presence_of :concert_start_time, :description, :doors_time, :name, :venue_id
   validate :concert_start_time_okay, :concert_end_time_okay, :doors_time_okay
