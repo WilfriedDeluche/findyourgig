@@ -1,0 +1,9 @@
+<h2 class="page-header"><%= link_to @gig.name, @gig %></h2>
+
+<% if @gig.poster? %>
+  <p class="center thumbs-container">
+    <%= image_tag @gig.poster_url(:normal) %>
+  </p>
+<% end %>
+
+<%= render 'shared/sidebar' %>

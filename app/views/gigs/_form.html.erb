@@ -1,4 +1,4 @@
-<%= form_for(@gig) do |f| %>
+<%= form_for @gig, :html => {:multipart => true} do |f| %>
   <%= f.error_messages %>
 
   <div class="field">
@@ -12,6 +12,20 @@
   <div class="field">
     <%= f.label Venue.model_name.human %>
     <%= f.collection_select :venue_id, Venue.find(:all), :id, :name, :prompt => "Select a Venue" %>
+  </div>
+  <div class="field">
+    <%= f.label :poster %>
+    <%= f.file_field :poster %>
+    <%= f.hidden_field :poster_cache %>
+    <% if @gig.poster? %>
+      <br />
+      <p>
+        <%= image_tag @gig.poster_url(:thumb) %>
+        <%= link_to remove_poster_gig_path(@gig), method: :put, class: "btn btn-delete-entity" do %>
+          <i class="icon-remove"></i>
+        <% end %>
+      </p>
+    <% end %>
   </div>
   <div class="field">
     <%= f.label :soundcheck_time %>

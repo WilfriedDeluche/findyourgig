@@ -62,6 +62,8 @@ fr:
   gig_updated: "Le concert a bien été mis à jour."
   gig_created: "Le concert a bien été créé."
   gig_uniqueness: "Un concert existe déjà pour cette date."
+  gig_poster_deleted: "L'affiche du concert a été supprimée."
+  gig_poster_unknown: "Il n'y a pas d'affiche pour ce concert."
 
   # FEEDBACKS
   feedback_unknown: "Cet avis n'existe pas."
@@ -116,6 +118,7 @@ fr:
         main_act: "Tête d'affiche"
         supporting_act: "1è partie"
         supporting_acts: "1è parties"
+        poster: "Affiche"
       feedback:
         description: "Description"
         rating: "Note"

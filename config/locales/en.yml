@@ -62,6 +62,8 @@ en:
   gig_updated: "The gig was successfully updated."
   gig_created: "The gig was successfully created."
   gig_uniqueness: "A gig already exists for this date."
+  gig_poster_deleted: "The gig poster has been deleted."
+  gig_poster_unknown: "There is no poster for this gig."
 
   # FEEDBACKS
   feedback_unknown: "The feedback does not exist."
@@ -116,6 +118,7 @@ en:
         main_act: "Main act"
         supporting_act: "1è partie"
         supporting_acts: "1è parties"
+        poster: "Poster"
       feedback:
         description: "Description"
         rating: "Note"

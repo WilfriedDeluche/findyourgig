@@ -36,8 +36,11 @@ Findyourgig::Application.routes.draw do
       end
     end
 
-    root to: "home#index"
+    resources :gigs do
+      get "poster", on: :member
+      put "remove_poster", on: :member
+    end
 
-    resources :gigs
+    root to: "home#index"
   end  
 end
