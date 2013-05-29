@@ -4,31 +4,23 @@ describe BandImagesController do
   describe "routing" do
 
     it "routes to #index" do
-      get("/band_images").should route_to("band_images#index")
-    end
-
-    it "routes to #new" do
-      get("/band_images/new").should route_to("band_images#new")
+      get("/bands/1/images").should route_to("band_images#index", :band_id => "1")
     end
 
     it "routes to #show" do
-      get("/band_images/1").should route_to("band_images#show", :id => "1")
-    end
-
-    it "routes to #edit" do
-      get("/band_images/1/edit").should route_to("band_images#edit", :id => "1")
+      get("/bands/1/images/3").should route_to("band_images#show", :band_id => "1", :id => "3")
     end
 
     it "routes to #create" do
-      post("/band_images").should route_to("band_images#create")
+      post("/bands/1/images").should route_to("band_images#create", :band_id => "1")
     end
 
-    it "routes to #update" do
-      put("/band_images/1").should route_to("band_images#update", :id => "1")
+    it "routes to #set_main" do
+      put("/bands/1/images/2/set_main").should route_to("band_images#set_main", :band_id => "1", :id => "2")
     end
 
     it "routes to #destroy" do
-      delete("/band_images/1").should route_to("band_images#destroy", :id => "1")
+      delete("/bands/1/images/4").should route_to("band_images#destroy", :band_id => "1", :id => "4")
     end
 
   end
