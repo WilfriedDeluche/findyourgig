@@ -113,6 +113,9 @@ fr:
         doors_time: "Heure d'ouverture des portes"
         concert_start_time: "Heure de début"
         concert_end_time: "Heure de fin"
+        main_act: "Tête d'affiche"
+        supporting_act: "1è partie"
+        supporting_acts: "1è parties"
       feedback:
         description: "Description"
         rating: "Note"
@@ -166,6 +169,7 @@ fr:
       from: "Originaire de"
       edit_band: "Modifier Groupe"
       join_band: "Joindre le groupe"
+      gigs: "Les concerts du groupe"
     edit:
       band_page: "Fiche Groupe"
     members:
@@ -196,6 +200,8 @@ fr:
       new_gig: "Nouveau Concert"
     edit:
       gig_page: "Fiche Concert"
+    form:
+      prompt_band: "Selectionnez un groupe"
   venues:
     index:
       title: "Groupes"
@@ -263,6 +269,11 @@ fr:
     - :year
     - :month
     - :day
+
+  time:
+    formats:
+      default: "%d/%m/%Y %H:%M"
+      humanize: "%d %b %Y - %H:%m"
 
   errors:
     messages:

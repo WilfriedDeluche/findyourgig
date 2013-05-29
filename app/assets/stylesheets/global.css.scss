@@ -6,6 +6,15 @@ h1, h2, h3, h4 {
   }
 }
 
+ul.list-no-style {
+  list-style-type: none;
+}
+
+a.neutral-link {
+  color: #000;
+  text-decoration: none;
+}
+
 .center, .table th.center, .table td.center {
   text-align: center;
 }
@@ -52,5 +61,13 @@ table.table-striped tbody td.cell-blue {
 
   img.pull-left {
     margin-right: 10px;
+  }
+}
+
+button.btn-delete-entity {
+  margin-bottom: 10px;
+
+  &.active {
+    color: red;
   }
 }

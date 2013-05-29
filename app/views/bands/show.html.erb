@@ -25,4 +25,11 @@
   <% end %>
 </p>
 
+<% if @gigs.any? %>
+  <h3><%= t('.gigs') %></h3>
+  <% @gigs.each do |gig| %>
+    <%= link_to gig.name, gig %><br />
+  <% end %>
+<% end %>
+
 <%= render 'shared/sidebar' %>
