@@ -1,5 +1,7 @@
 Findyourgig::Application.routes.draw do
 
+  resources :band_images
+
   scope '(:locale)', locale: /en|fr/ do
 
     devise_for :users, path: "profile", path_names: { 
