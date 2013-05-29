@@ -28,21 +28,22 @@
   <% @gigs.each do |gig| %>
     <tr>
       <td>
-        <h4><%= link_to gig.name, gig %></h4>
+        <h4><%= link_to gig.name, gig %> <small><%= gig.main_act.band.name if gig.main_act %></small></h4>
         <% unless gig.description.blank? %>
-          <%= gig.description %>
+          <%= truncate(gig.description, :length => 200, :separator => ' ') %>
         <% else %>
           <em><%= t('no_description') %></em>
         <% end %><br />
+        <br />
         <%= Venue.model_name.human %> : 
         <% unless gig.venue.blank? %>        
-          <%= gig.venue.name %>
+          <strong><%= gig.venue.name %></strong>
         <% else %>
           <em><%= t('not_specified') %></em>
         <% end %><br />
         
-        <%= Gig.human_attribute_name(:doors_time) %> : <%= gig.doors_time %><br />
-        <%= Gig.human_attribute_name(:concert_end_time) %> : <%= gig.concert_start_time %><br />
+        <%= Gig.human_attribute_name(:doors_time) %> : <strong><%= l(gig.doors_time, format: :humanize) %></strong><br />
+        <%= Gig.human_attribute_name(:concert_start_time) %> : <strong><%= l(gig.concert_start_time, format: :humanize) %></strong><br />
         <%= link_to t('.see_gig_page'), gig, class: "btn btn-small btn-info pull-right" %>
       </td>
     </tr>
