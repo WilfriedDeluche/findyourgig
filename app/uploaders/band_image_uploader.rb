@@ -16,6 +16,10 @@ class BandImageUploader < CarrierWave::Uploader::Base
     process :resize_to_fit => [800,400]
   end
 
+  version :header do
+    process resize_to_fill: [830, 450]
+  end
+
   version :thumb, :from_version => :normal do
     process resize_to_fill: [180, 180]
   end
