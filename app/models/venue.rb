@@ -6,6 +6,7 @@ class Venue < ActiveRecord::Base
   has_many :users, through: :managerships
   has_many :venue_images, dependent: :destroy
   has_many :gigs
+  has_many :feedbacks
 
   has_one :main_image, class_name: VenueImage, conditions: { is_main: true }
   

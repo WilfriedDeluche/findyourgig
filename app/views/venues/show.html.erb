@@ -91,4 +91,23 @@
   <% end %>
 <% end %>
 
+<hr />
+
+<h4><%= t('.user_feedbacks') %></h4>
+<div id='feedbacks'>
+  <% unless @venue.feedbacks.empty? %>
+    <%= render @venue.feedbacks %>
+  <% else %>
+    <div class="alert">
+      <%= t('.no_feedbacks') %>
+    </div>
+  <% end %>
+</div>
+
+<% if user_signed_in? && !Feedback.user_for_venue_exists?(current_user, @venue) %>
+  <div id='feedback_form'>
+    <%= render "feedbacks/form" %>
+  </div>
+<% end %>
+
 <%= render 'shared/sidebar' %>
