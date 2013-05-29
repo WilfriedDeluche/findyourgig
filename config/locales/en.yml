@@ -220,6 +220,8 @@ en:
       no_pictures: "No picture for this venue"
       upload_images: "Add pictures"
       all_images: "See all pictures"
+      gigs: "Gigs in this venue"
+      all_gigs: "See all gigs"
       user_feedbacks: "User feedbacks"
     new:
       new_venue: "New Venue"
@@ -227,6 +229,10 @@ en:
       venue_page: "Venue Page"
     form:
       select_country: "Please select a country"
+    gigs:
+      gigs: "Gigs in this venue"
+      no_gigs: "No gig in this venue"
+      add_gig: "Add a new gig"
   managerships:
     index:
       see_venue_page: "See venue page"
