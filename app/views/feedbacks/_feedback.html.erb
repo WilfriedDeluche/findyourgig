@@ -10,4 +10,21 @@
   <% end %>
 </p>
 
+<h4><%= t('.user_feedback_comments') %></h4>
+<div id='feedback_comments'>
+  <% unless @feedbacks.feedback_comments.empty? %>
+    <%= render @feedbacks.feedback_comments %>
+  <% else %>
+    <div class="alert">
+      <%= t('.no_feedback_comments') %>
+    </div>
+  <% end %>
+</div>
+
+<% if user_signed_in? %>
+  <div id='feedback_comment_form'>
+    <%= render "feedback_comments/form" %>
+  </div>
+<% end %>
+
 <hr />

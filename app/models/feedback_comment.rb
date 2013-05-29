@@ -1,4 +1,4 @@
-class FeedbackComments < ActiveRecord::Base
+class FeedbackComment < ActiveRecord::Base
   belongs_to :feedback
   belongs_to :user
 
