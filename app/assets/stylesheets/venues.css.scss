@@ -3,6 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .thumbs-container {
+  a { 
+    position: relative;
+    display: inline-block;
+  }
+
   img {
     margin-right: 5px;
     margin-bottom: 5px;
@@ -13,5 +18,36 @@
 
   img.main {
     background: #D8282A;
+  }
+
+  &.thumbs-band {
+    img {
+      width: 180px;
+      height: 180px;
+    }
+
+  }
+
+  .thumb-label {
+    position: absolute;
+    padding: 2px 5px;
+    left: 7px;
+    bottom: 12px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    opacity: 0.8;
+
+    &.main-act {
+      background-color: #712594;
+    }
+
+    &.supporting-act {
+      background-color: #1B7DB3;
+    }
+
+    &.thumb-gig {
+      background-color: #BD2243;
+    }
   }
 }

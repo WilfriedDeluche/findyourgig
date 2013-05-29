@@ -213,6 +213,7 @@ fr:
       edit_gig: "Modifier Concert"
     show:
       edit_gig: "Modifier Concert"
+      main_act_and_supporting_acts: "Tête d'affiche et 1è parties"
     new:
       new_gig: "Nouveau Concert"
     edit:
