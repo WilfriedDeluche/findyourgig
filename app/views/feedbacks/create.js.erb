@@ -1,0 +1,9 @@
+<% if @errors && @errors.any? %>
+  <% @errors.each do |error| %>
+    alert("<%= error %>");
+  <% end %>
+<% else %>
+  $("#feedbacks .alert").remove();
+	$('#feedbacks').append("<%= escape_javascript(render(partial: "feedback", locals: { :feedback => @feedback })) %>");
+	$('#feedback_form').hide();
+<% end %>

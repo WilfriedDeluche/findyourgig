@@ -48,8 +48,8 @@ en:
   venue_unknown: "The venue does not exist."
   venue_updated: "The venue was successfully updated."
   venue_created: "The venue was successfully created."
-  venue_uniqueness: "A venue already exists for this address"
-  unknown_gmaps_address: "Sorry, not even Google could figure out where that is"
+  venue_uniqueness: "A venue already exists for this address."
+  unknown_gmaps_address: "Sorry, not even Google could figure out where that is."
 
   # VENUE IMAGES
   image_uploaded: "Image has been successfully uploaded."
@@ -61,13 +61,18 @@ en:
   gig_unknown: "The gig does not exist."
   gig_updated: "The gig was successfully updated."
   gig_created: "The gig was successfully created."
-  gig_uniqueness: "A gig already exists for this date"
+  gig_uniqueness: "A gig already exists for this date."
+
+  # FEEDBACKS
+  feedback_unknown: "The feedback does not exist."
+  feedback_created: "The feedback was successfully posted."
+  feedback_deleted: "The feedback was successfully deleted."
 
   # OTHERS
   country_code_does_not_exist: "does not exist"
-  incorrect_doors_time: "The doors time must be after the soundcheck time"
-  incorrect_concert_start_time: "The concert start time must be after the doors time"
-  incorrect_concert_end_time: "The concert end time must be after the concert start time"
+  incorrect_doors_time: "The doors time must be after the soundcheck time."
+  incorrect_concert_start_time: "The concert start time must be after the doors time."
+  incorrect_concert_end_time: "The concert end time must be after the concert start time."
 
   activerecord:
     models:
@@ -75,6 +80,7 @@ en:
       band: "Band"
       venue: "Venue"
       gig: "Gig"
+      feedback: "Feedback"
     attributes:
       user:
         first_name: "First name"
@@ -107,7 +113,9 @@ en:
         doors_time: "Doors time"
         concert_start_time: "Concert start"
         concert_end_time: "Concert end"
-
+      feedback:
+        description: "Description"
+        rating: "Note"
   layouts:
     application:
       home: "Home"
@@ -188,6 +196,7 @@ en:
       no_pictures: "No picture for this venue"
       upload_images: "Add pictures"
       all_images: "See all pictures"
+      user_feedbacks: "User feedbacks"
     new:
       new_venue: "New Venue"
     edit:
@@ -207,6 +216,13 @@ en:
     show:
       set_as_main: "Set as main pic"
       is_main: "Main pic"
+  feedbacks:
+    feedback:
+      gives_a_rating: "gave a rating of"
+      out_of_five: "out of 5"
+    form:
+      add_feedback: "Add a feedback"
+      rate_the_venue: "Rate the venue"
 
   errors:
     messages:
