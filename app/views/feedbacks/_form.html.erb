@@ -1,4 +1,4 @@
-<%# this partial is called from another controller's action, so we cannot call error_messages_for from form_builder obbject %>
+<%# this partial is called from another controller's action, so we cannot call error_messages_for from form_builder object %>
 <%# the solution is to redirect and send the object containing validation errors in flash[:error] %>
 <%= error_messages_for(flash[:error]) %>
 

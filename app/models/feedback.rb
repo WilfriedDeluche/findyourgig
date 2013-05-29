@@ -11,6 +11,6 @@ class Feedback < ActiveRecord::Base
 
   def self.user_for_venue_exists?(user, venue)
     return false if user.blank? || venue.blank?
-    venue.feedbacks.where(venue_id: venue.id, user_id: user.id).any?
+    venue.feedbacks.where(user_id: user.id).any?
   end
 end
