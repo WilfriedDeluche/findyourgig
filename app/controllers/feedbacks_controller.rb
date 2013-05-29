@@ -1,6 +1,13 @@
 class FeedbacksController < ApplicationController
 	before_filter :find_venue
 
+  def show
+    @feedback_comments = @feedback.feedback_comments
+    @feedback_comment = FeedbackComment.new
+
+    respond_with @feedback
+  end
+
   def create
     @feedback = @venue.feedbacks.build(params[:feedback])
     @feedback.user_id = current_user.id

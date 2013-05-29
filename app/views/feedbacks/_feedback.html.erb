@@ -12,8 +12,8 @@
 
 <h4><%= t('.user_feedback_comments') %></h4>
 <div id='feedback_comments'>
-  <% unless @feedbacks.feedback_comments.empty? %>
-    <%= render @feedbacks.feedback_comments %>
+  <% unless @feedback.feedback_comments.empty? %>
+    <%= render @feedback.feedback_comments %>
   <% else %>
     <div class="alert">
       <%= t('.no_feedback_comments') %>
