@@ -1,5 +1,6 @@
 class FeedbackCommentsController < ApplicationController
-	before_filter :find_feedback
+	before_filter :find_venue
+  before_filter :find_feedback
 
 
 	def create
@@ -41,7 +42,7 @@ class FeedbackCommentsController < ApplicationController
 
   def find_feedback
   	begin 
-  		@feedback = feedback.find(params[:feedback_id])
+  		@feedback = Feedback.find(params[:feedback_id])
   	rescue
   		redirect_to venues_url, alert: t('feedback_unknown')
   	end
