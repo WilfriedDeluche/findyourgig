@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130424144914) do
+ActiveRecord::Schema.define(:version => 20130529123327) do
 
   create_table "acts", :force => true do |t|
     t.integer  "gig_id"
@@ -38,6 +38,14 @@ ActiveRecord::Schema.define(:version => 20130424144914) do
     t.string   "city"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "feedback_comments", :force => true do |t|
+    t.text     "description"
+    t.integer  "feedback_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "feedback_ratings", :force => true do |t|
