@@ -2,12 +2,12 @@
 <%# the solution is to redirect and send the object containing validation errors in flash[:error] %>
 <%= error_messages_for(flash[:error]) %>
 
-<h6>Add a feedback:</h6>
+<h6><%= t('.add_feedback') %></h6>
 
 <%= form_for [@venue, @venue.feedbacks.build], remote: true do |f| %>
   <p>
     <%= f.label :rating %>
-    <%= f.select :rating, (0..5).to_a, :prompt => t('rate_the_venue') %>
+    <%= f.select :rating, (0..5).to_a, :prompt => t('.rate_the_venue') %>
   </p>
   <p>
     <%= f.label :description %>
