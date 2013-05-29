@@ -27,7 +27,13 @@
 
   <% @bands.each do |band| %>
     <tr>
-      <td>
+      <td class="element-cell">
+        <% if band.main_image && band.main_image.file? %>
+          <%= link_to (image_tag band.main_image.file_url(:thumb), class: "pull-left"), band %>
+        <% else %>
+          <%= link_to (image_tag "no-image.png", class: "pull-left"), band %>
+        <% end %>
+
         <h4><%= link_to band.name, band %></h4>
         <%= band.creation_year %><br />
         <%= band.city %><br />

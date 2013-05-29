@@ -51,7 +51,7 @@ fr:
   venue_uniqueness: "Un lieu de concert existe déjà pour cette adresse."
   unknown_gmaps_address: "Désolé, Google n'a pas réussi à localiser votre adresse."
 
-  # VENUE IMAGES
+  # VENUE IMAGES & BAND IMAGES
   image_uploaded: "L'image a été uploadée avec succès."
   image_unknown: "L'image n'existe pas."
   image_deleted: "L'image a bien été supprimée."
@@ -169,6 +169,10 @@ fr:
       from: "Originaire de"
       edit_band: "Modifier Groupe"
       join_band: "Joindre le groupe"
+      pictures: "Photos"
+      no_pictures: "Aucune photo pour ce groupe"
+      upload_images: "Ajouter des photos"
+      all_images: "Voir toutes les photos"
       gigs: "Les concerts du groupe"
     edit:
       band_page: "Fiche Groupe"
@@ -180,6 +184,16 @@ fr:
       accept_participation: "Accepter participation"
       enable_admin: "Donner droits administrateur"
       disabled_admin: "Enlever droits administrateur"
+  band_images:
+    index:
+      add_image: "Ajouter une nouvelle photo"
+      image_url: "URL de l'image"
+      upload: "Uploader"
+      pictures: "Photos"
+      no_pictures: "Aucune photo pour ce groupe"
+    show:
+      set_as_main: "Définir comme principale"
+      is_main: "Image principale"
   band_participations:
     index:
       see_band_page: "Voir la fiche groupe"

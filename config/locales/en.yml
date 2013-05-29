@@ -144,6 +144,10 @@ en:
       from: "Based in"
       edit_band: "Edit Band"
       join_band: "Join Band"
+      pictures: "Pictures"
+      no_pictures: "No picture for this band"
+      upload_images: "Add pictures"
+      all_images: "See all pictures"
       gigs: "Band's gigs"
     edit:
       band_page: "Band Page"
@@ -155,6 +159,16 @@ en:
       accept_participation: "Accept participation"
       enable_admin: "Give admin rights"
       disabled_admin: "Remove admin rights"
+  band_images:
+    index:
+      add_image: "Add a new picture"
+      image_url: "Image URL"
+      upload: "Upload"
+      pictures: "Pictures"
+      no_pictures: "No picture for this band"
+    show:
+      set_as_main: "Set as main pic"
+      is_main: "Main pic"
   band_participations:
     index:
       see_band_page: "See band page"

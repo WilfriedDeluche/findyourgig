@@ -1,0 +1,38 @@
+<h2 class="page-header">
+  <%= link_to @band.name, @band %> 
+</h2>
+
+<% if user_signed_in? && @participations.detect { |member| member.band_id == @band.id }%>
+  <div class="well-white">
+    <h4><%= t('.add_image') %></h4>
+    <%= form_for [@band, @band_image], :html => {:multipart => true} do |f| %>
+      <p>
+        <%= f.text_field :remote_file_url, placeholder: t('.image_url'), class: "span6" %><br />
+        <strong><%= t('or') %></strong><br />
+        <%= f.file_field :file %><br />
+        <%= f.hidden_field :file_cache %>
+      </p>
+      <%= f.submit t('.upload'), class: "btn" %>
+    <% end %>
+  </div>
+<% end %>
+
+<h4><%= t('.pictures') %> <small>(<%= @nb_images %>)</small></h4>
+
+<% if @band_images.any? %>
+  <p class="thumbs-container">
+    <% @band_images.each do |image| %>
+      <% if image.file? %>
+        <%= link_to band_band_image_path(@band, image) do %>
+          <img src="<%= image.file_url(:thumb) %>" class="<%= 'main' if image.is_main %>" />
+        <% end %>
+      <% end %>
+    <% end %>
+  </p>
+<% else %>
+  <div class="alert">
+    <%= t('.no_pictures') %>
+  </div>
+<% end %>
+
+<%= render 'shared/sidebar' %>

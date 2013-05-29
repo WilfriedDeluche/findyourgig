@@ -5,7 +5,13 @@
 
   <% @participations.each do |participation| %>
   <tr>
-    <td>
+    <td class="element-cell">
+      <% if participation.band.main_image && participation.band.main_image.file? %>
+        <%= image_tag participation.band.main_image.file_url(:thumb), class: "pull-left" %>
+      <% else %>
+        <%= image_tag "no-image.png", class: "pull-left" %>
+      <% end %>
+
       <h4><%= link_to participation.band.name, participation.band %></h4>
       <%= participation.band.creation_year %><br />
       <%= participation.band.city %><br />
