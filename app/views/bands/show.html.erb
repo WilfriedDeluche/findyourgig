@@ -14,6 +14,14 @@
 </h2>
 
 <p>
+  <% if @main_image && @main_image.file? %>
+    <%= link_to band_band_image_path(@band, @main_image) do %>
+      <img src="<%= @main_image.file_url(:header) %>" />
+    <% end %>
+  <% end %>
+</p>
+
+<p>
   <%= t('.created_in') %> <strong><%= @band.creation_year %></strong><br />
   <%= t('.from') %> <strong><%= @band.city %></strong>
 </p>
@@ -24,6 +32,34 @@
     <em><%= t('no_description') %></em>
   <% end %>
 </p>
+
+<hr />
+
+<h4><%= t('.pictures') %> <small>(<%= @nb_images %>)</small></h4>
+
+<% if @band_images.any? %>
+  <p class="thumbs-container">
+    <% @band_images.each do |image| %>
+      <% if image.file? %>
+        <%= link_to band_band_image_path(@band, image) do %>
+          <img src="<%= image.file_url(:thumb) %>" class="<%= 'main' if image.is_main %>" />
+        <% end %>
+      <% end %>
+    <% end %>
+  <p>
+  <em><%= link_to t('.all_images'), band_band_images_path(@band), class: "pull-right" %></em>
+  <div class="clearfix"></div>
+<% else %>
+  <div class="alert">
+    <%= t('.no_pictures') %>
+  </div>
+  <% if user_signed_in? && @user_bands.collect { |part| part[:band_id] }.include?(@band.id) %>
+    <%= link_to t('.upload_images'), band_band_images_path(@band), class: "btn btn-primary pull-right" %>
+    <div class="clearfix"></div>
+  <% end %>
+<% end %>
+
+<hr />
 
 <% if @gigs.any? %>
   <h3><%= t('.gigs') %></h3>

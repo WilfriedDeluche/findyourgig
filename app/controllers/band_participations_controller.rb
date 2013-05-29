@@ -6,7 +6,7 @@ class BandParticipationsController < ApplicationController
   respond_to :html
 
   def index
-    @participations = current_user.band_participations.active.order("date_joined DESC")
+    @participations = current_user.band_participations.active.order("date_joined DESC").includes(:band => :main_image)
   end
 
   def set_administration_rights

@@ -9,11 +9,11 @@ class BandsController < ApplicationController
   def index
     if params[:search]
       search = Regexp.escape params[:search]
-      @bands = Band.all({:conditions => ["lower(name) LIKE ?", "%#{search.downcase}%"]})
+      @bands = Band.all({:conditions => ["lower(name) LIKE ?", "%#{search.downcase}%"], include: :main_image})
     elsif params[:by_letter]
-      @bands = Band.by_letter(params[:by_letter].downcase)
+      @bands = Band.includes(:main_image).by_letter(params[:by_letter].downcase)
     else
-      @bands = Band.limit(10)
+      @bands = Band.includes(:main_image).limit(10)
     end
     respond_with @bands
   end
@@ -21,6 +21,9 @@ class BandsController < ApplicationController
   def show
     flash.now[:info] = t('band_participation_request_pending') if @user_bands.detect { |part| part[:band_id] == @band.id && part[:active] == false }
     @gigs = @band.gigs
+    @nb_images = @band.band_images.count
+    @band_images = @band.band_images.limit(4)
+    @main_image = @band.main_image
     respond_with @band
   end
 

@@ -6,7 +6,8 @@ describe Venue do
   end
 
   it "has one after adding one" do
-    venue = FactoryGirl.create(:venue)
+    venue = FactoryGirl.build(:venue){ |venue| venue.skip_geocoding = true }
+    venue.save
     Venue.count.should == 1
   end
 
@@ -21,9 +22,8 @@ describe Venue do
   end
 
   it "should render correct attributes" do
-    venue = FactoryGirl.create(:venue) do |venue|
-      venue.skip_geocoding = true
-    end
+    venue = FactoryGirl.build(:venue){ |venue| venue.skip_geocoding = true }
+    venue.save
     
     venue.name.should         include "Hotel"
     venue.address_1.should    include "rue de Rivoli"
