@@ -2,11 +2,13 @@
 
 <h6><%= t('.add_feedback_comments') %></h6>
 
-<%= form_for [@feedback, @venue.feedback.feedback_comments.build], remote: false do |f| %>
+<%= form_for [@venue, feedback, FeedbackComment.new], remote: false do |f| %>
   <p>
     <%= f.label :description %>
     <%= f.text_area :description, class: "span8", rows: "8" %>
   </p>
+
+  <%= f.hidden_field :feedback_id, value: @feedback.id %>
   <p>
     <%= f.submit class: "btn btn-primary" %>
   </p>

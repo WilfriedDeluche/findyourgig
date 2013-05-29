@@ -32,9 +32,8 @@ Findyourgig::Application.routes.draw do
         put "set_main", on: :member
       end
       resources :feedbacks do
-        resources :feedback_ratings do
-          resources :feedback_comments
-        end
+        resources :feedback_ratings
+        resources :feedback_comments
       end
     end
 

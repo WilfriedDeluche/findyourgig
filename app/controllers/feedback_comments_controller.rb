@@ -45,4 +45,5 @@ class FeedbackCommentsController < ApplicationController
   	rescue
   		redirect_to venues_url, alert: t('feedback_unknown')
   	end
+  end
 end

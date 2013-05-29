@@ -46,10 +46,8 @@ class VenuesController < ApplicationController
     @nb_images = @venue.venue_images.count
     @venue_images = @venue.venue_images.limit(5)
     
-    @feedbacks = @venue.feedbacks
+    @feedbacks = @venue.feedbacks.includes(:feedback_comments)
     @feedback = Feedback.new
-
-    @feedback_comments = @feedback.feedback_comments
 
     respond_with @venue
   end
