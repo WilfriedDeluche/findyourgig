@@ -1,7 +1,5 @@
 Findyourgig::Application.routes.draw do
 
-  resources :band_images
-
   scope '(:locale)', locale: /en|fr/ do
 
     devise_for :users, path: "profile", path_names: { 
@@ -16,6 +14,10 @@ Findyourgig::Application.routes.draw do
     resources :bands do
       put "request_participation", on: :member
       get "members", on: :member
+
+      resources :band_images, path: 'images', only: [:index, :create, :show, :destroy] do
+        put "set_main", on: :member
+      end
     end
 
     resources :band_participations, path: "my_bands", only: [:index, :destroy] do
