@@ -2,6 +2,7 @@ class Feedback < ActiveRecord::Base
   belongs_to :venue
   belongs_to :user
   has_many :feedback_ratings
+  has_many :feedback_comments
 
   attr_accessible :description, :rating, :venue_id, :user_id
 
