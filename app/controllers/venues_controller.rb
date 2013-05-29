@@ -105,9 +105,4 @@ class VenuesController < ApplicationController
   def only_venue_manager
     redirect_to venues_path, alert: t('page_unknown') unless current_user.roles_list.include?(User::VENUE_MANAGER)
   end
-
-  def find_feedback_users
-    @feedback_users = []
-    @feedback_users = Feedback.where(:venue_id => @venue.id).collect{ |feedback| feedback.user_id}
-  end
 end

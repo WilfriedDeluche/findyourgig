@@ -144,8 +144,6 @@ for n in 1..15 do
   feedback.save
   puts "Feedback : #{feedback.description} 
   Rating: #{feedback.rating} out of 5
-  Venue: #{feedback.venue_id}
-  #{feedback.user_id}
-  #{feedback.created_at}"
+  Venue: #{feedback.venue.name} - User : #{feedback.user.email}"
 end
 
