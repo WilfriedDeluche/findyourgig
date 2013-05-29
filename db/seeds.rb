@@ -8,7 +8,8 @@ Gig.destroy_all
 
 cities = %w(Paris Toulouse Bordeaux Nice Lille Saint-Denis Lyon Mulhouse Reims Arras Agen Saint-Etienne Créteil Bobigny Argenteuil Gonesse Montreuil)
 years = (1995..2012).to_a
-bands = ["Erase", "Groupe Sans Gain", "Fifteen Scars", "Jackson 5", "Little Mix", "The Black Eyed Peas", "Sugababes", "Indochine", "Jamiroquai", "Texas", "Destiny's Childs"]
+bands = ["Fifteen Scars", "Jackson 5", "Little Mix", "The Black Eyed Peas", "Sugababes", "Maroon 5", "Indochine", "Jamiroquai", "Texas", "Destiny's Childs", "Erase", "JLS", "Green Day", "Groupe Sans Gain", "Deep Purple"]
+bands = bands.reverse
 venues = ["Alhambra", "Bataclan", "Batofar", "Black Dog", "Elysée Montmartre", "Guinness Tavern", "La Boule Noire", "La Maroquinerie", "Le Bateau Ivre", "Le Divan du Monde", "Le Gibus", "Le Klub", "Le Trabendo", "New Morning"]
 venue_addresses = ["21 Rue Yves Toudic", "50 Boulevard Voltaire", "Port de la Gare", "26 Rue des Lombards", "72 Boulevard de Rochechouart", "31 Rue des Lombards", "120 Boulevard de Rochechouart", "23 Rue Boyer", "40 Rue Descartes", "75 Rue des Martyrs", "18 Rue du Faubourg du Temple", "14 rue Saint-Denis", "211 Avenue Jean Jaurès", "7-9 Rue des Petites Écuries"]
 venue_postal_codes = ["75010", "75010", "75013", "75004", "75018", "75001", "75018", "75020", "75005", "75018", "75011", "75001", "75019", "75010"]
@@ -33,6 +34,22 @@ venue_images_url = ["http://www.infoconcert.com/media/photos/ALHAMBRA.JPG", #Alh
           "http://3.bp.blogspot.com/-PLOidrmcG2E/T6mR46guDdI/AAAAAAAAAF4/rHBnsz8No7A/s1600/LOGO-KLUB-BLANC-1.jpg", # Le Klub
           "", # Le Trabendo
           "http://www.nouveau-paris-ile-de-france.fr/fichiers/fckeditor/Image/1185/fr/original/new-morning.jpg"] # New Morning
+bands_images_url = ["http://a1.ec-images.myspacecdn.com/images02/118/6f0b51e532cd4f359d33af6e378c4f91/l.jpg", # Fifteen Scars
+          "http://images4.fanpop.com/image/photos/17000000/The-jacksons-the-jackson-5-17014978-1600-1045.jpg", # Jackson 5
+          "http://i4.dailyrecord.co.uk/incoming/article1299041.ece/ALTERNATES/s2197/Little+Mix.jpg", # Little Mix
+          "http://static1.purefans.com/items/2/16/67/32/@/166732-black-eyed-peas-fullscreen-1.jpg", # Black Eyed Peas
+          "http://popnmix.fr/wp-content/uploads/2013/03/sugababes_fond_ecran.jpg", # Sugababes
+          "http://www.hellovancity.com/wp-content/uploads/2012/10/Maroon-5-is-coming-to-Vancouver-March-9-2013-The-Overexposed-North-American-Tour.jpeg", # Maroon 5
+          "", # Indochine
+          "http://images6.fanpop.com/image/photos/33300000/Jay-jamiroquai-33380241-1680-1050.jpg", # Jamiroquai
+          "", # Texas
+          "http://www.yuppee.com/wp-content/uploads/2013/02/destinys-child.jpeg", # Destiny's Child
+          "", # Erase
+          "http://trashlounge.co.uk/wp-content/uploads/2012/01/JLS-Booth.jpg", # JLS
+          "http://syndromemag.com/wp-content/uploads/2013/02/Green-Day.jpg", # Green Day
+          "", # Groupe Sans Gain
+          "http://3.bp.blogspot.com/-xQnyT2yTJac/TZm7QtWSy0I/AAAAAAAAADc/7dcPQ2AHw4Y/s1600/RonnieJamesDio_02_RAINBOW.jpg"] # Deep Purple
+bands_images_url = bands_images_url.reverse
 descriptions = ['Pas mal', 'Mouais', 'Top moumoute !', 'Super son !', 'Très sympa !']
 ratings = [0..5].to_a
 
@@ -104,8 +121,15 @@ gig_venues = Venue.all.collect{ |venue| venue.id }
 # Default BANDS
 puts "BANDS"
 for n in 1..15 do
-  band = Band.create! name: bands.sample, creation_year: years.sample, city: cities.sample, description: ""
+  band = Band.create! name: bands[n-1], creation_year: years.sample, city: cities.sample, description: ""
   puts "Groupe : #{band.name} created in #{band.creation_year}"
+
+  unless bands_images_url[n-1].blank?
+    band.band_images.create(remote_file_url: bands_images_url[n-1], is_main: true)
+    puts "Main picture set"
+  else
+    puts "No main picture"
+  end
 end
 
 # Default BAND PARTICIPATIONS
