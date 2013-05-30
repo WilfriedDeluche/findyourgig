@@ -10,21 +10,23 @@
   <% end %>
 </p>
 
-<h4><%= t('.user_feedback_comments') %></h4>
-<div id='feedback_comments'>
-  <% unless feedback.feedback_comments.empty? %>
-    <%= render feedback.feedback_comments %>
-  <% else %>
-    <div class="alert">
-      <%= t('.no_feedback_comments') %>
+<blockquote>
+  <h5><%= t('.user_feedback_comments') %></h5>
+  <div id='feedback_comments'>
+    <% unless feedback.feedback_comments.empty? %>
+      <%= render feedback.feedback_comments %>
+    <% else %>
+      <div class="alert">
+        <%= t('.no_feedback_comments') %>
+      </div>
+    <% end %>
+  </div>
+
+  <% if user_signed_in? %>
+    <div id='feedback_comment_form'>
+      <%= render partial: "feedback_comments/form", locals: { feedback: feedback } %>
     </div>
   <% end %>
-</div>
-
-<% if user_signed_in? %>
-  <div id='feedback_comment_form'>
-    <%= render partial: "feedback_comments/form", locals: { feedback: feedback } %>
-  </div>
-<% end %>
+</blockquote>
 
 <hr />

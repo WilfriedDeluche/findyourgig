@@ -1,5 +1,5 @@
 <%= error_messages_for(flash[:error]) %>
-
+<hr class="feedback-comment-hr" />
 <h6><%= t('.add_feedback_comments') %></h6>
 
 <%= form_for [@venue, feedback, FeedbackComment.new], remote: false do |f| %>

@@ -222,7 +222,7 @@ en:
       all_images: "See all pictures"
       gigs: "Gigs in this venue"
       all_gigs: "See all gigs"
-      user_feedbacks: "User feedbacks"
+      user_feedbacks: "User feedbacks for this venue :"
     new:
       new_venue: "New Venue"
     edit:

@@ -239,7 +239,7 @@ fr:
       all_images: "Voir toutes les photos"
       gigs: "Concerts dans cette salle"
       all_gigs: "Voir tous les concerts"
-      user_feedbacks: "Avis des utilisateurs"
+      user_feedbacks: "Avis des utilisateurs pour cette salle :"
     new:
       new_venue: "Nouveau lieu"
     edit:
