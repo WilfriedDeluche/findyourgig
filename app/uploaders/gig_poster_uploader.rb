@@ -8,7 +8,7 @@ class GigPosterUploader < CarrierWave::Uploader::Base
 
   # Override the directory where uploaded files will be stored.
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{model.id}"
+    "uploads/gigs/#{model.id}"
   end
 
   # Create different versions of your uploaded files:

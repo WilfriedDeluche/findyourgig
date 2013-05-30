@@ -19,6 +19,8 @@ class Gig < ActiveRecord::Base
   validates_presence_of :concert_start_time, :description, :doors_time, :name, :venue_id
   validate :concert_start_time_okay, :concert_end_time_okay, :doors_time_okay
 
+  after_destroy :remove_upload_folder
+
 	def doors_time_okay
     return if soundcheck_time.blank? || doors_time.blank?
   	errors.add :doors_time, I18n.t('incorrect_doors_time') if doors_time < soundcheck_time
@@ -32,5 +34,9 @@ class Gig < ActiveRecord::Base
   def concert_end_time_okay
     return if concert_start_time.blank? || concert_end_time.blank?
   	errors.add :concert_end_time, I18n.t('incorrect_concert_end_time') if concert_end_time < concert_start_time
+  end
+
+  def remove_upload_folder
+    FileUtils.remove_dir("#{Rails.root}/public/uploads/gigs/#{self.id}", :force => true)
   end
 end

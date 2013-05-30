@@ -5,7 +5,7 @@
   <strong><%= Feedback.model_name.human %> :</strong><br />
   <%= raw feedback.description.gsub("\r\n", "<br />") %>
 
-  <% if current_user.id == feedback.user_id || current_user.roles_list.include?(User::ADMIN) %>
+  <% if user_signed_in? && (current_user.id == feedback.user_id || current_user.roles_list.include?(User::ADMIN)) %>
   	<%= link_to t('remove'), [feedback.venue, feedback], method: :delete, data: { confirm: t('are_u_sure') }, class: "btn btn-small btn-danger pull-right" %>
   <% end %>
 </p>

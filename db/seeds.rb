@@ -5,6 +5,8 @@ Role.destroy_all
 Band.destroy_all
 Venue.destroy_all
 Gig.destroy_all
+Feedback.destroy_all
+FeedbackRating.destroy_all
 
 cities = %w(Paris Toulouse Bordeaux Nice Lille Saint-Denis Lyon Mulhouse Reims Arras Agen Saint-Etienne Créteil Bobigny Argenteuil Gonesse Montreuil)
 years = (1995..2012).to_a
