@@ -17,7 +17,7 @@
     <%= f.label :poster %>
     <%= f.file_field :poster %>
     <%= f.hidden_field :poster_cache %>
-    <% if @gig.poster? %>
+    <% if @gig.poster? && @gig.persisted? %>
       <br />
       <p>
         <%= image_tag @gig.poster_url(:thumb) %>

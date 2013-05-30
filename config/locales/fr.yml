@@ -19,6 +19,7 @@ fr:
   menu: "Menu"
   page_unknown: "Cette page n'existe pas"
   unprocessable_action: "L'action demandée n'a pu être effectuée car incorrecte ou interdite."
+  invalid: "est invalide"
 
   # BANDS
   band_unknown: "Le groupe recherché n'existe pas."

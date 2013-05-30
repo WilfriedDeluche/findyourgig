@@ -44,7 +44,9 @@ class GigsController < ApplicationController
 
   # POST /gigs
   def create
-    @gig = Gig.new(params[:gig])
+    @gig = Gig.new(params[:gig]) do |gig|
+      gig.user_gold = current_user
+    end
 
     if @gig.save
       redirect_to @gig, notice: t('gig_created')
@@ -57,6 +59,7 @@ class GigsController < ApplicationController
 
   # PUT /gigs/1
   def update
+    @gig.user_gold = current_user
     if @gig.update_attributes(params[:gig])
       redirect_to @gig, notice: t('gig_updated')
     else

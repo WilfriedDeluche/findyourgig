@@ -19,6 +19,7 @@ en:
   menu: "Navigation"
   page_unknown: "This page does not exist"
   unprocessable_action: "The requested action could not be processed because it is incorrect or forbidden."
+  invalid: "is invalid"
 
   # BANDS
   band_unknown: "Band does not exist."

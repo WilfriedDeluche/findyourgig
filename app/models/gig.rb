@@ -13,11 +13,13 @@ class Gig < ActiveRecord::Base
 
   mount_uploader :poster, GigPosterUploader
 
+  attr_accessor :user_gold
+
   attr_accessible :concert_end_time, :concert_start_time, :description, :doors_time, :name, :soundcheck_time, :venue_id,
                   :main_act_attributes, :supporting_acts_attributes, :poster, :poster_cache, :remote_poster_url
 
   validates_presence_of :concert_start_time, :description, :doors_time, :name, :venue_id
-  validate :concert_start_time_okay, :concert_end_time_okay, :doors_time_okay
+  validate :concert_start_time_okay, :concert_end_time_okay, :doors_time_okay, :venue_in_managerships, :main_act_in_bands
 
   after_destroy :remove_upload_folder
 
@@ -34,6 +36,16 @@ class Gig < ActiveRecord::Base
   def concert_end_time_okay
     return if concert_start_time.blank? || concert_end_time.blank?
   	errors.add :concert_end_time, I18n.t('incorrect_concert_end_time') if concert_end_time < concert_start_time
+  end
+
+  def venue_in_managerships
+    return unless self.venue && self.user_gold && self.user_gold.is_venue_manager?
+    errors.add :venue_id, I18n.t('invalid') unless self.venue.in_managerships?(self.user_gold.managerships)
+  end
+
+  def main_act_in_bands
+    return unless self.main_act && self.user_gold && self.user_gold.is_band_member?
+    errors.add :main_act, I18n.t('invalid') unless self.main_act.band.in_band_participations?(self.user_gold.band_participations)
   end
 
   def remove_upload_folder
