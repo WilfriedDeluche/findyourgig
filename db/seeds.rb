@@ -5,6 +5,8 @@ Role.destroy_all
 Band.destroy_all
 Venue.destroy_all
 Gig.destroy_all
+Feedback.destroy_all
+FeedbackRating.destroy_all
 
 cities = %w(Paris Toulouse Bordeaux Nice Lille Saint-Denis Lyon Mulhouse Reims Arras Agen Saint-Etienne Créteil Bobigny Argenteuil Gonesse Montreuil)
 years = (1995..2012).to_a
@@ -49,6 +51,17 @@ bands_images_url = ["http://a1.ec-images.myspacecdn.com/images02/118/6f0b51e532c
           "http://syndromemag.com/wp-content/uploads/2013/02/Green-Day.jpg", # Green Day
           "", # Groupe Sans Gain
           "http://3.bp.blogspot.com/-xQnyT2yTJac/TZm7QtWSy0I/AAAAAAAAADc/7dcPQ2AHw4Y/s1600/RonnieJamesDio_02_RAINBOW.jpg"] # Deep Purple
+gigs_posters_url = ["http://samsamsamsam.com/Images/postero/14sep.jpg",
+          "http://llreps.files.wordpress.com/2011/06/adele-gig-poster21.jpg",
+          "http://fc06.deviantart.net/fs70/i/2010/059/1/f/Kasabian_Gig_Poster_by_kimganner.png",
+          "http://1.bp.blogspot.com/-nLjaltgE4yA/UFyziOvotDI/AAAAAAAABhw/9MRG2H2cZ9Y/s1600/Wunstin+Gig+Poster.jpg",
+          "http://audioroadband.com/files/images/_big_audioroadband_39048.jpg",
+          "http://fc09.deviantart.net/fs70/i/2011/140/b/f/ballon_city_gig_poster_by_alyssacreates-d3gtkop.jpg",
+          "http://th07.deviantart.net/fs70/PRE/i/2010/055/3/4/Viva_la_Revolucion_gig_poster_by_pinoyhxc.jpg",
+          "http://www.cmstatic1.com/93436/93436.323101.jpg",
+          "http://fc06.deviantart.net/fs71/i/2010/068/7/8/1964_gig_poster_by_adventurevisual.jpg",
+          "http://fc07.deviantart.net/fs70/i/2013/036/2/c/typography_gig_poster_flyer_5_by_zamfiraugustin-d5txvrp.jpg"]
+
 bands_images_url = bands_images_url.reverse
 descriptions = ['Pas mal', 'Mouais', 'Top moumoute !', 'Super son !', 'Très sympa !']
 ratings = [0..5].to_a
@@ -152,15 +165,14 @@ puts "#{band_part_3.user.first_name} #{band_part_3.user.last_name} is Band membe
 
 puts "GIGS"
 for n in 1..15 do
-  gig = Gig.new venue_id: gig_venues.sample, name: gig_names.sample, description: "something", soundcheck_time: gig_soundcheck_times.sample, doors_time: gig_doors_times.sample, concert_start_time: gig_concert_start_times.sample, concert_end_time: gig_concert_end_times.sample
+  gig = Gig.new venue_id: gig_venues.sample, name: gig_names.sample, description: "something", 
+                soundcheck_time: gig_soundcheck_times.sample, doors_time: gig_doors_times.sample, 
+                concert_start_time: gig_concert_start_times.sample, concert_end_time: gig_concert_end_times.sample, 
+                remote_poster_url: gigs_posters_url[n%(gigs_posters_url.size)]
   gig.description = "#{gig.name} at #{gig.venue.name}"
   gig.save
   puts "Gig : #{gig.description} on #{gig.concert_start_time}"
 end
-
-my_gig = Gig.new venue_id: gig_venues.sample, name: "Gig Name", description: "Gig Description", soundcheck_time: gig_soundcheck_times.sample, doors_time: gig_doors_times.sample, concert_start_time: gig_concert_start_times.sample, concert_end_time: gig_concert_end_times.sample
-my_gig.save
-puts "Gig : #{my_gig.description} on #{my_gig.concert_start_time}"
 
 puts "FEEDBACKS"
 for n in 1..15 do

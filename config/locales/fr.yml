@@ -62,6 +62,8 @@ fr:
   gig_updated: "Le concert a bien été mis à jour."
   gig_created: "Le concert a bien été créé."
   gig_uniqueness: "Un concert existe déjà pour cette date."
+  gig_poster_deleted: "L'affiche du concert a été supprimée."
+  gig_poster_unknown: "Il n'y a pas d'affiche pour ce concert."
 
   # FEEDBACKS
   feedback_unknown: "Cet avis n'existe pas."
@@ -116,6 +118,7 @@ fr:
         main_act: "Tête d'affiche"
         supporting_act: "1è partie"
         supporting_acts: "1è parties"
+        poster: "Affiche"
       feedback:
         description: "Description"
         rating: "Note"
@@ -210,6 +213,7 @@ fr:
       edit_gig: "Modifier Concert"
     show:
       edit_gig: "Modifier Concert"
+      main_act_and_supporting_acts: "Tête d'affiche et 1è parties"
     new:
       new_gig: "Nouveau Concert"
     edit:
@@ -233,6 +237,8 @@ fr:
       no_pictures: "Aucune photo pour cette salle"
       upload_images: "Ajouter des photos"
       all_images: "Voir toutes les photos"
+      gigs: "Concerts dans cette salle"
+      all_gigs: "Voir tous les concerts"
       user_feedbacks: "Avis des utilisateurs"
     new:
       new_venue: "Nouveau lieu"
@@ -240,6 +246,10 @@ fr:
       venue_page: "Fiche du lieu"
     form:
       select_country: "Sélectionnez un pays"
+    gigs:
+      gigs: "Concerts dans cette salle"
+      no_gigs: "Aucun concert dans cette salle"
+      add_gig: "Ajouter un concert"
   managerships:
     index:
       see_venue_page: "Voir la fiche salle"

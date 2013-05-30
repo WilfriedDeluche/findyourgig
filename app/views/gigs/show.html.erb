@@ -1,5 +1,9 @@
 <h2 class="page-header"><%= @gig.name %> <%= link_to t('.edit_gig'), edit_gig_path(@gig), class: "btn btn-success pull-right" %></h2>
 
+<% if @gig.poster? %>
+  <%= link_to image_tag(@gig.poster_url(:page)), poster_gig_path(@gig), class: "pull-right" %>
+<% end %>
+
 <p>
   <%= @gig.description %>
 </p>
@@ -7,7 +11,7 @@
 <p>
   <b><%= Venue.model_name.human %>:</b>
   <% unless @gig.venue.blank? %>        
-    <%= @gig.venue.name %><br />
+    <%= link_to @gig.venue.name, venue_path(@gig.venue) %><br />
   <% else %>
     <em><%= t('not_specified') %></em>
   <% end %>
@@ -37,18 +41,36 @@
 </p>
 <% end %>
 
-<% if @main_act %>
-  <h3><%= Gig.human_attribute_name("main_act") %></h3>
-  <ul class="list-no-style"><li><%= link_to @main_act.band.name, @main_act.band, :class => "neutral-link" %></li></ul>
-<% end %>
+<div class="clearfix"></div>
 
-<% if @supporting_acts.any? %>
-  <h3><%= Gig.human_attribute_name("supporting_acts") %></h3>
-  <ul class="list-no-style">
-    <% @supporting_acts.each do |act| %>
-      <li><%= link_to act.band.name, act.band, :class => "neutral-link" %></li>
+<% if @main_act || @supporting_acts.any? %>
+  <h3><%= t('.main_act_and_supporting_acts') %></h3>
+
+  <p class="thumbs-container thumbs-band">
+    <% if @main_act %>
+      <%= link_to @main_act.band, title: Gig.human_attribute_name("main_act") do %>
+        <% if @main_act.band.main_image && @main_act.band.main_image.file? %>
+          <%= image_tag @main_act.band.main_image.file_url(:thumb) %>
+        <% else %>
+          <%= image_tag "no-image.png" %>
+        <% end %>
+        <span class="thumb-label main-act"><%= @main_act.band.name %></span>
+      <% end %>
     <% end %>
-  </ul>
+
+    <% if @supporting_acts.any? %>
+      <% @supporting_acts.each do |act| %>
+        <%= link_to act.band, title: Gig.human_attribute_name("supporting_act") do %>
+          <% if act.band.main_image && act.band.main_image.file? %>
+            <%= image_tag act.band.main_image.file_url(:thumb) %>
+          <% else %>
+            <%= image_tag "no-image.png" %>
+          <% end %>
+          <span class="thumb-label supporting-act"><%= act.band.name %></span>
+        <% end %>
+      <% end %>
+    <% end %>
+  </p>
 <% end %>
 
 <%= render 'shared/sidebar' %>

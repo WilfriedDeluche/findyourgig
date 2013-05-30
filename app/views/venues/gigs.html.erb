@@ -1,0 +1,28 @@
+<h2 class="page-header">
+  <%= link_to @venue.name, @venue %>
+
+  <%= link_to t('.add_gig'), new_gig_path(:venue_id => @venue.id), class: "btn btn-primary pull-right" %>
+</h2>
+
+<h4><%= t('.gigs') %> <small>(<%= @nb_gigs %>)</small></h4>
+
+<% if @gigs.any? %>
+  <p class="thumbs-container">
+    <% @gigs.each do |gig| %>
+      <%= link_to gig do %>
+        <% if gig.poster? %>
+          <%= image_tag gig.poster_url(:thumb) %>
+        <% else %>
+          <%= image_tag "no-image.png" %>
+        <% end %>
+        <span class="thumb-label thumb-gig"><%= gig.name %></span>
+      <% end %>
+    <% end %>
+  </p>
+<% else %>
+  <div class="alert">
+    <%= t('.no_gigs') %>
+  </div>
+<% end %>
+
+<%= render 'shared/sidebar' %>

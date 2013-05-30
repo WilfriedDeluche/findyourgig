@@ -1,7 +1,7 @@
 class VenuesController < ApplicationController
-  before_filter :authenticate_user!, except: [:index, :show]
-  before_filter :find_venue, only: [:show, :edit, :update, :destroy]
-  before_filter :find_managerships, except: [:new, :create]
+  before_filter :authenticate_user!, except: [:index, :show, :gigs]
+  before_filter :find_venue, only: [:show, :edit, :update, :destroy, :gigs]
+  before_filter :find_managerships, except: [:new, :create, :gigs]
   before_filter :only_manager, only: [:edit, :update, :destroy]
   before_filter :only_venue_manager, only: [:new, :create]
   respond_to :html
@@ -45,6 +45,9 @@ class VenuesController < ApplicationController
     
     @nb_images = @venue.venue_images.count
     @venue_images = @venue.venue_images.limit(5)
+
+    @nb_gigs = @venue.gigs.count
+    @gigs = @venue.gigs.limit(4)
     
     @feedbacks = @venue.feedbacks
     @feedback = Feedback.new
@@ -82,6 +85,11 @@ class VenuesController < ApplicationController
   def destroy
     @venue.destroy
     redirect_to managerships_url
+  end
+
+  def gigs
+    @gigs = @venue.gigs
+    @nb_gigs = @venue.gigs.count
   end
 
   private
