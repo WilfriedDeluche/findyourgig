@@ -152,6 +152,7 @@ en:
       upload_images: "Add pictures"
       all_images: "See all pictures"
       gigs: "Band's gigs"
+      add_gig: "Add a gig"
     edit:
       band_page: "Band Page"
     members:

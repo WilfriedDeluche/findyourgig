@@ -177,6 +177,7 @@ fr:
       upload_images: "Ajouter des photos"
       all_images: "Voir toutes les photos"
       gigs: "Les concerts du groupe"
+      add_gig: "Ajouter un concert"
     edit:
       band_page: "Fiche Groupe"
     members:

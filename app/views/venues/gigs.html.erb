@@ -1,7 +1,7 @@
 <h2 class="page-header">
   <%= link_to @venue.name, @venue %>
 
-  <% if user_signed_in? && @managerships.detect { |manager| manager.venue_id == @venue.id } %>
+  <% if user_signed_in? && @venue.in_managerships?(@managerships) %>
     <%= link_to t('.add_gig'), new_gig_path(:venue_id => @venue.id), class: "btn btn-primary pull-right" %>
   <% end %>
 </h2>

@@ -107,7 +107,7 @@ class VenuesController < ApplicationController
   end
 
   def only_manager
-    redirect_to venues_path, alert: t('page_unknown') unless current_user && @managerships.detect { |manager| manager.venue_id == @venue.id }
+    redirect_to venues_path, alert: t('page_unknown') unless current_user && @venue.in_managerships?(@managerships)
   end
 
   def only_venue_manager

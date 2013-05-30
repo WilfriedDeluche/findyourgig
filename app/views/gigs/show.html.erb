@@ -1,6 +1,6 @@
 <h2 class="page-header">
   <%= @gig.name %>
-  <% if user_signed_in? && @managerships.detect { |manager| manager.venue_id == @gig.venue_id } %>
+  <% if user_signed_in? && @gig.venue.in_managerships?(@managerships) || (@main_act && @main_act.band.in_band_participations?(@band_participations)) %>
     <%= link_to t('remove'), @gig, method: :delete, data: { confirm: t('are_u_sure') }, class: "btn btn-danger pull-right" %>
     <%= link_to t('.edit_gig'), edit_gig_path(@gig), class: "btn btn-success pull-right" %>
   <% end %>

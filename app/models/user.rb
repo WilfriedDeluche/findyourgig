@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   has_many :band_participations, dependent: :destroy
   has_many :bands, through: :band_participations
   has_many :managerships, dependent: :destroy
-  has_many :venue, through: :managerships
+  has_many :venues, through: :managerships
 
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :role
   attr_accessor :role
@@ -42,6 +42,18 @@ class User < ActiveRecord::Base
 
   def roles_list
     self.roles.collect { |r| r.name }
+  end
+
+  def is_venue_manager?
+    self.roles_list.include?(VENUE_MANAGER)
+  end
+
+  def is_band_member?
+    self.roles_list.include?(BAND_MEMBER)
+  end
+
+  def is_admin?
+    self.roles_list.include?(ADMIN)
   end
 
   def active_for_authentication?

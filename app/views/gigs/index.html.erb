@@ -6,7 +6,7 @@
   </tr>
 </table>
 
-<% if user_signed_in? && current_user.roles_list.include?(User::VENUE_MANAGER) %>
+<% if user_signed_in? && current_user.is_venue_manager? %>
   <%= link_to t('.create_gig'), new_gig_path, class: "btn btn-primary pull-right" %>
 <% end %>
 

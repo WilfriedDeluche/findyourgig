@@ -3,7 +3,7 @@
 <h2 class="page-header">
   <%= @venue.name %> 
   
-  <% if user_signed_in? && @managerships.detect { |manager| manager.venue_id == @venue.id }%>
+  <% if user_signed_in? && @venue.in_managerships?(@managerships) %>
     <%= link_to t('remove'), @venue, method: :delete, data: { confirm: t('are_u_sure') }, class: "btn btn-danger pull-right" %>
     <%= link_to t('.edit_venue'), edit_venue_path(@venue), class: "btn btn-success pull-right" %>
   <% end %>
@@ -84,7 +84,7 @@
   <div class="alert">
     <%= t('.no_pictures') %>
   </div>
-  <% if user_signed_in? && @managerships.detect { |manager| manager.venue_id == @venue.id }%>
+  <% if user_signed_in? && @venue.in_managerships?(@managerships) %>
     <%= link_to t('.upload_images'), venue_venue_images_path(@venue), class: "btn btn-primary pull-right" %>
     <div class="clearfix"></div>
   <% end %>
@@ -94,7 +94,7 @@
 
 <h4>
   <%= t('.gigs') %> <small>(<%= @nb_gigs %>)</small>
-  <% if user_signed_in? && @managerships.detect { |manager| manager.venue_id == @venue.id } %>
+  <% if user_signed_in? && @venue.in_managerships?(@managerships) %>
     <%= link_to t('.add_gig'), new_gig_path(:venue_id => @venue.id), class: "btn btn-small pull-right" %>
   <% end %>
 </h4>

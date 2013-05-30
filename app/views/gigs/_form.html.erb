@@ -46,7 +46,7 @@
   <div class="field">
     <%= f.fields_for :main_act, @main_act do |main_act_field| %>
       <%= main_act_field.label :band_id, Gig.human_attribute_name(:main_act) %>
-      <%= main_act_field.collection_select :band_id, Band.find(:all), :id, :name, :prompt => t('.prompt_band') %>
+      <%= main_act_field.collection_select :band_id, @bands, :id, :name, :prompt => t('.prompt_band') %>
       <%= main_act_field.hidden_field :is_main_act, :value => true %>
       <% if main_act_field.object.persisted? %>
         <%= main_act_field.hidden_field :_destroy, :class => "destroy-entity" %>
