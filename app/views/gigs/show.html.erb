@@ -1,4 +1,10 @@
-<h2 class="page-header"><%= @gig.name %> <%= link_to t('.edit_gig'), edit_gig_path(@gig), class: "btn btn-success pull-right" %></h2>
+<h2 class="page-header">
+  <%= @gig.name %>
+  <% if user_signed_in? && @managerships.detect { |manager| manager.venue_id == @gig.venue_id } %>
+    <%= link_to t('remove'), @gig, method: :delete, data: { confirm: t('are_u_sure') }, class: "btn btn-danger pull-right" %>
+    <%= link_to t('.edit_gig'), edit_gig_path(@gig), class: "btn btn-success pull-right" %>
+  <% end %>
+</h2>
 
 <% if @gig.poster? %>
   <%= link_to image_tag(@gig.poster_url(:page)), poster_gig_path(@gig), class: "pull-right" %>

@@ -194,6 +194,7 @@ en:
       gig_page: "Gig Page"
     form:
       prompt_band: "Select a band"
+      prompt_venue: "Select a venue"
   venues:
     index:
       title: "Venues"

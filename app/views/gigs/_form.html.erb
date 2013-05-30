@@ -11,7 +11,7 @@
   </div> 
   <div class="field">
     <%= f.label Venue.model_name.human %>
-    <%= f.collection_select :venue_id, Venue.find(:all), :id, :name, :prompt => "Select a Venue" %>
+    <%= f.collection_select :venue_id, @venues, :id, :name, :prompt => t('.prompt_venue') %>
   </div>
   <div class="field">
     <%= f.label :poster %>

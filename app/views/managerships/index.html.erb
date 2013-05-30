@@ -26,6 +26,7 @@
       </p>
 
       <% if managership.is_admin %>
+        <%= link_to t('remove'), managership.venue, method: :delete, data: { confirm: t('are_u_sure') }, class: "btn btn-small btn-danger pull-right" %>
         <%= link_to t('edit'), edit_venue_path(managership.venue), class: "btn btn-small btn-success pull-right" %>
       <% end %>
       <%= link_to t('.see_venue_page'), managership.venue, class: "btn btn-small btn-info pull-right" %>

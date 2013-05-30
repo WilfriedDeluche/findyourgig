@@ -94,7 +94,9 @@
 
 <h4>
   <%= t('.gigs') %> <small>(<%= @nb_gigs %>)</small>
-  <%= link_to t('.add_gig'), new_gig_path(:venue_id => @venue.id), class: "btn btn-small pull-right" %>
+  <% if user_signed_in? && @managerships.detect { |manager| manager.venue_id == @venue.id } %>
+    <%= link_to t('.add_gig'), new_gig_path(:venue_id => @venue.id), class: "btn btn-small pull-right" %>
+  <% end %>
 </h4>
 
 <% if @gigs.any? %>

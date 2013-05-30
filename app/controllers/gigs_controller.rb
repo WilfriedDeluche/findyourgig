@@ -1,5 +1,9 @@
 class GigsController < ApplicationController
-  before_filter :find_gig, only: [:show, :edit, :update, :destroy, :poster, :remove_poster]
+  before_filter :authenticate_user!, except: [:index, :show, :poster]
+  before_filter :find_gig, except: [:index, :new]
+  before_filter :find_managerships, except: [:index, :poster]
+  before_filter :only_manager, only: [:edit, :update, :destroy, :remove_poster]
+  before_filter :only_venue_manager, only: [:new, :create]
   respond_to :html
 
   # GET /gigs
@@ -25,13 +29,18 @@ class GigsController < ApplicationController
   # GET /gigs/new
   def new
     @my_venue ||= params[:venue_id]
-    @gig = Gig.new(:venue_id => @my_venue)
+    @venues = @managerships.map { |manager| manager.venue }
+    if @my_venue && @venue = @venues.detect { |venue| venue.id == @my_venue.to_i }
+      @venues = [@venue]
+    end
+    @gig = Gig.new(venue_id: @my_venue)
     initialize_acts
     respond_with @gig
   end
 
   # GET /gigs/1/edit
   def edit
+    @venues = current_user.managerships.map { |manager| manager.venue }
     initialize_acts
   end
 
@@ -92,5 +101,18 @@ class GigsController < ApplicationController
     @main_act = (@gig.main_act || @gig.build_main_act)
     @supporting_acts = @gig.supporting_acts
     (4-@supporting_acts.size).times { @gig.supporting_acts.build }
+  end
+
+  def find_managerships
+    @managerships = []
+    @managerships = current_user.managerships if current_user
+  end
+
+  def only_manager
+    redirect_to gig_path(@gig), alert: t('page_unknown') unless current_user && @managerships.detect { |manager| manager.venue_id == @gig.venue_id }
+  end
+
+  def only_venue_manager
+    redirect_to gigs_path, alert: t('page_unknown') unless current_user.roles_list.include?(User::VENUE_MANAGER)
   end
 end

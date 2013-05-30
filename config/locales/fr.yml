@@ -220,6 +220,7 @@ fr:
       gig_page: "Fiche Concert"
     form:
       prompt_band: "Selectionnez un groupe"
+      prompt_venue: "Sélectionnez une salle"
   venues:
     index:
       title: "Groupes"
