@@ -1,5 +1,5 @@
 class GigsController < ApplicationController
-  before_filter :find_gig, only: [:show, :edit, :update, :destroy]
+  before_filter :find_gig, only: [:show, :edit, :update, :destroy, :poster, :remove_poster]
   respond_to :html
 
   # GET /gigs
@@ -61,6 +61,22 @@ class GigsController < ApplicationController
   def destroy
     @gig.destroy
     redirect_to gigs_url
+  end
+
+  # GET /gigs/1/poster
+  def poster
+    unless @gig.poster?
+      redirect_to @gig, alert: t('gig_poster_unknown')
+    end
+  end
+
+  # PUT /gigs/1/remove_poster
+  def remove_poster
+    store_dir = @gig.poster.store_dir
+    @gig.remove_poster!
+    FileUtils.remove_dir("#{Rails.root}/public/#{store_dir}", :force => true)
+
+    redirect_to @gig, notice: t('gig_poster_deleted')
   end
 
   private

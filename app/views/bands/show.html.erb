@@ -27,7 +27,7 @@
 </p>
 <p>
   <% unless @band.description.blank? %>
-    <%= @band.description %>
+    <%= raw @band.description.gsub("\r\n", "<br />") %>
   <% else %>
     <em><%= t('no_description') %></em>
   <% end %>
@@ -41,9 +41,7 @@
   <p class="thumbs-container">
     <% @band_images.each do |image| %>
       <% if image.file? %>
-        <%= link_to band_band_image_path(@band, image) do %>
-          <img src="<%= image.file_url(:thumb) %>" class="<%= 'main' if image.is_main %>" />
-        <% end %>
+        <%= link_to image_tag(image.file_url(:thumb)), band_band_image_path(@band, image) %>
       <% end %>
     <% end %>
   <p>
@@ -63,9 +61,18 @@
 
 <% if @gigs.any? %>
   <h3><%= t('.gigs') %></h3>
-  <% @gigs.each do |gig| %>
-    <%= link_to gig.name, gig %><br />
-  <% end %>
+  <p class="thumbs-container">
+    <% @gigs.each do |gig| %>
+      <%= link_to gig do %>
+        <% if gig.poster? %>
+          <%= image_tag gig.poster_url(:thumb) %>
+        <% else %>
+          <%= image_tag "no-image.png" %>
+        <% end %>
+        <span class="thumb-label thumb-gig"><%= gig.name %></span>
+      <% end %>
+    <% end %>
+  </p>
 <% end %>
 
 <%= render 'shared/sidebar' %>

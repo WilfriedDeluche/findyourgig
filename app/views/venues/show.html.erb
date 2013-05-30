@@ -9,7 +9,6 @@
   <% end %>
 </h2>
 
-<%= link_to t('.add_gig'), new_gig_path(:venue_id => @venue.id), class: "btn btn-primary pull-right" %>
 <%= gmaps("map_options" => { "detect_location" => false, "center_on_user" => false, "zoom" => 16},"markers" => { "data" => @gmap_full_venues }) %>
 
 <h4><%= t('.main_information') %></h4>
@@ -89,6 +88,30 @@
     <%= link_to t('.upload_images'), venue_venue_images_path(@venue), class: "btn btn-primary pull-right" %>
     <div class="clearfix"></div>
   <% end %>
+<% end %>
+
+<hr />
+
+<h4>
+  <%= t('.gigs') %> <small>(<%= @nb_gigs %>)</small>
+  <%= link_to t('.add_gig'), new_gig_path(:venue_id => @venue.id), class: "btn btn-small pull-right" %>
+</h4>
+
+<% if @gigs.any? %>
+  <p class="thumbs-container">
+    <% @gigs.each do |gig| %>
+      <%= link_to gig do %>
+        <% if gig.poster? %>
+          <%= image_tag gig.poster_url(:thumb) %>
+        <% else %>
+          <%= image_tag "no-image.png" %>
+        <% end %>
+        <span class="thumb-label thumb-gig"><%= gig.name %></span>
+      <% end %>
+    <% end %>
+  </p>
+  <em><%= link_to t('.all_gigs'), gigs_venue_path(@venue), class: "pull-right" %></em>
+  <div class="clearfix"></div>
 <% end %>
 
 <hr />
