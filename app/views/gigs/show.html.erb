@@ -11,7 +11,7 @@
 <p>
   <b><%= Venue.model_name.human %>:</b>
   <% unless @gig.venue.blank? %>        
-    <%= @gig.venue.name %><br />
+    <%= link_to @gig.venue.name, venue_path(@gig.venue) %><br />
   <% else %>
     <em><%= t('not_specified') %></em>
   <% end %>
