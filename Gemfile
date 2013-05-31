@@ -55,6 +55,8 @@ group :test, :development do
   gem "guard-bundler"
   gem "guard-rspec"
   gem "guard-migrate"
+
+  gem "rails-erd"
 end
 
 group :test do
