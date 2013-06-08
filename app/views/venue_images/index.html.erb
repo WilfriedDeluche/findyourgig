@@ -2,7 +2,7 @@
   <%= link_to @venue.name, @venue %> 
 </h2>
 
-<% if user_signed_in? && @managerships.detect { |manager| manager.venue_id == @venue.id }%>
+<% if user_signed_in? && @venue.in_managerships?(@managerships) %>
   <div class="well-white">
     <h4><%= t('.add_image') %></h4>
     <%= form_for [@venue, @venue_image], :html => {:multipart => true} do |f| %>

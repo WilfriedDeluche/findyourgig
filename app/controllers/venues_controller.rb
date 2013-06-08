@@ -1,7 +1,7 @@
 class VenuesController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show, :gigs]
   before_filter :find_venue, only: [:show, :edit, :update, :destroy, :gigs]
-  before_filter :find_managerships, except: [:new, :create, :gigs]
+  before_filter :find_managerships, except: [:new, :create]
   before_filter :only_manager, only: [:edit, :update, :destroy]
   before_filter :only_venue_manager, only: [:new, :create]
   respond_to :html
@@ -107,7 +107,7 @@ class VenuesController < ApplicationController
   end
 
   def only_manager
-    redirect_to venues_path, alert: t('page_unknown') unless current_user && @managerships.detect { |manager| manager.venue_id == @venue.id }
+    redirect_to venues_path, alert: t('page_unknown') unless current_user && @venue.in_managerships?(@managerships)
   end
 
   def only_venue_manager
