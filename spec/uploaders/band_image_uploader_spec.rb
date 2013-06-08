@@ -15,6 +15,7 @@ describe BandImageUploader do
   after do
     BandImageUploader.enable_processing = false
     @uploader.remove!
+    @band.destroy
   end
 
   context 'the thumb version' do

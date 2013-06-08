@@ -19,6 +19,7 @@ en:
   menu: "Navigation"
   page_unknown: "This page does not exist"
   unprocessable_action: "The requested action could not be processed because it is incorrect or forbidden."
+  invalid: "is invalid"
 
   # BANDS
   band_unknown: "Band does not exist."
@@ -152,6 +153,7 @@ en:
       upload_images: "Add pictures"
       all_images: "See all pictures"
       gigs: "Band's gigs"
+      add_gig: "Add a gig"
     edit:
       band_page: "Band Page"
     members:
@@ -194,6 +196,7 @@ en:
       gig_page: "Gig Page"
     form:
       prompt_band: "Select a band"
+      prompt_venue: "Select a venue"
   venues:
     index:
       title: "Venues"

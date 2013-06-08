@@ -19,6 +19,7 @@ fr:
   menu: "Menu"
   page_unknown: "Cette page n'existe pas"
   unprocessable_action: "L'action demandée n'a pu être effectuée car incorrecte ou interdite."
+  invalid: "est invalide"
 
   # BANDS
   band_unknown: "Le groupe recherché n'existe pas."
@@ -177,6 +178,7 @@ fr:
       upload_images: "Ajouter des photos"
       all_images: "Voir toutes les photos"
       gigs: "Les concerts du groupe"
+      add_gig: "Ajouter un concert"
     edit:
       band_page: "Fiche Groupe"
     members:
@@ -220,6 +222,7 @@ fr:
       gig_page: "Fiche Concert"
     form:
       prompt_band: "Selectionnez un groupe"
+      prompt_venue: "Sélectionnez une salle"
   venues:
     index:
       title: "Groupes"

@@ -53,4 +53,8 @@ class Venue < ActiveRecord::Base
   def remove_upload_folder
     FileUtils.remove_dir("#{Rails.root}/public/uploads/venues/#{self.id}", :force => true)
   end
+
+  def in_managerships?(managerships)
+    managerships.detect { |manager| manager.venue_id == self.id }
+  end
 end

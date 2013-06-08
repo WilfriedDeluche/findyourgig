@@ -19,4 +19,8 @@ class Band < ActiveRecord::Base
   def remove_upload_folder
     FileUtils.remove_dir("#{Rails.root}/public/uploads/bands/#{self.id}", :force => true)
   end
+
+  def in_band_participations?(participations)
+     participations.detect { |member| member.band_id == self.id }
+  end
 end

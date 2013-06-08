@@ -1,5 +1,9 @@
 class GigsController < ApplicationController
-  before_filter :find_gig, only: [:show, :edit, :update, :destroy, :poster, :remove_poster]
+  before_filter :authenticate_user!, except: [:index, :show, :poster]
+  before_filter :find_gig, except: [:index, :new, :create]
+  before_filter :find_managerships, :find_band_participations, except: [:index, :poster]
+  before_filter :only_manager_or_member, only: [:edit, :update, :destroy, :remove_poster]
+  before_filter :only_venue_manager_or_band_member, only: [:new, :create]
   respond_to :html
 
   # GET /gigs
@@ -25,23 +29,29 @@ class GigsController < ApplicationController
   # GET /gigs/new
   def new
     @my_venue ||= params[:venue_id]
-    @gig = Gig.new(:venue_id => @my_venue)
+    @my_band ||= params[:band_id]
+    @gig = Gig.new(venue_id: @my_venue)
+    initialize_bands_and_venues_for_form
     initialize_acts
     respond_with @gig
   end
 
   # GET /gigs/1/edit
   def edit
+    initialize_bands_and_venues_for_form
     initialize_acts
   end
 
   # POST /gigs
   def create
-    @gig = Gig.new(params[:gig])
+    @gig = Gig.new(params[:gig]) do |gig|
+      gig.user_gold = current_user
+    end
 
     if @gig.save
       redirect_to @gig, notice: t('gig_created')
     else
+      initialize_bands_and_venues_for_form
       initialize_acts
       render action: "new"
     end
@@ -49,9 +59,11 @@ class GigsController < ApplicationController
 
   # PUT /gigs/1
   def update
+    @gig.user_gold = current_user
     if @gig.update_attributes(params[:gig])
       redirect_to @gig, notice: t('gig_updated')
     else
+      initialize_bands_and_venues_for_form
       initialize_acts
       render action: "edit"
     end
@@ -88,9 +100,45 @@ class GigsController < ApplicationController
     end
   end
 
+  def initialize_bands_and_venues_for_form
+    if current_user.is_venue_manager?
+      @venues = @managerships.map(&:venue)
+      if @my_venue && @venue = @venues.detect { |venue| venue.id == @my_venue.to_i }
+        @venues = [@venue]
+      end
+      @bands = Band.all
+    elsif current_user.is_band_member?
+      @bands = @band_participations.map(&:band)
+      if @my_band && @band = @bands.detect { |band| band.id == @my_band.to_i }
+        @bands = [@band]
+      end
+      @venues = Venue.all
+    end
+  end
+
   def initialize_acts
-    @main_act = (@gig.main_act || @gig.build_main_act)
+    @main_act = (@gig.main_act || @gig.build_main_act(:band_id => @my_band))
     @supporting_acts = @gig.supporting_acts
     (4-@supporting_acts.size).times { @gig.supporting_acts.build }
+  end
+
+  def find_managerships
+    @managerships = []
+    @managerships = current_user.managerships if current_user
+  end
+
+  def find_band_participations
+    @band_participations = []
+    @band_participations = current_user.band_participations if current_user
+  end
+
+  def only_manager_or_member
+    unless @gig.venue.in_managerships?(@managerships) ||  (@gig.main_act &&  @gig.main_act.band.in_band_participations?(@band_participations))
+      redirect_to gig_path(@gig), alert: t('page_unknown')
+    end
+  end
+
+  def only_venue_manager_or_band_member
+    redirect_to gigs_path, alert: t('page_unknown') unless current_user.is_venue_manager? || current_user.is_band_member?
   end
 end
