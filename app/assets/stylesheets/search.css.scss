@@ -1,0 +1,18 @@
+.geolocation {
+  margin: auto;
+  width: 80%;
+
+  input[type=text] {
+    font-size: 18px;
+    height: 45px;
+    padding: 8px 15px;
+  }
+
+  label {
+    color: #555555;
+    font-size: 17px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+  }
+}
