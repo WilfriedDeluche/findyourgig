@@ -160,6 +160,8 @@ fr:
     index:
       welcome: "Bienvenue"
       your_access: "Vos accès"
+    search:
+      see_venue_page: "Voir la fiche salle"
   bands:
     index:
       bands_starting_with_letter: "Groupes commençant par la lettre"

@@ -36,4 +36,4 @@ geocode_address = ->
 $("#formatted_address").change ->
   geocode_address()
 
-getLocation() if $(".geolocation").length > 0
+getLocation() if $(".geolocation").length > 0 && $("#formatted_address").val() == ""

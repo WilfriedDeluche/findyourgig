@@ -135,6 +135,8 @@ en:
     index:
       welcome: "Welcome"
       your_access: "Your access"
+    search:
+      see_venue_page: "See venue page"
   bands:
     index:
       bands_starting_with_letter: "Bands with name starting with letter"
