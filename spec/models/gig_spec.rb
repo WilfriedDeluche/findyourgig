@@ -53,4 +53,27 @@ describe Gig do
     gig.concert_end_time.should   eq "2013-06-27 23:00:00"
     gig.venue_id.should           eq @venue.id
   end
+
+  it "should render upcoming gigs" do
+    gig = FactoryGirl.create(:gig, :doors_time => (DateTime.now - 3.days), 
+                                    :soundcheck_time => (DateTime.now - 3.days - 1.hours), 
+                                    :concert_start_time => (DateTime.now - 3.days + 1.hours), 
+                                    :concert_end_time => (DateTime.now - 3.days + 3.hours), :venue => @venue)
+
+    gig_2 = FactoryGirl.create(:gig, :doors_time => (DateTime.now), 
+                                    :soundcheck_time => (DateTime.now - 1.hours), 
+                                    :concert_start_time => (DateTime.now + 1.hours), 
+                                    :concert_end_time => (DateTime.now + 3.hours), :venue => @venue)
+
+    gig_3 = FactoryGirl.create(:gig, :doors_time => (DateTime.now + 3.days), 
+                                    :soundcheck_time => (DateTime.now + 3.days - 1.hours), 
+                                    :concert_start_time => (DateTime.now + 3.days + 1.hours), 
+                                    :concert_end_time => (DateTime.now + 3.days + 3.hours), :venue => @venue)
+
+    gigs = Gig.upcoming
+    gigs.size.should eq 2
+    gigs.should include gig_2
+    gigs.should include gig_3
+    gigs.should_not include gig
+  end
 end

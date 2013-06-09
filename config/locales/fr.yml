@@ -209,13 +209,14 @@ fr:
   gigs:
     index:
       gigs_starting_with_letter: "Concerts commençant par la lettre"
-      last_ten_gigs_created: "Les 10 derniers concerts ajoutés"
+      last_ten_gigs_created: "Les prochains concerts"
       create_gig: "Créer un concert"
       see_gig_page: "Voir la fiche concert"
       edit_gig: "Modifier Concert"
     show:
       edit_gig: "Modifier Concert"
       main_act_and_supporting_acts: "Tête d'affiche et 1è parties"
+      venue_gigs: "Tous les concerts dans cette salle"
     new:
       new_gig: "Nouveau Concert"
     edit:
