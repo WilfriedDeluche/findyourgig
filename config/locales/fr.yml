@@ -20,6 +20,7 @@ fr:
   page_unknown: "Cette page n'existe pas"
   unprocessable_action: "L'action demandée n'a pu être effectuée car incorrecte ou interdite."
   invalid: "est invalide"
+  edit_profile: "Editer mon profil"
 
   # BANDS
   band_unknown: "Le groupe recherché n'existe pas."
@@ -70,6 +71,9 @@ fr:
   feedback_unknown: "Cet avis n'existe pas."
   feedback_created: "L'avis a été créé avec succès."
   feedback_deleted: "L'avis a été supprimé avec succès."
+
+  #USERS
+  user_updated: "Profil bien mis à jour."
 
   # OTHERS
   country_code_does_not_exist: "n'existe pas"
@@ -155,6 +159,7 @@ fr:
       sign_out: "Se déconnecter"
       my_account: "Mon compte"
       sign_up: "S'inscrire"
+      password: "Mot de passe"
 
   home:
     index:
@@ -282,6 +287,14 @@ fr:
     form:
       add_feedback: "Ajoutez un avis"
       rate_the_venue: "Indiquez une note"
+  users:
+    show:
+      user_venues: "Gérant de salles"
+      user_bands: "Membre de groupes"
+      no_managership: "Aucune salle gérée"
+      no_participation: "Aucun groupe"
+    edit:
+      edit_profile: "Edition du profil"
   shared:
     geolocation_form:
       type_address_or_zipcode: "Tapez votre adresse ou votre code postal"
@@ -315,6 +328,7 @@ fr:
     formats:
       default: "%d/%m/%Y %H:%M"
       humanize: "%d %b %Y - %H:%m"
+      humanize_short: "%d %b %Y"
 
   errors:
     messages:

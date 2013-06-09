@@ -1,0 +1,60 @@
+<% if user_signed_in? && current_user.id == @user.id %>
+  <%= link_to t('edit_profile'), edit_user_path(@user), class: "btn btn-small pull-right" %>
+<% end %>
+
+<h3><%= @user.name %></h3>
+
+<div class="user-info">
+  <% if @user.is_admin? %>
+    <span class="label label-warning">Admin</span><br />
+  <% end %>
+  <span>Inscrit(e) le <%= l(@user.created_at, format: :humanize_short) %></span>
+</div>
+
+<% if @managerships %>
+  <div class="well-white inner-shadowed">
+    <h2><%= t('.user_venues') %></h2>
+
+    <% if @managerships.any? %>
+      <p class="thumbs-container thumbs-band">
+        <% @managerships.each do |managership| %>
+          <%= link_to managership.venue do %>
+            <% if managership.venue.main_image && managership.venue.main_image.file? %>
+              <%= image_tag managership.venue.main_image.file_url(:thumb) %>
+            <% else %>
+              <%= image_tag "no-image.png" %>
+            <% end %>
+            <span class="thumb-label supporting-act"><%= managership.venue.name %></span>
+          <% end %>
+        <% end %>
+      </p>
+    <% else %>
+      <div class="alert alert-info"><%= t('.no_managership') %></div>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @participations %>
+  <div class="well-white inner-shadowed">
+    <h2><%= t('.user_bands') %></h2>
+
+    <% if @participations.any? %>
+      <p class="thumbs-container thumbs-band">
+        <% @participations.each do |participation| %>
+          <%= link_to participation.band do %>
+            <% if participation.band.main_image && participation.band.main_image.file? %>
+              <%= image_tag participation.band.main_image.file_url(:thumb) %>
+            <% else %>
+              <%= image_tag "no-image.png" %>
+            <% end %>
+            <span class="thumb-label main-act"><%= participation.band.name %></span>
+          <% end %>
+        <% end %>
+      </p>
+    <% else %>
+      <div class="alert alert-info"><%= t('.no_participation') %></div>
+    <% end %>
+  </div>
+<% end %>
+
+<%= render 'shared/sidebar' %>

@@ -1,0 +1,19 @@
+<h2 class="page-header"><%= t('.edit_profile') %></h2>
+
+<%= form_for(@user) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </p>
+
+  <p>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </p>
+
+  <p><%= f.submit t('confirm'), class: "btn" %></p>
+<% end %>
+
+<%= render 'shared/sidebar' %>

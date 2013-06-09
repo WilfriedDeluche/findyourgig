@@ -20,6 +20,7 @@ en:
   page_unknown: "This page does not exist"
   unprocessable_action: "The requested action could not be processed because it is incorrect or forbidden."
   invalid: "is invalid"
+  edit_profile: "Edit my profile"
 
   # BANDS
   band_unknown: "Band does not exist."
@@ -70,6 +71,9 @@ en:
   feedback_unknown: "The feedback does not exist."
   feedback_created: "The feedback was successfully posted."
   feedback_deleted: "The feedback was successfully deleted."
+
+  #USERS
+  user_updated: "Profile successfully updated."
 
   # OTHERS
   country_code_does_not_exist: "does not exist"
@@ -130,6 +134,7 @@ en:
       sign_out: "Sign out"
       my_account: "My account"
       sign_up: "Sign up"
+      password: "Password"
 
   home:
     index:
@@ -265,11 +270,23 @@ en:
     form:
       add_feedback: "Add a feedback"
       rate_the_venue: "Rate the venue"
+  users:
+    show:
+      user_venues: "Venues Manager"
+      user_bands: "Bands member"
+      no_managership: "No venue managed"
+      no_participation: "In no band"
+    edit:
+      edit_profile: "Modify profile"
   shared:
     geolocation_form:
       type_address_or_zipcode: "Type address or zipcode"
       closest_venues_button: "Closest venues"
       closest_gigs_button: "Closest gigs"
+
+  time:
+    formats:
+      humanize_short: "%d %b %Y"
 
   errors:
     messages:
