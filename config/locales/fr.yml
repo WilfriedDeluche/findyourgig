@@ -158,8 +158,16 @@ fr:
 
   home:
     index:
-      welcome: "Bienvenue"
-      your_access: "Vos accès"
+      gigs: "Prochains Concerts"
+      bands: "Groupes"
+      venues: "Salles de Concert"
+      all_gigs: "Tous les concerts"
+      all_bands: "Tous les groupes"
+      all_venues: "Toutes les salles"
+    search:
+      see_venue_page: "Voir la fiche salle"
+      closest_venues_button: "Les salles les plus proches"
+      closest_gigs_button: "Les concerts les plus proches"
   bands:
     index:
       bands_starting_with_letter: "Groupes commençant par la lettre"
@@ -274,6 +282,11 @@ fr:
     form:
       add_feedback: "Ajoutez un avis"
       rate_the_venue: "Indiquez une note"
+  shared:
+    geolocation_form:
+      type_address_or_zipcode: "Tapez votre adresse ou votre code postal"
+      closest_venues_button: "Les salles les plus proches"
+      closest_gigs_button: "Les concerts les plus proches"
 
   helpers:
     select:
