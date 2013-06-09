@@ -133,8 +133,12 @@ en:
 
   home:
     index:
-      welcome: "Welcome"
-      your_access: "Your access"
+      gigs: "Upcoming gigs"
+      bands: "Bands"
+      bands: "Venues"
+      all_gigs: "All gigs"
+      all_bands: "All bands"
+      all_venues: "All venues"
     search:
       see_venue_page: "See venue page"
       closest_venues_button: "Closest venues"

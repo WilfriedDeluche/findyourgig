@@ -158,8 +158,12 @@ fr:
 
   home:
     index:
-      welcome: "Bienvenue"
-      your_access: "Vos accès"
+      gigs: "Prochains Concerts"
+      bands: "Groupes"
+      bands: "Salles de Concert"
+      all_gigs: "Tous les concerts"
+      all_bands: "Tous les groupes"
+      all_venues: "Toutes les salles"
     search:
       see_venue_page: "Voir la fiche salle"
       closest_venues_button: "Les salles les plus proches"

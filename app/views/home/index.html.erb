@@ -1,19 +1,66 @@
-<% if user_signed_in? %>
-  <p><strong><%= current_user.name %></strong></p>
-  
-  <% if @current_user_roles.any? %>
-  <p>
-    <%= t('.your_access') %> : <br />
-    <ul>
-      <% @current_user_roles.each do |role| %>
-        <li><%= t(role) %></li>
+<%= render "shared/geolocation_form" %>
+
+<% if @gigs.any? %>
+  <div class="well-white">
+    <h3><%= link_to t('.gigs'), gigs_path %> <small>(<%= @nb_gigs %>)</small></h3>
+
+    <p class="thumbs-container">
+      <% @gigs.each do |gig| %>
+        <%= link_to gig do %>
+          <% if gig.poster? %>
+            <%= image_tag gig.poster_url(:thumb) %>
+          <% else %>
+            <%= image_tag "no-image.png" %>
+          <% end %>
+          <span class="thumb-label thumb-gig"><%= gig.name %></span>
+        <% end %>
       <% end %>
-    </ul>
-  </p>
-  <% end %>
-  <hr />
+    </p>
+    <em><%= link_to t('.all_gigs'), gigs_path, class: "pull-right" %></em>
+    <div class="clearfix"></div>
+  </div>
 <% end %>
 
-<%= render "shared/geolocation_form" %>
+<% if @bands.any? %>
+  <div class="well-white">
+    <h3><%= link_to t('.bands'), bands_path %> <small>(<%= @nb_bands %>)</small></h3>
+
+    <p class="thumbs-container thumbs-band">
+      <% @bands.each do |band| %>
+        <%= link_to band do %>
+          <% if band.main_image && band.main_image.file? %>
+            <%= image_tag band.main_image.file_url(:thumb) %>
+          <% else %>
+            <%= image_tag "no-image.png" %>
+          <% end %>
+          <span class="thumb-label main-act"><%= band.name %></span>
+        <% end %>
+      <% end %>
+    </p>
+    <em><%= link_to t('.all_bands'), bands_path, class: "pull-right" %></em>
+    <div class="clearfix"></div>
+  </div>
+<% end %>
+
+<% if @venues.any? %>
+  <div class="well-white">
+    <h3><%= link_to t('.venues'), venues_path %> <small>(<%= @nb_venues %>)</small></h3>
+
+    <p class="thumbs-container thumbs-band">
+      <% @venues.each do |venue| %>
+        <%= link_to venue do %>
+          <% if venue.main_image && venue.main_image.file? %>
+            <%= image_tag venue.main_image.file_url(:thumb) %>
+          <% else %>
+            <%= image_tag "no-image.png" %>
+          <% end %>
+          <span class="thumb-label supporting-act"><%= venue.name %></span>
+        <% end %>
+      <% end %>
+    </p>
+    <em><%= link_to t('.all_venues'), venues_path, class: "pull-right" %></em>
+    <div class="clearfix"></div>
+  </div>
+<% end %>
 
 <%= render 'shared/sidebar' %>

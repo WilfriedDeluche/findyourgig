@@ -1,5 +1,11 @@
 class HomeController < ApplicationController
   def index
+    @gigs = Gig.upcoming.includes([{:main_act => :band}, :venue]).limit(4)
+    @nb_gigs = Gig.upcoming.count
+    @venues = Venue.includes(:main_image).limit(4)
+    @nb_venues = Venue.count
+    @bands = Band.includes(:main_image).limit(4)
+    @nb_bands = Band.count
   end
 
   def search
