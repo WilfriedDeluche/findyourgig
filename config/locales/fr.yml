@@ -160,7 +160,7 @@ fr:
     index:
       gigs: "Prochains Concerts"
       bands: "Groupes"
-      bands: "Salles de Concert"
+      venues: "Salles de Concert"
       all_gigs: "Tous les concerts"
       all_bands: "Tous les groupes"
       all_venues: "Toutes les salles"
