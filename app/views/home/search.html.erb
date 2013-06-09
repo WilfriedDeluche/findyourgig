@@ -3,7 +3,7 @@
 <hr />
 
 <% if @venues && @venues.any? %>
-  <h2>Les salles les plus proches</h2>
+  <h2><%= t('.closest_venues_button') %></h2>
   <table class="table table-bordered table-striped">
 
   <% @venues.each do |venue| %>
@@ -28,7 +28,7 @@
   <% end %>
   </table>
 <% elsif @gigs && @gigs.any? %>
-  <h2>Les concerts les plus proches</h2>
+  <h2><%= t('.closest_gigs_button') %></h2>
   <table class="table table-bordered table-striped">
 
   <% @gigs.each do |gig| %>

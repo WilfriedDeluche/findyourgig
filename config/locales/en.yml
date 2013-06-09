@@ -137,6 +137,8 @@ en:
       your_access: "Your access"
     search:
       see_venue_page: "See venue page"
+      closest_venues_button: "Closest venues"
+      closest_gigs_button: "Closest gigs"
   bands:
     index:
       bands_starting_with_letter: "Bands with name starting with letter"
@@ -259,6 +261,11 @@ en:
     form:
       add_feedback: "Add a feedback"
       rate_the_venue: "Rate the venue"
+  shared:
+    geolocation_form:
+      type_address_or_zipcode: "Type address or zipcode"
+      closest_venues_button: "Closest venues"
+      closest_gigs_button: "Closest gigs"
 
   errors:
     messages:

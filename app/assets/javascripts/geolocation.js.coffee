@@ -14,7 +14,7 @@ showPosition = (position) ->
   , (results, status) ->
     $("#formatted_address").val results[1].formatted_address if results[1] if status is google.maps.GeocoderStatus.OK
 
-geocode_address = ->
+geocode_address = (submit_form = false) ->
   address = $("#formatted_address").val()
   if address != ""
     geocoder = new google.maps.Geocoder()
@@ -28,6 +28,8 @@ geocode_address = ->
         $("#longitude").val results[0].geometry.location.kb
         $("#formatted_address").val results[0]["formatted_address"]
         $('.geolocation-alerts').html("")
+        if submit_form
+          $('.geolocation form').submit()
       else
         $('.geolocation-alerts').html("Adresse invalide")
   else
@@ -35,5 +37,14 @@ geocode_address = ->
 
 $("#formatted_address").change ->
   geocode_address()
+
+$('.geolocation input').keypress (e) ->
+  e.keyCode != 13
+
+$('.geolocation input[type=submit]').click (e) ->
+  e.preventDefault()
+  $(this).after('<input type="hidden" name="' + $(this).attr("name") + '" />')
+  geocode_address(true)
+  false
 
 getLocation() if $(".geolocation").length > 0 && $("#formatted_address").val() == ""

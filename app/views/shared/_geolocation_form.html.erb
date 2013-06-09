@@ -3,10 +3,10 @@
     <div class="geolocation-alerts"></div>
     <%= hidden_field_tag :latitude, params[:latitude] %>
     <%= hidden_field_tag :longitude, params[:longitude] %>
-    <%= label_tag :formatted_address, "Tapez votre adresse" %>
+    <%= label_tag :formatted_address, t('.type_address_or_zipcode') %>
     <%= text_field_tag :formatted_address, params[:formatted_address], class: "span12" %><br />
-    <%= submit_tag "Les salles les plus proches", name: "find_venues", class: "btn btn-large btn-primary span6" %>
-    <%= submit_tag "Les concerts les plus proches", name: "find_gigs", class: "btn btn-large span6 pull-right" %>
+    <%= submit_tag t('.closest_venues_button'), name: "find_venues", class: "btn btn-large btn-primary span6" %>
+    <%= submit_tag t('.closest_gigs_button'), name: "find_gigs", class: "btn btn-large span6 pull-right" %>
 
     <div class="clearfix"></div>
   <% end %>
