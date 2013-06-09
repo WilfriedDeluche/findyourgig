@@ -47,6 +47,8 @@
 </p>
 <% end %>
 
+<%= link_to t('.venue_gigs'), gigs_venue_path(@gig.venue), class: "btn btn-small" %>
+
 <div class="clearfix"></div>
 
 <% if @main_act || @supporting_acts.any? %>

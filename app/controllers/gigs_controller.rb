@@ -10,11 +10,11 @@ class GigsController < ApplicationController
   def index
     if params[:search]
       search = Regexp.escape params[:search]
-      @gigs = Gig.all({:conditions => ["lower(name) LIKE ?", "%#{search.downcase}%"], include: [{:main_act => :band}, :venue]})
+      @gigs = Gig.upcoming.by_search(search.downcase).includes([{:main_act => :band}, :venue])
     elsif params[:by_letter]
-      @gigs = Gig.includes(:main_act => :band).includes(:venue).by_letter(params[:by_letter].downcase)
+      @gigs = Gig.upcoming.by_letter(params[:by_letter].downcase).includes([{:main_act => :band}, :venue])
     else
-      @gigs = Gig.includes(:main_act => :band).includes(:venue).limit(10)
+      @gigs = Gig.upcoming.includes([{:main_act => :band}, :venue]).limit(10)
     end
     respond_with @gigs
   end

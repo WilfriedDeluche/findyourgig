@@ -1,6 +1,8 @@
 class Gig < ActiveRecord::Base
-  default_scope order('created_at DESC')
+  default_scope order('concert_start_time ASC')
   scope :by_letter, lambda { |letter| { :conditions => ["lower(name) LIKE ?", "#{letter}%"] }}
+  scope :by_search, lambda { |search| { :conditions => ["lower(name) LIKE ?", "%#{search}%"] }}
+  scope :upcoming, where("concert_start_time > ?", DateTime.now)
   
   belongs_to :venue
   has_many :acts, dependent: :destroy
