@@ -42,6 +42,8 @@ Findyourgig::Application.routes.draw do
       put "remove_poster", on: :member
     end
 
+    match '/search', :to => 'home#search'
+
     root to: "home#index"
   end  
 end
