@@ -20,7 +20,7 @@ class BandsController < ApplicationController
 
   def show
     flash.now[:info] = t('band_participation_request_pending') if @user_bands.detect { |part| part[:band_id] == @band.id && part[:active] == false }
-    @gigs = @band.gigs
+    @gigs = @band.gigs.upcoming
     @nb_images = @band.band_images.count
     @band_images = @band.band_images.limit(4)
     @main_image = @band.main_image

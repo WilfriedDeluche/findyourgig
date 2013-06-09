@@ -15,6 +15,7 @@ describe VenueImageUploader do
   after do
     VenueImageUploader.enable_processing = false
     @uploader.remove!
+    @venue.destroy
   end
 
   context 'the thumb version' do

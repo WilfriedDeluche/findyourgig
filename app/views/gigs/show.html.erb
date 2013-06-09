@@ -1,4 +1,10 @@
-<h2 class="page-header"><%= @gig.name %> <%= link_to t('.edit_gig'), edit_gig_path(@gig), class: "btn btn-success pull-right" %></h2>
+<h2 class="page-header">
+  <%= @gig.name %>
+  <% if user_signed_in? && @gig.venue.in_managerships?(@managerships) || (@main_act && @main_act.band.in_band_participations?(@band_participations)) %>
+    <%= link_to t('remove'), @gig, method: :delete, data: { confirm: t('are_u_sure') }, class: "btn btn-danger pull-right" %>
+    <%= link_to t('.edit_gig'), edit_gig_path(@gig), class: "btn btn-success pull-right" %>
+  <% end %>
+</h2>
 
 <% if @gig.poster? %>
   <%= link_to image_tag(@gig.poster_url(:page)), poster_gig_path(@gig), class: "pull-right" %>
@@ -40,6 +46,8 @@
   <%= l(@gig.concert_end_time) %>
 </p>
 <% end %>
+
+<%= link_to t('.venue_gigs'), gigs_venue_path(@gig.venue), class: "btn btn-small" %>
 
 <div class="clearfix"></div>
 

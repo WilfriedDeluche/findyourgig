@@ -60,7 +60,13 @@
 <hr />
 
 <% if @gigs.any? %>
-  <h3><%= t('.gigs') %></h3>
+  <h3>
+    <%= t('.gigs') %>
+
+    <% if user_signed_in? && @user_bands.collect { |part| part[:band_id] }.include?(@band.id) %>
+      <%= link_to t('.add_gig'), new_gig_path(:band_id => @band.id), class: "btn btn-small pull-right" %>
+    <% end %>
+  </h3>
   <p class="thumbs-container">
     <% @gigs.each do |gig| %>
       <%= link_to gig do %>
