@@ -97,6 +97,7 @@ fr:
         password_confirmation: "Mot de passe de confirmation"
         current_password: "Mot de passe actuel"
         role: "Type de profil"
+        avatar: "Avatar"
       venue:
         name: "Nom du lieu"
         address_1: "Adresse"

@@ -97,6 +97,7 @@ en:
         password_confirmation: "Password confirmation"
         current_password: "Current password"
         role: "Profile type"
+        avatar: "Avatar"
       venue:
         name: "Name"
         address_1: "Address"

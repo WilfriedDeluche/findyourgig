@@ -2,13 +2,22 @@
   <%= link_to t('edit_profile'), edit_user_path(@user), class: "btn btn-small pull-right" %>
 <% end %>
 
-<h3><%= @user.name %></h3>
-
 <div class="user-info">
+  <div class="user-profile-avatar pull-left">
+    <% if @user.avatar? %>
+      <%= image_tag @user.avatar_url(:normal) %>
+    <% else %>
+      <%= image_tag "no-image.png" %>
+    <% end %>
+  </div>
+
+  <h3><%= @user.name %></h3>
+
   <% if @user.is_admin? %>
     <span class="label label-warning">Admin</span><br />
   <% end %>
   <span>Inscrit(e) le <%= l(@user.created_at, format: :humanize_short) %></span>
+  <div class="clearfix"></div>
 </div>
 
 <% if @managerships %>
