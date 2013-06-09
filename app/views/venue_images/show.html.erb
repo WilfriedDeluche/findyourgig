@@ -1,7 +1,7 @@
 <h2 class="page-header">
   <%= link_to @venue.name, venue_venue_images_path(@venue) %>
 
-  <% if user_signed_in? && @managerships.detect { |manager| manager.venue_id == @venue.id }%>
+  <% if user_signed_in? && @venue.in_managerships?(@managerships) %>
     <%= link_to t('remove'), venue_venue_image_path(@venue, @venue_image), method: :delete, data: { confirm: t('are_u_sure') }, class: "btn btn-danger pull-right" %>
     <% unless @venue_image.is_main %>
       <%= link_to t('.set_as_main'), set_main_venue_venue_image_path(@venue, @venue_image), method: :put, class: "btn btn-success pull-right" %>

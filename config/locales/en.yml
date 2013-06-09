@@ -19,6 +19,7 @@ en:
   menu: "Navigation"
   page_unknown: "This page does not exist"
   unprocessable_action: "The requested action could not be processed because it is incorrect or forbidden."
+  invalid: "is invalid"
 
   # BANDS
   band_unknown: "Band does not exist."
@@ -152,6 +153,7 @@ en:
       upload_images: "Add pictures"
       all_images: "See all pictures"
       gigs: "Band's gigs"
+      add_gig: "Add a gig"
     edit:
       band_page: "Band Page"
     members:
@@ -182,18 +184,20 @@ en:
   gigs:
     index:
       gigs_starting_with_letter: "Gigs with name starting with letter"
-      last_ten_gigs_created: "Last 10 gigs added"
+      last_ten_gigs_created: "Upcoming gigs"
       create_gig: "Create a gig"
       see_gig_page: "See gig page"
     show:
       edit_gig: "Edit Gig"
       main_act_and_supporting_acts: "Main and supporting acts"
+      venue_gigs: "All gigs in this venue"
     new:
       new_gig: "New Gig"
     edit:
       gig_page: "Gig Page"
     form:
       prompt_band: "Select a band"
+      prompt_venue: "Select a venue"
   venues:
     index:
       title: "Venues"

@@ -1,7 +1,7 @@
 class VenuesController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show, :gigs]
   before_filter :find_venue, only: [:show, :edit, :update, :destroy, :gigs]
-  before_filter :find_managerships, except: [:new, :create, :gigs]
+  before_filter :find_managerships, except: [:new, :create]
   before_filter :only_manager, only: [:edit, :update, :destroy]
   before_filter :only_venue_manager, only: [:new, :create]
   respond_to :html
@@ -46,8 +46,8 @@ class VenuesController < ApplicationController
     @nb_images = @venue.venue_images.count
     @venue_images = @venue.venue_images.limit(5)
 
-    @nb_gigs = @venue.gigs.count
-    @gigs = @venue.gigs.limit(4)
+    @nb_gigs = @venue.gigs.upcoming.count
+    @gigs = @venue.gigs.upcoming.limit(4)
     
     @feedbacks = @venue.feedbacks
     @feedback = Feedback.new
@@ -88,8 +88,13 @@ class VenuesController < ApplicationController
   end
 
   def gigs
-    @gigs = @venue.gigs
-    @nb_gigs = @venue.gigs.count
+    if @venue.in_managerships?(@managerships)
+      @gigs = @venue.gigs
+      @nb_gigs = @gigs.count
+    else
+      @gigs = @venue.gigs.upcoming
+      @nb_gigs = @gigs.count
+    end
   end
 
   private
@@ -107,7 +112,7 @@ class VenuesController < ApplicationController
   end
 
   def only_manager
-    redirect_to venues_path, alert: t('page_unknown') unless current_user && @managerships.detect { |manager| manager.venue_id == @venue.id }
+    redirect_to venues_path, alert: t('page_unknown') unless current_user && @venue.in_managerships?(@managerships)
   end
 
   def only_venue_manager

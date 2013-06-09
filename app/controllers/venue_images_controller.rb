@@ -9,7 +9,7 @@ class VenueImagesController < ApplicationController
   def index
     @venue_images = @venue.venue_images.select { |image| image.persisted? }
     @nb_images = @venue.venue_images.count
-    @venue_image = @venue.venue_images.build if @managerships.detect { |manager| manager.venue_id == @venue.id }
+    @venue_image = @venue.venue_images.build if @venue.in_managerships?(@managerships)
     respond_with @venue_images
   end
 
@@ -71,7 +71,7 @@ class VenueImagesController < ApplicationController
   end
 
   def only_manager
-    redirect_to venues_path, alert: t('page_unknown') unless current_user && @managerships.detect { |manager| manager.venue_id == @venue.id }
+    redirect_to venues_path, alert: t('page_unknown') unless current_user && @venue.in_managerships?(@managerships)
   end
 
 end
