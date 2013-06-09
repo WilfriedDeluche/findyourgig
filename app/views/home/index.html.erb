@@ -1,7 +1,7 @@
 <%= render "shared/geolocation_form" %>
 
 <% if @gigs.any? %>
-  <div class="well-white">
+  <div class="well-white inner-shadowed">
     <h3><%= link_to t('.gigs'), gigs_path %> <small>(<%= @nb_gigs %>)</small></h3>
 
     <p class="thumbs-container">
@@ -16,13 +16,13 @@
         <% end %>
       <% end %>
     </p>
-    <em><%= link_to t('.all_gigs'), gigs_path, class: "pull-right" %></em>
+    <span class="bottom-link"><%= link_to t('.all_gigs'), gigs_path %></span>
     <div class="clearfix"></div>
   </div>
 <% end %>
 
 <% if @bands.any? %>
-  <div class="well-white">
+  <div class="well-white inner-shadowed">
     <h3><%= link_to t('.bands'), bands_path %> <small>(<%= @nb_bands %>)</small></h3>
 
     <p class="thumbs-container thumbs-band">
@@ -37,13 +37,13 @@
         <% end %>
       <% end %>
     </p>
-    <em><%= link_to t('.all_bands'), bands_path, class: "pull-right" %></em>
+    <span class="bottom-link"><%= link_to t('.all_bands'), bands_path %></span>
     <div class="clearfix"></div>
   </div>
 <% end %>
 
 <% if @venues.any? %>
-  <div class="well-white">
+  <div class="well-white inner-shadowed">
     <h3><%= link_to t('.venues'), venues_path %> <small>(<%= @nb_venues %>)</small></h3>
 
     <p class="thumbs-container thumbs-band">
@@ -58,7 +58,7 @@
         <% end %>
       <% end %>
     </p>
-    <em><%= link_to t('.all_venues'), venues_path, class: "pull-right" %></em>
+    <span class="bottom-link"><%= link_to t('.all_venues'), venues_path %></em></span>
     <div class="clearfix"></div>
   </div>
 <% end %>
