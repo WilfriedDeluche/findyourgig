@@ -9,10 +9,19 @@ class HomeController < ApplicationController
       location = params[:formatted_address]
     end
 
-    if location
-      @venues = Venue.unscoped.near(location, 200, order: :distance).limit(5).includes(:main_image)
+    if params[:find_venues]
+      if location
+        @venues = Venue.unscoped.near(location, 200, order: :distance).limit(5)
+      else
+        @venues = []
+      end
     else
-      @venues = []
+      if location
+        @venues_nearby = Venue.unscoped.near(location, 200, order: :distance)
+        @gigs = Gig.where(:venue_id => @venues_nearby.collect(&:id)).upcoming.includes([{:main_act => :band}, :venue]).limit(10)
+      else
+        @gigs = []
+      end
     end
   end
 end
