@@ -46,8 +46,8 @@ class VenuesController < ApplicationController
     @nb_images = @venue.venue_images.count
     @venue_images = @venue.venue_images.limit(5)
 
-    @nb_gigs = @venue.gigs.count
-    @gigs = @venue.gigs.limit(4)
+    @nb_gigs = @venue.gigs.upcoming.count
+    @gigs = @venue.gigs.upcoming.limit(4)
     
     @feedbacks = @venue.feedbacks
     @feedback = Feedback.new
@@ -88,8 +88,13 @@ class VenuesController < ApplicationController
   end
 
   def gigs
-    @gigs = @venue.gigs
-    @nb_gigs = @venue.gigs.count
+    if @venue.in_managerships?(@managerships)
+      @gigs = @venue.gigs
+      @nb_gigs = @gigs.count
+    else
+      @gigs = @venue.gigs.upcoming
+      @nb_gigs = @gigs.count
+    end
   end
 
   private
