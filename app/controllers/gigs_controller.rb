@@ -23,6 +23,16 @@ class GigsController < ApplicationController
   def show
     @main_act = @gig.main_act
     @supporting_acts = @gig.supporting_acts.includes(:band)
+    unless @gig.venue.blank?
+      gmap_selected_venue = @gig.venue.to_gmaps4rails do |venue, marker|
+        marker.picture({
+        :picture => '/images/icons/venue-red.png',
+        :width   => 32,
+        :height  => 40
+        })
+      end
+      @gmap_venue = JSON.parse(gmap_selected_venue).to_json
+    end
     respond_with @gig
   end
 

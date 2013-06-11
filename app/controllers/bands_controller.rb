@@ -24,6 +24,7 @@ class BandsController < ApplicationController
     @nb_images = @band.band_images.count
     @band_images = @band.band_images.limit(4)
     @main_image = @band.main_image
+    @members = @band.users
     respond_with @band
   end
 

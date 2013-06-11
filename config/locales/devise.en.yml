@@ -57,6 +57,7 @@ en:
       edit:
         modify_my_account: "Modify my account"
         cancel_my_account: "Cancel my account"
+        modify_my_password: "Modify my password"
         unhappy: "Unhappy ?"
       new:
         register: "Register"

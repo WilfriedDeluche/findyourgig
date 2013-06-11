@@ -1,3 +1,11 @@
+<div class="user-feedback-avatar pull-left">
+  <% if feedback.user.avatar? %>
+    <%= image_tag feedback.user.avatar_url(:thumb) %>
+  <% else %>
+    <%= image_tag "no-image.png" %>
+  <% end %>
+</div>
+
 <p>
   <%= feedback.user.first_name.capitalize + " " + feedback.user.last_name.upcase + " " + t('.gives_a_rating') + " " + feedback.rating.to_s + " " + t('.out_of_five') %>.
 </p>

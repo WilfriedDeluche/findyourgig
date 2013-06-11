@@ -17,7 +17,10 @@ class User < ActiveRecord::Base
   has_many :managerships, dependent: :destroy
   has_many :venues, through: :managerships
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :role
+  mount_uploader :avatar, AvatarUploader
+
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :role,
+                  :avatar, :avatar_cache, :remote_avatar_url
   attr_accessor :role
   attr_accessor :force_create
 
@@ -26,7 +29,7 @@ class User < ActiveRecord::Base
   validates_inclusion_of :role, in: PUBLIC_ROLES, on: :create, unless: "self.force_create"
 
   after_create :grant_role
-
+  after_destroy :remove_upload_folder
 
   def name
     "#{self.first_name.capitalize} #{self.last_name.upcase}"
@@ -70,5 +73,9 @@ class User < ActiveRecord::Base
   def grant_role
     return if role.nil?
     self.grant role.to_sym
+  end
+
+  def remove_upload_folder
+    FileUtils.remove_dir("#{Rails.root}/public/uploads/users/#{self.id}", :force => true)
   end
 end

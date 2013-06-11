@@ -11,6 +11,8 @@ Findyourgig::Application.routes.draw do
       root to: 'home#index'
     end
 
+    resources :users, path: "profile", only: [:show, :edit, :update]
+
     resources :bands do
       put "request_participation", on: :member
       get "members", on: :member

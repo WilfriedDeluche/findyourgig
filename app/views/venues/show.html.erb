@@ -1,5 +1,3 @@
-<%= stylesheet_link_tag 'gmaps4rails' %>
-
 <h2 class="page-header">
   <%= @venue.name %> 
   
@@ -11,53 +9,76 @@
 
 <%= gmaps("map_options" => { "detect_location" => false, "center_on_user" => false, "zoom" => 16},"markers" => { "data" => @gmap_full_venues }) %>
 
-<h4><%= t('.main_information') %></h4>
+<div class="row-fluid">
+  <div class="span6 well-white">
+    <h4><%= t('.main_information') %></h4>
 
-<p>
-  <%= @venue.address_1 %><br />
-  
-  <% unless @venue.address_2.blank? %>        
-    <%= @venue.address_2 %><br />
-  <% end %>
-  
-  <%= @venue.postal_code %> <%= @venue.city %><br />
+    <p>
+      <address>
+        <%= @venue.address_1 %><br />
+        <% unless @venue.address_2.blank? %>        
+          <%= @venue.address_2 %><br />
+        <% end %>
+        <%= @venue.postal_code %> <%= @venue.city %><br />
+        <%= Carmen::Country.coded(@venue.country).name.upcase %>
+      </address>
+    </p>
 
-  <%= Carmen::Country.coded(@venue.country).name %>
-</p>
+    <p>
+      <strong><%= Venue.human_attribute_name(:telephone) %> :</strong>  
+      <% unless @venue.telephone.blank? %>        
+        <%= @venue.telephone %>
+      <% else %>
+        <em class="muted"><%= t('not_specified') %></em>
+      <% end %>
+    </p>
 
-<p>
-  <strong><%= Venue.human_attribute_name(:telephone) %> :</strong>  
-  <% unless @venue.telephone.blank? %>        
-    <%= @venue.telephone %>
-  <% else %>
-    <em><%= t('not_specified') %></em>
-  <% end %>
-</p>
+    <p>
+      <strong><%= Venue.human_attribute_name(:email_address) %> :</strong>  
+      <% unless @venue.email_address.blank? %>        
+        <%= @venue.email_address %>
+      <% else %>
+        <em class="muted"><%= t('not_specified') %></em>
+      <% end %>
+    </p>
 
-<p>
-  <strong><%= Venue.human_attribute_name(:email_address) %> :</strong>  
-  <% unless @venue.email_address.blank? %>        
-    <%= @venue.email_address %>
-  <% else %>
-    <em><%= t('not_specified') %></em>
-  <% end %>
-</p>
+    <p>
+      <strong><%= Venue.human_attribute_name(:website) %> :</strong>  
+      <% unless @venue.website.blank? %>        
+        <%= @venue.website %>
+      <% else %>
+        <em class="muted"><%= t('not_specified') %></em>
+      <% end %>
+    </p>
+  </div>
 
-<p>
-  <strong><%= Venue.human_attribute_name(:website) %> :</strong>  
-  <% unless @venue.website.blank? %>        
-    <%= @venue.website %>
-  <% else %>
-    <em><%= t('not_specified') %></em>
-  <% end %>
-</p>
+  <div class="span6">
+    <h4><%= t('.venue_managers') %></h4>
+    <% if @venue_managers.any? %>
+      <% @venue_managers.each do |manager| %>
+        <div class="venue-manager-avatar pull-left">
+          <%= link_to manager, class: "text-info" do %>
+            <% if manager.avatar? %>
+              <%= image_tag manager.avatar_url(:thumb) %>
+            <% else %>
+              <%= image_tag "no-image.png" %>
+            <% end %>
+            <%= manager.name %>
+          <% end %>
+        </div>
+      <% end %>
+    <% else %>
+      <em class="muted"><%= t('.no_venue_manager') %></em>
+    <% end %>
+  </div>
+</div>
 
 <h4><%= t('.nearby_venues') %></h4>
 
 <% unless @nearby_venues.empty? %>
-  <ul>
+  <ul class="list-no-style">
     <% for location in @nearby_venues %>
-      <li><%= link_to location.name + " (" + location.address + ")", location %> (<%= distance_display(location) %>)</li>
+      <li><%= link_to location.name + " (" + location.address + ")", location, class: "muted" %> (<%= distance_display(location) %>)</li>
     <% end %>
   </ul>
 <% else %>

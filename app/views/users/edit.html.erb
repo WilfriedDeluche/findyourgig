@@ -1,0 +1,31 @@
+<h2 class="page-header"><%= t('.edit_profile') %></h2>
+
+<%= form_for(@user) do |f| %>
+  <%= f.error_messages %>
+
+  <div class="field">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar %>
+    <%= f.hidden_field :avatar_cache %>
+    <% if @user.avatar? %>
+      <br />
+      <p>
+        <%= image_tag @user.avatar_url(:thumb) %>
+      </p>
+    <% end %>
+  </div>
+
+  <p><%= f.submit t('confirm'), class: "btn" %></p>
+<% end %>
+
+<%= render 'shared/sidebar' %>
