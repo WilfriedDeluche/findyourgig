@@ -1,0 +1,9 @@
+<p>
+	<hr class="feedback-comment-hr" />
+  <%= raw feedback_comment.description.gsub("\r\n", "<br />") %>
+	<small><%= feedback_comment.user.first_name.capitalize + " " + feedback_comment.user.last_name.upcase  %></small>
+
+  <% if current_user.roles_list.include?(User::ADMIN) %>
+  	<%#= link_to t('remove'), [feedback_comment.feedback, feedback_comment], method: :delete, data: { confirm: t('are_u_sure') }, class: "btn btn-small btn-danger pull-right" %>
+  <% end %>
+</p>
