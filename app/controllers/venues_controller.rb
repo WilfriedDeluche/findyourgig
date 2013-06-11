@@ -52,6 +52,8 @@ class VenuesController < ApplicationController
     @feedbacks = @venue.feedbacks
     @feedback = Feedback.new
 
+    @venue_managers = @venue.users
+
     respond_with @venue
   end
 
