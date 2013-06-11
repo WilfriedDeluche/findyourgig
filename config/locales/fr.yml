@@ -193,6 +193,8 @@ fr:
       all_images: "Voir toutes les photos"
       gigs: "Les concerts du groupe"
       add_gig: "Ajouter un concert"
+      band_members: "Membres du groupe"
+      no_member: "Aucun membre"
     edit:
       band_page: "Fiche Groupe"
     members:
@@ -231,6 +233,11 @@ fr:
       edit_gig: "Modifier Concert"
       main_act_and_supporting_acts: "Tête d'affiche et 1è parties"
       venue_gigs: "Tous les concerts dans cette salle"
+      soundcheck: "Balances"
+      doors: "Ouvertures des portes"
+      start: "Début"
+      end: "Fin"
+      venue: "Salle"
     new:
       new_gig: "Nouveau Concert"
     edit:
@@ -258,6 +265,8 @@ fr:
       gigs: "Concerts dans cette salle"
       all_gigs: "Voir tous les concerts"
       user_feedbacks: "Avis des utilisateurs"
+      venue_managers: "Gérants de cette salle"
+      no_venue_manager: "Aucun gérant"
     new:
       new_venue: "Nouveau lieu"
     edit:
@@ -294,6 +303,9 @@ fr:
       user_bands: "Membre de groupes"
       no_managership: "Aucune salle gérée"
       no_participation: "Aucun groupe"
+      online: "Connecté"
+      offline: "Déconnecté"
+      registered_on: "Inscrit(e) le"
     edit:
       edit_profile: "Edition du profil"
   shared:

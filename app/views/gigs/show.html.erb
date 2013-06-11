@@ -10,7 +10,7 @@
   <div class="span8">
     <div class="well-white">
       <p>
-        <b><%= "Salle" %>:</b>
+        <b><%= t('.venue') %>:</b>
         <% unless @gig.venue.blank? %>
           <%= link_to @gig.venue.name, venue_path(@gig.venue), class: "text-info" %><br />
         <% else %>
@@ -24,24 +24,24 @@
 
       <% if @gig.soundcheck_time %>
       <p>
-        <b><%= "Balances" %>:</b>
+        <b><%= t('.soundcheck') %>:</b>
         <%= l(@gig.soundcheck_time, format: :humanize) %>
       </p>
       <% end %>
 
       <p>
-        <b><%= "Ouverture des portes" %>:</b>
+        <b><%= t('.doors') %>:</b>
         <%= l(@gig.doors_time, format: :humanize) %>
       </p>
 
       <p>
-        <b><%= "Début" %>:</b>
+        <b><%= t('.start') %>:</b>
         <%= l(@gig.concert_start_time, format: :humanize) %>
       </p>
 
       <% if @gig.concert_end_time %>
       <p>
-        <b><%= "Fin" %>:</b>
+        <b><%= t('.end') %>:</b>
         <%= l(@gig.concert_end_time, format: :humanize) %>
       </p>
       <% end %>

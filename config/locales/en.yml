@@ -168,6 +168,8 @@ en:
       all_images: "See all pictures"
       gigs: "Band's gigs"
       add_gig: "Add a gig"
+      band_members: "Band members"
+      no_member: "No member"
     edit:
       band_page: "Band Page"
     members:
@@ -205,6 +207,11 @@ en:
       edit_gig: "Edit Gig"
       main_act_and_supporting_acts: "Main and supporting acts"
       venue_gigs: "All gigs in this venue"
+      soundcheck: "Soundcheck"
+      doors: "Doors opening"
+      start: "Start"
+      end: "End"
+      venue: "Venue"
     new:
       new_gig: "New Gig"
     edit:
@@ -241,6 +248,8 @@ en:
       gigs: "Gigs in this venue"
       all_gigs: "See all gigs"
       user_feedbacks: "User feedbacks"
+      venue_managers: "This venue managers"
+      no_venue_manager: "No manager"
     new:
       new_venue: "New Venue"
     edit:
@@ -277,6 +286,9 @@ en:
       user_bands: "Bands member"
       no_managership: "No venue managed"
       no_participation: "In no band"
+      online: "Online"
+      offline: "Offline"
+      registered_on: "Registered on"
     edit:
       edit_profile: "Modify profile"
   shared:
