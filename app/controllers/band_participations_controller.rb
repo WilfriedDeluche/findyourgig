@@ -46,6 +46,6 @@ class BandParticipationsController < ApplicationController
   end
 
   def user_must_be_band_member
-    redirect_to root_path, alert: t('page_unknown') unless current_user.roles_list.include? User::BAND_MEMBER
+    redirect_to root_path, alert: t('page_unknown') unless current_user.is_band_member?
   end
 end

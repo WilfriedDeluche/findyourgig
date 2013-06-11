@@ -128,6 +128,7 @@ ActiveRecord::Schema.define(:version => 20130610203859) do
     t.string   "last_name",              :default => ""
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

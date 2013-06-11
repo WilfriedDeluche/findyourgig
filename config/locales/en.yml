@@ -20,6 +20,7 @@ en:
   page_unknown: "This page does not exist"
   unprocessable_action: "The requested action could not be processed because it is incorrect or forbidden."
   invalid: "is invalid"
+  edit_profile: "Edit my profile"
 
   # BANDS
   band_unknown: "Band does not exist."
@@ -71,6 +72,9 @@ en:
   feedback_created: "The feedback was successfully posted."
   feedback_deleted: "The feedback was successfully deleted."
 
+  #USERS
+  user_updated: "Profile successfully updated."
+
   # OTHERS
   country_code_does_not_exist: "does not exist"
   incorrect_doors_time: "The doors time must be after the soundcheck time."
@@ -93,6 +97,7 @@ en:
         password_confirmation: "Password confirmation"
         current_password: "Current password"
         role: "Profile type"
+        avatar: "Avatar"
       venue:
         name: "Name"
         address_1: "Address"
@@ -130,6 +135,7 @@ en:
       sign_out: "Sign out"
       my_account: "My account"
       sign_up: "Sign up"
+      password: "Password"
 
   home:
     index:
@@ -162,6 +168,8 @@ en:
       all_images: "See all pictures"
       gigs: "Band's gigs"
       add_gig: "Add a gig"
+      band_members: "Band members"
+      no_member: "No member"
     edit:
       band_page: "Band Page"
     members:
@@ -199,6 +207,11 @@ en:
       edit_gig: "Edit Gig"
       main_act_and_supporting_acts: "Main and supporting acts"
       venue_gigs: "All gigs in this venue"
+      soundcheck: "Soundcheck"
+      doors: "Doors opening"
+      start: "Start"
+      end: "End"
+      venue: "Venue"
     new:
       new_gig: "New Gig"
     edit:
@@ -234,7 +247,9 @@ en:
       all_images: "See all pictures"
       gigs: "Gigs in this venue"
       all_gigs: "See all gigs"
-      user_feedbacks: "User feedbacks for this venue :"
+      user_feedbacks: "User feedbacks"
+      venue_managers: "This venue managers"
+      no_venue_manager: "No manager"
     new:
       new_venue: "New Venue"
     edit:
@@ -265,11 +280,26 @@ en:
     form:
       add_feedback: "Add a feedback"
       rate_the_venue: "Rate the venue"
+  users:
+    show:
+      user_venues: "Venues Manager"
+      user_bands: "Bands member"
+      no_managership: "No venue managed"
+      no_participation: "In no band"
+      online: "Online"
+      offline: "Offline"
+      registered_on: "Registered on"
+    edit:
+      edit_profile: "Modify profile"
   shared:
     geolocation_form:
       type_address_or_zipcode: "Type address or zipcode"
       closest_venues_button: "Closest venues"
       closest_gigs_button: "Closest gigs"
+
+  time:
+    formats:
+      humanize_short: "%d %b %Y"
 
   errors:
     messages:

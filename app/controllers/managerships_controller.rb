@@ -9,6 +9,6 @@ class ManagershipsController < ApplicationController
 
   private
   def user_must_be_venue_manager
-    redirect_to root_path, alert: t('page_unknown') unless current_user.roles_list.include? User::VENUE_MANAGER
+    redirect_to root_path, alert: t('page_unknown') unless current_user.is_venue_manager?
   end
 end

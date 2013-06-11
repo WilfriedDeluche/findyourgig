@@ -1,0 +1,32 @@
+.user-info {
+  margin-bottom: 25px;
+}
+
+.user-profile-avatar {
+  background-color: #FFF;
+  padding: 5px;
+  border: 1px solid #DEDEDE;
+  margin-right: 15px;
+}
+
+.user-feedback-avatar {
+  background-color: #FFF;
+  padding: 3px;
+  border: 1px solid #DEDEDE;
+  margin-right: 10px;
+  width: 60px;
+}
+
+.venue-manager-avatar {
+  width: 110px;
+  text-align: center;
+  font-weight: bold;
+
+  img {
+    background-color: #FFF;
+    padding: 4px;
+    border: 1px solid #DEDEDE;
+    width: 85px;
+    margin-bottom: 4px;
+  }
+}

@@ -20,6 +20,7 @@ fr:
   page_unknown: "Cette page n'existe pas"
   unprocessable_action: "L'action demandée n'a pu être effectuée car incorrecte ou interdite."
   invalid: "est invalide"
+  edit_profile: "Editer mon profil"
 
   # BANDS
   band_unknown: "Le groupe recherché n'existe pas."
@@ -71,6 +72,9 @@ fr:
   feedback_created: "L'avis a été créé avec succès."
   feedback_deleted: "L'avis a été supprimé avec succès."
 
+  #USERS
+  user_updated: "Profil bien mis à jour."
+
   # OTHERS
   country_code_does_not_exist: "n'existe pas"
   incorrect_doors_time: "L'heure d'ouverture doit être postérieure à l'heure des balances."
@@ -93,6 +97,7 @@ fr:
         password_confirmation: "Mot de passe de confirmation"
         current_password: "Mot de passe actuel"
         role: "Type de profil"
+        avatar: "Avatar"
       venue:
         name: "Nom du lieu"
         address_1: "Adresse"
@@ -155,6 +160,7 @@ fr:
       sign_out: "Se déconnecter"
       my_account: "Mon compte"
       sign_up: "S'inscrire"
+      password: "Mot de passe"
 
   home:
     index:
@@ -187,6 +193,8 @@ fr:
       all_images: "Voir toutes les photos"
       gigs: "Les concerts du groupe"
       add_gig: "Ajouter un concert"
+      band_members: "Membres du groupe"
+      no_member: "Aucun membre"
     edit:
       band_page: "Fiche Groupe"
     members:
@@ -225,6 +233,11 @@ fr:
       edit_gig: "Modifier Concert"
       main_act_and_supporting_acts: "Tête d'affiche et 1è parties"
       venue_gigs: "Tous les concerts dans cette salle"
+      soundcheck: "Balances"
+      doors: "Ouvertures des portes"
+      start: "Début"
+      end: "Fin"
+      venue: "Salle"
     new:
       new_gig: "Nouveau Concert"
     edit:
@@ -251,7 +264,9 @@ fr:
       all_images: "Voir toutes les photos"
       gigs: "Concerts dans cette salle"
       all_gigs: "Voir tous les concerts"
-      user_feedbacks: "Avis des utilisateurs pour cette salle :"
+      user_feedbacks: "Avis des utilisateurs"
+      venue_managers: "Gérants de cette salle"
+      no_venue_manager: "Aucun gérant"
     new:
       new_venue: "Nouveau lieu"
     edit:
@@ -282,6 +297,17 @@ fr:
     form:
       add_feedback: "Ajoutez un avis"
       rate_the_venue: "Indiquez une note"
+  users:
+    show:
+      user_venues: "Gérant de salles"
+      user_bands: "Membre de groupes"
+      no_managership: "Aucune salle gérée"
+      no_participation: "Aucun groupe"
+      online: "Connecté"
+      offline: "Déconnecté"
+      registered_on: "Inscrit(e) le"
+    edit:
+      edit_profile: "Edition du profil"
   shared:
     geolocation_form:
       type_address_or_zipcode: "Tapez votre adresse ou votre code postal"
@@ -315,6 +341,7 @@ fr:
     formats:
       default: "%d/%m/%Y %H:%M"
       humanize: "%d %b %Y - %H:%m"
+      humanize_short: "%d %b %Y"
 
   errors:
     messages:
