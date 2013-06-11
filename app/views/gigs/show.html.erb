@@ -6,48 +6,60 @@
   <% end %>
 </h2>
 
-<% if @gig.poster? %>
-  <%= link_to image_tag(@gig.poster_url(:page)), poster_gig_path(@gig), class: "pull-right" %>
-<% end %>
+<div class="row-fluid">
+  <div class="span8">
+    <div class="well-white">
+      <p>
+        <b><%= "Salle" %>:</b>
+        <% unless @gig.venue.blank? %>
+          <%= link_to @gig.venue.name, venue_path(@gig.venue), class: "text-info" %><br />
+        <% else %>
+          <em><%= t('not_specified') %></em>
+        <% end %>
+      </p>
 
-<p>
-  <%= @gig.description %>
-</p>
+      <p>
+        <%= @gig.description %>
+      </p>
 
-<p>
-  <b><%= Venue.model_name.human %>:</b>
-  <% unless @gig.venue.blank? %>        
-    <%= link_to @gig.venue.name, venue_path(@gig.venue) %><br />
-  <% else %>
-    <em><%= t('not_specified') %></em>
+      <% if @gig.soundcheck_time %>
+      <p>
+        <b><%= "Balances" %>:</b>
+        <%= l(@gig.soundcheck_time, format: :humanize) %>
+      </p>
+      <% end %>
+
+      <p>
+        <b><%= "Ouverture des portes" %>:</b>
+        <%= l(@gig.doors_time, format: :humanize) %>
+      </p>
+
+      <p>
+        <b><%= "Début" %>:</b>
+        <%= l(@gig.concert_start_time, format: :humanize) %>
+      </p>
+
+      <% if @gig.concert_end_time %>
+      <p>
+        <b><%= "Fin" %>:</b>
+        <%= l(@gig.concert_end_time, format: :humanize) %>
+      </p>
+      <% end %>
+
+      <%= link_to t('.venue_gigs'), gigs_venue_path(@gig.venue), class: "btn btn-small" %>
+    </div>
+
+    <div class="small-map">
+      <% if @gmap_venue %>
+        <%= gmaps("map_options" => { "detect_location" => false, "center_on_user" => false, "auto_zoom" => false, "zoom" => 12}, "markers" => { "data" => @gmap_venue }) %>
+      <% end %>
+    </div>
+  </div>
+
+  <% if @gig.poster? %>
+    <%= link_to image_tag(@gig.poster_url(:page)), poster_gig_path(@gig), class: "span4" %>
   <% end %>
-</p>
-
-<% if @gig.soundcheck_time %>
-<p>
-  <b><%= Gig.human_attribute_name(:soundcheck_time) %>:</b>
-  <%= l(@gig.soundcheck_time) %>
-</p>
-<% end %>
-
-<p>
-  <b><%= Gig.human_attribute_name(:doors_time) %>:</b>
-  <%= l(@gig.doors_time) %>
-</p>
-
-<p>
-  <b><%= Gig.human_attribute_name(:concert_start_time) %>:</b>
-  <%= l(@gig.concert_start_time) %>
-</p>
-
-<% if @gig.concert_end_time %>
-<p>
-  <b><%= Gig.human_attribute_name(:concert_end_time) %>:</b>
-  <%= l(@gig.concert_end_time) %>
-</p>
-<% end %>
-
-<%= link_to t('.venue_gigs'), gigs_venue_path(@gig.venue), class: "btn btn-small" %>
+</div>
 
 <div class="clearfix"></div>
 

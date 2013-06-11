@@ -23,3 +23,7 @@
    height: 400px;
    border:#555555 2px solid;
 }
+
+.small-map .gmaps4rails_map {
+  height: 250px;
+}
