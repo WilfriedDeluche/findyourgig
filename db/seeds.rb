@@ -75,28 +75,28 @@ end
 
 # Default USERS
 puts "USERS"
-user_1 = User.create! email: "admin@findyourgig.com", password: "testtest", password_confirmation: "testtest", first_name: "John", last_name: "Bates", :role => "admin" do |u|
+user_1 = User.create! email: "admin@findyourgig.com", password: "testtest", password_confirmation: "testtest", first_name: "John", last_name: "Bates", role: "admin", remote_avatar_url: "http://www.fredtoul.fr/fredtoul-wp/wp-content/uploads/2008/03/fredtoul_sp.PNG" do |u|
   u.force_create = true
 end
 puts "Admin : #{user_1.first_name} #{user_1.last_name}"
 
-user_2 = User.create! email: "admin2@findyourgig.com", password: "testtest", password_confirmation: "testtest", first_name: "Katy", last_name: "Dockey", :role => "admin" do |u|
+user_2 = User.create! email: "admin2@findyourgig.com", password: "testtest", password_confirmation: "testtest", first_name: "Katy", last_name: "Dockey", role: "admin" do |u|
   u.force_create = true
 end
 puts "Admin : #{user_2.first_name} #{user_2.last_name}"
 
-user_3 = User.create! email: "member@band1.com", password: "testtest", password_confirmation: "testtest", first_name: "Matthew", last_name: "Grant", :role => "band_member" do |u|
+user_3 = User.create! email: "member@band1.com", password: "testtest", password_confirmation: "testtest", first_name: "Matthew", last_name: "Grant", role: "band_member", remote_avatar_url: "http://ecoloinfo.com/wp-content/uploads/2010/01/avatar-wallpaper-11261394081.jpg" do |u|
   u.force_create = true
 end
 puts "Band Member : #{user_3.first_name} #{user_3.last_name}"
 
-user_4 = User.create! email: "manager@venue1.com", password: "testtest", password_confirmation: "testtest", first_name: "Elisa", last_name: "Ferry", :role => "venue_manager"
+user_4 = User.create! email: "manager@venue1.com", password: "testtest", password_confirmation: "testtest", first_name: "Elisa", last_name: "Ferry", role: "venue_manager", remote_avatar_url: "http://bp1.blogger.com/_yy5_jXadovc/Rvpk32LKfBI/AAAAAAAAAA0/QFK2AIYJbGU/s320/Picture+3.png"
 puts "Venue Manager : #{user_4.first_name} #{user_4.last_name}"
 
-user_5 = User.create! email: "manager@venue2.com", password: "testtest", password_confirmation: "testtest", first_name: "Eric", last_name: "Oliver", :role => "venue_manager"
+user_5 = User.create! email: "manager@venue2.com", password: "testtest", password_confirmation: "testtest", first_name: "Eric", last_name: "Oliver", role: "venue_manager", remote_avatar_url: "http://fret-time.com/uploads/avatar/5852985894guitare-electrique.png"
 puts "Venue Manager : #{user_5.first_name} #{user_5.last_name}"
 
-user_6 = User.create! email: "manager@venue3.com", password: "testtest", password_confirmation: "testtest", first_name: "James", last_name: "Dicken", :role => "venue_manager"
+user_6 = User.create! email: "manager@venue3.com", password: "testtest", password_confirmation: "testtest", first_name: "James", last_name: "Dicken", role: "venue_manager", remote_avatar_url: "http://cdn.imagine-r.com/imagine-r/avatar/avatar_20130422142656_287_30279.jpg"
 puts "Venue Manager : #{user_6.first_name} #{user_6.last_name}"
 
 venue_managers = [user_4, user_5, user_6]
@@ -145,6 +145,8 @@ for n in 1..15 do
   end
 end
 
+bands = Band.all.collect{ |band| band.id }
+
 # Default BAND PARTICIPATIONS
 puts "BAND PARTICIPATIONS"
 user_1.grant User::BAND_MEMBER
@@ -172,6 +174,11 @@ for n in 1..15 do
   gig.description = "#{gig.name} at #{gig.venue.name}"
   gig.save
   puts "Gig : #{gig.description} on #{gig.concert_start_time}"
+  begin
+    gig.acts.create! band_id: bands.sample, is_main_act: true
+    gig.acts.create! band_id: bands.sample, is_main_act: false
+  rescue
+  end
 end
 
 puts "FEEDBACKS"

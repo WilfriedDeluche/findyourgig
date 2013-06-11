@@ -57,6 +57,7 @@ fr:
       edit:
         modify_my_account: "Modifier mon Compte"
         cancel_my_account: "Supprimer mon compte"
+        modify_my_password: "Modifier mon Mot de Passe"
         unhappy: "Mécontent ?"
       new:
         register: "S'inscrire"

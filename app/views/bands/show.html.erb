@@ -21,17 +21,40 @@
   <% end %>
 </p>
 
-<p>
-  <%= t('.created_in') %> <strong><%= @band.creation_year %></strong><br />
-  <%= t('.from') %> <strong><%= @band.city %></strong>
-</p>
-<p>
-  <% unless @band.description.blank? %>
-    <%= raw @band.description.gsub("\r\n", "<br />") %>
-  <% else %>
-    <em><%= t('no_description') %></em>
-  <% end %>
-</p>
+<div class="row-fluid">
+  <div class="span6 well-white">
+    <p>
+      <%= t('.created_in') %> <strong><%= @band.creation_year %></strong><br />
+      <%= t('.from') %> <strong><%= @band.city %></strong>
+    </p>
+    <p>
+      <% unless @band.description.blank? %>
+        <hr />
+        <%= raw @band.description.gsub("\r\n", "<br />") %>
+      <% end %>
+    </p>
+  </div>
+
+  <div class="span6">
+    <h4><%= t('.band_members') %></h4>
+    <% if @members.any? %>
+      <% @members.each do |member| %>
+        <div class="venue-manager-avatar pull-left">
+          <%= link_to member, class: "text-info" do %>
+            <% if member.avatar? %>
+              <%= image_tag member.avatar_url(:thumb) %>
+            <% else %>
+              <%= image_tag "no-image.png" %>
+            <% end %>
+            <%= member.name %>
+          <% end %>
+        </div>
+      <% end %>
+    <% else %>
+      <em class="muted"><%= t('.no_member') %></em>
+    <% end %>
+  </div>
+</div>
 
 <hr />
 
