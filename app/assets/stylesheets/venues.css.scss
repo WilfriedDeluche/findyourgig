@@ -51,3 +51,56 @@
     }
   }
 }
+
+.feedback {
+  background: #FBFBFB;
+  border-radius: 4px;
+  padding: 5px 8px;
+  margin-left: 80px;
+
+  strong {
+    font-weight: 500;
+  }
+
+  .description {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+  }
+
+  .feedback-user {
+    font-weight: 300;
+  }
+
+  .rate {
+    font-weight: 300;
+  }
+}
+
+.feedback-comment {
+  background: #FBFBFB;
+  border-radius: 4px;
+  padding: 5px 8px;
+  margin-top: 10px;
+  margin-left: 120px;
+}
+
+.feedback_comment_form {
+  margin-top: 10px;
+
+  form {
+    margin-left: 120px;
+  }
+}
+
+#new_feedback {
+  margin-left: 70px;
+
+  select {
+    margin-left: 8px;
+  }
+
+  .btn {
+    vertical-align: baseline;
+  }
+}

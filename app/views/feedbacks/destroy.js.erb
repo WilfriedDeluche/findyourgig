@@ -1,0 +1,3 @@
+var feedback_id = "feedback-<%= @feedback.id %>";
+$('#' + feedback_id).remove();
+$("#feedbacks").after("<div id='feedback_form'><%= escape_javascript(render(partial: "feedbacks/form")) %></div>");

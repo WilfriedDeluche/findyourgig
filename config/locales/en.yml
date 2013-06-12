@@ -72,6 +72,11 @@ en:
   feedback_created: "The feedback was successfully posted."
   feedback_deleted: "The feedback was successfully deleted."
 
+  # FEEDBACK COMMENTS
+  feedback_comment_created: "Your feedback comment was successfully added."
+  feedback_comment_deleted: "Your feedback comment was successfully deleted."
+  feedback_comment_unknown: "Unknown feedback comment."
+
   #USERS
   user_updated: "Profile successfully updated."
 

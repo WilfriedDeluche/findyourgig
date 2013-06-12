@@ -66,6 +66,9 @@ bands_images_url = bands_images_url.reverse
 descriptions = ['Pas mal', 'Mouais', 'Top moumoute !', 'Super son !', 'Très sympa !']
 ratings = [0..5].to_a
 
+comment_descriptions = ['Tout à fait vrai !', 'C\'est pas faux', 'Vous manquez d\'objectivité', 'Avis intéressant, mais je pense y aller moi-même pour me faire mon propre avis']
+
+
 # Roles
 puts "ROLES"
 User.available_roles.each do |role|
@@ -165,6 +168,7 @@ band_part_3 = user_1.band_participations.create! band_id: Band.last.id, is_admin
 end
 puts "#{band_part_3.user.first_name} #{band_part_3.user.last_name} is Band member of #{band_part_3.band.name}"
 
+# Default GIGS
 puts "GIGS"
 for n in 1..15 do
   gig = Gig.new venue_id: gig_venues.sample, name: gig_names.sample, description: "something", 
@@ -181,11 +185,26 @@ for n in 1..15 do
   end
 end
 
+band_members = User.find_by_sql "select bm.id from band_participations bp inner join users bm on bp.user_id = bm.id"
+
+# Default FEEDBACKS
 puts "FEEDBACKS"
 for n in 1..15 do
-  feedback = Feedback.new description: descriptions.sample, rating: ratings.sample, venue_id: gig_venues.sample, user_id: user_3.id
+  feedback = Feedback.new description: descriptions.sample, rating: ratings.sample, venue_id: gig_venues.sample, user_id: band_members.sample.id
   feedback.save
   puts "Feedback : #{feedback.description} 
   Rating: #{feedback.rating} out of 5
   Venue: #{feedback.venue.name} - User : #{feedback.user.email}"
 end
+
+feedbacks = Feedback.all.collect{ |feedback| feedback.id }
+
+# Default FEEDBACKS COMMENTS
+puts "FEEDBACKS COMMENTS"
+for n in 1..15 do
+  feedback_comment = FeedbackComment.new description: comment_descriptions.sample, feedback_id: feedbacks.sample, user_id: band_members.sample.id
+  feedback_comment.save
+  puts "FeedbackComment : #{feedback_comment.description}"
+end
+
+

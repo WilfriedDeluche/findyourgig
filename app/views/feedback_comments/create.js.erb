@@ -1,0 +1,9 @@
+<% if @errors && @errors.any? %>
+  <% @errors.each do |error| %>
+    alert("<%= error %>");
+  <% end %>
+<% else %>
+  var feedback_id = "feedback-<%= @feedback.id %>";
+  $('#' + feedback_id + ' .feedback_comments').append("<%= escape_javascript(render(partial: "feedback_comment", locals: { :feedback_comment => @feedback_comment })) %>");
+  $('#' + feedback_id + ' .feedback_comment_form textarea').val("");
+<% end %>

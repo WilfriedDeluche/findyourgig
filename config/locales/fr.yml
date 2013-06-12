@@ -72,6 +72,11 @@ fr:
   feedback_created: "L'avis a été créé avec succès."
   feedback_deleted: "L'avis a été supprimé avec succès."
 
+  # FEEDBACK COMMENTS
+  feedback_comment_created: "Votre commentaire à été ajouté."
+  feedback_comment_deleted: "Votre commentaire a été effacé."
+  feedback_comment_unknown: "Commentaire introuvable"
+
   #USERS
   user_updated: "Profil bien mis à jour."
 
