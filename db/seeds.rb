@@ -185,10 +185,12 @@ for n in 1..15 do
   end
 end
 
+band_members = User.find_by_sql "select bm.id from band_participations bp inner join users bm on bp.user_id = bm.id"
+
 # Default FEEDBACKS
 puts "FEEDBACKS"
 for n in 1..15 do
-  feedback = Feedback.new description: descriptions.sample, rating: ratings.sample, venue_id: gig_venues.sample, user_id: user_3.id
+  feedback = Feedback.new description: descriptions.sample, rating: ratings.sample, venue_id: gig_venues.sample, user_id: band_members.sample.id
   feedback.save
   puts "Feedback : #{feedback.description} 
   Rating: #{feedback.rating} out of 5
@@ -196,8 +198,6 @@ for n in 1..15 do
 end
 
 feedbacks = Feedback.all.collect{ |feedback| feedback.id }
-band_members = User.find_by_sql "select bm.id from band_participations bp inner join users bm on bp.user_id = bm.id"
-
 
 # Default FEEDBACKS COMMENTS
 puts "FEEDBACKS COMMENTS"
