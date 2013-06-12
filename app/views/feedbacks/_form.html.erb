@@ -2,18 +2,18 @@
 <%# the solution is to redirect and send the object containing validation errors in flash[:error] %>
 <%= error_messages_for(flash[:error]) %>
 
-<h6><%= t('.add_feedback') %></h6>
+<div class="user-feedback-avatar pull-left">
+  <% if current_user.avatar? %>
+    <%= image_tag current_user.avatar_url(:thumb) %>
+  <% else %>
+    <%= image_tag "no-image.png" %>
+  <% end %>
+</div>
 
 <%= form_for [@venue, @venue.feedbacks.build], remote: true do |f| %>
   <p>
-    <%= f.label :rating %>
+    <%= f.text_area :description, placeholder: "Laissez votre avis...", class: "span8", rows: "3" %><br />
     <%= f.select :rating, (0..5).to_a, :prompt => t('.rate_the_venue') %>
-  </p>
-  <p>
-    <%= f.label :description %>
-    <%= f.text_area :description, class: "span8", rows: "8" %>
-  </p>
-  <p>
-    <%= f.submit class: "btn btn-primary" %>
+    <%= f.submit class: "btn btn-small btn-primary" %>
   </p>
 <% end %>

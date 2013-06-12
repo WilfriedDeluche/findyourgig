@@ -1,0 +1,19 @@
+<%= error_messages_for(flash[:error]) %>
+<div class="user-feedback-avatar comment pull-left">
+  <% if current_user.avatar? %>
+    <%= image_tag current_user.avatar_url(:thumb) %>
+  <% else %>
+    <%= image_tag "no-image.png" %>
+  <% end %>
+</div>
+
+<%= form_for [@venue, feedback, FeedbackComment.new], remote: true do |f| %>
+  <p>
+    <%= f.text_area :description, class: "span8", rows: "1", placeholder: "Laissez une réponse..." %>
+  </p>
+
+  <%= f.hidden_field :feedback_id, value: @feedback.id %>
+  <p>
+    <%= f.submit "Répondre", class: "btn btn-small btn-primary" %>
+  </p>
+<% end %>

@@ -29,8 +29,8 @@ class Venue < ActiveRecord::Base
   end
 
   def gmaps4rails_infowindow
-     "<h4>#{name}</h4>
-     #{address}"  
+     "<a href='#{self.id}'><h4>#{self.name}</h4></a>
+     #{self.address}"  
   end
 
 	def address

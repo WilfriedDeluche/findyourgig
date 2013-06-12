@@ -36,6 +36,7 @@ Findyourgig::Application.routes.draw do
       end
       resources :feedbacks do
         resources :feedback_ratings
+        resources :feedback_comments
       end
     end
 

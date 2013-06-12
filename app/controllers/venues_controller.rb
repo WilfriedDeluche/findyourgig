@@ -49,7 +49,7 @@ class VenuesController < ApplicationController
     @nb_gigs = @venue.gigs.upcoming.count
     @gigs = @venue.gigs.upcoming.limit(4)
     
-    @feedbacks = @venue.feedbacks
+    @feedbacks = @venue.feedbacks.includes(:feedback_comments)
     @feedback = Feedback.new
 
     @venue_managers = @venue.users
