@@ -30,7 +30,11 @@ class FeedbacksController < ApplicationController
     begin
     	@feedback = @venue.feedbacks.find(params[:id])
       @feedback.destroy
-      redirect_to @venue, notice: t('feedback_deleted')
+      
+      respond_to do |format|
+        format.html { redirect_to @venue, notice: t('feedback_deleted') }
+        format.js
+      end
     rescue
       redirect_to @venue, alert: t('feedback_unknown')
     end  

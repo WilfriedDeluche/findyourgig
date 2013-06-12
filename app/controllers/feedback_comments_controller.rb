@@ -24,8 +24,12 @@ class FeedbackCommentsController < ApplicationController
   def destroy
     begin
     	@feedback_comment = @feedback.feedback_comments.find(params[:id])
-      @feedback.destroy
-      redirect_to @venue, notice: t('feedback_comment_deleted')
+      @feedback_comment.destroy
+      
+      respond_to do |format|
+        format.html { redirect_to @venue, notice: t('feedback_comment_deleted') }
+        format.js
+      end
     rescue
       redirect_to @venue, alert: t('feedback_comment_unknown')
     end  
